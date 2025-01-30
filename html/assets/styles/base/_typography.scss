@@ -1,0 +1,36 @@
+@use '../abstract/index' as a;
+
+h1, h2, h3, h4,
+h5, h6, p, a,
+button, input, label {
+  font-family: 'Commissioner', sans-serif;
+}
+
+h1 {
+  font-size: 1.25rem;
+
+  @include a.breakpoint(medium) {
+    font-size: 1.75rem;
+  }
+}
+
+h2 {
+  font-size: 1.125rem;
+
+  @include a.breakpoint(medium) {
+    font-size: 1.25rem;
+  }
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+p {
+  color: a.$clr-dark-gray;
+  line-height: 1.9;
+}
+
+a {
+  text-decoration: none;
+}
