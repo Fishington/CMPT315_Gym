@@ -1,17 +1,23 @@
-import './Login.scss';
 import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+
 import LogoFullIcon from '../../components/Icons/LogoFullIcon';
 import LogoIcon from '../../components/Icons/LogoIcon';
-import Form from '../../components/Form/index.js';
+import Form from '../../components/Form';
 import TextInput from '../../components/Form/TextInput';
 import Button from '../../components/Button';
 import AppleIcon from '../../components/Icons/AppleIcon';
 import GoogleIcon from '../../components/Icons/GoogleIcon';
 import LoginIcon from '../../components/Icons/LoginIcon';
 
+import './Login.scss';
+
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    document.title = "Login | HyperFit";
 
     const login = () => {
         if (!email || !password) {
@@ -27,6 +33,7 @@ function Login() {
         };
 
         console.log('Logging in with:', userDTO);
+        navigate('/home');
     };
 
     return (

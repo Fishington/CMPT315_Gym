@@ -17,6 +17,8 @@ const user = {
 }
 
 function Home() {
+    document.title = "Home | HyperFit";
+
     return (
         <div className="home">
             <SideBar currentPage="Home"/>
