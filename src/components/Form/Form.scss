@@ -1,0 +1,12 @@
+.form {
+  display: grid;
+  gap: 3rem;
+  justify-items: flex-end;
+  
+  &__fieldset {
+    display: grid;
+    width: 100%;
+    gap: 2rem;
+    border: none;
+  }
+}

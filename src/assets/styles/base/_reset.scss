@@ -13,7 +13,8 @@ figure, blockquote, dl, dd {
   margin-block-end: 0;
 }
 
-body {
+body,
+#root {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }

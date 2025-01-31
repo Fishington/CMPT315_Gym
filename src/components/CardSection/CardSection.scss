@@ -1,0 +1,26 @@
+.card-section {
+  display: grid;
+  gap: 1rem;
+  
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  &__tip {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #5565F6;
+    background-color: #CED3F7;
+    border: 1px solid #5565F6;
+    border-radius: 0.125rem;
+  }
+  
+  &__content {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 1rem;
+  }
+}

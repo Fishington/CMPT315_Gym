@@ -2,4 +2,11 @@
 
 @use '../abstract/index' as a;
 
+body {
+  background-color: #F8F8F8;
+}
 
+ul,
+ol {
+  list-style: none;
+}

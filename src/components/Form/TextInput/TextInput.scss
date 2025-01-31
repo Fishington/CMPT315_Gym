@@ -1,0 +1,40 @@
+@use  '../../../assets/styles/abstract' as a;
+
+.text-input {
+  display: grid;
+  gap: 0.25rem;
+
+  &__field {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1.1rem;
+    background-color: #F8F8F8;
+    border-radius: 0.25rem;
+    border: 1px solid #1D1D1B;
+    outline: none !important;
+
+    &::placeholder {
+      opacity: 0.4;
+    }
+
+    &:focus {
+      border: 1px solid #2A3FF4;
+    }
+
+    &--error,
+    &--error:focus {
+      border: 1px solid #DA3232;
+    }
+  }
+
+  &__status {
+    margin-top: 0.25rem;
+    text-align: left;
+    font-weight: 500;
+    color: #DA3232;
+  }
+  
+  &__label {
+    font-size: 1.5rem;
+  }
+}
