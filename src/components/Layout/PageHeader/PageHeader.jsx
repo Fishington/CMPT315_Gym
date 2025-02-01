@@ -1,7 +1,7 @@
 import './PageHeader.scss'
 import HeaderProfile from './HeaderProfile';
 
-function PageHeader({children, user, title, backHref}) {
+function PageHeader({children, user, title}) {
     return (
         <section className="page-header">
             <div>

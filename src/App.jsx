@@ -1,6 +1,9 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import Login from './pages/Login';
+import Register from './pages/Register/index.js';
+import ForgetPassword from './pages/ForgetPassword/index.js';
+import CreateNewPassword from './pages/CreateNewPassword/index.js';
 
 import AppLayout from './components/Layout/AppLayout';
 
@@ -25,6 +28,9 @@ function App() {
         <BrowserRouter basename={basename}>
             <Routes>
                 <Route path="/" element={<Login/>}/>
+                <Route path="/register" element={<Register/>}/>
+                <Route path="/forgot-password" element={<ForgetPassword/>}/>
+                <Route path="/create-new-password" element={<CreateNewPassword/>}/>
 
                 <Route element={<AppLayout />}>
                     <Route path="/home" element={<Home />} />
