@@ -1,4 +1,4 @@
-import NotificationIcon from '../../Icons/NotificationIcon';
+import NotificationIcon from '../../../Icons/NotificationIcon';
 
 import './HeaderProfile.scss'
 

@@ -1,29 +1,5 @@
 .home {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 2.5rem;
-  padding: 2.5rem;
-  min-height: 100vh;
-
-  &__main {
-    display: grid;
-    align-content: flex-start;
-    gap: 1.5rem;
-  }
-
-  &__user-name {
-    color: #2A3FF4;
-  }
-
-  &__date-message {
-    font-weight: 500;
-  }
-
-  &__date {
-    text-decoration: underline;
-  }
-
-  &__button-row {
+  &__options {
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
