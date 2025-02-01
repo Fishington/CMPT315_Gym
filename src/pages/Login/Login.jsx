@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 import LogoFullIcon from '../../components/Icons/LogoFullIcon';
 import LogoIcon from '../../components/Icons/LogoIcon';
@@ -78,11 +78,11 @@ function Login() {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
 
-                            <a className="login__link" href="#">Forgot password?</a>
+                            <Link className="login__link" to="/forgot-password">Forgot password?</Link>
                         </Form>
 
                         <p>
-                            Don't have an account? <a className="login__link" href="#">Create an account</a>
+                            Don't have an account? <Link className="login__link" to="/register">Create an account</Link>
                         </p>
                     </div>
 
