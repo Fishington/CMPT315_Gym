@@ -1,17 +1,18 @@
+import {Link} from 'react-router-dom';
 import "./Button.scss";
 
 export default function Button({children, color, size, href, onClick, type, ariaLabel}) {
     return (
         <>
             {href ? (
-                <a href={href}
+                <Link to={href}
                    className={`button 
                         ${color && `button--${color}`} 
                         ${size && `button--${size}`}`} 
                     aria-label={ariaLabel}
                 >
                     {children}
-                </a>
+                </Link>
             ) : (
                 <button type={type} 
                         className={`button 

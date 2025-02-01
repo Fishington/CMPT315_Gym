@@ -1,0 +1,21 @@
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  
+  &__back {
+    all: unset;
+    height: 1.75rem;
+    width: 1.75rem;
+    padding: 0.75rem 0.75rem 0.50rem;
+    color: #1D1D1B;
+    cursor: pointer;
+    border: solid 2px transparent;
+    border-radius: 50rem;
+    
+    &:hover {
+      color: #2A3FF4;
+      border: solid 2px #2A3FF4;
+    }
+  }
+}
