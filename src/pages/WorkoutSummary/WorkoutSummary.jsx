@@ -1,16 +1,22 @@
-import React from 'react';
-import { useParams } from "react-router-dom";
+import React, {useEffect} from 'react';
+import {useOutletContext, useParams} from 'react-router-dom';
 import Button from '../../components/Button/index.js';
+import {slugToTitle} from '../../utils/formatter.js';
 
 function WorkoutSummary() {
     const { name } = useParams();
+    const {setPageTitle} = useOutletContext();
+
+    useEffect(() => {
+        setPageTitle('Workout Summary')
+    }, [setPageTitle]);
 
     return (
             <>
-                <p>This page contains details about {name}</p>
+                <p>The workout summary of the workout {slugToTitle(name)}</p>
 
                 <Button color='blue' size='full-width' href={`/workout`}>
-                    Return to Workout
+                    Return to Workouts
                 </Button>
             </>
     );

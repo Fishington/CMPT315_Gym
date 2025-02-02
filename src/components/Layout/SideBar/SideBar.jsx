@@ -1,4 +1,4 @@
-import { mainLinks, subLinks } from './navLinks.jsx';
+import { mainLinks, subLinks } from './sideBarLinks.jsx';
 
 import LogoFullIcon from '../../Icons/LogoFullIcon';
 import Navigation from './Navigation';

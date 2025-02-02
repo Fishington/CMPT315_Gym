@@ -34,12 +34,15 @@ function App() {
 
                 <Route element={<AppLayout />}>
                     <Route path="/home" element={<Home />} />
+                    
                     <Route path="/workout" element={<Workout />} />
                     <Route path="/workout/exercises" element={<ViewExercises />} />
-                    <Route path="/workout/routines/" element={<ViewWorkoutRoutines />} />
-                    <Route path="/workout/routines/create-workout-routine" element={<CreateWorkout />} />
                     <Route path="/workout/exercises/:name" element={<ExercisesDetails />} />
+                    
+                    <Route path="/workout/routines" element={<ViewWorkoutRoutines />} />
+                    <Route path="/workout/routines/create" element={<CreateWorkout />} />
                     <Route path="/workout/routines/:name" element={<WorkoutRoutineDetails />} />
+                    
                     <Route path="/workout/session/:name" element={<WorkoutSession />} />
                     <Route path="/workout/summary/:name" element={<WorkoutSummary />} />
                 </Route>

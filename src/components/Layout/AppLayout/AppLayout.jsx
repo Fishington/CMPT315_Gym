@@ -1,51 +1,57 @@
-import React from 'react';
-import SideBar from '../SideBar/index.js';
-import PageHeader from '../PageHeader/index.js';
+import React, {useEffect, useState} from 'react';
 import {Outlet, useLocation} from 'react-router-dom';
-import './AppLayout.scss'
-import HomeTitle from './HomeTitle/index.js';
-import SectionTitle from './SectionTitle/index.js';
+
+import SideBar from '../SideBar';
+import PageHeader from '../PageHeader';
+import HomeTitle from './HomeTitle';
+import SectionTitle from './SectionTitle';
+
+import {slugToTitle} from '../../../utils/formatter.js';
+
+import './AppLayout.scss';
 
 const user = {
     firstName: 'Sergei',
     lastName : 'Borja'
-}
+};
+
+const defaultBackTarget = {
+    target  : -1,
+    showBack: true
+};
 
 function AppLayout() {
-    const location = useLocation();
-    const pathParts = location.pathname.split('/').filter(Boolean);
+    const {pathname} = useLocation();
+    const pathParts = pathname.split('/').filter(Boolean);
 
-    const section = pathParts[0] || 'Home';
-    const pageTitle = pathParts[pathParts.length - 1] || section;
+    const section = slugToTitle(pathParts[0] || 'Home');
+    const [pageTitle, setPageTitle] = useState(slugToTitle(pathParts[pathParts.length - 1] || section));
 
-    console.log(section)
-    console.log(pageTitle)
+    const [backTarget, setBackTarget] = useState(defaultBackTarget);
 
-    const formatTitle = (str) => {
-        return str
-            .replace(/-/g, ' ') // Convert slug to words
-            .replace(/\b\w/g, (char) => char.toUpperCase());
-    };
+    useEffect(() => {
+        setPageTitle(slugToTitle(pathParts[pathParts.length - 1] || section));
+        setBackTarget(defaultBackTarget)
+    }, [pathname]);
 
     return (
         <div className="app-layout">
-            <SideBar currentPage={formatTitle(section)}/>
+            <SideBar currentPage={section}/>
 
             <main className="app-layout__main">
                 <PageHeader user={user}>
-                    {formatTitle(pageTitle) === 'Home' ? (
-                        <HomeTitle
-                            user={user}
-                        />
+                    {pageTitle === 'Home' ? (
+                        <HomeTitle user={user}/>
                     ) : (
                         <SectionTitle
-                            pageTitle={formatTitle(pageTitle)}
-                            section={formatTitle(section)}
+                            pageTitle={pageTitle}
+                            section={section}
+                            backTarget={backTarget}
                         />
                     )}
                 </PageHeader>
 
-                <Outlet/>
+                <Outlet context={{setPageTitle, setBackTarget}}/>
             </main>
         </div>
     );

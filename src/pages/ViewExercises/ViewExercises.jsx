@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, {useEffect} from 'react';
+import {Link, useOutletContext} from 'react-router-dom';
+import {toSlug} from '../../utils/formatter.js';
 
 const exercises = [
     { id: "1", name: "Dragon Flag", description: "Details about Exercise A" },
@@ -7,17 +8,19 @@ const exercises = [
     { id: "3", name: "Standing Hammer Curl", description: "Details about Exercise C" },
 ];
 
-function generateSlug(name) {
-    return name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
-}
-
 function ViewExercises() {
+    const { setBackTarget } = useOutletContext();
+
+    useEffect(() => {
+        setBackTarget({target:'/workout', showBack: true})
+    }, [setBackTarget]);
+    
     return (
         <div>
             <ul>
                 {exercises.map((exercise) => (
                     <li key={exercise.id}>
-                        <Link to={`/workout/exercises/${generateSlug(exercise.name)}`}>{exercise.name}</Link>
+                        <Link to={`/workout/exercises/${toSlug(exercise.name)}`}>{exercise.name}</Link>
                     </li>
                 ))}
             </ul>

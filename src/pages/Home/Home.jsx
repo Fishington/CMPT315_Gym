@@ -1,13 +1,19 @@
-import './Home.scss'
+import React, {useEffect} from 'react';
+import {useOutletContext} from 'react-router-dom';
 
 import CardSection from '../../components/CardSection';
 import Card from '../../components/Card';
-
 import HomeOptions from './HomeOptions/HomeOptions.jsx';
-import React from 'react';
+
+import './Home.scss'
 
 function Home() {
+    const { setPageTitle } = useOutletContext();
     document.title = 'Home | HyperFit';
+
+    useEffect(() => {
+        setPageTitle('Home');
+    }, [setPageTitle]);
 
     return (
         <>

@@ -1,1 +1,0 @@
-This folder is for global styles, icons and images (manipulated by React).

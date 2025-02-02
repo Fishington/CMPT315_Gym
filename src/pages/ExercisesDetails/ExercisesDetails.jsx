@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
+import {slugToTitle} from '../../utils/formatter.js';
 
 function ExercisesDetails() {
     const { name } = useParams();
@@ -7,7 +8,7 @@ function ExercisesDetails() {
     return (
         <div>
             <>
-                <p>This page contains details about {name}</p>
+                <p>This page contains details about {slugToTitle(name)}</p>
             </>
         </div>
     );
