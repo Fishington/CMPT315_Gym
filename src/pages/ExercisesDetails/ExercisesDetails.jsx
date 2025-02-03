@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
-import {slugToTitle} from '../../utils/formatter.js';
+import {slugToTitle} from '@/utils/formatter.js';
 
 function ExercisesDetails() {
     const { name } = useParams();

@@ -1,3 +1,3 @@
-import CreateNewPassword from './CreateNewPassword.jsx';
+import CreateNewPassword from './CreateNewPassword';
 
 export default CreateNewPassword;

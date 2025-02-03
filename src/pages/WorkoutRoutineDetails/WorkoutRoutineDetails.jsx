@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '../../components/Button/index.js';
 import {useParams} from 'react-router-dom';
-import {slugToTitle, toSlug} from '../../utils/formatter.js';
+import Button from '@/components/Button/index.js';
+import {slugToTitle, toSlug} from '@/utils/formatter.js';
 
 function WorkoutRoutineDetails() {
     const { name } = useParams();

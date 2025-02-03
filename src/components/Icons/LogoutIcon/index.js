@@ -1,3 +1,3 @@
-import LogoutIcon from './LogoutIcon.jsx';
+import LogoutIcon from './LogoutIcon';
 
 export default LogoutIcon;

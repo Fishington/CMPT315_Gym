@@ -1,3 +1,3 @@
-import WorkoutSession from './WorkoutSession.jsx';
+import WorkoutSession from './WorkoutSession';
 
 export default WorkoutSession;

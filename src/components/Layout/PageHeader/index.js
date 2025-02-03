@@ -1,3 +1,3 @@
-import PageHeader from './PageHeader.jsx';
+import PageHeader from './PageHeader';
 
 export default PageHeader;

@@ -1,3 +1,3 @@
-import PersonalTrainerIcon from './PersonalTrainerIcon.jsx';
+import PersonalTrainerIcon from './PersonalTrainerIcon';
 
 export default PersonalTrainerIcon;

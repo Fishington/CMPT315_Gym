@@ -1,3 +1,3 @@
-import ViewExercises from './ViewExercises.jsx';
+import ViewExercises from './ViewExercises';
 
 export default ViewExercises;

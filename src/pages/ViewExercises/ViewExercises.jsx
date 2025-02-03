@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Link, useOutletContext} from 'react-router-dom';
-import {toSlug} from '../../utils/formatter.js';
+import {toSlug} from '@/utils/formatter.js';
 
 const exercises = [
     { id: "1", name: "Dragon Flag", description: "Details about Exercise A" },

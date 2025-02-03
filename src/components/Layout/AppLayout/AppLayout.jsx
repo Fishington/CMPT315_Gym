@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Outlet, useLocation} from 'react-router-dom';
 
-import SideBar from '../SideBar';
-import PageHeader from '../PageHeader';
-import HomeTitle from './HomeTitle';
-import SectionTitle from './SectionTitle';
+import SideBar from '@/components/Layout/SideBar';
+import PageHeader from '@/components/Layout/PageHeader';
 
-import {slugToTitle} from '../../../utils/formatter.js';
+import {slugToTitle} from '@/utils/formatter.js';
 
 import './AppLayout.scss';
 
@@ -39,17 +37,12 @@ function AppLayout() {
             <SideBar currentPage={section}/>
 
             <main className="app-layout__main">
-                <PageHeader user={user}>
-                    {pageTitle === 'Home' ? (
-                        <HomeTitle user={user}/>
-                    ) : (
-                        <SectionTitle
-                            pageTitle={pageTitle}
-                            section={section}
-                            backTarget={backTarget}
-                        />
-                    )}
-                </PageHeader>
+                <PageHeader 
+                    user={user} 
+                    pageTitle={pageTitle}
+                    section={section}
+                    backTarget={backTarget}
+                />
 
                 <Outlet context={{setPageTitle, setBackTarget}}/>
             </main>

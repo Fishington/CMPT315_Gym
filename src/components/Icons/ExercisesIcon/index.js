@@ -1,3 +1,3 @@
-import ExercisesIcon from './ExercisesIcon.jsx';
+import ExercisesIcon from './ExercisesIcon';
 
 export default ExercisesIcon;

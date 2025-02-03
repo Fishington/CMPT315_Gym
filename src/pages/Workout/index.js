@@ -1,3 +1,3 @@
-import Workout from './Workout.jsx';
+import Workout from './Workout';
 
 export default Workout;

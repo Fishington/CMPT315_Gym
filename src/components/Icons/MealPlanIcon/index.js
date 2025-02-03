@@ -1,3 +1,3 @@
-import MealPlanIcon from './MealPlanIcon.jsx';
+import MealPlanIcon from './MealPlanIcon';
 
 export default MealPlanIcon;

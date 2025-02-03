@@ -1,10 +1,10 @@
-import './SectionTitle.scss';
-import BackIcon from '../../../Icons/BackIcon/index.js';
+import BackIcon from '@/components/Icons/BackIcon/index.js';
 import {useNavigate} from 'react-router-dom';
+import './SectionTitle.scss';
 
-function SectionTitle({pageTitle, section, backTarget}) {
-    const {target, showBack} = backTarget;
+function SectionTitle({pageTitle, backTarget}) {
     const navigate = useNavigate();
+    const {target, showBack} = backTarget;
     
     return (
         <div className="section-title">
@@ -15,6 +15,7 @@ function SectionTitle({pageTitle, section, backTarget}) {
                     </button>
                 </>
             )}
+            
             <h1 className='section-title__title'>{pageTitle}</h1>
         </div>
     );

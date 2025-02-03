@@ -1,3 +1,3 @@
-import ExercisesDetails from './ExercisesDetails.jsx';
+import ExercisesDetails from './ExercisesDetails';
 
 export default ExercisesDetails;

@@ -1,6 +1,5 @@
 import "./Form.scss";
-
-import Button from "../Button";
+import Button from "@/components/Button";
 
 export default function Form({children, buttonColor, legend, submitLabel, submitIcon, onSubmit}) {
     return (

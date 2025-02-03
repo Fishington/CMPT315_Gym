@@ -1,3 +1,3 @@
-import BackIcon from './BackIcon.jsx';
+import BackIcon from './BackIcon';
 
 export default BackIcon;
