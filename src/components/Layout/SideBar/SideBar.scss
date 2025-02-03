@@ -1,0 +1,26 @@
+.sidebar {
+  display: flex;
+  padding: 2rem 1rem;
+  background-color: #FFFFFF;
+  border: 1px solid #DBDBDB;
+  height: calc(100vh - 2.5rem * 2);
+
+  position: sticky;
+  top: 2.5rem;
+
+  &__navigation {
+    display: grid;
+    grid-template-rows: 1fr max-content;
+  }
+  
+  &__main-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  
+  &__main-nav>svg {
+    width: 7rem;
+  }
+}

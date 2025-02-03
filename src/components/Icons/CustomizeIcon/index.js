@@ -1,3 +1,3 @@
-import CustomizeIcon from './CustomizeIcon.jsx';
+import CustomizeIcon from './CustomizeIcon';
 
 export default CustomizeIcon;

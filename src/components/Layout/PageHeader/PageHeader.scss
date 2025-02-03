@@ -1,0 +1,7 @@
+.page-header {
+  display: grid;
+  grid-template-columns: 1fr max-content max-content;
+  grid-auto-flow: dense;
+  justify-content: space-between;
+  align-items: center;
+}
