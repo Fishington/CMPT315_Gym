@@ -1,3 +1,3 @@
-import LogIcon from './LogIcon.jsx';
+import LogIcon from './LogIcon';
 
 export default LogIcon;

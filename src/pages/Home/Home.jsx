@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
 import {useOutletContext} from 'react-router-dom';
 
-import CardSection from '../../components/CardSection';
-import Card from '../../components/Card';
-import HomeOptions from './HomeOptions/HomeOptions.jsx';
+import CardSection from '@/components/CardSection';
+import Card from '@/components/Card';
 
 import './Home.scss'
 
@@ -17,8 +16,6 @@ function Home() {
 
     return (
         <>
-            <HomeOptions/>
-
             <CardSection
                 title="Overview"
                 tip="Get a quick overview of your nutritional health"

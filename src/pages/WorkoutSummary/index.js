@@ -1,3 +1,3 @@
-import WorkoutSummary from './WorkoutSummary.jsx';
+import WorkoutSummary from './WorkoutSummary';
 
 export default WorkoutSummary;

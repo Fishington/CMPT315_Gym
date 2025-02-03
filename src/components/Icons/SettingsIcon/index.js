@@ -1,3 +1,3 @@
-import SettingsIcon from './SettingsIcon.jsx';
+import SettingsIcon from './SettingsIcon';
 
 export default SettingsIcon;

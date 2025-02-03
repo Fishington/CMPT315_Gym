@@ -1,3 +1,3 @@
-import DownloadIcon from './DownloadIcon.jsx';
+import DownloadIcon from './DownloadIcon';
 
 export default DownloadIcon;

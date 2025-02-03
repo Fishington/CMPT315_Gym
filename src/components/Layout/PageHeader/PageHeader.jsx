@@ -1,20 +1,23 @@
-import './PageHeader.scss'
+import React from 'react';
 import HeaderProfile from './HeaderProfile';
+import HomeTitle from './HomeTitle';
+import SectionTitle from './SectionTitle';
+import './PageHeader.scss'
 
-function PageHeader({children, user, title}) {
+function PageHeader({user, pageTitle, section, backTarget}) {
     return (
         <section className="page-header">
-            <div>
-                {children ? (
-                    children
+            
+                {pageTitle === 'Home' ? (
+                    <HomeTitle user={user}/>
                 ) : (
-                    <h1>
-                        {title}
-                    </h1>
-                )
-                }
-            </div>
-
+                    <SectionTitle
+                        pageTitle={pageTitle}
+                        section={section}
+                        backTarget={backTarget}
+                    />
+                )}
+            
             <HeaderProfile user={user}/>
         </section>
     );

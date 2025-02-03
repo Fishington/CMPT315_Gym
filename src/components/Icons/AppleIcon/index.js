@@ -1,3 +1,3 @@
-import AppleIcon from './AppleIcon.jsx';
+import AppleIcon from './AppleIcon';
 
 export default AppleIcon;

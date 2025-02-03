@@ -1,3 +1,3 @@
-import HeaderProfile from './HeaderProfile.jsx';
+import HeaderProfile from './HeaderProfile';
 
 export default HeaderProfile;

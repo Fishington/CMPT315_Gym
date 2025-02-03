@@ -10,6 +10,7 @@
   transition: 0.15s;
   border-radius: 0.25rem;
 
+  // Color
   &--blue {
     background-color: #2A3FF4;
     color: #FFFFFF;
@@ -57,9 +58,10 @@
     }
   }
 
+  // Size
   &--medium {
     font-size: 1.1rem;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 1rem;
 
     & svg {
       height: 1.5rem;

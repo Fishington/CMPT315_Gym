@@ -1,3 +1,3 @@
-import LogoFullIcon from './LogoFullIcon.jsx';
+import LogoFullIcon from './LogoFullIcon';
 
 export default LogoFullIcon;

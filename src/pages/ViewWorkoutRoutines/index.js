@@ -1,3 +1,3 @@
-import ViewWorkoutRoutines from './ViewWorkoutRoutines.jsx';
+import ViewWorkoutRoutines from './ViewWorkoutRoutines';
 
 export default ViewWorkoutRoutines;

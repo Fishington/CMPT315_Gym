@@ -1,3 +1,3 @@
-import NotificationIcon from './NotificationIcon.jsx';
+import NotificationIcon from './NotificationIcon';
 
 export default NotificationIcon;

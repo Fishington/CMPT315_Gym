@@ -1,3 +1,3 @@
-import LoginIcon from './LoginIcon.jsx';
+import LoginIcon from './LoginIcon';
 
 export default LoginIcon;

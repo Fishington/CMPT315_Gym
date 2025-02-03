@@ -1,3 +1,3 @@
-import HomeIcon from './HomeIcon.jsx';
+import HomeIcon from './HomeIcon';
 
 export default HomeIcon;

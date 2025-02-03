@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Link, useOutletContext} from 'react-router-dom';
-import Button from '../../components/Button/index.js';
-import {toSlug} from '../../utils/formatter.js';
+import Button from '@/components/Button/index.js';
+import {toSlug} from '@/utils/formatter.js';
 
 const exercises = [
     { id: "1", name: "Dumbbell Only Workout for Beginners" },

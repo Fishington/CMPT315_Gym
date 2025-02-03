@@ -1,3 +1,3 @@
-import AppLayout from './AppLayout.jsx';
+import AppLayout from './AppLayout';
 
 export default AppLayout;

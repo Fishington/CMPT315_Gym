@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'; 
 import {useOutletContext, useParams} from 'react-router-dom';
-import Button from '../../components/Button/index.js';
-import {slugToTitle, toSlug} from '../../utils/formatter.js';
+import Button from '@/components/Button/index.js';
+import {slugToTitle, toSlug} from '@/utils/formatter.js';
 
 function WorkoutSession() {
     const { name } = useParams();

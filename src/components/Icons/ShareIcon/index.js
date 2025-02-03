@@ -1,3 +1,3 @@
-import ShareIcon from './ShareIcon.jsx';
+import ShareIcon from './ShareIcon';
 
 export default ShareIcon;

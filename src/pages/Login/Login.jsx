@@ -1,14 +1,14 @@
 import {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 
-import LogoFullIcon from '../../components/Icons/LogoFullIcon';
-import LogoIcon from '../../components/Icons/LogoIcon';
-import Form from '../../components/Form';
-import TextInput from '../../components/Form/TextInput';
-import Button from '../../components/Button';
-import AppleIcon from '../../components/Icons/AppleIcon';
-import GoogleIcon from '../../components/Icons/GoogleIcon';
-import LoginIcon from '../../components/Icons/LoginIcon';
+import LogoFullIcon from '@/components/Icons/LogoFullIcon';
+import LogoIcon from '@/components/Icons/LogoIcon';
+import Form from '@/components/Form';
+import TextInput from '@/components/Form/TextInput/index.js';
+import Button from '@/components/Button';
+import AppleIcon from '@/components/Icons/AppleIcon';
+import GoogleIcon from '@/components/Icons/GoogleIcon';
+import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Login.scss';
 

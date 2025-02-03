@@ -1,3 +1,3 @@
-import GoogleIcon from './GoogleIcon.jsx';
+import GoogleIcon from './GoogleIcon';
 
 export default GoogleIcon;

@@ -1,11 +1,11 @@
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
-import LogoFullIcon from '../../components/Icons/LogoFullIcon';
-import LogoIcon from '../../components/Icons/LogoIcon';
-import Form from '../../components/Form';
-import TextInput from '../../components/Form/TextInput';
-import LoginIcon from '../../components/Icons/LoginIcon';
+import LogoFullIcon from '@/components/Icons/LogoFullIcon';
+import LogoIcon from '@/components/Icons/LogoIcon';
+import Form from '@/components/Form';
+import TextInput from '@/components/Form/TextInput/index.js';
+import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './CreateNewPassword.scss';
 

@@ -1,3 +1,3 @@
-import WorkoutRoutineDetails from './WorkoutRoutineDetails.jsx';
+import WorkoutRoutineDetails from './WorkoutRoutineDetails';
 
 export default WorkoutRoutineDetails;
