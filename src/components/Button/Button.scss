@@ -58,6 +58,29 @@
     }
   }
 
+  // Unique Buttons
+  &--image-button {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    height: 16rem;
+    padding: 1rem 1.5rem;
+    font-size: 2.5rem;
+    color: white;
+    border: none;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    & svg {
+      padding-top: 0.5rem;
+      height: 2.5rem;
+      width: 2.5rem;
+      transform: rotate(180deg);
+    }
+  }
+
   // Size
   &--medium {
     font-size: 1.1rem;

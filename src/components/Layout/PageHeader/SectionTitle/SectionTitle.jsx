@@ -2,15 +2,15 @@ import BackIcon from '@/components/Icons/BackIcon/index.js';
 import {useNavigate} from 'react-router-dom';
 import './SectionTitle.scss';
 
-function SectionTitle({pageTitle, backTarget}) {
+function SectionTitle({pageTitle, section, backTarget}) {
     const navigate = useNavigate();
-    const {target, showBack} = backTarget;
+    const showBackButton = pageTitle !== section;
     
     return (
         <div className="section-title">
-            {showBack && (
+            {showBackButton && (
                 <>
-                    <button className="section-title__back" onClick={() => navigate(target)}>
+                    <button className="section-title__back" onClick={() => navigate(backTarget)}>
                         <BackIcon/>
                     </button>
                 </>
