@@ -1,0 +1,29 @@
+.item-search {
+  padding: 0.5rem;
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid #DBDBDB;
+  }
+
+  &__container {
+    display: flex;
+    padding: 1rem;
+    border-radius: 0.25rem;
+
+    &:hover {
+      background-color: #ECEEFF;
+    }
+  }
+
+  &__item-name {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 700;
+  }
+
+  &__image {
+    width: 8rem;
+  }
+
+}
