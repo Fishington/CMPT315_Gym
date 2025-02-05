@@ -13,11 +13,6 @@ const user = {
     lastName : 'Borja'
 };
 
-const defaultBackTarget = {
-    target  : -1,
-    showBack: true
-};
-
 function AppLayout() {
     const {pathname} = useLocation();
     const pathParts = pathname.split('/').filter(Boolean);
@@ -25,11 +20,11 @@ function AppLayout() {
     const section = slugToTitle(pathParts[0] || 'Home');
     const [pageTitle, setPageTitle] = useState(slugToTitle(pathParts[pathParts.length - 1] || section));
 
-    const [backTarget, setBackTarget] = useState(defaultBackTarget);
+    const [backTarget, setBackTarget] = useState(-1);
 
     useEffect(() => {
         setPageTitle(slugToTitle(pathParts[pathParts.length - 1] || section));
-        setBackTarget(defaultBackTarget)
+        setBackTarget(-1)
     }, [pathname]);
 
     return (
@@ -37,8 +32,8 @@ function AppLayout() {
             <SideBar currentPage={section}/>
 
             <main className="app-layout__main">
-                <PageHeader 
-                    user={user} 
+                <PageHeader
+                    user={user}
                     pageTitle={pageTitle}
                     section={section}
                     backTarget={backTarget}

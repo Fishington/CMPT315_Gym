@@ -48,7 +48,7 @@ function Register() {
 
                         <Form
                             buttonColor="blue"
-                            submitLabel="Continue"
+                            submitLabel="Create Account"
                             submitIcon={<LoginIcon/>}
                             onSubmit={() => register()}
                         >
