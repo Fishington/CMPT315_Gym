@@ -12,7 +12,7 @@ function ViewExercises() {
     const { setBackTarget } = useOutletContext();
 
     useEffect(() => {
-        setBackTarget({target:'/workout', showBack: true})
+        setBackTarget('workout')
     }, [setBackTarget]);
     
     return (
@@ -20,7 +20,7 @@ function ViewExercises() {
             <ul>
                 {exercises.map((exercise) => (
                     <li key={exercise.id}>
-                        <Link to={`/workout/exercises/${toSlug(exercise.name)}`}>{exercise.name}</Link>
+                        <Link to={`${toSlug(exercise.name)}`}>{exercise.name}</Link>
                     </li>
                 ))}
             </ul>

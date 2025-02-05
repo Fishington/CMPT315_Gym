@@ -1,30 +1,27 @@
 import {Link} from 'react-router-dom';
-import "./Button.scss";
+import './Button.scss';
 
-export default function Button({children, color, size, href, onClick, type, ariaLabel}) {
+export default function Button({children, color, size, href, onClick, type = 'button', ariaLabel, image}) {
+    // Conditionally determine the component tag
+    const Component = href ? Link : 'button';
+
     return (
-        <>
-            {href ? (
-                <Link to={href}
-                   className={`button 
-                        ${color && `button--${color}`} 
-                        ${size && `button--${size}`}`} 
-                    aria-label={ariaLabel}
-                >
-                    {children}
-                </Link>
-            ) : (
-                <button type={type} 
-                        className={`button 
-                            ${color && `button--${color}`}
-                            ${size && `button--${size}`}
-                        `} 
-                        onClick={onClick} 
-                        aria-label={ariaLabel}
-                >
-                    {children}
-                </button>
-            )}
-        </>
+        <Component
+            to={href}
+            type={!href ? type : undefined}
+            className={`button 
+                ${color ? `button--${color}` : ''} 
+                ${size ? `button--${size}` : ''}
+            `.trim()}
+            style={image ? {
+                backgroundImage: `
+                    linear-gradient(180deg, rgba(0, 0, 0, 0.00) 55%, rgba(0, 0, 0, 0.75) 100%),
+                    url(${image})`,
+            } : {}}
+            onClick={!href ? onClick : undefined}
+            aria-label={ariaLabel}
+        >
+            {children}
+        </Component>
     );
 }

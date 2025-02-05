@@ -1,0 +1,52 @@
+.exercise-details {
+  &__description-row {
+    display: flex;
+  }
+
+  &__description {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    & > svg {
+      width: 3.5rem;
+      height: 3.5rem;
+      padding: 0.75rem;
+      color: white;
+      background-color: #2A3FF4;
+      border-radius: 0.25rem;
+    }
+  }
+
+  &__indent {
+    padding-left: 1rem;
+  }
+
+  &__instructions-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #ECEEFF;
+    border-radius: 0.25rem;
+  }
+
+  &__step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+  }
+
+  &__step-index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    color: #FFFFFF;
+    background-color: #2A3FF4;
+    border-radius: 0.25rem;
+  }
+}
