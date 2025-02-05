@@ -24,8 +24,11 @@ function Register() {
         alert(`First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nPassword: ${password}\nConfirm Password: ${confirmPassword}`);
 
         const userDTO = {
-            email,
+            firstName,
+            lastName,
+            email, 
             password,
+            confirmPassword
         };
 
         console.log('Registering in with:', userDTO);
