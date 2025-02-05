@@ -1,17 +1,11 @@
 import React, {useEffect} from 'react';
 import {Link, useOutletContext} from 'react-router-dom';
-import Button from '@/components/Button/index.js';
-import {toSlug} from '@/utils/formatter.js';
-
-const exercises = [
-    { id: "1", name: "Dumbbell Only Workout for Beginners" },
-    { id: "2", name: "Dumbbell Only Workout for Intermediates" },
-    { id: "3", name: "Dumbbell Only Workout for Advanced Lifters" },
-    { id: "4", name: "20 Minute HIIT Workout You Can Do Anywhere"},
-];
+import Section from '@/components/Layout/Section/index.js';
+import Card from '@/components/Card/index.js';
+import {tempRoutineList} from '@/data/tempData.js';
 
 function ViewWorkoutRoutines() {
-    const { setBackTarget } = useOutletContext();
+    const {setBackTarget} = useOutletContext();
 
     useEffect(() => {
         setBackTarget('/workout')
@@ -19,17 +13,33 @@ function ViewWorkoutRoutines() {
 
     return (
         <>
-            <ul>
-                {exercises.map((exercise) => (
-                    <li key={exercise.id}>
-                        <Link to={`${toSlug(exercise.name)}`}>{exercise.name}</Link>
-                    </li>
-                ))}
-            </ul>
+            <Section>
+                <Card>
+                    <div>
+                        <h3>Search Bar</h3>
+                    </div>
 
-            <Button color='blue' size='full-width' href={`/workout/routines/create`}>
-                Create Routine
-            </Button>
+                    <div>
+                        <ul>
+                            {tempRoutineList.map((routine) => (
+                                <li className="item-search" key={routine.id}>
+
+                                    <Link className="item-search__container" to={`${routine.id}`}>
+                                        <div className="item-search__item-name">
+                                            <img className="item-search__image" src={routine.image} alt=""/>
+                                            {routine.name}
+                                        </div>
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </Card>
+            </Section>
+
+            {/*<Button color='blue' size='full-width' href={`/workout/routines/create`}>*/}
+            {/*    Create Routine*/}
+            {/*</Button>*/}
         </>
     );
 }
