@@ -3,8 +3,9 @@ import {Link, useOutletContext} from 'react-router-dom';
 import Section from '@/components/Layout/Section/index.js';
 import Card from '@/components/Card/index.js';
 import {tempRoutineList} from '@/data/tempData.js';
+import Button from '@/components/Button/index.js';
 
-function ViewWorkoutRoutines() {
+function WorkoutRoutines() {
     const {setBackTarget} = useOutletContext();
 
     useEffect(() => {
@@ -37,11 +38,11 @@ function ViewWorkoutRoutines() {
                 </Card>
             </Section>
 
-            {/*<Button color='blue' size='full-width' href={`/workout/routines/create`}>*/}
-            {/*    Create Routine*/}
-            {/*</Button>*/}
+            <Button color='blue' size='full-width' href={`/workout/routines/create`}>
+                Create Routine
+            </Button>
         </>
     );
 }
 
-export default ViewWorkoutRoutines;
+export default WorkoutRoutines;

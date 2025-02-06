@@ -1,22 +1,22 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import Login from '@/pages/Auth/Login';
-import Register from '@/pages/Auth/Register/index.js';
-import ForgetPassword from '@/pages/Auth/ForgetPassword/index.js';
-import CreateNewPassword from '@/pages/Auth/CreateNewPassword/index.js';
+import Register from '@/pages/Auth/Register';
+import ForgetPassword from '@/pages/Auth/ForgetPassword';
+import CreateNewPassword from '@/pages/Auth/CreateNewPassword';
 
 import AppLayout from '@/components/Layout/AppLayout';
 
 import Home from '@/pages/Home';
 
 import Workout from '@/pages/Workout';
-import ViewExercises from '@/pages/ViewExercises';
-import ViewWorkoutRoutines from '@/pages/ViewWorkoutRoutines/index.js';
-import CreateWorkout from '@/pages/CreateWorkout/index.js';
-import ExercisesDetails from '@/pages/ExercisesDetails';
-import WorkoutRoutineDetails from '@/pages/WorkoutRoutineDetails/index.js';
-import WorkoutSession from '@/pages/WorkoutSession/index.js';
-import WorkoutSummary from '@/pages/WorkoutSummary/index.js';
+import Exercises from '@/pages/Workout/Exercise/Exercises';
+import WorkoutRoutines from '@/pages/Workout/WorkoutRoutine/WorkoutRoutines';
+import CreateWorkout from '@/pages/Workout/WorkoutRoutine/CreateWorkoutRoutines';
+import ExercisesDetails from '@/pages/Workout/Exercise/ExercisesDetails';
+import WorkoutRoutineDetails from '@/pages//Workout/WorkoutRoutine/WorkoutRoutineDetails';
+import WorkoutSession from '@/pages/Workout/WorkoutSession';
+import WorkoutSummary from '@/pages/Workout/WorkoutSummary';
 
 import './assets/styles/globals.scss'
 
@@ -36,10 +36,10 @@ function App() {
                     <Route path="/home" element={<Home />} />
                     
                     <Route path="/workout" element={<Workout />} />
-                    <Route path="/workout/exercises" element={<ViewExercises />} />
+                    <Route path="/workout/exercises" element={<Exercises />} />
                     <Route path="/workout/exercises/:id" element={<ExercisesDetails />} />
                     
-                    <Route path="/workout/routines" element={<ViewWorkoutRoutines />} />
+                    <Route path="/workout/routines" element={<WorkoutRoutines />} />
                     <Route path="/workout/routines/create" element={<CreateWorkout />} />
                     <Route path="/workout/routines/:id" element={<WorkoutRoutineDetails />} />
                     

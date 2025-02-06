@@ -3,9 +3,9 @@ import {Link, useOutletContext} from 'react-router-dom';
 import {tempExercisesList} from '@/data/tempData';
 import Section from '@/components/Layout/Section/index.js';
 import Card from '@/components/Card/index.js';
-import './ViewExercises.scss'
+import './Exercises.scss'
 
-function ViewExercises() {
+function Exercises() {
     const {setBackTarget} = useOutletContext();
 
     useEffect(() => {
@@ -41,4 +41,4 @@ function ViewExercises() {
     );
 }
 
-export default ViewExercises;
+export default Exercises;
