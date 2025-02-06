@@ -134,7 +134,7 @@ export const tempExercisesList = [{
 
 export const tempRoutineList = [{
     id          : 1,
-    name        : 'Dumbbell only workout for Beginners',
+    name        : 'Dumbbell Only Workout For Beginners',
     image       : '/images/exercise-button.jpg',
     author      : 'HyperFit-Team',
     level       : 'Beginner',
@@ -169,7 +169,7 @@ export const tempRoutineList = [{
 },
     {
         id          : 2,
-        name        : 'Dumbbell only workout for Intermediates',
+        name        : 'Dumbbell Only Workout For Intermediates',
         image       : '/images/exercise-button.jpg',
         author      : 'HyperFit-Team',
         level       : 'Beginner',

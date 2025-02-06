@@ -3,11 +3,12 @@ import ExerciseCard from '@/components/ExerciseCard/index.js';
 import {toSeconds, toTitle} from '@/utils/formatter.js';
 import './ExerciseList.scss'
 import {tempExercisesList} from '@/data/tempData.js';
+import Button from '@/components/Button/index.js';
 
-function ExerciseList({routine}) {
-    const exerciseTypes = Object.entries(routine.exercises);
+function ExerciseList({routine, createList}) {
+    const exerciseTypes = ['warmups', 'exercises', 'stretches'];
 
-    const calculateDuration = (exerciseList) => {
+    function calculateDuration(exerciseList) {
         let totalTime = 0;
 
         exerciseList.forEach(exercise => {
@@ -25,24 +26,29 @@ function ExerciseList({routine}) {
 
             totalTime += (exercise.sets || 1) * timeForExercise;
         });
-        
-        return `${Math.floor(totalTime / 60)}:${(totalTime % 60).toString().padStart(2, '0')}`;
-    };
 
+        return `${Math.floor(totalTime / 60)}:${(totalTime % 60).toString().padStart(2, '0')}`;
+    }
+    
     return (
         <div className="exercise-list">
-            {exerciseTypes.map(([type, exerciseList]) => (
-                    exerciseList.length > 0 && (
+            {exerciseTypes.map((type) => (
+                    // routine.exercises[type].length > 0 && (
                         <div className="exercise-list__section" key={type}>
                             <div className="exercise-list__section-header">
-                                <h3>{toTitle(type)} ({exerciseList.length})</h3>
+                                <h3>
+                                    {toTitle(type)} ({routine.exercises[type].length})
+                                </h3>
+
                                 <p>
-                                    <span className="exercise-list__duration">{calculateDuration(exerciseList)}</span> minutes
+                                    <span className="exercise-list__duration">
+                                        {calculateDuration(routine.exercises[type])}
+                                    </span> minutes
                                 </p>
                             </div>
 
                             <ul className="exercise-list__exercises">
-                                {exerciseList.map((exercise, index) => (
+                                {routine.exercises[type].map((exercise, index) => (
                                     <ExerciseCard
                                         key={index}
                                         index={index}
@@ -51,8 +57,14 @@ function ExerciseList({routine}) {
                                     />
                                 ))}
                             </ul>
+
+                            {createList &&
+                                <Button color="blue" size="full-width">
+                                    Add {type}
+                                </Button>
+                            }
                         </div>
-                    ))
+                    )
             )}
         </div>
     );

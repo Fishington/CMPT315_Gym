@@ -93,8 +93,6 @@ function WorkoutRoutineDetails() {
                             </div>
 
                             <div className="exercise-details__description-row">
-
-
                                 <div className="exercise-details__description">
                                     <MealPlanIcon/>
 
