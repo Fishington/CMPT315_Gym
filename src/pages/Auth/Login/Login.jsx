@@ -13,9 +13,9 @@ import LoginIcon from '@/components/Icons/LoginIcon';
 import './Login.scss';
 
 function Login() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
 
     document.title = "Login | HyperFit";
 
