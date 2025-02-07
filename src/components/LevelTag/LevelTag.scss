@@ -1,0 +1,24 @@
+.level {
+  width: 100%;
+  max-width: 8rem;
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 0.25rem;
+  font-size: inherit;
+  font-weight: 700;
+
+  &--beginner {
+    color: #3D8C40;
+    background-color: #DBEFDC;
+  }
+
+  &--intermediate {
+    color: #B38705;
+    background-color: #FFF3CD;
+  }
+
+  &--advanced {
+    color: #C42D2D;
+    background-color: #F8D6D6;
+  }
+}

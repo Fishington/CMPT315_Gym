@@ -15,7 +15,7 @@ function Workout() {
 
     return (
         <>
-            <TwoColumns secondColumnWidth="max-content">
+            <TwoColumns>
                 <div>
                     <Section>
                         <Button
@@ -69,7 +69,7 @@ function Workout() {
                 <div>
                     <Section title="Today’s Workouts">
                         <Card>
-                            <p style={{margin: '10rem 10rem'}}>
+                            <p style={{margin: '10rem auto'}}>
                                 Placeholder
                             </p>
                         </Card>
@@ -77,7 +77,7 @@ function Workout() {
 
                     <Section title="Upcoming Workouts">
                         <Card>
-                            <p style={{margin: '30rem 10rem'}}>
+                            <p style={{margin: '30rem auto'}}>
                                 Placeholder
                             </p>
                         </Card>

@@ -19,7 +19,7 @@ function ExercisesDetails() {
     
     return (
         <>
-            <TwoColumns secondColumnWidth="max-content">
+            <TwoColumns>
                 <div>
                     <Section>
                         <Card>
@@ -98,12 +98,12 @@ function ExercisesDetails() {
                         </Card>
                     </Section>
 
-                    <Section title="Additionl Details">
+                    <Section title="Additional Details">
                         <Card>
                             <div>
                                 <h3>Equipment:</h3>
-                                {exercise.equipments.map((equipment) => (
-                                    <p key={equipment.equipment} className="exercise-details__indent">{equipment.equipment}</p>
+                                {exercise.equipment.map((equipment) => (
+                                    <p key={equipment} className="exercise-details__indent">{equipment}</p>
                                 ))}
                             </div>
 

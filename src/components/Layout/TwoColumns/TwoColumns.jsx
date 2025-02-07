@@ -1,11 +1,8 @@
 import './TwoColumns.scss';
 
-export default function TwoColumns({children, secondColumnWidth}) {
+export default function TwoColumns({children}) {
     return (
-        <section 
-            className="two-columns"
-            style={{gridTemplateColumns: `1fr ${secondColumnWidth}`}}
-        >
+        <section className="two-columns">
             {children}
         </section>
     );

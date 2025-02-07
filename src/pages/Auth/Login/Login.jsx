@@ -108,6 +108,7 @@ function Login() {
 
             <section className="login__image-container">
                 <h2 className="login__motivational-quote">"Every Day is a New Opportunity"</h2>
+                
                 <LogoIcon/>
             </section>
         </main>

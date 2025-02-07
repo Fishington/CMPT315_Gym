@@ -1,8 +1,7 @@
 import {Link} from 'react-router-dom';
 import './Button.scss';
 
-export default function Button({children, color, size, href, onClick, type = 'button', ariaLabel, image}) {
-    // Conditionally determine the component tag
+export default function Button({children, color, size, href, onClick, type = 'button', ariaLabel, image, disabled}) {
     const Component = href ? Link : 'button';
 
     return (
@@ -20,6 +19,7 @@ export default function Button({children, color, size, href, onClick, type = 'bu
             } : {}}
             onClick={!href ? onClick : undefined}
             aria-label={ariaLabel}
+            disabled={disabled ? true : undefined}
         >
             {children}
         </Component>

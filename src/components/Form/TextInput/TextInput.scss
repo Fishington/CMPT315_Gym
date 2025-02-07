@@ -2,7 +2,7 @@
 
 .text-input {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.5rem;
 
   &__field {
     width: 100%;
@@ -10,7 +10,7 @@
     font-size: 1.1rem;
     background-color: #F8F8F8;
     border-radius: 0.25rem;
-    border: 1px solid #1D1D1B;
+    border: 1px solid #B7B7B7;
     outline: none !important;
 
     &::placeholder {
