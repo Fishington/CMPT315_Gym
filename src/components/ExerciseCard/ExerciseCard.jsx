@@ -17,7 +17,7 @@ function ExerciseCard({type, exercise, index}) {
                     <h3 className="exercise-card__index">{index + 1}</h3>
 
                     <div className="exercise-card__content">
-                        <img className="exercise-card__image" src={matchedExercise.img} alt=""/>
+                        <img className="exercise-card__image" src={matchedExercise.image} alt=""/>
 
                         <div className="exercise-card__details">
                             <h3 className="exercise-card__name">{matchedExercise.name}</h3>
