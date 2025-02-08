@@ -6,7 +6,7 @@ import Card from '@/components/Card';
 import Section from '@/components/Layout/Section';
 import MealPlanIcon from '@/components/Icons/MealPlanIcon';
 import PageHeader from '@/components/Layout/PageHeader';
-import FlexRow from '@/components/Layout/FlexRow';
+import ItemDetailContainer from '@/components/ItemDetailContainer';
 import ItemDetail from '@/components/ItemDetail';
 import ExerciseAdditionalDetails from './ExerciseAdditionalDetails.jsx';
 
@@ -38,7 +38,7 @@ function ExercisesDetails() {
                                 Your browser does not support the video tag.
                             </video>
 
-                            <FlexRow>
+                            <ItemDetailContainer columns={4}>
                                 <ItemDetail
                                     icon={<MealPlanIcon/>}
                                     value={exercise.level}
@@ -62,7 +62,7 @@ function ExercisesDetails() {
                                     value={`${exercise.timePerSet} Minutes`}
                                     subtitle="Time per 10 reps"
                                 />
-                            </FlexRow>
+                            </ItemDetailContainer>
 
                             <div className="card__section">
                                 <h3>About the Exercises:</h3>

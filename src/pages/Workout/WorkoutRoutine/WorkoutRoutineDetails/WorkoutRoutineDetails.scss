@@ -6,4 +6,9 @@
     column-gap: 2rem;
     list-style: disc inside;
   }
+  
+  &__routine-details {
+    display: grid;
+    gap: 1rem;
+  }
 }
