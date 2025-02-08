@@ -23,7 +23,8 @@
 
   &__row {
     display: grid;
-    gap: 2rem;
+    column-gap: 2rem;
+    row-gap: 0.5rem;
   }
 
   &__value {
@@ -49,5 +50,10 @@
     border-radius: 0.25rem;
     transition: background-color 0.1s ease-in-out;
     cursor: pointer;
+  }
+
+  &__status {
+    font-weight: 500;
+    color: #DA3232;
   }
 }

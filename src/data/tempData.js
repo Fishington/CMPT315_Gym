@@ -18,7 +18,6 @@ export const tempExercisesList = [{
     caloriesMax     : 20,
     timePerSet      : '2:30',
     equipment       : ['Dumbbells'],
-
     about       : 'The Standing Hammer Curl is a strength training exercise primarily targeting the biceps brachii and' +
         ' brachialis, with secondary activation of the forearms. This exercise involves lifting weights with a neutral grip, making it an effective and joint-friendly option for building arm strength and size. It’s suitable for beginners and advanced lifters alike, as the intensity can be adjusted by varying the weight or repetitions.',
     instructions: [

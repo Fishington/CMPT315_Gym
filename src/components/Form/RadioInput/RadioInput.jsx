@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import './RadioInput.scss';
 
-function RadioInput({ onChange, options, label, required }) {
+function RadioInput({onChange, options, label, isRequired, error,  errorText}) {
     const [selectedRating, setSelectedRating] = useState(null);
 
     const handleRatingChange = (value) => {
@@ -13,12 +13,12 @@ function RadioInput({ onChange, options, label, required }) {
     };
 
     return (
-        <div className='radio-input'>
+        <div className="radio-input">
             <label className="radio-input__label">{label}</label>
 
             <div
                 className="radio-input__row"
-                style={{ gridTemplateColumns: `repeat(${options.length}, 1fr)` }}
+                style={{gridTemplateColumns: `repeat(${options.length}, 1fr)`}}
             >
                 {options.map((value) => (
                     <label
@@ -36,11 +36,12 @@ function RadioInput({ onChange, options, label, required }) {
                             checked={selectedRating === value}
                             onChange={() => handleRatingChange(value)}
                             className="radio-input__radio"
-                            required={required}
+                            required={isRequired}
                         />
                         <span className="radio-input__value">{value}</span>
                     </label>
                 ))}
+                {error && <p className="text-input__status">{errorText}</p>}
             </div>
         </div>
     );
