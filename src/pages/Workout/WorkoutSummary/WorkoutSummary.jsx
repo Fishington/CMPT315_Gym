@@ -6,8 +6,7 @@ import PageHeader from '@/components/Layout/PageHeader/index.js';
 function WorkoutSummary() {
     const { id } = useParams();
     const {user} = useOutletContext();
-
-
+    
     return (
             <>
                 <PageHeader

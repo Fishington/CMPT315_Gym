@@ -2,10 +2,10 @@ import React from 'react';
 import {useOutletContext} from 'react-router-dom';
 
 import Section from '@/components/Layout/Section';
+import PageHeader from '@/components/Layout/PageHeader';
 import Card from '@/components/Card';
 
 import './Home.scss'
-import PageHeader from '@/components/Layout/PageHeader/index.js';
 
 function Home() {
     const {user} = useOutletContext();

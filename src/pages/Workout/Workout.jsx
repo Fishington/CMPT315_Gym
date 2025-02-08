@@ -1,5 +1,6 @@
 import React from 'react';
 import {useOutletContext} from 'react-router-dom';
+
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Section from '@/components/Layout/Section/index.js';
 import Card from '@/components/Card/index.js';

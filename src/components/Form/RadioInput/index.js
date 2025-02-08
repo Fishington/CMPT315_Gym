@@ -1,3 +1,3 @@
-import RadioInput from './RadioInput.jsx';
+import RadioInput from './RadioInput';
 
 export default RadioInput;

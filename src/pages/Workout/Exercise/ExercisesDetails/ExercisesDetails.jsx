@@ -1,12 +1,18 @@
 import React from 'react';
-import TwoColumns from '@/components/Layout/TwoColumns/index.js';
-import Card from '@/components/Card/index.js';
-import Section from '@/components/Layout/Section/index.js';
-import './ExercisesDetails.scss'
-import MealPlanIcon from '@/components/Icons/MealPlanIcon/index.js';
-import {tempExercisesList} from '@/data/tempData.js';
 import {useOutletContext, useParams} from 'react-router-dom';
-import PageHeader from '@/components/Layout/PageHeader/index.js';
+
+import TwoColumns from '@/components/Layout/TwoColumns';
+import Card from '@/components/Card';
+import Section from '@/components/Layout/Section';
+import MealPlanIcon from '@/components/Icons/MealPlanIcon';
+import PageHeader from '@/components/Layout/PageHeader';
+import FlexRow from '@/components/Layout/FlexRow';
+import ItemDetail from '@/components/ItemDetail';
+import ExerciseAdditionalDetails from './ExerciseAdditionalDetails.jsx';
+
+import {tempExercisesList} from '@/data/tempData.js';
+
+import './ExercisesDetails.scss'
 
 function ExercisesDetails() {
     const {id} = useParams();
@@ -15,7 +21,6 @@ function ExercisesDetails() {
     const exercise = tempExercisesList.find((ex) => ex.id === Number(id))
     document.title = `${exercise.name} | HyperFit`;
 
-
     return (
         <>
             <PageHeader
@@ -23,7 +28,7 @@ function ExercisesDetails() {
                 pageTitle={exercise.name}
                 showBack={true}
             />
-            
+
             <TwoColumns>
                 <div>
                     <Section>
@@ -33,51 +38,40 @@ function ExercisesDetails() {
                                 Your browser does not support the video tag.
                             </video>
 
-                            <div className="exercise-details__description-row">
-                                <div className="exercise-details__description">
-                                    <MealPlanIcon/>
+                            <FlexRow>
+                                <ItemDetail
+                                    icon={<MealPlanIcon/>}
+                                    value={exercise.level}
+                                    subtitle="Level"
+                                />
 
-                                    <div>
-                                        <h3>{exercise.level}</h3>
-                                        <p className="subtitle">Level</p>
-                                    </div>
-                                </div>
+                                <ItemDetail
+                                    icon={<MealPlanIcon/>}
+                                    value={exercise.targetMuscle}
+                                    subtitle="Target Muscles"
+                                />
 
-                                <div className="exercise-details__description">
-                                    <MealPlanIcon/>
+                                <ItemDetail
+                                    icon={<MealPlanIcon/>}
+                                    value={`${exercise.caloriesMin} - ${exercise.caloriesMax} Cal`}
+                                    subtitle="Target Muscles"
+                                />
 
-                                    <div>
-                                        <h3>{exercise.targetMuscle}</h3>
-                                        <p className="subtitle">Target Muscles</p>
-                                    </div>
-                                </div>
+                                <ItemDetail
+                                    icon={<MealPlanIcon/>}
+                                    value={`${exercise.timePerSet} Minutes`}
+                                    subtitle="Time per 10 reps"
+                                />
+                            </FlexRow>
 
-                                <div className="exercise-details__description">
-                                    <MealPlanIcon/>
-
-                                    <div>
-                                        <h3>{exercise.caloriesMin} - {exercise.caloriesMax} Cal</h3>
-                                        <p className="subtitle">Calories per 10 reps</p>
-                                    </div>
-                                </div>
-
-                                <div className="exercise-details__description">
-                                    <MealPlanIcon/>
-
-                                    <div>
-                                        <h3>{exercise.timePerSet} Minutes</h3>
-                                        <p className="subtitle">Time per 10 reps</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
+                            <div className="card__section">
                                 <h3>About the Exercises:</h3>
                                 <p>{exercise.about}</p>
                             </div>
 
-                            <div>
+                            <div className="card__section">
                                 <h3>Instructions:</h3>
+
                                 <div className="exercise-details__instructions-details">
                                     {exercise.instructions.map((step, index) => (
                                         <div key={index} className="exercise-details__step">
@@ -95,7 +89,7 @@ function ExercisesDetails() {
                     <Section title="Tips">
                         <Card>
                             {exercise.tips.map((tip) => (
-                                <div key={tip.header}>
+                                <div key={tip.header} className="card__section">
                                     <h3>{tip.header}:</h3>
                                     <p className="exercise-details__indent">{tip.body}</p>
                                 </div>
@@ -104,45 +98,7 @@ function ExercisesDetails() {
                     </Section>
 
                     <Section title="Additional Details">
-                        <Card>
-                            <div>
-                                <h3>Equipment:</h3>
-                                {exercise.equipment.map((equipment) => (
-                                    <p key={equipment} className="exercise-details__indent">{equipment}</p>
-                                ))}
-                            </div>
-
-                            <div>
-                                <h3>Target Muscles:</h3>
-                                <p className="exercise-details__indent">{exercise.targetMuscle}</p>
-                            </div>
-
-                            <div>
-                                <h3>Secondary Muscles:</h3>
-                                {exercise.secondaryMuscles.map((muscle) => (
-                                    <p key={muscle} className="exercise-details__indent">{muscle}</p>
-                                ))}
-                            </div>
-
-                            <div>
-                                <h3>Exercise Type:</h3>
-                                <p className="exercise-details__indent">{exercise.exerciseType}</p>
-                            </div>
-
-                            {exercise.exerciseType === 'Strength' &&
-                                <>
-                                    <div>
-                                        <h3>Force Type:</h3>
-                                        <p className="exercise-details__indent">{exercise.forceType}</p>
-                                    </div>
-
-                                    <div>
-                                        <h3>Mechanics:</h3>
-                                        <p className="exercise-details__indent">{exercise.mechanics}</p>
-                                    </div>
-                                </>
-                            }
-                        </Card>
+                        <ExerciseAdditionalDetails exercise={exercise}/>
                     </Section>
                 </div>
             </TwoColumns>

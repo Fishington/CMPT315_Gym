@@ -1,14 +1,18 @@
 import React from 'react';
 import {useOutletContext, useParams} from 'react-router-dom';
+
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Section from '@/components/Layout/Section';
 import Card from '@/components/Card';
 import MealPlanIcon from '@/components/Icons/MealPlanIcon';
-import './WorkoutRoutineDetails.scss'
 import DataList from '@/components/ExerciseList';
-import {tempRoutineList} from '@/data/tempData.js';
-import PageHeader from '@/components/Layout/PageHeader/index.js';
+import PageHeader from '@/components/Layout/PageHeader';
+import FlexRow from '@/components/Layout/FlexRow';
+import ItemDetail from '@/components/ItemDetail';
 
+import {tempRoutineList} from '@/data/tempData.js';
+
+import './WorkoutRoutineDetails.scss'
 
 function WorkoutRoutineDetails() {
     const {id} = useParams();
@@ -17,11 +21,11 @@ function WorkoutRoutineDetails() {
     const routine = tempRoutineList.find((ro) => ro.id === Number(id));
     document.title = `${routine.name} | HyperFit`;
 
-    const allExercises = [
+    const exerciseCount = [
         ...routine.exercises.warmups,
         ...routine.exercises.exercises,
         ...routine.exercises.stretches
-    ];
+    ].length;
 
     return (
         <>
@@ -37,74 +41,55 @@ function WorkoutRoutineDetails() {
                         <Card>
                             <img src={routine.image} alt=""/>
 
-                            <div className="exercise-details__description-row">
-                                <div className="exercise-details__description">
-                                    <MealPlanIcon/>
+                            <FlexRow>
+                                <ItemDetail
+                                    icon={<MealPlanIcon/>}
+                                    value={routine.level}
+                                    subtitle="Level"
+                                />
 
-                                    <div>
-                                        <h3>{routine.level}</h3>
-                                        <p className="subtitle">Level</p>
-                                    </div>
-                                </div>
+                                <ItemDetail
+                                    icon={<MealPlanIcon/>}
+                                    value={`${exerciseCount} Exercises`}
+                                    subtitle="Total Exercises"
+                                />
 
-                                <div className="exercise-details__description">
-                                    <MealPlanIcon/>
+                                <ItemDetail
+                                    icon={<MealPlanIcon/>}
+                                    value={`${routine.caloriesMin} - ${routine.caloriesMax} Cal`}
+                                    subtitle="Calories Burned"
+                                />
+                            </FlexRow>
 
-                                    <div>
-                                        <h3>{allExercises.length} Exercises</h3>
-                                        <p className="subtitle">Total Exercises</p>
-                                    </div>
-                                </div>
+                            <FlexRow>
+                                <ItemDetail
+                                    icon={<MealPlanIcon/>}
+                                    value={`${routine.length.split(':')[0]}:${routine.length.split(':')[1]}`}
+                                    subtitle="Duration"
+                                />
 
-                                <div className="exercise-details__description">
-                                    <MealPlanIcon/>
+                                <ItemDetail
+                                    icon={<MealPlanIcon/>}
+                                    value={routine.targetMuscle}
+                                    subtitle="Target Muscles"
+                                />
 
-                                    <div>
-                                        <h3>{routine.caloriesMin} - {routine.caloriesMax} Cal</h3>
-                                        <p className="subtitle">Calories Burned</p>
-                                    </div>
-                                </div>
-                            </div>
+                                <ItemDetail
+                                    icon={<MealPlanIcon/>}
+                                    value={routine.goal}
+                                    subtitle="Workout Goal"
+                                />
+                            </FlexRow>
 
-                            <div className="exercise-details__description-row">
-                                <div className="exercise-details__description">
-                                    <MealPlanIcon/>
-
-                                    <div>
-                                        <h3>
-                                            {routine.length.split(':')[0]}:{routine.length.split(':')[1]}
-                                        </h3>
-                                        <p className="subtitle">Duration</p>
-                                    </div>
-                                </div>
-
-                                <div className="exercise-details__description">
-                                    <MealPlanIcon/>
-
-                                    <div>
-                                        <h3>{routine.targetMuscle}</h3>
-                                        <p className="subtitle">Target Muscles</p>
-                                    </div>
-                                </div>
-
-                                <div className="exercise-details__description">
-                                    <MealPlanIcon/>
-
-                                    <div>
-                                        <h3>{routine.goal}</h3>
-                                        <p className="subtitle">Workout Goal</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
+                            <div className='card__section'>
                                 <h3>About the Workout Routine:</h3>
                                 <p>{routine.about}</p>
                             </div>
 
-                            <div>
+                            <div className='card__section'>
                                 <h3>Equipment:</h3>
-                                <ul className="workout-routine-details__benefits">
+                                
+                                <ul className="workout-routine-details__equipment">
                                     {routine.equipment.map((equipment, index) => (
                                         <li key={index}>
                                             {equipment}

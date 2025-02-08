@@ -1,3 +1,3 @@
-import CreateWorkoutRoutines from './CreateWorkoutRoutines.jsx';
+import CreateWorkoutRoutines from './CreateWorkoutRoutines';
 
 export default CreateWorkoutRoutines;

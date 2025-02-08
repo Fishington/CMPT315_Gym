@@ -1,4 +1,14 @@
-.workout-routine-details {
+.create-workout-routine {
+  &__more-info {
+    display: grid;
+    gap: 1rem;
+    
+    & > div {
+      display: grid;
+      gap: 3rem;
+    }
+  }
+
   &__equipment {
     display: grid;
     grid-template-columns: 1fr 1fr;

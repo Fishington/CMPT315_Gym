@@ -1,13 +1,15 @@
 import React from 'react';
 import {useOutletContext} from 'react-router-dom';
-import Section from '@/components/Layout/Section/index.js';
-import Card from '@/components/Card/index.js';
-import ItemSearch from '@/components/ItemSearch/index.js';
-import DataList from '@/components/DataList/index.js';
-import DataRow from '@/components/DataRow/index.js';
-import LevelTag from '@/components/LevelTag/index.js';
-import Button from '@/components/Button/index.js';
-import PageHeader from '@/components/Layout/PageHeader/index.js';
+
+import Section from '@/components/Layout/Section';
+import Card from '@/components/Card';
+import ItemSearch from '@/components/ItemSearch';
+import DataList from '@/components/DataList';
+import DataRow from '@/components/DataRow';
+import Tag from '@/components/Tag';
+import Button from '@/components/Button';
+import PageHeader from '@/components/Layout/PageHeader';
+
 import {tempRoutineList} from '@/data/tempData.js';
 
 function WorkoutRoutines() {
@@ -48,7 +50,7 @@ function WorkoutRoutines() {
                                     <p>{routine.exerciseType}</p>
                                     <p>{routine.targetMuscle}</p>
                                     <p>{routine.equipment[0]}</p>
-                                    <LevelTag level={routine.level}/>
+                                    <Tag tagTitle={routine.level}/>
                                     <p>{((routine.caloriesMax + routine.caloriesMin) / 2).toFixed(0)} cal</p>
                                     <p><strong>{routine.length}</strong> minutes</p>
                                 </DataRow>
