@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 import './RadioInput.scss';
 
 function RadioInput({ onChange, options, label, required }) {

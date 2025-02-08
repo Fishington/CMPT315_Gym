@@ -1,14 +1,19 @@
 import React, {useState} from 'react';
 import {useNavigate, useOutletContext} from 'react-router-dom';
-import TwoColumns from '@/components/Layout/TwoColumns/index.js';
-import Section from '@/components/Layout/Section/index.js';
-import DataList from '@/components/ExerciseList/index.js';
-import Card from '@/components/Card/index.js';
-import Form from '@/components/Form/index.js';
-import TextInput from '@/components/Form/TextInput/index.js';
-import RadioInput from '@/components/Form/RadioInput/RadioInput.jsx';
-import MealPlanIcon from '@/components/Icons/MealPlanIcon/index.js';
-import PageHeader from '@/components/Layout/PageHeader/index.js';
+
+import TwoColumns from '@/components/Layout/TwoColumns';
+import Section from '@/components/Layout/Section';
+import DataList from '@/components/ExerciseList';
+import Card from '@/components/Card';
+import Form from '@/components/Form';
+import TextInput from '@/components/Form/TextInput';
+import RadioInput from '@/components/Form/RadioInput';
+import MealPlanIcon from '@/components/Icons/MealPlanIcon';
+import PageHeader from '@/components/Layout/PageHeader';
+import FlexRow from '@/components/Layout/FlexRow';
+import ItemDetail from '@/components/ItemDetail';
+
+import './CreateWorkoutRoutine.scss'
 
 function CreateWorkoutRoutines() {
     const navigate = useNavigate();
@@ -44,9 +49,7 @@ function CreateWorkoutRoutines() {
 
     function handleCreateRoutine(e) {
         e.preventDefault();
-
         console.log(name, about, goal, difficulty, targetMuscles, secondaryMuscles,)
-
         navigate('/workout/routines')
     }
 
@@ -67,6 +70,7 @@ function CreateWorkoutRoutines() {
                                 buttonColor="blue"
                                 submitLabel="Create Routine"
                                 onSubmit={handleCreateRoutine}
+                                variant='create-workout-routine__form'
                             >
                                 <TextInput
                                     id="name"
@@ -129,54 +133,46 @@ function CreateWorkoutRoutines() {
                                     errorText="test"
                                     onChange={(e) => setSecondaryMuscles(e.target.value)}
                                 />
-
-
-                                <div>
+                                
+                                <div className="create-workout-routine__more-info">
                                     <h2>Based on the Exercises:</h2>
 
                                     <div>
-                                        <h3>Equipment:</h3>
+                                        <div className='card__section'>
+                                            <h3>Equipment:</h3>
 
-                                        {routine.equipment.length === 0 ? (
-                                            <p>Start adding exercises to your workout routine</p>
-                                        ) : (
-                                            <ul className="workout-routine-details__benefits">
-                                                {routine.equipment.map((equipment, index) => (
-                                                    <li key={index}>
-                                                        {equipment}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </div>
-
-                                    <div className="exercise-details__description-row">
-                                        <div className="exercise-details__description">
-                                            <MealPlanIcon/>
-
-                                            <div>
-                                                <h3>0 Exercises</h3>
-                                                <p className="subtitle">Total Exercises</p>
-                                            </div>
+                                            {routine.equipment.length === 0 ? (
+                                                <p>Start adding exercises to your workout routine</p>
+                                            ) : (
+                                                <ul className="create-workout-routine__equipment">
+                                                    {routine.equipment.map((equipment, index) => (
+                                                        <li key={index}>
+                                                            {equipment}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
                                         </div>
+                                        
+                                        <FlexRow>
+                                            <ItemDetail
+                                                icon={<MealPlanIcon/>}
+                                                value="0 Exercises"
+                                                subtitle="Level"
+                                            />
 
-                                        <div className="exercise-details__description">
-                                            <MealPlanIcon/>
+                                            <ItemDetail
+                                                icon={<MealPlanIcon/>}
+                                                value="0 - 0 cal"
+                                                subtitle="Calories Burned"
+                                            />
 
-                                            <div>
-                                                <h3>{routine.caloriesMin} - {routine.caloriesMax} Cal</h3>
-                                                <p className="subtitle">Calories Burned</p>
-                                            </div>
-                                        </div>
-
-                                        <div className="exercise-details__description">
-                                            <MealPlanIcon/>
-
-                                            <div>
-                                                <h3>0:00</h3>
-                                                <p className="subtitle">Duration</p>
-                                            </div>
-                                        </div>
+                                            <ItemDetail
+                                                icon={<MealPlanIcon/>}
+                                                value="0:00 minutes"
+                                                subtitle="Total Duration"
+                                            />
+                                        </FlexRow>
                                     </div>
                                 </div>
                             </Form>

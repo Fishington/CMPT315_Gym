@@ -1,3 +1,3 @@
-import DataList from './DataList.jsx';
+import DataList from './DataList';
 
 export default DataList;

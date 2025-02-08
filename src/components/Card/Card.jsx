@@ -1,11 +1,8 @@
 import "./Card.scss";
 
-export default function Card({children, padding}) {
+export default function Card({children}) {
     return (
-        <div 
-            className='card'
-            style={{padding: `${padding}`}}
-        >
+        <div className='card'>
             {children}
         </div>
     );

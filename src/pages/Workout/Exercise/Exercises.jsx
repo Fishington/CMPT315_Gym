@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
+import {useOutletContext} from 'react-router-dom';
+
 import Section from '@/components/Layout/Section';
 import Card from '@/components/Card';
 import ItemSearch from '@/components/ItemSearch';
 import DataList from '@/components/DataList';
-import './Exercises.scss'
+import Tag from '@/components/Tag';
+import DataRow from '@/components/DataRow';
+import PageHeader from '@/components/Layout/PageHeader';
+
 import {tempExercisesList} from '@/data/tempData.js';
-import LevelTag from '@/components/LevelTag/index.js';
-import DataRow from '@/components/DataRow/index.js';
-import PageHeader from '@/components/Layout/PageHeader/index.js';
-import {useOutletContext} from 'react-router-dom';
 
 function Exercises() {
     const {user} = useOutletContext();
@@ -40,7 +41,7 @@ function Exercises() {
                                     <p>{exercise.exerciseType}</p>
                                     <p>{exercise.targetMuscle}</p>
                                     <p>{exercise.equipment[0]}</p>
-                                    <LevelTag level={exercise.level}/>
+                                    <Tag tagTitle={exercise.level}/>
                                     <p>{((exercise.caloriesMax + exercise.caloriesMin) / 2).toFixed(0)} cal</p>
                                 </DataRow>
                             ))}

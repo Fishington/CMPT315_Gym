@@ -1,16 +1,18 @@
-import React from 'react';
 import ExerciseCard from '@/components/ExerciseCard/index.js';
-import {toSeconds, toTitle} from '@/utils/formatter.js';
-import './ExerciseList.scss'
-import {tempExercisesList} from '@/data/tempData.js';
 import Button from '@/components/Button/index.js';
+
+import {toSeconds, toTitle} from '@/utils/formatter.js';
+
+import {tempExercisesList} from '@/data/tempData.js';
+
+import './ExerciseList.scss'
 
 function ExerciseList({routine, createList}) {
     const exerciseTypes = ['warmups', 'exercises', 'stretches'];
 
     function calculateDuration(exerciseList) {
         let totalTime = 0;
-
+        
         exerciseList.forEach(exercise => {
             const matchedExercise = tempExercisesList.find(ex => ex.id === exercise.workoutId);
             let timeForExercise = 0;

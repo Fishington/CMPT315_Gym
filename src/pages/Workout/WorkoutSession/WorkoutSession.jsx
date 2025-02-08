@@ -1,12 +1,13 @@
-import React from 'react'; 
+import React from 'react';
 import {useOutletContext, useParams} from 'react-router-dom';
 import Button from '@/components/Button/index.js';
 import PageHeader from '@/components/Layout/PageHeader/index.js';
+import './WorkoutSession.scss'
 
 function WorkoutSession() {
-    const { id } = useParams();
+    const {id} = useParams();
     const {user} = useOutletContext();
-    
+
     return (
         <>
             <PageHeader
@@ -15,7 +16,7 @@ function WorkoutSession() {
                 showBack={true}
             />
 
-            <Button color='blue' size='full-width' href={`/workout/summary/${id}`}>
+            <Button color="blue" size="full-width" href={`/workout/summary/${id}`}>
                 Finish Workout Routine
             </Button>
         </>

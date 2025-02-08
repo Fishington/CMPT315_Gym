@@ -1,9 +1,9 @@
-import React from 'react';
 import TextInput from '@/components/Form/TextInput';
-import './ItemSearch.scss';
 import Button from '@/components/Button/index.js';
 
-function ItemSearch({children, searchTerm, setSearchTerm, onNextPage, onPreviousPage, onJumpPage}) {
+import './ItemSearch.scss';
+
+function ItemSearch({children, searchTerm, setSearchTerm}) {
     return (
         <>
             <div className="item-search__search-bar">

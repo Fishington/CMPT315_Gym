@@ -1,3 +1,3 @@
-import Exercises from './Exercises.jsx';
+import Exercises from './Exercises';
 
 export default Exercises;
