@@ -16,7 +16,7 @@ function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    
     document.title = "Login | HyperFit";
 
     const login = () => {
@@ -63,7 +63,7 @@ function Login() {
                                 isRequired={true}
                                 value={email}
                                 error={false}
-                                errorText="test"
+                                errorText=''
                                 onChange={(e) => setEmail(e.target.value)}
                             />
 

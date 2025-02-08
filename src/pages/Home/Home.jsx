@@ -13,8 +13,8 @@ function Home() {
 
     return (
         <>
-            <PageHeader 
-                user={user} 
+            <PageHeader
+                user={user}
                 pageTitle="Home"
             />
 
@@ -31,17 +31,20 @@ function Home() {
                 <Card>
                     <p style={{margin: '10rem auto'}}>
                         Placeholder
-                    </p></Card>
+                    </p>
+                </Card>
 
                 <Card>
                     <p style={{margin: '10rem auto'}}>
                         Placeholder
-                    </p></Card>
+                    </p>
+                </Card>
 
                 <Card>
                     <p style={{margin: '10rem auto'}}>
                         Placeholder
-                    </p></Card>
+                    </p>
+                </Card>
             </Section>
 
             <Section
