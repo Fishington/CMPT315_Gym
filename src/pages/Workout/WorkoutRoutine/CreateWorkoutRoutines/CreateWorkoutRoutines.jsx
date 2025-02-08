@@ -10,7 +10,7 @@ import TextInput from '@/components/Form/TextInput';
 import RadioInput from '@/components/Form/RadioInput';
 import MealPlanIcon from '@/components/Icons/MealPlanIcon';
 import PageHeader from '@/components/Layout/PageHeader';
-import FlexRow from '@/components/Layout/FlexRow';
+import ItemDetailContainer from '@/components/ItemDetailContainer';
 import ItemDetail from '@/components/ItemDetail';
 
 import './CreateWorkoutRoutine.scss'
@@ -154,7 +154,7 @@ function CreateWorkoutRoutines() {
                                             )}
                                         </div>
                                         
-                                        <FlexRow>
+                                        <ItemDetailContainer columns={3}>
                                             <ItemDetail
                                                 icon={<MealPlanIcon/>}
                                                 value="0 Exercises"
@@ -172,7 +172,7 @@ function CreateWorkoutRoutines() {
                                                 value="0:00 minutes"
                                                 subtitle="Total Duration"
                                             />
-                                        </FlexRow>
+                                        </ItemDetailContainer>
                                     </div>
                                 </div>
                             </Form>
