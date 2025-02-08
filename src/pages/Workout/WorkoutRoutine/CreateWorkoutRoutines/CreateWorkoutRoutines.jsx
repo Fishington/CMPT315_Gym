@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useNavigate, useOutletContext} from 'react-router-dom';
 import TwoColumns from '@/components/Layout/TwoColumns/index.js';
 import Section from '@/components/Layout/Section/index.js';
@@ -8,10 +8,11 @@ import Form from '@/components/Form/index.js';
 import TextInput from '@/components/Form/TextInput/index.js';
 import RadioInput from '@/components/Form/RadioInput/RadioInput.jsx';
 import MealPlanIcon from '@/components/Icons/MealPlanIcon/index.js';
+import PageHeader from '@/components/Layout/PageHeader/index.js';
 
 function CreateWorkoutRoutines() {
     const navigate = useNavigate();
-    const {setPageTitle} = useOutletContext();
+    const {user} = useOutletContext();
 
     const [routine, setRoutine] = useState({
         id          : null,
@@ -33,6 +34,7 @@ function CreateWorkoutRoutines() {
             stretches: []
         }
     });
+
     const [name, setName] = useState('');
     const [about, setAbout] = useState('');
     const [goal, setGoal] = useState('');
@@ -48,13 +50,15 @@ function CreateWorkoutRoutines() {
         navigate('/workout/routines')
     }
 
-    useEffect(() => {
-        setPageTitle('Create A Workout Routine')
-    }, [setPageTitle]);
-
     return (
         <>
-            <TwoColumns secondColumnWidth="20vw">
+            <PageHeader
+                user={user}
+                pageTitle="Create Workout Routine"
+                showBack={true}
+            />
+
+            <TwoColumns>
                 <div>
                     <Section>
                         <Card>
@@ -125,56 +129,57 @@ function CreateWorkoutRoutines() {
                                     errorText="test"
                                     onChange={(e) => setSecondaryMuscles(e.target.value)}
                                 />
-                            </Form>
 
-                            <div>
-                                <h2>Based on the Exercises:</h2>
-                                
+
                                 <div>
-                                    <h3>Equipment:</h3>
+                                    <h2>Based on the Exercises:</h2>
 
-                                    {routine.equipment.length === 0 ? (
-                                        <p>Start adding exercises to your workout routine</p>
-                                    ) : (
-                                        <ul className="workout-routine-details__benefits">
-                                            {routine.equipment.map((equipment, index) => (
-                                                <li key={index}>
-                                                    {equipment}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
+                                    <div>
+                                        <h3>Equipment:</h3>
+
+                                        {routine.equipment.length === 0 ? (
+                                            <p>Start adding exercises to your workout routine</p>
+                                        ) : (
+                                            <ul className="workout-routine-details__benefits">
+                                                {routine.equipment.map((equipment, index) => (
+                                                    <li key={index}>
+                                                        {equipment}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </div>
+
+                                    <div className="exercise-details__description-row">
+                                        <div className="exercise-details__description">
+                                            <MealPlanIcon/>
+
+                                            <div>
+                                                <h3>0 Exercises</h3>
+                                                <p className="subtitle">Total Exercises</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="exercise-details__description">
+                                            <MealPlanIcon/>
+
+                                            <div>
+                                                <h3>{routine.caloriesMin} - {routine.caloriesMax} Cal</h3>
+                                                <p className="subtitle">Calories Burned</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="exercise-details__description">
+                                            <MealPlanIcon/>
+
+                                            <div>
+                                                <h3>0:00</h3>
+                                                <p className="subtitle">Duration</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div className="exercise-details__description-row">
-                                    <div className="exercise-details__description">
-                                        <MealPlanIcon/>
-
-                                        <div>
-                                            <h3>0 Exercises</h3>
-                                            <p className="subtitle">Total Exercises</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="exercise-details__description">
-                                        <MealPlanIcon/>
-
-                                        <div>
-                                            <h3>{routine.caloriesMin} - {routine.caloriesMax} Cal</h3>
-                                            <p className="subtitle">Calories Burned</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="exercise-details__description">
-                                        <MealPlanIcon/>
-
-                                        <div>
-                                            <h3>0:00</h3>
-                                            <p className="subtitle">Duration</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </Form>
                         </Card>
                     </Section>
                 </div>

@@ -1,20 +1,23 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useOutletContext} from 'react-router-dom';
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Section from '@/components/Layout/Section/index.js';
 import Card from '@/components/Card/index.js';
 import Button from '@/components/Button/index.js';
 import BackIcon from '@/components/Icons/BackIcon/index.js';
+import PageHeader from '@/components/Layout/PageHeader/index.js';
 
 function Workout() {
-    const {setBackTarget} = useOutletContext();
-
-    useEffect(() => {
-        setBackTarget({showBack: false})
-    }, [setBackTarget]);
+    const {user} = useOutletContext();
+    document.title = 'Workout | HyperFit';
 
     return (
         <>
+            <PageHeader
+                user={user}
+                pageTitle="Workout"
+            />
+            
             <TwoColumns>
                 <div>
                     <Section>

@@ -1,24 +1,33 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useOutletContext} from 'react-router-dom';
 import Section from '@/components/Layout/Section/index.js';
 import Card from '@/components/Card/index.js';
-import {tempRoutineList} from '@/data/tempData.js';
 import ItemSearch from '@/components/ItemSearch/index.js';
 import DataList from '@/components/DataList/index.js';
 import DataRow from '@/components/DataRow/index.js';
 import LevelTag from '@/components/LevelTag/index.js';
 import Button from '@/components/Button/index.js';
+import PageHeader from '@/components/Layout/PageHeader/index.js';
+import {tempRoutineList} from '@/data/tempData.js';
 
 function WorkoutRoutines() {
-    const {setBackTarget} = useOutletContext();
-
-    useEffect(() => {
-        setBackTarget('/workout')
-    }, [setBackTarget]);
+    const {user} = useOutletContext();
+    document.title = 'View Workout Routines | HyperFit';
 
     return (
         <>
-            <Button color="blue" size="full-width" href={`/workout/routines/create`}>
+            <PageHeader
+                user={user}
+                pageTitle="View Workout Routines"
+                showBack={true}
+                backTarget="/workout"
+            />
+
+            <Button
+                color="blue"
+                size="full-width"
+                href={`/workout/routines/create`}
+            >
                 Create Routine
             </Button>
 

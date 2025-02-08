@@ -1,21 +1,23 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useOutletContext} from 'react-router-dom';
 
 import Section from '@/components/Layout/Section';
 import Card from '@/components/Card';
 
 import './Home.scss'
+import PageHeader from '@/components/Layout/PageHeader/index.js';
 
 function Home() {
-    const {setPageTitle} = useOutletContext();
+    const {user} = useOutletContext();
     document.title = 'Home | HyperFit';
-
-    useEffect(() => {
-        setPageTitle('Home');
-    }, [setPageTitle]);
 
     return (
         <>
+            <PageHeader 
+                user={user} 
+                pageTitle="Home"
+            />
+
             <Section
                 title="Overview"
                 tip="Get a quick overview of your nutritional health"

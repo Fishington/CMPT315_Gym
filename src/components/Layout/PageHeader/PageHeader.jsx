@@ -4,17 +4,16 @@ import HomeTitle from './HomeTitle';
 import SectionTitle from './SectionTitle';
 import './PageHeader.scss'
 
-function PageHeader({user, pageTitle, section, backTarget}) {
+function PageHeader({user, pageTitle, showBack, backTarget}) {
     return (
         <section className="page-header">
-            
                 {pageTitle === 'Home' ? (
                     <HomeTitle user={user}/>
                 ) : (
                     <SectionTitle
                         pageTitle={pageTitle}
-                        section={section}
                         backTarget={backTarget}
+                        showBack={showBack}
                     />
                 )}
             

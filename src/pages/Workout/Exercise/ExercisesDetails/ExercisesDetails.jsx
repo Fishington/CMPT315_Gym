@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import TwoColumns from '@/components/Layout/TwoColumns/index.js';
 import Card from '@/components/Card/index.js';
 import Section from '@/components/Layout/Section/index.js';
@@ -6,19 +6,24 @@ import './ExercisesDetails.scss'
 import MealPlanIcon from '@/components/Icons/MealPlanIcon/index.js';
 import {tempExercisesList} from '@/data/tempData.js';
 import {useOutletContext, useParams} from 'react-router-dom';
+import PageHeader from '@/components/Layout/PageHeader/index.js';
 
 function ExercisesDetails() {
     const {id} = useParams();
-    const {setPageTitle} = useOutletContext();
+    const {user} = useOutletContext();
 
     const exercise = tempExercisesList.find((ex) => ex.id === Number(id))
+    document.title = `${exercise.name} | HyperFit`;
 
-    useEffect(() => {
-        setPageTitle(exercise.name)
-    }, []);
-    
+
     return (
         <>
+            <PageHeader
+                user={user}
+                pageTitle={exercise.name}
+                showBack={true}
+            />
+            
             <TwoColumns>
                 <div>
                     <Section>
