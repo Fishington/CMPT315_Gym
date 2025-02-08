@@ -1,9 +1,10 @@
-import "./Form.scss";
 import Button from "@/components/Button";
 
-export default function Form({children, buttonColor, legend, submitLabel, submitIcon, onSubmit}) {
+import "./Form.scss";
+
+export default function Form({children, variant, buttonColor, legend, submitLabel, submitIcon, onSubmit}) {
     return (
-        <form className={`form`} onSubmit={onSubmit} noValidate>
+        <form className={`form ${variant}`} onSubmit={onSubmit} noValidate>
             <fieldset className="form__fieldset">
                 {legend ? <legend className="legend">{legend}</legend> : <></>}
 

@@ -1,3 +1,3 @@
-import exerciseList from './ExerciseList.jsx';
+import exerciseList from './ExerciseList';
 
 export default exerciseList;

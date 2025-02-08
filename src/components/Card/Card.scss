@@ -5,4 +5,17 @@
   border-radius: 0.25rem;
   background-color: #FFFFFF;
   border: 1px solid #DBDBDB;
+  
+  &__section {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  & h2 {
+    font-size: 2rem;
+  }
+
+  & label {
+    font-size: 1.35rem;
+  }
 }

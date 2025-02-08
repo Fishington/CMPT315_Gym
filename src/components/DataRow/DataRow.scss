@@ -1,29 +1,32 @@
-.item-search {
+.data-row {
   padding: 0.5rem;
-  
+  font-size: 0.85rem;
+
   &:not(:last-child) {
     border-bottom: 1px solid #DBDBDB;
   }
-
+  
   &__container {
-    display: flex;
+    display: grid;
+    align-items: center;
     padding: 1rem;
     border-radius: 0.25rem;
+    gap: 1rem;
 
     &:hover {
       background-color: #ECEEFF;
     }
   }
 
-  &__item-name {
+  &__item {
     display: flex;
     align-items: center;
     gap: 1rem;
+    font-size: 0.9rem;
     font-weight: 700;
   }
 
   &__image {
     width: 8rem;
   }
-
 }
