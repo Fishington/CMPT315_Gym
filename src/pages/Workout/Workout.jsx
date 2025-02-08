@@ -18,7 +18,7 @@ function Workout() {
                 user={user}
                 pageTitle="Workout"
             />
-            
+
             <TwoColumns>
                 <div>
                     <Section>
@@ -42,11 +42,11 @@ function Workout() {
                     </Section>
 
                     <Section title="Progress Tracker">
-                            <Card>
-                                <p style={{margin: 'auto auto'}}>
-                                    Placeholder
-                                </p>
-                            </Card>
+                        <Card>
+                            <p style={{margin: 'auto auto'}}>
+                                Placeholder
+                            </p>
+                        </Card>
 
                         <div>
                             <Card>

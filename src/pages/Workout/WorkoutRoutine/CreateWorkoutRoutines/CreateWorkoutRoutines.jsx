@@ -109,7 +109,9 @@ function CreateWorkoutRoutines() {
                                     label={'Difficulty:'}
                                     onChange={setDifficulty}
                                     options={['Beginner', 'Intermediate', 'Advance']}
-                                    required={true}
+                                    error={false}
+                                    errorText="test"
+                                    isRequired={true}
                                 />
 
                                 <TextInput
