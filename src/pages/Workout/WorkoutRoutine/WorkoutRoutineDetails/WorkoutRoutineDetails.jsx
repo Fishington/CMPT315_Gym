@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useOutletContext, useParams} from 'react-router-dom';
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Section from '@/components/Layout/Section';
@@ -7,17 +7,15 @@ import MealPlanIcon from '@/components/Icons/MealPlanIcon';
 import './WorkoutRoutineDetails.scss'
 import DataList from '@/components/ExerciseList';
 import {tempRoutineList} from '@/data/tempData.js';
+import PageHeader from '@/components/Layout/PageHeader/index.js';
 
 
 function WorkoutRoutineDetails() {
     const {id} = useParams();
-    const {setPageTitle} = useOutletContext();
+    const {user} = useOutletContext();
 
     const routine = tempRoutineList.find((ro) => ro.id === Number(id));
-
-    useEffect(() => {
-        setPageTitle(routine.name)
-    }, []);
+    document.title = `${routine.name} | HyperFit`;
 
     const allExercises = [
         ...routine.exercises.warmups,
@@ -27,6 +25,12 @@ function WorkoutRoutineDetails() {
 
     return (
         <>
+            <PageHeader
+                user={user}
+                pageTitle={routine.name}
+                showBack={true}
+            />
+            
             <TwoColumns secondColumnWidth="max-content">
                 <div>
                     <Section>

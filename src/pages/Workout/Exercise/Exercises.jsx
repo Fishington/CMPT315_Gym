@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {useOutletContext} from 'react-router-dom';
+import React, {useState} from 'react';
 import Section from '@/components/Layout/Section';
 import Card from '@/components/Card';
 import ItemSearch from '@/components/ItemSearch';
@@ -8,17 +7,24 @@ import './Exercises.scss'
 import {tempExercisesList} from '@/data/tempData.js';
 import LevelTag from '@/components/LevelTag/index.js';
 import DataRow from '@/components/DataRow/index.js';
+import PageHeader from '@/components/Layout/PageHeader/index.js';
+import {useOutletContext} from 'react-router-dom';
 
 function Exercises() {
-    const {setBackTarget} = useOutletContext();
+    const {user} = useOutletContext();
+    document.title = 'Exercises | HyperFit';
+    
     const [searchTerm, setSearchTerm] = useState('')
-
-    useEffect(() => {
-        setBackTarget('workout')
-    }, [setBackTarget]);
-
+    
     return (
         <>
+            <PageHeader
+                user={user}
+                pageTitle="View Exercises"
+                showBack={true}
+                backTarget='/workout'
+            />
+            
             <Section>
                 <Card>
                     <ItemSearch
