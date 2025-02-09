@@ -21,80 +21,91 @@ function Register() {
 
     document.title = 'Login | HyperFit';
 
-
     const validation = () => {
-        let newErrors = {};
+        let newErrors = {...errors};
 
-        if (!firstName) {
-            newErrors.firstName = "First name is required";
-        }
-        else if (!lastName) {
-            newErrors.lastName = "Last name is required";
-        }
-
-
-        else if (!email) {
-            newErrors.email = "Email is required";
-        }
-
-        else if (!isValidEmail(email)) {
-            newErrors.email = "Email is invalid";
-        }
+        // First Name Validation
+        if (!firstName)
+            newErrors.firstName = {message: 'First name is required', error: true}
+        else
+            delete newErrors.firstName;
 
 
-        else if (!password) {
-            newErrors.password = "Password is required";
-        }
+        // Last Name Validation
+        if (!lastName)
+            newErrors.lastName = {message: 'Last name is required', error: true}
+        else
+            delete newErrors.lastName;
 
-        else if (!isValidPassword(password)) {
-            newErrors.password = "Password is invalid";
-        }
+        // Email Validation
+        if (!email)
+            newErrors.email = {message: 'Email is required', error: true}
+        else if (!isValidEmail(email))
+            newErrors.email = {message: 'Invalid email', error: true}
+        else
+            delete newErrors.email;
 
-        else if (!confirmPassword) {
-            newErrors.confirmPassword = "Confirm password is required";
-        }
-        else if (password !== confirmPassword) {
-            newErrors.confirmPassword = "Passwords do not match";
-        }
 
-        setErrors(newErrors);
+        // Password Validation
+        if (!password) {
+            newErrors.password = {message: 'Password is required', error: true}
+        } else if (!isValidPassword(password, newErrors)) {
+            console.log(errors.password?.error)
+        } else
+            delete newErrors.password;
 
-        console.log(errors);
         
+        // Confirm Password Validation
+        if (!confirmPassword)
+            newErrors.confirmPassword = {message: 'Confirm password is required', error: true}
+        else if (password !== confirmPassword)
+            newErrors.confirmPassword = {message: 'Passwords do not match', error: true}
+        else
+            delete newErrors.confirmPassword;
 
+        // Set errors and return true if no errors exists
+        setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     }
 
-    const isValidPassword = (password) => {
+    const isValidPassword = (password, newErrors) => {
         const hasLowercase = /[a-z]/.test(password);
         const hasUppercase = /[A-Z]/.test(password);
         const hasDigit = /\d/.test(password);
-        const hasSpecialChar = /[@$!%*?&]/.test(password);
+        const hasSpecialChar = /[@$!%*?&#]/.test(password);
         const hasMinLength = password.length >= 8;
-    
+
         if (!hasLowercase) {
-            console.log("❌ Password must contain at least one lowercase letter.");
+            console.log('❌ Password must contain at least one lowercase letter.');
+            newErrors.password = {message: 'Password must contain at least one uppercase letter', error: true}
             return false
         }
+
         if (!hasUppercase) {
-            console.log("❌ Password must contain at least one uppercase letter.");
+            console.log('❌ Password must contain at least one lowercase letter.');
+            newErrors.password = {message: 'Password must contain at least one lowercase letter', error: true}
             return false
         }
+
         if (!hasDigit) {
-            console.log("❌ Password must contain at least one digit.");
+            console.log('❌ Password must contain at least one digit.');
+            newErrors.password = {message: 'Password must contain at least one digit', error: true}
             return false
         }
+        
         if (!hasSpecialChar) {
-            console.log("❌ Password must contain at least one special character (@$!%*?&).");
+            console.log('❌ Password must contain at least one special character (@$!%*?&#).');
+            newErrors.password = {message: 'Password must contain at least one special character (@$!%*?&#)', error: true}
             return false
         }
+        
         if (!hasMinLength) {
-            console.log("❌ Password must be at least 8 characters long.");
+            console.log('❌ Password must be at least 8 characters long.');
+            newErrors.password = {message: 'Password must be at least 8 characters long', error: true}
             return false
         }
-    
+        
         return true;
-    
     }
 
     const isValidEmail = (email) => {
@@ -104,13 +115,13 @@ function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const isValid = validation();
+
         if (isValid) {
             register();
-        } 
-        
-        else {
-            console.log("form not submitted");
+        } else {
+            console.log('Form not submitted: Invalid Fields');
         }
     }
 
@@ -120,7 +131,7 @@ function Register() {
         const userDTO = {
             firstName,
             lastName,
-            email, 
+            email,
             password,
             confirmPassword
         };
@@ -153,22 +164,22 @@ function Register() {
                                 <TextInput
                                     id="firstName"
                                     type="firstName"
-                                    label="First Name"
+                                    label="First Name:"
                                     isRequired={true}
                                     value={firstName}
-                                    error={false}
-                                    errorText="test"
+                                    error={errors.firstName?.error}
+                                    errorText={errors.firstName?.message}
                                     onChange={(e) => setFirstName(e.target.value)}
                                 />
 
                                 <TextInput
                                     id="lastName"
                                     type="lastName"
-                                    label="Last Name"
+                                    label="Last Name:"
                                     isRequired={true}
                                     value={lastName}
-                                    error={false}
-                                    errorText="test"
+                                    error={errors.lastName?.error}
+                                    errorText={errors.lastName?.message}
                                     onChange={(e) => setLastName(e.target.value)}
                                 />
                             </div>
@@ -176,11 +187,11 @@ function Register() {
                             <TextInput
                                 id="email"
                                 type="email"
-                                label="Email"
+                                label="Email:"
                                 isRequired={true}
                                 value={email}
-                                error={false}
-                                errorText="test"
+                                error={errors.email?.error}
+                                errorText={errors.email?.message}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
 
@@ -190,8 +201,8 @@ function Register() {
                                 label="Password"
                                 isRequired={true}
                                 value={password}
-                                error={false}
-                                errorText="test"
+                                error={errors.password?.error}
+                                errorText={errors.password?.message}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
 
@@ -201,8 +212,8 @@ function Register() {
                                 label="Confirm Password"
                                 isRequired={true}
                                 value={confirmPassword}
-                                error={false}
-                                errorText="test"
+                                error={errors.confirmPassword?.error}
+                                errorText={errors.confirmPassword?.message}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                         </Form>
