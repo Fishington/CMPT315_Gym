@@ -1,11 +1,14 @@
 import {Link, useNavigate} from 'react-router-dom';
 import './Navigation.scss';
+import {useAuth} from '@/context/AuthContext.jsx';
 
 function Navigation({links, currentPage}) {
+    const {logout} = useAuth();
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        navigate('/');
+        logout()
+        navigate('/login');
     };
 
     return (

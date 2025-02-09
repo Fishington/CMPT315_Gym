@@ -1,8 +1,10 @@
 import NotificationIcon from '@/components/Icons/NotificationIcon';
 
 import './HeaderProfile.scss'
+import {useAuth} from '@/context/AuthContext.jsx';
 
-function HeaderProfile({user}) {
+function HeaderProfile() {
+    const {user} = useAuth();
     return (
         <div className="header-profile">
             <button className="header-profile__notification">

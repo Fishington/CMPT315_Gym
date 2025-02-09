@@ -6,6 +6,14 @@
       "password": "Password123!",
       "firstName": "Sergei",
       "lastName": "Borja"
+      
+    },
+    {
+      "id": 2,
+      "email": "john@doe.com",
+      "password": "john",
+      "firstName": "John",
+      "lastName": "Doe"
     }
   ]
 }

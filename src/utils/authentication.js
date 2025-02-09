@@ -1,50 +1,6 @@
-// Input Validation
-export const isValidPassword = (password, newErrors) => {
-    const hasLowercase = /[a-z]/.test(password);
-    const hasUppercase = /[A-Z]/.test(password);
-    const hasDigit = /\d/.test(password);
-    const hasSpecialChar = /[@$!%*?&#]/.test(password);
-    const hasMinLength = password.length >= 8;
+import {isValidEmail, isValidPassword} from '@/utils/validation.js';
+import {fetchUser} from '@/utils/fetchData.js';
 
-    if (!hasLowercase) {
-        console.log('❌ Password must contain at least one lowercase letter.');
-        newErrors.password = {message: 'Password must contain at least one uppercase letter', error: true}
-        return false
-    }
-
-    if (!hasUppercase) {
-        console.log('❌ Password must contain at least one lowercase letter.');
-        newErrors.password = {message: 'Password must contain at least one lowercase letter', error: true}
-        return false
-    }
-
-    if (!hasDigit) {
-        console.log('❌ Password must contain at least one digit.');
-        newErrors.password = {message: 'Password must contain at least one digit', error: true}
-        return false
-    }
-
-    if (!hasSpecialChar) {
-        console.log('❌ Password must contain at least one special character (@$!%*?&#).');
-        newErrors.password = {message: 'Password must contain at least one special character (@$!%*?&#)', error: true}
-        return false
-    }
-
-    if (!hasMinLength) {
-        console.log('❌ Password must be at least 8 characters long.');
-        newErrors.password = {message: 'Password must be at least 8 characters long', error: true}
-        return false
-    }
-
-    return true;
-}
-
-export const isValidEmail = (email) => {
-    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// Fields Validation
 export const firstNameValidation = (firstName, errorList) => {
     if (!firstName)
         errorList.firstName = {message: 'First name is required', error: true}
@@ -114,29 +70,24 @@ export const passwordValidation = (password, errorList) => {
         delete errorList.password;
 }
 
-// Database Validations
+// Database Authentication
 export const checkEmailExists = async (email) => {
     try {
-        const response = await fetch(`http://localhost:8000/users?email=${email}`);
+        const users = await fetchUser();
+        const user = users.find((user) => user.email === email)
 
-        if (!response.ok) {
-            console.error(`Status: ${response.status}`);
-            return null;
-        }
-
-        const users = await response.json();
-        return users.length > 0 ? users[0] : null;
+        return user || null
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Error:', error)
     }
 };
 
-export const validateUser = async () => {
+export const validateUser = async (email, password, errors) => {
     let newErrors = {...errors};
 
     // Check if email exists
-    const user = await checkEmailExists(email);
-
+    const user = await checkEmailExists(email)
+    
     if (!user || user.password !== password) {
         newErrors.email = {
             error: true
@@ -150,7 +101,5 @@ export const validateUser = async () => {
         delete newErrors.password
     }
 
-    // Set errors and return true if no errors exists
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return newErrors;
 }
