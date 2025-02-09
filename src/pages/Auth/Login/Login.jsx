@@ -1,21 +1,17 @@
 import {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import {emailValidation, passwordValidation, validateUser} from '@/utils/authentication.js';
 
 import LogoFullIcon from '@/components/Icons/LogoFullIcon';
 import LogoIcon from '@/components/Icons/LogoIcon';
 import Form from '@/components/Form';
-import TextInput from '@/components/Form/TextInput/index.js';
+import TextInput from '@/components/Form/TextInput';
 import Button from '@/components/Button';
 import AppleIcon from '@/components/Icons/AppleIcon';
 import GoogleIcon from '@/components/Icons/GoogleIcon';
 import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Login.scss';
-
-const fakeUser = {
-    email   : 'borjas@mymacewan.ca',
-    password: 'Password123!'
-}
 
 function Login() {
     const navigate = useNavigate();
@@ -25,84 +21,37 @@ function Login() {
 
     document.title = 'Login | HyperFit';
 
-    const validation = () => {
+    const validation = async () => {
         let newErrors = {...errors};
 
-        // Email Validation
-        if (!email)
-            newErrors.email = {message: 'Email is required', error: true}
-        else if (!isValidEmail(email))
-            newErrors.email = {message: 'Invalid email', error: true}
-        else
-            delete newErrors.email;
+        // Login Validation
+        emailValidation(email, newErrors)
+        passwordValidation(password, newErrors)
 
-        // Password Validation
-        if (!password) {
-            newErrors.password = {message: 'Password is required', error: true}
-        } else
-            delete newErrors.password;
+        // Validates for existing user
+        newErrors = await validateUser(newErrors);
 
         // Set errors and return true if no errors exists
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
-    }
-
-    const validateUser = async () => {
-        let newErrors = {...errors};
-
-        // Check user details
-        const user = await checkEmailExists(email);
-
-        if (!user || user.password !== password) {
-            newErrors.email = {
-                error: true
-            }
-            newErrors.password = {
-                message: 'The email or password you entered is incorrect. Please try again.',
-                error  : true
-            }
-        } else {
-            delete newErrors.email
-            delete newErrors.password
-        }
-
-        // Set errors and return true if no errors exists
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    }
-
-    const checkEmailExists = async (email) => {
-        const response = await fetch(`http://localhost:8000/users?email=${email}`);
-        const users = await response.json();
-        return users.length > 0 ? users[0] : null;
-    };
-
-    const isValidEmail = (email) => {
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const isFormValid = validation();
+        const isFormValid = await validation();
         if (!isFormValid) {
-            console.log('Form not submitted: Invalid Fields');
-            return;
-        }
-
-        const isValidUser = await validateUser();
-        if (!isValidUser)
-            console.log('Form not submitted: Invalid User');
-        else 
+            console.log('Form not submitted: Invalid Fields or User');
+        } else {
             login();
+        }
     }
 
     const login = () => {
         const userDTO = {email, password};
 
         console.log('Logging in with:', userDTO);
-        navigate('/home');  // Simulate successful login
+        navigate('/home');
     };
 
     return (

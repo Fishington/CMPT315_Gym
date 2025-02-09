@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import {createConfirmPasswordValidation, createPasswordValidation} from '@/utils/authentication.js';
 
 import LogoFullIcon from '@/components/Icons/LogoFullIcon';
 import LogoIcon from '@/components/Icons/LogoIcon';
@@ -15,91 +16,32 @@ function CreateNewPassword() {
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errors, setErrors] = useState({})
-
-
+    
     document.title = 'Create New Password | HyperFit';
 
     const validation = () => {
         let newErrors = {...errors};
 
         // Password Validation
-        if (!password) {
-            newErrors.password = {message: 'Password is required', error: true}
-        } else if (!isValidPassword(password, newErrors)) {
-            console.log(errors.password?.error)
-        } else
-            delete newErrors.password;
-
-
-        // Confirm Password Validation
-        if (!confirmPassword)
-            newErrors.confirmPassword = {message: 'Confirm password is required', error: true}
-        else if (password !== confirmPassword)
-            newErrors.confirmPassword = {message: 'Passwords do not match', error: true}
-        else
-            delete newErrors.confirmPassword;
-
+        createPasswordValidation(password, newErrors)
+        createConfirmPasswordValidation(password, newErrors)
+        
         // Set errors and return true if no errors exists
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
-    }
-
-    const isValidPassword = (password, newErrors) => {
-        const hasLowercase = /[a-z]/.test(password);
-        const hasUppercase = /[A-Z]/.test(password);
-        const hasDigit = /\d/.test(password);
-        const hasSpecialChar = /[@$!%*?&#]/.test(password);
-        const hasMinLength = password.length >= 8;
-
-        if (!hasLowercase) {
-            console.log('❌ Password must contain at least one lowercase letter.');
-            newErrors.password = {message: 'Password must contain at least one uppercase letter', error: true}
-            return false
-        }
-
-        if (!hasUppercase) {
-            console.log('❌ Password must contain at least one lowercase letter.');
-            newErrors.password = {message: 'Password must contain at least one lowercase letter', error: true}
-            return false
-        }
-
-        if (!hasDigit) {
-            console.log('❌ Password must contain at least one digit.');
-            newErrors.password = {message: 'Password must contain at least one digit', error: true}
-            return false
-        }
-
-        if (!hasSpecialChar) {
-            console.log('❌ Password must contain at least one special character (@$!%*?&#).');
-            newErrors.password = {
-                message: 'Password must contain at least one special character (@$!%*?&#)',
-                error  : true
-            }
-            return false
-        }
-
-        if (!hasMinLength) {
-            console.log('❌ Password must be at least 8 characters long.');
-            newErrors.password = {message: 'Password must be at least 8 characters long', error: true}
-            return false
-        }
-
-        return true;
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const isValid = validation();
-
-        if (isValid) {
-            sendEmail();
-        } else {
+        if (isValid)
+            createNewPassword();
+        else
             console.log('Form not submitted: Invalid Fields');
-        }
     }
-    
-    const sendEmail = () => {
+
+    const createNewPassword = () => {
         const userDTO = {
             password,
             confirmPassword

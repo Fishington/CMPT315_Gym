@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import {emailValidation} from '@/utils/authentication.js';
 
 import LogoFullIcon from '@/components/Icons/LogoFullIcon';
 import LogoIcon from '@/components/Icons/LogoIcon';
@@ -11,43 +12,32 @@ import './ForgetPassword.scss';
 
 function ForgetPassword() {
     const navigate = useNavigate();
-    
+
     const [email, setEmail] = useState('');
     const [errors, setErrors] = useState({})
-    
+
     document.title = 'Forgot Password | HyperFit';
 
     const validation = () => {
         let newErrors = {...errors};
 
         // Email Validation
-        if (!email)
-            newErrors.email = {message: 'Email is required', error: true}
-        else if (!isValidEmail(email))
-            newErrors.email = {message: 'Invalid email', error: true}
-        else
-            delete newErrors.email;
+        emailValidation(email, newErrors);
 
         // Set errors and return true if no errors exists
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     }
 
-    const isValidEmail = (email) => {
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const isValid = validation();
-
-        if (isValid) {
+        if (isValid)
             sendEmail();
-        } else {
+        else
             console.log('Form not submitted: Invalid Fields');
-        }
+        
     }
 
     const sendEmail = () => {
@@ -58,7 +48,7 @@ function ForgetPassword() {
         console.log(`Email "sent" to ${emailDTO.email}`)
         navigate('/create-new-password');
     };
-    
+
     return (
         <main className="forgot-password">
             <section className="forgot-password__left">

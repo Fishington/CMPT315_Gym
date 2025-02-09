@@ -1,5 +1,11 @@
 {
   "users": [
-    { "id": 1, "email": "borjas@mymacewan.ca", "password": "Password123!" }
+    {
+      "id": 1,
+      "email": "borjas@mymacewan.ca",
+      "password": "Password123!",
+      "firstName": "Sergei",
+      "lastName": "Borja"
+    }
   ]
 }

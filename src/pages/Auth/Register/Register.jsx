@@ -1,122 +1,56 @@
 import {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import {
+    newEmailValidation,
+    firstNameValidation,
+    lastNameValidation,
+    createPasswordValidation,
+    createConfirmPasswordValidation
+} from '@/utils/authentication.js';
 
 import LogoFullIcon from '@/components/Icons/LogoFullIcon';
 import LogoIcon from '@/components/Icons/LogoIcon';
 import Form from '@/components/Form';
-import TextInput from '@/components/Form/TextInput/index.js';
+import TextInput from '@/components/Form/TextInput';
 import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Register.scss';
 
 function Register() {
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
-    const [errors, setErrors] = useState({});
-
     const navigate = useNavigate();
+
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [errors, setErrors] = useState({});
 
     document.title = 'Login | HyperFit';
 
-    const validation = () => {
-        let newErrors = {...errors};
+    const validation = async () => {
+        let newErrors = {...errors}
 
-        // First Name Validation
-        if (!firstName)
-            newErrors.firstName = {message: 'First name is required', error: true}
-        else
-            delete newErrors.firstName;
-
-
-        // Last Name Validation
-        if (!lastName)
-            newErrors.lastName = {message: 'Last name is required', error: true}
-        else
-            delete newErrors.lastName;
+        // Name Validation
+        firstNameValidation(firstName, newErrors)
+        lastNameValidation(lastName, newErrors)
 
         // Email Validation
-        if (!email)
-            newErrors.email = {message: 'Email is required', error: true}
-        else if (!isValidEmail(email))
-            newErrors.email = {message: 'Invalid email', error: true}
-        else
-            delete newErrors.email;
-
+        await newEmailValidation(email, newErrors)
 
         // Password Validation
-        if (!password) {
-            newErrors.password = {message: 'Password is required', error: true}
-        } else if (!isValidPassword(password, newErrors)) {
-            console.log(errors.password?.error)
-        } else
-            delete newErrors.password;
-
+        createPasswordValidation(password, newErrors)
+        createConfirmPasswordValidation(confirmPassword, password, newErrors)
         
-        // Confirm Password Validation
-        if (!confirmPassword)
-            newErrors.confirmPassword = {message: 'Confirm password is required', error: true}
-        else if (password !== confirmPassword)
-            newErrors.confirmPassword = {message: 'Passwords do not match', error: true}
-        else
-            delete newErrors.confirmPassword;
-
         // Set errors and return true if no errors exists
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     }
 
-    const isValidPassword = (password, newErrors) => {
-        const hasLowercase = /[a-z]/.test(password);
-        const hasUppercase = /[A-Z]/.test(password);
-        const hasDigit = /\d/.test(password);
-        const hasSpecialChar = /[@$!%*?&#]/.test(password);
-        const hasMinLength = password.length >= 8;
-
-        if (!hasLowercase) {
-            console.log('❌ Password must contain at least one lowercase letter.');
-            newErrors.password = {message: 'Password must contain at least one uppercase letter', error: true}
-            return false
-        }
-
-        if (!hasUppercase) {
-            console.log('❌ Password must contain at least one lowercase letter.');
-            newErrors.password = {message: 'Password must contain at least one lowercase letter', error: true}
-            return false
-        }
-
-        if (!hasDigit) {
-            console.log('❌ Password must contain at least one digit.');
-            newErrors.password = {message: 'Password must contain at least one digit', error: true}
-            return false
-        }
-        
-        if (!hasSpecialChar) {
-            console.log('❌ Password must contain at least one special character (@$!%*?&#).');
-            newErrors.password = {message: 'Password must contain at least one special character (@$!%*?&#)', error: true}
-            return false
-        }
-        
-        if (!hasMinLength) {
-            console.log('❌ Password must be at least 8 characters long.');
-            newErrors.password = {message: 'Password must be at least 8 characters long', error: true}
-            return false
-        }
-        
-        return true;
-    }
-
-    const isValidEmail = (email) => {
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const isValid = validation();
+        const isValid = await validation();
 
         if (isValid) {
             register();
@@ -126,8 +60,6 @@ function Register() {
     }
 
     const register = () => {
-        alert(`First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nPassword: ${password}\nConfirm Password: ${confirmPassword}`);
-
         const userDTO = {
             firstName,
             lastName,
