@@ -12,28 +12,97 @@ import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Login.scss';
 
+const fakeUser = {
+    email   : 'borjas@mymacewan.ca',
+    password: 'Password123!'
+}
+
 function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    
-    document.title = "Login | HyperFit";
+    const [errors, setErrors] = useState({});
 
-    const login = () => {
-        if (!email || !password) {
-            alert('Please enter email and password.');
+    document.title = 'Login | HyperFit';
+
+    const validation = () => {
+        let newErrors = {...errors};
+
+        // Email Validation
+        if (!email)
+            newErrors.email = {message: 'Email is required', error: true}
+        else if (!isValidEmail(email))
+            newErrors.email = {message: 'Invalid email', error: true}
+        else
+            delete newErrors.email;
+
+        // Password Validation
+        if (!password) {
+            newErrors.password = {message: 'Password is required', error: true}
+        } else
+            delete newErrors.password;
+
+        // Set errors and return true if no errors exists
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    }
+
+    const validateUser = async () => {
+        let newErrors = {...errors};
+
+        // Check user details
+        const user = await checkEmailExists(email);
+
+        if (!user || user.password !== password) {
+            newErrors.email = {
+                error: true
+            }
+            newErrors.password = {
+                message: 'The email or password you entered is incorrect. Please try again.',
+                error  : true
+            }
+        } else {
+            delete newErrors.email
+            delete newErrors.password
+        }
+
+        // Set errors and return true if no errors exists
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    }
+
+    const checkEmailExists = async (email) => {
+        const response = await fetch(`http://localhost:8000/users?email=${email}`);
+        const users = await response.json();
+        return users.length > 0 ? users[0] : null;
+    };
+
+    const isValidEmail = (email) => {
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const isFormValid = validation();
+        if (!isFormValid) {
+            console.log('Form not submitted: Invalid Fields');
             return;
         }
 
-        alert(`Email: ${email}\nPassword: ${password}`);
+        const isValidUser = await validateUser();
+        if (!isValidUser)
+            console.log('Form not submitted: Invalid User');
+        else 
+            login();
+    }
 
-        const userDTO = {
-            email,
-            password,
-        };
+    const login = () => {
+        const userDTO = {email, password};
 
         console.log('Logging in with:', userDTO);
-        navigate('/home');
+        navigate('/home');  // Simulate successful login
     };
 
     return (
@@ -54,7 +123,7 @@ function Login() {
                             buttonColor="blue"
                             submitLabel="Log In"
                             submitIcon={<LoginIcon/>}
-                            onSubmit={() => login()}
+                            onSubmit={handleSubmit}
                         >
                             <TextInput
                                 id="email"
@@ -62,8 +131,8 @@ function Login() {
                                 label="Email"
                                 isRequired={true}
                                 value={email}
-                                error={false}
-                                errorText=''
+                                error={errors.email?.error}
+                                errorText={errors.email?.message}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
 
@@ -73,8 +142,8 @@ function Login() {
                                 label="Password"
                                 isRequired={true}
                                 value={password}
-                                error={false}
-                                errorText="test"
+                                error={errors.password?.error}
+                                errorText={errors.password?.message}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
 
@@ -108,7 +177,7 @@ function Login() {
 
             <section className="login__image-container">
                 <h2 className="login__motivational-quote">"Every Day is a New Opportunity"</h2>
-                
+
                 <LogoIcon/>
             </section>
         </main>

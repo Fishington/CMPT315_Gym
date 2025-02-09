@@ -10,23 +10,55 @@ import LoginIcon from '@/components/Icons/LoginIcon';
 import './ForgetPassword.scss';
 
 function ForgetPassword() {
-    const [email, setEmail] = useState();
-
     const navigate = useNavigate();
+    
+    const [email, setEmail] = useState('');
+    const [errors, setErrors] = useState({})
+    
+    document.title = 'Forgot Password | HyperFit';
 
-    document.title = 'Login | HyperFit';
+    const validation = () => {
+        let newErrors = {...errors};
+
+        // Email Validation
+        if (!email)
+            newErrors.email = {message: 'Email is required', error: true}
+        else if (!isValidEmail(email))
+            newErrors.email = {message: 'Invalid email', error: true}
+        else
+            delete newErrors.email;
+
+        // Set errors and return true if no errors exists
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    }
+
+    const isValidEmail = (email) => {
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const isValid = validation();
+
+        if (isValid) {
+            sendEmail();
+        } else {
+            console.log('Form not submitted: Invalid Fields');
+        }
+    }
 
     const sendEmail = () => {
-        alert(`Email: ${email}`);
-
-        const userDTO = {
+        const emailDTO = {
             email,
         };
 
-        console.log('Registering in with:', userDTO);
-        navigate('/create-new-password'); // Temp
+        console.log(`Email "sent" to ${emailDTO.email}`)
+        navigate('/create-new-password');
     };
-
+    
     return (
         <main className="forgot-password">
             <section className="forgot-password__left">
@@ -48,7 +80,7 @@ function ForgetPassword() {
                             buttonColor="blue"
                             submitLabel="Send Email"
                             submitIcon={<LoginIcon/>}
-                            onSubmit={() => sendEmail()}
+                            onSubmit={handleSubmit}
                         >
                             <TextInput
                                 id="email"
@@ -56,8 +88,8 @@ function ForgetPassword() {
                                 label="Email"
                                 isRequired={true}
                                 value={email}
-                                error={false}
-                                errorText="test"
+                                error={errors.email?.error}
+                                errorText={errors.email?.message}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </Form>
