@@ -42,7 +42,6 @@ export const subLinks = [
     },
     {
         title: 'Log Out',
-        href : '/logout',
         icon : <LogOutIcon/>
     },
 ]

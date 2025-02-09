@@ -1,19 +1,22 @@
 import {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+
+import {useAuth} from '@/context/AuthContext.jsx';
+
 import {emailValidation, passwordValidation, validateUser} from '@/utils/authentication.js';
 
 import LogoFullIcon from '@/components/Icons/LogoFullIcon';
 import LogoIcon from '@/components/Icons/LogoIcon';
 import Form from '@/components/Form';
 import TextInput from '@/components/Form/TextInput';
-import Button from '@/components/Button';
-import AppleIcon from '@/components/Icons/AppleIcon';
-import GoogleIcon from '@/components/Icons/GoogleIcon';
 import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Login.scss';
+import {fetchUser} from '@/utils/fetchData.js';
 
 function Login() {
+    const {login} = useAuth();
+    
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -21,36 +24,42 @@ function Login() {
 
     document.title = 'Login | HyperFit';
 
-    const validation = async () => {
-        let newErrors = {...errors};
-
-        // Login Validation
+    const validation = () => {
+        let newErrors = {...errors}
+        
         emailValidation(email, newErrors)
         passwordValidation(password, newErrors)
 
-        // Validates for existing user
-        newErrors = await validateUser(newErrors);
-
-        // Set errors and return true if no errors exists
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     }
 
-    const handleSubmit = async (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-
-        const isFormValid = await validation();
-        if (!isFormValid) {
-            console.log('Form not submitted: Invalid Fields or User');
-        } else {
-            login();
+        
+        // Validate Form Inputs
+        if (!validation()) {
+            console.log('Form not submitted: Invalid Fields');
+            return
         }
-    }
 
-    const login = () => {
-        const userDTO = {email, password};
+        // Validate User in Database
+        const newErrors = await validateUser(email, password, {...errors});
+        setErrors(newErrors);
 
-        console.log('Logging in with:', userDTO);
+        const isValid = Object.keys(newErrors).length === 0;
+        if (!isValid) {
+            console.log('Form not submitted: Invalid User');
+            return
+        }
+        
+        // Store data into DTO
+        const users = await fetchUser(email)
+        const userDTO = users.find((user) => user.email === email)
+        
+        console.log('Logging in', userDTO.firstName);
+        login(userDTO)
+        
         navigate('/home');
     };
 
@@ -72,7 +81,7 @@ function Login() {
                             buttonColor="blue"
                             submitLabel="Log In"
                             submitIcon={<LoginIcon/>}
-                            onSubmit={handleSubmit}
+                            onSubmit={handleLogin}
                         >
                             <TextInput
                                 id="email"
@@ -104,29 +113,30 @@ function Login() {
                         </p>
                     </div>
 
-                    <div className="login__divider">
-                        <hr className="login__divider-line"/>
-                        <p className="login__or-text">Or</p>
-                        <hr className="login__divider-line"/>
-                    </div>
+                    {/* // Save until we are ready for oauth
+                     <div className="login__divider">
+                     <hr className="login__divider-line"/>
+                     <p className="login__or-text">Or</p>
+                     <hr className="login__divider-line"/>
+                     </div>
 
-                    <div className="login__oauth">
-                        <Button color="google" size="full-width">
-                            <GoogleIcon/>
-                            Log in with Google
-                        </Button>
+                     <div className="login__oauth">
+                     <Button color="google" size="full-width">
+                     <GoogleIcon/>
+                     Log in with Google
+                     </Button>
 
-                        <Button color="apple" size="full-width">
-                            <AppleIcon/>
-                            Log in with Apple
-                        </Button>
-                    </div>
+                     <Button color="apple" size="full-width">
+                     <AppleIcon/>
+                     Log in with Apple
+                     </Button>
+                     </div>
+                     */}
                 </div>
             </section>
 
             <section className="login__image-container">
                 <h2 className="login__motivational-quote">"Every Day is a New Opportunity"</h2>
-
                 <LogoIcon/>
             </section>
         </main>

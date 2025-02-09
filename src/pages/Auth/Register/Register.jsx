@@ -26,40 +26,38 @@ function Register() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errors, setErrors] = useState({});
 
-    document.title = 'Login | HyperFit';
+    document.title = 'Register | HyperFit';
 
-    const validation = async () => {
-        let newErrors = {...errors}
-
+    const validation = async (errors) => {
         // Name Validation
-        firstNameValidation(firstName, newErrors)
-        lastNameValidation(lastName, newErrors)
+        firstNameValidation(firstName, errors)
+        lastNameValidation(lastName, errors)
 
         // Email Validation
-        await newEmailValidation(email, newErrors)
+        await newEmailValidation(email, errors)
 
         // Password Validation
-        createPasswordValidation(password, newErrors)
-        createConfirmPasswordValidation(confirmPassword, password, newErrors)
-        
-        // Set errors and return true if no errors exists
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
+        createPasswordValidation(password, errors)
+        createConfirmPasswordValidation(confirmPassword, password, errors)
+
+        return errors;
     }
 
-    const handleSubmit = async (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
-
-        const isValid = await validation();
-
-        if (isValid) {
-            register();
-        } else {
+        let newErrors = {...errors}
+        
+        // Validate Form Inputs
+        newErrors = validation(newErrors);
+        setErrors(newErrors);
+        
+        const isValid = Object.keys(newErrors).length === 0;
+        if (!isValid) {
             console.log('Form not submitted: Invalid Fields');
+            return
         }
-    }
 
-    const register = () => {
+        // Store DTO
         const userDTO = {
             firstName,
             lastName,
@@ -67,8 +65,8 @@ function Register() {
             password,
             confirmPassword
         };
+        console.log('Creating account for', userDTO.firstName);
 
-        console.log('Registering in with:', userDTO);
         navigate('/home');
     };
 
@@ -90,7 +88,7 @@ function Register() {
                             buttonColor="blue"
                             submitLabel="Create Account"
                             submitIcon={<LoginIcon/>}
-                            onSubmit={handleSubmit}
+                            onSubmit={handleRegister}
                         >
                             <div className="register__two-input-row">
                                 <TextInput
@@ -151,7 +149,7 @@ function Register() {
                         </Form>
 
                         <p>
-                            Already have an account? <Link className="register__link" to="/">Login here</Link>
+                            Already have an account? <Link className="register__link" to="/login">Login here</Link>
                         </p>
                     </div>
                 </div>

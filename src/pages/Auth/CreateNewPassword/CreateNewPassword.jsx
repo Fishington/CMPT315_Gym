@@ -31,23 +31,22 @@ function CreateNewPassword() {
         return Object.keys(newErrors).length === 0;
     }
 
-    const handleSubmit = (e) => {
+    const handleNewPassword = (e) => {
         e.preventDefault();
 
-        const isValid = validation();
-        if (isValid)
-            createNewPassword();
-        else
+        // Validate Form Inputs
+        if (!validation()) {
             console.log('Form not submitted: Invalid Fields');
-    }
-
-    const createNewPassword = () => {
+            return
+        }
+        
+        // Store data into DTO
         const userDTO = {
             password,
             confirmPassword
         };
 
-        console.log('New password for user is:', userDTO.password);
+        console.log('New password has been set for user');
         navigate('/home');
     };
 
@@ -71,7 +70,7 @@ function CreateNewPassword() {
                             buttonColor="blue"
                             submitLabel="Reset Password"
                             submitIcon={<LoginIcon/>}
-                            onSubmit={handleSubmit}
+                            onSubmit={handleNewPassword}
                         >
                             <TextInput
                                 id="password"

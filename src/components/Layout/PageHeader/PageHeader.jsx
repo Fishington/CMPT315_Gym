@@ -4,11 +4,11 @@ import HomeTitle from './HomeTitle';
 import SectionTitle from './SectionTitle';
 import './PageHeader.scss'
 
-function PageHeader({user, pageTitle, showBack, backTarget}) {
+function PageHeader({pageTitle, showBack, backTarget}) {
     return (
         <section className="page-header">
                 {pageTitle === 'Home' ? (
-                    <HomeTitle user={user}/>
+                    <HomeTitle/>
                 ) : (
                     <SectionTitle
                         pageTitle={pageTitle}
@@ -17,7 +17,7 @@ function PageHeader({user, pageTitle, showBack, backTarget}) {
                     />
                 )}
             
-            <HeaderProfile user={user}/>
+            <HeaderProfile/>
         </section>
     );
 }

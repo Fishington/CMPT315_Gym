@@ -29,23 +29,22 @@ function ForgetPassword() {
         return Object.keys(newErrors).length === 0;
     }
 
-    const handleSubmit = (e) => {
+    const handleSendEmail = (e) => {
         e.preventDefault();
 
-        const isValid = validation();
-        if (isValid)
-            sendEmail();
-        else
+        // Validate Form Inputs
+        if (!validation()) {
             console.log('Form not submitted: Invalid Fields');
-        
-    }
+            return
+        }
 
-    const sendEmail = () => {
+        // Store data into DTO
         const emailDTO = {
             email,
         };
-
         console.log(`Email "sent" to ${emailDTO.email}`)
+
+        // Temporary
         navigate('/create-new-password');
     };
 
@@ -70,7 +69,7 @@ function ForgetPassword() {
                             buttonColor="blue"
                             submitLabel="Send Email"
                             submitIcon={<LoginIcon/>}
-                            onSubmit={handleSubmit}
+                            onSubmit={handleSendEmail}
                         >
                             <TextInput
                                 id="email"
@@ -85,7 +84,7 @@ function ForgetPassword() {
                         </Form>
 
                         <p>
-                            Remembered your password? <Link className="forgot-password__link" to="/">Login here</Link>
+                            Remembered your password? <Link className="forgot-password__link" to="/login">Login here</Link>
                         </p>
                     </div>
                 </div>

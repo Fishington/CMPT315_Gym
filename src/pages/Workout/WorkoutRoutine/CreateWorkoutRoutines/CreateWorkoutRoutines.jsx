@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useNavigate, useOutletContext} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Section from '@/components/Layout/Section';
@@ -17,7 +17,6 @@ import './CreateWorkoutRoutine.scss'
 
 function CreateWorkoutRoutines() {
     const navigate = useNavigate();
-    const {user} = useOutletContext();
 
     const [routine, setRoutine] = useState({
         id          : null,
@@ -55,11 +54,7 @@ function CreateWorkoutRoutines() {
 
     return (
         <>
-            <PageHeader
-                user={user}
-                pageTitle="Create Workout Routine"
-                showBack={true}
-            />
+            <PageHeader pageTitle="Create Workout Routine" showBack={true}/>
 
             <TwoColumns>
                 <div>

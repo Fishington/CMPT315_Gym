@@ -1,5 +1,4 @@
 import React from 'react';
-import {useOutletContext} from 'react-router-dom';
 
 import Section from '@/components/Layout/Section';
 import Card from '@/components/Card';
@@ -13,17 +12,11 @@ import PageHeader from '@/components/Layout/PageHeader';
 import {tempRoutineList} from '@/data/tempData.js';
 
 function WorkoutRoutines() {
-    const {user} = useOutletContext();
     document.title = 'View Workout Routines | HyperFit';
 
     return (
         <>
-            <PageHeader
-                user={user}
-                pageTitle="View Workout Routines"
-                showBack={true}
-                backTarget="/workout"
-            />
+            <PageHeader pageTitle="View Workout Routines" showBack={true} backTarget="/workout"/>
 
             <Button
                 color="blue"
