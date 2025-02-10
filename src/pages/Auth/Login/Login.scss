@@ -1,0 +1,82 @@
+.login {
+  display: grid;
+  grid-template: 1fr / 1fr 1.5fr;
+  padding: 8rem;
+  gap: 12rem;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+
+  &__left {
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    gap: 4rem;
+  }
+
+  &__main-content {
+    align-self: center;
+    display: grid;
+    gap: 3rem;
+    padding: 0 5%;
+  }
+
+  &__link {
+    color: #2A3FF4;
+    font-weight: 500;
+    text-decoration: underline;
+
+    &:hover {
+      color: #192692;
+    }
+  }
+
+  &__logo {
+    width: 16rem;
+  }
+
+  &__form {
+    display: grid;
+    gap: 2.75rem;
+  }
+
+  &__divider {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__divider-line {
+    width: 100%;
+    height: 0;
+  }
+
+  &__or-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+  }
+
+  &__oauth {
+    display: flex;
+    gap: 3rem;
+  }
+
+  &__image-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: flex-end;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.75) 100%), url('/images/login-image.jpg') center / cover no-repeat;
+    border-radius: 0.5rem;
+    padding: 2rem;
+
+    & svg {
+      color: #FFFFFF;
+      height: 5rem;
+      width: 5rem;
+    }
+  }
+
+  &__motivational-quote {
+    color: #FFFFFF;
+    font-size: 6rem;
+  }
+}

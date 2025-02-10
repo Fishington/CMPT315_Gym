@@ -1,0 +1,16 @@
+.app-layout {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 2.5rem;
+  padding: 2.5rem;
+  min-height: 100vh;
+
+  &__main {
+    display: grid;
+    align-content: flex-start;
+    gap: 2rem;
+  }
+}
+
+
+

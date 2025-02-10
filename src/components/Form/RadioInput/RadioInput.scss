@@ -1,0 +1,59 @@
+.radio-input {
+  display: grid;
+  gap: 0.5rem;
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    color: #2A3FF4;
+    border: 1px solid #2A3FF4;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    &--selected {
+      color: white;
+      background-color: #2A3FF4;
+    }
+
+    &:hover {
+      color: white;
+      background-color: #2A3FF4;
+    }
+  }
+
+  &__row {
+    display: grid;
+    column-gap: 2rem;
+    row-gap: 0.5rem;
+  }
+
+  &__value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: inherit;
+    font-size: 1.25rem;
+    transition: color 0.1s ease-in-out;
+    cursor: pointer;
+  }
+
+  &__radio {
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 3.5rem;
+    margin: 0;
+    appearance: none;
+    background-color: var(--clr-primary-color-dark-blue);
+    border-radius: 0.25rem;
+    transition: background-color 0.1s ease-in-out;
+    cursor: pointer;
+  }
+
+  &__status {
+    font-weight: 500;
+    color: #DA3232;
+  }
+}

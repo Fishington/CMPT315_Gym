@@ -1,0 +1,14 @@
+.workout-routine-details {
+  &__equipment {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 0.5rem;
+    column-gap: 2rem;
+    list-style: disc inside;
+  }
+  
+  &__routine-details {
+    display: grid;
+    gap: 1rem;
+  }
+}

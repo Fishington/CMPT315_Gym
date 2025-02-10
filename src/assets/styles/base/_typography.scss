@@ -1,0 +1,46 @@
+// Global font styles that is applied to all pages
+
+@use '../abstract/index' as a;
+
+h1,
+h2,
+h3,
+h4,
+label{
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  color: #1D1D1B;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+p {
+  line-height: 1.5;
+}
+
+p.subtitle {
+  font-size: 0.75rem;
+}
+
+p,
+a,
+li,
+input {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.00625rem;
+  color: #1D1D1B;
+}
+
+a {
+  text-decoration: none;
+}

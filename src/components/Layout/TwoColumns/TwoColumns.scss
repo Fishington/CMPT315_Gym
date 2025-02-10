@@ -1,0 +1,11 @@
+.two-columns {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 26vw;
+
+  & > div {
+    display: grid;
+    align-content: flex-start;
+    gap: 2rem;
+  }
+}
