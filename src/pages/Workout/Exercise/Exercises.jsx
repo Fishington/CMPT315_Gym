@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {useOutletContext} from 'react-router-dom';
 
 import Section from '@/components/Layout/Section';
 import Card from '@/components/Card';
@@ -12,19 +11,13 @@ import PageHeader from '@/components/Layout/PageHeader';
 import {tempExercisesList} from '@/data/tempData.js';
 
 function Exercises() {
-    const {user} = useOutletContext();
     document.title = 'Exercises | HyperFit';
     
     const [searchTerm, setSearchTerm] = useState('')
     
     return (
         <>
-            <PageHeader
-                user={user}
-                pageTitle="View Exercises"
-                showBack={true}
-                backTarget='/workout'
-            />
+            <PageHeader pageTitle="View Exercises" showBack={true} backTarget='/workout'/>
             
             <Section>
                 <Card>

@@ -1,5 +1,4 @@
 import React from 'react';
-import {useOutletContext} from 'react-router-dom';
 
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Section from '@/components/Layout/Section/index.js';
@@ -9,15 +8,11 @@ import BackIcon from '@/components/Icons/BackIcon/index.js';
 import PageHeader from '@/components/Layout/PageHeader/index.js';
 
 function Workout() {
-    const {user} = useOutletContext();
     document.title = 'Workout | HyperFit';
 
     return (
         <>
-            <PageHeader
-                user={user}
-                pageTitle="Workout"
-            />
+            <PageHeader pageTitle="Workout"/>
 
             <TwoColumns>
                 <div>

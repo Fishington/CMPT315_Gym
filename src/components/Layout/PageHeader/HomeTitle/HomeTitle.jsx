@@ -1,8 +1,11 @@
 import './HomeTitle.scss'
 import React from 'react';
 import HomeOptions from './HomeOptions';
+import {useAuth} from '@/context/AuthContext.jsx';
 
-function HomeTitle({user}) {
+function HomeTitle() {
+    const {user} = useAuth();
+
     const today = new Date();
 
     const weekday = today.toLocaleString('en-US', {weekday: 'long'});

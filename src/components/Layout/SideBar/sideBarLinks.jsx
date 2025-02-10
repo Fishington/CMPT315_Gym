@@ -9,7 +9,7 @@ import LogOutIcon from '../../Icons/LogoutIcon';
 export const mainLinks = [
     {
         title: 'Home',
-        href : '/home',
+        href : '/',
         icon : <HomeIcon/>
     },
     // {
@@ -42,7 +42,6 @@ export const subLinks = [
     },
     {
         title: 'Log Out',
-        href : '/logout',
         icon : <LogOutIcon/>
     },
 ]
