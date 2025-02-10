@@ -67,7 +67,7 @@ function Register() {
         };
         console.log('Creating account for', userDTO.firstName);
 
-        navigate('/home');
+        navigate('/');
     };
 
     return (

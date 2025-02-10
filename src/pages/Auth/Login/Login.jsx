@@ -60,7 +60,7 @@ function Login() {
         console.log('Logging in', userDTO.firstName);
         login(userDTO)
         
-        navigate('/home');
+        navigate('/');
     };
 
     return (
