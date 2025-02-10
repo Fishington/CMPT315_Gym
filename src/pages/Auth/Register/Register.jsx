@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 
 import LogoFullIcon from '@/components/Icons/LogoFullIcon';
@@ -8,6 +8,7 @@ import TextInput from '@/components/Form/TextInput/index.js';
 import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Register.scss';
+import axios from 'axios';
 
 function Register() {
     const [firstName, setFirstName] = useState();
@@ -17,9 +18,52 @@ function Register() {
     const [confirmPassword, setConfirmPassword] = useState();
     const [errors, setErrors] = useState({});
 
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        async function grabData() {
+            const response = await axios.get("http://localhost:3000/users")
+            console.log(response)
+        }
+
+        grabData();
+    }, []);
+
+    const handleOnSubmit = async (e) => {
+        e.preventDefault();
+        let result = await fetch(
+            'http://localhost:8080/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    password: password,
+                    confirmPassword: confirmPassword
+                })
+            }
+        );
+        result = await result.json();
+        console.log(result);
+        navigate(
+            {
+                pathname: '/login',
+                search: `?email=${email}&password=${password}`,
+                state: {
+                    email: email,
+                    password: password
+        }
+            }
+        )
+    }
+
     const navigate = useNavigate();
 
     document.title = 'Login | HyperFit';
+
 
 
     const validation = () => {
