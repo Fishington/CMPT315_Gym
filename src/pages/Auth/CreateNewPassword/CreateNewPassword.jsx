@@ -47,7 +47,7 @@ function CreateNewPassword() {
         };
 
         console.log('New password has been set for user');
-        navigate('/home');
+        navigate('/');
     };
 
     return (
