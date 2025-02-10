@@ -35,6 +35,7 @@ function App() {
                     <Route path="forgot-password" element={<ForgetPassword/>}/>
                     <Route path="create-new-password" element={<CreateNewPassword/>}/>
 
+
                     <Route element={
                         <ProtectedRoute>
                             <AppLayout/>

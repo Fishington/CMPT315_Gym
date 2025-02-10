@@ -1,8 +1,8 @@
 import "./Card.scss";
 
-export default function Card({children}) {
+export default function Card({children, variant}) {
     return (
-        <div className='card'>
+        <div className={`card ${variant}`}>
             {children}
         </div>
     );

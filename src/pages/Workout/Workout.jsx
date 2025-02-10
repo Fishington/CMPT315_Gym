@@ -8,8 +8,6 @@ import BackIcon from '@/components/Icons/BackIcon/index.js';
 import PageHeader from '@/components/Layout/PageHeader/index.js';
 
 function Workout() {
-    document.title = 'Workout | HyperFit';
-
     return (
         <>
             <PageHeader pageTitle="Workout"/>

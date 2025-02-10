@@ -1,10 +1,10 @@
-import './DataList.scss';
+import './ItemSearchList.scss';
 
-function DataList({children, columns}) {
+function ItemSearchList({children, columns}) {
     return (
-        <ul className="data-list">
+        <ul className="item-search-list">
             <li
-                className="data-list__header"
+                className="item-search-list__header"
                 style={{gridTemplateColumns: `2.5fr repeat(${columns.length}, 1fr)`}}
             >
                 <p>Name</p>
@@ -19,4 +19,4 @@ function DataList({children, columns}) {
     );
 }
 
-export default DataList;
+export default ItemSearchList;

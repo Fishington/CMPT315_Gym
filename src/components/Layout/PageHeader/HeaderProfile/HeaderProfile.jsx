@@ -5,6 +5,7 @@ import {useAuth} from '@/context/AuthContext.jsx';
 
 function HeaderProfile() {
     const {user} = useAuth();
+    
     return (
         <div className="header-profile">
             <button className="header-profile__notification">

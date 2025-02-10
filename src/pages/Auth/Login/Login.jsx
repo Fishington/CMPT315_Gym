@@ -42,11 +42,11 @@ function Login() {
             console.log('Form not submitted: Invalid Fields');
             return
         }
-
+        
         // Validate User in Database
         const newErrors = await validateUser(email, password, {...errors});
         setErrors(newErrors);
-
+        
         const isValid = Object.keys(newErrors).length === 0;
         if (!isValid) {
             console.log('Form not submitted: Invalid User');
