@@ -9,7 +9,7 @@ import LogOutIcon from '../../Icons/LogoutIcon';
 export const mainLinks = [
     {
         title: 'Home',
-        href : '/home',
+        href : '/',
         icon : <HomeIcon/>
     },
     // {
