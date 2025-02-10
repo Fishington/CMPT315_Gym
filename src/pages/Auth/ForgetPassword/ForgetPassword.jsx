@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import {emailValidation} from '@/utils/authentication.js';
 
 import LogoFullIcon from '@/components/Icons/LogoFullIcon';
 import LogoIcon from '@/components/Icons/LogoIcon';
@@ -10,21 +11,41 @@ import LoginIcon from '@/components/Icons/LoginIcon';
 import './ForgetPassword.scss';
 
 function ForgetPassword() {
-    const [email, setEmail] = useState();
-
     const navigate = useNavigate();
 
-    document.title = 'Login | HyperFit';
+    const [email, setEmail] = useState('');
+    const [errors, setErrors] = useState({})
 
-    const sendEmail = () => {
-        alert(`Email: ${email}`);
+    document.title = 'Forgot Password | HyperFit';
 
-        const userDTO = {
+    const validation = () => {
+        let newErrors = {...errors};
+
+        // Email Validation
+        emailValidation(email, newErrors);
+
+        // Set errors and return true if no errors exists
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    }
+
+    const handleSendEmail = (e) => {
+        e.preventDefault();
+
+        // Validate Form Inputs
+        if (!validation()) {
+            console.log('Form not submitted: Invalid Fields');
+            return
+        }
+
+        // Store data into DTO
+        const emailDTO = {
             email,
         };
+        console.log(`Email "sent" to ${emailDTO.email}`)
 
-        console.log('Registering in with:', userDTO);
-        navigate('/create-new-password'); // Temp
+        // Temporary
+        navigate('/create-new-password');
     };
 
     return (
@@ -48,7 +69,7 @@ function ForgetPassword() {
                             buttonColor="blue"
                             submitLabel="Send Email"
                             submitIcon={<LoginIcon/>}
-                            onSubmit={() => sendEmail()}
+                            onSubmit={handleSendEmail}
                         >
                             <TextInput
                                 id="email"
@@ -56,14 +77,14 @@ function ForgetPassword() {
                                 label="Email"
                                 isRequired={true}
                                 value={email}
-                                error={false}
-                                errorText="test"
+                                error={errors.email?.error}
+                                errorText={errors.email?.message}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                         </Form>
 
                         <p>
-                            Remembered your password? <Link className="forgot-password__link" to="/">Login here</Link>
+                            Remembered your password? <Link className="forgot-password__link" to="/login">Login here</Link>
                         </p>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useOutletContext, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Card from '@/components/Card';
@@ -16,18 +16,13 @@ import './ExercisesDetails.scss'
 
 function ExercisesDetails() {
     const {id} = useParams();
-    const {user} = useOutletContext();
 
     const exercise = tempExercisesList.find((ex) => ex.id === Number(id))
     document.title = `${exercise.name} | HyperFit`;
 
     return (
         <>
-            <PageHeader
-                user={user}
-                pageTitle={exercise.name}
-                showBack={true}
-            />
+            <PageHeader pageTitle={exercise.name} showBack={true}/>
 
             <TwoColumns>
                 <div>

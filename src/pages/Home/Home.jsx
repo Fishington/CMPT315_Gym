@@ -1,5 +1,4 @@
 import React from 'react';
-import {useOutletContext} from 'react-router-dom';
 
 import Section from '@/components/Layout/Section';
 import PageHeader from '@/components/Layout/PageHeader';
@@ -8,15 +7,11 @@ import Card from '@/components/Card';
 import './Home.scss'
 
 function Home() {
-    const {user} = useOutletContext();
     document.title = 'Home | HyperFit';
 
     return (
         <>
-            <PageHeader
-                user={user}
-                pageTitle="Home"
-            />
+            <PageHeader pageTitle="Home"/>
 
             <Section
                 title="Overview"

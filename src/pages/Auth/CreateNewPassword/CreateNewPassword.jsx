@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import {createConfirmPasswordValidation, createPasswordValidation} from '@/utils/authentication.js';
 
 import LogoFullIcon from '@/components/Icons/LogoFullIcon';
 import LogoIcon from '@/components/Icons/LogoIcon';
@@ -10,22 +11,42 @@ import LoginIcon from '@/components/Icons/LoginIcon';
 import './CreateNewPassword.scss';
 
 function CreateNewPassword() {
-    const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
-
     const navigate = useNavigate();
 
-    document.title = 'Login | HyperFit';
+    const [password, setPassword] = useState();
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [errors, setErrors] = useState({})
+    
+    document.title = 'Create New Password | HyperFit';
 
-    const sendEmail = () => {
-        alert(`Password: ${password}\nConfirm Password: ${confirmPassword}`);
+    const validation = () => {
+        let newErrors = {...errors};
 
+        // Password Validation
+        createPasswordValidation(password, newErrors)
+        createConfirmPasswordValidation(password, newErrors)
+        
+        // Set errors and return true if no errors exists
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    }
+
+    const handleNewPassword = (e) => {
+        e.preventDefault();
+
+        // Validate Form Inputs
+        if (!validation()) {
+            console.log('Form not submitted: Invalid Fields');
+            return
+        }
+        
+        // Store data into DTO
         const userDTO = {
             password,
             confirmPassword
         };
 
-        console.log('Registering in with:', userDTO);
+        console.log('New password has been set for user');
         navigate('/home');
     };
 
@@ -49,7 +70,7 @@ function CreateNewPassword() {
                             buttonColor="blue"
                             submitLabel="Reset Password"
                             submitIcon={<LoginIcon/>}
-                            onSubmit={() => sendEmail()}
+                            onSubmit={handleNewPassword}
                         >
                             <TextInput
                                 id="password"
@@ -57,8 +78,8 @@ function CreateNewPassword() {
                                 label="Password:"
                                 isRequired={true}
                                 value={password}
-                                error={false}
-                                errorText="test"
+                                error={errors.password?.error}
+                                errorText={errors.password?.message}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
 
@@ -68,8 +89,8 @@ function CreateNewPassword() {
                                 label="Confirm Password:"
                                 isRequired={true}
                                 value={confirmPassword}
-                                error={false}
-                                errorText="test"
+                                error={errors.confirmPassword?.error}
+                                errorText={errors.confirmPassword?.message}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                         </Form>

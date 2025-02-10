@@ -6,11 +6,6 @@ import {slugToTitle} from '@/utils/formatter.js';
 
 import './AppLayout.scss';
 
-const user = {
-    firstName: 'Sergei',
-    lastName : 'Borja'
-};
-
 function AppLayout() {
     const {pathname} = useLocation();
     const section = slugToTitle(pathname.split('/')[1]);
@@ -20,7 +15,7 @@ function AppLayout() {
             <SideBar currentPage={section}/>
 
             <main className="app-layout__main">
-                <Outlet context={{user}}/>
+                <Outlet/>
             </main>
         </div>
     );
