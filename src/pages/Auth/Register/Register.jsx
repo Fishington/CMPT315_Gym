@@ -1,176 +1,74 @@
 import {useState, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import {
+    newEmailValidation,
+    firstNameValidation,
+    lastNameValidation,
+    createPasswordValidation,
+    createConfirmPasswordValidation
+} from '@/utils/authentication.js';
 
 import LogoFullIcon from '@/components/Icons/LogoFullIcon';
 import LogoIcon from '@/components/Icons/LogoIcon';
 import Form from '@/components/Form';
-import TextInput from '@/components/Form/TextInput/index.js';
+import TextInput from '@/components/Form/TextInput';
 import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Register.scss';
 import axios from 'axios';
 
 function Register() {
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
-    const [errors, setErrors] = useState({});
-
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        async function grabData() {
-            const response = await axios.get("http://localhost:3000/users")
-            console.log(response)
-        }
-
-        grabData();
-    }, []);
-
-    const handleOnSubmit = async (e) => {
-        e.preventDefault();
-        let result = await fetch(
-            'http://localhost:8080/api/auth/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    firstName: firstName,
-                    lastName: lastName,
-                    email: email,
-                    password: password,
-                    confirmPassword: confirmPassword
-                })
-            }
-        );
-        result = await result.json();
-        console.log(result);
-        navigate(
-            {
-                pathname: '/login',
-                search: `?email=${email}&password=${password}`,
-                state: {
-                    email: email,
-                    password: password
-        }
-            }
-        )
-    }
-
     const navigate = useNavigate();
 
-    document.title = 'Login | HyperFit';
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [errors, setErrors] = useState({});
 
+    document.title = 'Register | HyperFit';
 
+    const validation = async (errors) => {
+        // Name Validation
+        firstNameValidation(firstName, errors)
+        lastNameValidation(lastName, errors)
 
-    const validation = () => {
-        let newErrors = {};
+        // Email Validation
+        await newEmailValidation(email, errors)
 
-        if (!firstName) {
-            newErrors.firstName = "First name is required";
-        }
-        else if (!lastName) {
-            newErrors.lastName = "Last name is required";
-        }
+        // Password Validation
+        createPasswordValidation(password, errors)
+        createConfirmPasswordValidation(confirmPassword, password, errors)
 
-
-        else if (!email) {
-            newErrors.email = "Email is required";
-        }
-
-        else if (!isValidEmail(email)) {
-            newErrors.email = "Email is invalid";
-        }
-
-
-        else if (!password) {
-            newErrors.password = "Password is required";
-        }
-
-        else if (!isValidPassword(password)) {
-            newErrors.password = "Password is invalid";
-        }
-
-        else if (!confirmPassword) {
-            newErrors.confirmPassword = "Confirm password is required";
-        }
-        else if (password !== confirmPassword) {
-            newErrors.confirmPassword = "Passwords do not match";
-        }
-
-        setErrors(newErrors);
-
-        console.log(errors);
-        
-
-        return Object.keys(newErrors).length === 0;
+        return errors;
     }
 
-    const isValidPassword = (password) => {
-        const hasLowercase = /[a-z]/.test(password);
-        const hasUppercase = /[A-Z]/.test(password);
-        const hasDigit = /\d/.test(password);
-        const hasSpecialChar = /[@$!%*?&]/.test(password);
-        const hasMinLength = password.length >= 8;
-    
-        if (!hasLowercase) {
-            console.log("❌ Password must contain at least one lowercase letter.");
-            return false
-        }
-        if (!hasUppercase) {
-            console.log("❌ Password must contain at least one uppercase letter.");
-            return false
-        }
-        if (!hasDigit) {
-            console.log("❌ Password must contain at least one digit.");
-            return false
-        }
-        if (!hasSpecialChar) {
-            console.log("❌ Password must contain at least one special character (@$!%*?&).");
-            return false
-        }
-        if (!hasMinLength) {
-            console.log("❌ Password must be at least 8 characters long.");
-            return false
-        }
-    
-        return true;
-    
-    }
-
-    const isValidEmail = (email) => {
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-
-    const handleSubmit = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
-        const isValid = validation();
-        if (isValid) {
-            register();
-        } 
+        let newErrors = {...errors}
         
-        else {
-            console.log("form not submitted");
+        // Validate Form Inputs
+        newErrors = validation(newErrors);
+        setErrors(newErrors);
+        
+        const isValid = Object.keys(newErrors).length === 0;
+        if (!isValid) {
+            console.log('Form not submitted: Invalid Fields');
+            return
         }
-    }
 
-    const register = () => {
-        alert(`First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nPassword: ${password}\nConfirm Password: ${confirmPassword}`);
-
+        // Store DTO
         const userDTO = {
             firstName,
             lastName,
-            email, 
+            email,
             password,
             confirmPassword
         };
+        console.log('Creating account for', userDTO.firstName);
 
-        console.log('Registering in with:', userDTO);
-        navigate('/home');
+        navigate('/');
     };
 
     return (
@@ -191,28 +89,28 @@ function Register() {
                             buttonColor="blue"
                             submitLabel="Create Account"
                             submitIcon={<LoginIcon/>}
-                            onSubmit={handleSubmit}
+                            onSubmit={handleRegister}
                         >
                             <div className="register__two-input-row">
                                 <TextInput
                                     id="firstName"
                                     type="firstName"
-                                    label="First Name"
+                                    label="First Name:"
                                     isRequired={true}
                                     value={firstName}
-                                    error={false}
-                                    errorText="test"
+                                    error={errors.firstName?.error}
+                                    errorText={errors.firstName?.message}
                                     onChange={(e) => setFirstName(e.target.value)}
                                 />
 
                                 <TextInput
                                     id="lastName"
                                     type="lastName"
-                                    label="Last Name"
+                                    label="Last Name:"
                                     isRequired={true}
                                     value={lastName}
-                                    error={false}
-                                    errorText="test"
+                                    error={errors.lastName?.error}
+                                    errorText={errors.lastName?.message}
                                     onChange={(e) => setLastName(e.target.value)}
                                 />
                             </div>
@@ -220,11 +118,11 @@ function Register() {
                             <TextInput
                                 id="email"
                                 type="email"
-                                label="Email"
+                                label="Email:"
                                 isRequired={true}
                                 value={email}
-                                error={false}
-                                errorText="test"
+                                error={errors.email?.error}
+                                errorText={errors.email?.message}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
 
@@ -234,8 +132,8 @@ function Register() {
                                 label="Password"
                                 isRequired={true}
                                 value={password}
-                                error={false}
-                                errorText="test"
+                                error={errors.password?.error}
+                                errorText={errors.password?.message}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
 
@@ -245,14 +143,14 @@ function Register() {
                                 label="Confirm Password"
                                 isRequired={true}
                                 value={confirmPassword}
-                                error={false}
-                                errorText="test"
+                                error={errors.confirmPassword?.error}
+                                errorText={errors.confirmPassword?.message}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                         </Form>
 
                         <p>
-                            Already have an account? <Link className="register__link" to="/">Login here</Link>
+                            Already have an account? <Link className="register__link" to="/login">Login here</Link>
                         </p>
                     </div>
                 </div>

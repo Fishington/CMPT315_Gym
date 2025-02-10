@@ -1,5 +1,5 @@
 import React from 'react';
-import {useOutletContext, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Section from '@/components/Layout/Section';
@@ -17,7 +17,6 @@ import Button from '@/components/Button/index.js';
 
 function WorkoutRoutineDetails() {
     const {id} = useParams();
-    const {user} = useOutletContext();
 
     const routine = tempRoutineList.find((ro) => ro.id === Number(id));
     document.title = `${routine.name} | HyperFit`;
@@ -30,11 +29,7 @@ function WorkoutRoutineDetails() {
 
     return (
         <>
-            <PageHeader
-                user={user}
-                pageTitle={routine.name}
-                showBack={true}
-            />
+            <PageHeader pageTitle={routine.name} showBack={true}/>
 
             <TwoColumns secondColumnWidth="max-content">
                 <div>
