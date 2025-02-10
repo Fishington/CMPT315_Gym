@@ -1,14 +1,13 @@
-import React from 'react';
 import {useParams} from 'react-router-dom';
 
+import PageHeader from '@/components/Layout/PageHeader';
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Section from '@/components/Layout/Section';
 import Card from '@/components/Card';
 import MealPlanIcon from '@/components/Icons/MealPlanIcon';
-import DataList from '@/components/ExerciseList';
-import PageHeader from '@/components/Layout/PageHeader';
-import ItemDetailContainer from '@/components/ItemDetailContainer';
-import ItemDetail from '@/components/ItemDetail';
+import ExerciseList from '@/components/ExerciseList';
+import ItemDetails from '@/components/ItemDetails';
+import ItemDetailsTag from '@/components/ItemDetails/ItemDetailsTag';
 
 import {tempRoutineList} from '@/data/tempData.js';
 
@@ -17,16 +16,14 @@ import Button from '@/components/Button/index.js';
 
 function WorkoutRoutineDetails() {
     const {id} = useParams();
-
     const routine = tempRoutineList.find((ro) => ro.id === Number(id));
-    document.title = `${routine.name} | HyperFit`;
 
     const exerciseCount = [
         ...routine.exercises.warmups,
         ...routine.exercises.exercises,
         ...routine.exercises.stretches
     ].length;
-
+    
     return (
         <>
             <PageHeader pageTitle={routine.name} showBack={true}/>
@@ -38,43 +35,43 @@ function WorkoutRoutineDetails() {
                             <img src={routine.image} alt=""/>
 
                             <div className="workout-routine-details__routine-details">
-                                <ItemDetailContainer columns={3}>
-                                    <ItemDetail
+                                <ItemDetails columns={3}>
+                                    <ItemDetailsTag
                                         icon={<MealPlanIcon/>}
                                         value={routine.level}
                                         subtitle="Level"
                                     />
 
-                                    <ItemDetail
+                                    <ItemDetailsTag
                                         icon={<MealPlanIcon/>}
                                         value={`${exerciseCount} Exercises`}
                                         subtitle="Total Exercises"
                                     />
 
-                                    <ItemDetail
+                                    <ItemDetailsTag
                                         icon={<MealPlanIcon/>}
                                         value={`${routine.caloriesMin} - ${routine.caloriesMax} Cal`}
                                         subtitle="Calories Burned"
                                     />
                                     
-                                    <ItemDetail
+                                    <ItemDetailsTag
                                         icon={<MealPlanIcon/>}
                                         value={`${routine.length.split(':')[0]}:${routine.length.split(':')[1]}`}
                                         subtitle="Duration"
                                     />
 
-                                    <ItemDetail
+                                    <ItemDetailsTag
                                         icon={<MealPlanIcon/>}
                                         value={routine.targetMuscle}
                                         subtitle="Target Muscles"
                                     />
 
-                                    <ItemDetail
+                                    <ItemDetailsTag
                                         icon={<MealPlanIcon/>}
                                         value={routine.goal}
                                         subtitle="Workout Goal"
                                     />
-                                </ItemDetailContainer>
+                                </ItemDetails>
                             </div>
                             
                             <Button color="blue" size="full-width" href={`/workout/session/${id}`}>
@@ -103,7 +100,7 @@ function WorkoutRoutineDetails() {
 
                 <div>
                     <Section title="exercises">
-                        <DataList routine={routine}/>
+                        <ExerciseList routine={routine}/>
                     </Section>
                 </div>
             </TwoColumns>

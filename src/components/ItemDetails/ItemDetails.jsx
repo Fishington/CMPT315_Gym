@@ -1,6 +1,6 @@
-import './ItemDetailContainer.scss'
+import './ItemDetails.scss'
 
-function ItemDetailContainer({children, columns}) {
+function ItemDetails({children, columns}) {
     return (
         <div 
             className="item-detail-container"
@@ -11,4 +11,4 @@ function ItemDetailContainer({children, columns}) {
     );
 }
 
-export default ItemDetailContainer;
+export default ItemDetails;

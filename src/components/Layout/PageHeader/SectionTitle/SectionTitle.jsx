@@ -1,19 +1,18 @@
+import {Link} from 'react-router-dom';
 import BackIcon from '@/components/Icons/BackIcon/index.js';
+
 import './SectionTitle.scss';
-import {useNavigate} from 'react-router-dom';
 
 function SectionTitle({pageTitle, showBack, backTarget}) {
-    const navigate = useNavigate();
-    
     return (
         <div className="section-title">
             {showBack && (
-                <button
+                <Link
                     className="section-title__back"
-                    onClick={() => navigate(backTarget ? backTarget : -1)}
+                    to={backTarget ? backTarget : -1}
                 >
                     <BackIcon/>
-                </button>
+                </Link>
             )}
 
             <h1 className="section-title__title">{pageTitle}</h1>

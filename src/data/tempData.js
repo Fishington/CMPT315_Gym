@@ -137,7 +137,8 @@ export const tempRoutineList = [{
             {workoutId: 1, reps: null, sets: null},
             {workoutId: 1, reps: null, sets: null},
         ]
-    }
+    },
+    tags: ['Muscle Gain', 'Dumbbells', 'Full Body']
 },
     {
         id          : 2,
@@ -170,6 +171,7 @@ export const tempRoutineList = [{
                 {workoutId: 1, reps: null, sets: null},
                 {workoutId: 1, reps: null, sets: null},
             ]
-        }
+        },
+        tags: ['Muscle Gain', 'Dumbbells', 'Full Body']
     },
 ]
