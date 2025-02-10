@@ -1,0 +1,15 @@
+.data-list {
+  display: grid;
+
+  &__header {
+    display: grid;
+    padding: 0.5rem 1.5rem;
+    border-bottom: 1px solid #DBDBDB;
+    gap: 1rem;
+
+    & p {
+      font-size: 1.35rem;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+  }
+}

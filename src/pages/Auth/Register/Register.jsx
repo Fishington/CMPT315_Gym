@@ -15,10 +15,104 @@ function Register() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
+    const [errors, setErrors] = useState({});
 
     const navigate = useNavigate();
 
     document.title = 'Login | HyperFit';
+
+
+    const validation = () => {
+        let newErrors = {};
+
+        if (!firstName) {
+            newErrors.firstName = "First name is required";
+        }
+        else if (!lastName) {
+            newErrors.lastName = "Last name is required";
+        }
+
+
+        else if (!email) {
+            newErrors.email = "Email is required";
+        }
+
+        else if (!isValidEmail(email)) {
+            newErrors.email = "Email is invalid";
+        }
+
+
+        else if (!password) {
+            newErrors.password = "Password is required";
+        }
+
+        else if (!isValidPassword(password)) {
+            newErrors.password = "Password is invalid";
+        }
+
+        else if (!confirmPassword) {
+            newErrors.confirmPassword = "Confirm password is required";
+        }
+        else if (password !== confirmPassword) {
+            newErrors.confirmPassword = "Passwords do not match";
+        }
+
+        setErrors(newErrors);
+
+        console.log(errors);
+        
+
+        return Object.keys(newErrors).length === 0;
+    }
+
+    const isValidPassword = (password) => {
+        const hasLowercase = /[a-z]/.test(password);
+        const hasUppercase = /[A-Z]/.test(password);
+        const hasDigit = /\d/.test(password);
+        const hasSpecialChar = /[@$!%*?&]/.test(password);
+        const hasMinLength = password.length >= 8;
+    
+        if (!hasLowercase) {
+            console.log("❌ Password must contain at least one lowercase letter.");
+            return false
+        }
+        if (!hasUppercase) {
+            console.log("❌ Password must contain at least one uppercase letter.");
+            return false
+        }
+        if (!hasDigit) {
+            console.log("❌ Password must contain at least one digit.");
+            return false
+        }
+        if (!hasSpecialChar) {
+            console.log("❌ Password must contain at least one special character (@$!%*?&).");
+            return false
+        }
+        if (!hasMinLength) {
+            console.log("❌ Password must be at least 8 characters long.");
+            return false
+        }
+    
+        return true;
+    
+    }
+
+    const isValidEmail = (email) => {
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const isValid = validation();
+        if (isValid) {
+            register();
+        } 
+        
+        else {
+            console.log("form not submitted");
+        }
+    }
 
     const register = () => {
         alert(`First Name: ${firstName}\nLast Name: ${lastName}\nEmail: ${email}\nPassword: ${password}\nConfirm Password: ${confirmPassword}`);
@@ -53,7 +147,7 @@ function Register() {
                             buttonColor="blue"
                             submitLabel="Create Account"
                             submitIcon={<LoginIcon/>}
-                            onSubmit={() => register()}
+                            onSubmit={handleSubmit}
                         >
                             <div className="register__two-input-row">
                                 <TextInput

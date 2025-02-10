@@ -1,8 +1,8 @@
 .login {
   display: grid;
-  grid-template: 1fr / 1fr 1fr;
-  padding: 6rem;
-  gap: 6rem;
+  grid-template: 1fr / 1fr 1.5fr;
+  padding: 8rem;
+  gap: 12rem;
   min-height: 100vh;
   background-color: #FFFFFF;
 
@@ -16,6 +16,7 @@
     align-self: center;
     display: grid;
     gap: 3rem;
+    padding: 0 5%;
   }
 
   &__link {

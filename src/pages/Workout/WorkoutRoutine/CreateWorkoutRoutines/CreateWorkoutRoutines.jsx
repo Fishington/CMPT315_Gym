@@ -1,15 +1,23 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useNavigate, useOutletContext} from 'react-router-dom';
-import TwoColumns from '@/components/Layout/TwoColumns/index.js';
-import Section from '@/components/Layout/Section/index.js';
-import ExerciseList from '@/components/ExerciseList/index.js';
-import Card from '@/components/Card/index.js';
-import Form from '@/components/Form/index.js';
-import TextInput from '@/components/Form/TextInput/index.js';
+
+import TwoColumns from '@/components/Layout/TwoColumns';
+import Section from '@/components/Layout/Section';
+import DataList from '@/components/ExerciseList';
+import Card from '@/components/Card';
+import Form from '@/components/Form';
+import TextInput from '@/components/Form/TextInput';
+import RadioInput from '@/components/Form/RadioInput';
+import MealPlanIcon from '@/components/Icons/MealPlanIcon';
+import PageHeader from '@/components/Layout/PageHeader';
+import ItemDetailContainer from '@/components/ItemDetailContainer';
+import ItemDetail from '@/components/ItemDetail';
+
+import './CreateWorkoutRoutine.scss'
 
 function CreateWorkoutRoutines() {
     const navigate = useNavigate();
-    const {setPageTitle} = useOutletContext();
+    const {user} = useOutletContext();
 
     const [routine, setRoutine] = useState({
         id          : null,
@@ -20,120 +28,166 @@ function CreateWorkoutRoutines() {
         targetMuscle: '',
         exerciseType: '',
         goal        : '',
+        caloriesMin : 0,
+        caloriesMax : 0,
+        length      : '',
+        equipment   : [],
         about       : '',
-        benefits    : [],
         exercises   : {
             warmups  : [],
             exercises: [],
             stretches: []
         }
     });
+
     const [name, setName] = useState('');
     const [about, setAbout] = useState('');
     const [goal, setGoal] = useState('');
     const [difficulty, setDifficulty] = useState('');
     const [targetMuscles, setTargetMuscles] = useState('');
     const [secondaryMuscles, setSecondaryMuscles] = useState('');
-    const [benefits, setBenefits] = useState('');
 
     function handleCreateRoutine(e) {
         e.preventDefault();
+        console.log(name, about, goal, difficulty, targetMuscles, secondaryMuscles,)
         navigate('/workout/routines')
     }
 
-    useEffect(() => {
-        setPageTitle('Create A Workout Routine')
-    }, [setPageTitle]);
-
     return (
         <>
-            <TwoColumns secondColumnWidth="20vw">
+            <PageHeader
+                user={user}
+                pageTitle="Create Workout Routine"
+                showBack={true}
+            />
+
+            <TwoColumns>
                 <div>
                     <Section>
                         <Card>
-                            <div>
-                                <h2>Workout Details:</h2>
-                                <Form
-                                    buttonColor="blue"
-                                    submitLabel="Create Routine"
-                                    onSubmit={handleCreateRoutine}
-                                >
-                                    <TextInput
-                                        id="name"
-                                        type="text"
-                                        label="Workout Routine Name:"
-                                        isRequired={true}
-                                        value={name}
-                                        error={false}
-                                        errorText="test"
-                                        onChange={(e) => setName(e.target.value)}
-                                    />
+                            <h2>Workout Details:</h2>
+                            <Form
+                                buttonColor="blue"
+                                submitLabel="Create Routine"
+                                onSubmit={handleCreateRoutine}
+                                variant='create-workout-routine__form'
+                            >
+                                <TextInput
+                                    id="name"
+                                    type="text"
+                                    label="Workout Routine Name:"
+                                    isRequired={true}
+                                    value={name}
+                                    error={false}
+                                    errorText="test"
+                                    onChange={(e) => setName(e.target.value)}
+                                />
 
-                                    <TextInput
-                                        id="email"
-                                        type="email"
-                                        label="About the Workout Routine:"
-                                        isRequired={true}
-                                        value={about}
-                                        error={false}
-                                        errorText="test"
-                                        onChange={(e) => setAbout(e.target.value)}
-                                    />
+                                <TextInput
+                                    id="about"
+                                    type="text"
+                                    label="About the Workout Routine:"
+                                    isRequired={true}
+                                    value={about}
+                                    error={false}
+                                    errorText="test"
+                                    onChange={(e) => setAbout(e.target.value)}
+                                />
 
-                                    <TextInput
-                                        id="email"
-                                        type="email"
-                                        label="Workout Goal:"
-                                        isRequired={true}
-                                        value={goal}
-                                        error={false}
-                                        errorText="test"
-                                        onChange={(e) => setGoal(e.target.value)}
-                                    />
+                                <TextInput
+                                    id="goal"
+                                    type="text"
+                                    label="Workout Goal:"
+                                    isRequired={true}
+                                    value={goal}
+                                    error={false}
+                                    errorText="test"
+                                    onChange={(e) => setGoal(e.target.value)}
+                                />
 
-                                    <TextInput
-                                        id="email"
-                                        type="email"
-                                        label="Target Muscles:"
-                                        isRequired={true}
-                                        value={targetMuscles}
-                                        error={false}
-                                        errorText="test"
-                                        onChange={(e) => setTargetMuscles(e.target.value)}
-                                    />
+                                <RadioInput
+                                    label={'Difficulty:'}
+                                    onChange={setDifficulty}
+                                    options={['Beginner', 'Intermediate', 'Advance']}
+                                    error={false}
+                                    errorText="test"
+                                    isRequired={true}
+                                />
 
-                                    <TextInput
-                                        id="email"
-                                        type="email"
-                                        label="Secondary Muscles:"
-                                        isRequired={true}
-                                        value={secondaryMuscles}
-                                        error={false}
-                                        errorText="test"
-                                        onChange={(e) => setSecondaryMuscles(e.target.value)}
-                                    />
+                                <TextInput
+                                    id="targetMuscles"
+                                    type="text"
+                                    label="Target Muscles:"
+                                    isRequired={true}
+                                    value={targetMuscles}
+                                    error={false}
+                                    errorText="test"
+                                    onChange={(e) => setTargetMuscles(e.target.value)}
+                                />
 
-                                    <TextInput
-                                        id="email"
-                                        type="email"
-                                        label="Benefits:"
-                                        isRequired={true}
-                                        value={benefits}
-                                        error={false}
-                                        errorText="test"
-                                        onChange={(e) => setBenefits(e.target.value)}
-                                    />
-                                </Form>
-                            </div>
+                                <TextInput
+                                    id="secondaryMuscles"
+                                    type="text"
+                                    label="Secondary Muscles:"
+                                    isRequired={false}
+                                    value={secondaryMuscles}
+                                    error={false}
+                                    errorText="test"
+                                    onChange={(e) => setSecondaryMuscles(e.target.value)}
+                                />
+                                
+                                <div className="create-workout-routine__more-info">
+                                    <h2>Based on the Exercises:</h2>
+
+                                    <div>
+                                        <div className='card__section'>
+                                            <h3>Equipment:</h3>
+
+                                            {routine.equipment.length === 0 ? (
+                                                <p>Start adding exercises to your workout routine</p>
+                                            ) : (
+                                                <ul className="create-workout-routine__equipment">
+                                                    {routine.equipment.map((equipment, index) => (
+                                                        <li key={index}>
+                                                            {equipment}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
+                                        </div>
+                                        
+                                        <ItemDetailContainer columns={3}>
+                                            <ItemDetail
+                                                icon={<MealPlanIcon/>}
+                                                value="0 Exercises"
+                                                subtitle="Level"
+                                            />
+
+                                            <ItemDetail
+                                                icon={<MealPlanIcon/>}
+                                                value="0 - 0 cal"
+                                                subtitle="Calories Burned"
+                                            />
+
+                                            <ItemDetail
+                                                icon={<MealPlanIcon/>}
+                                                value="0:00 minutes"
+                                                subtitle="Total Duration"
+                                            />
+                                        </ItemDetailContainer>
+                                    </div>
+                                </div>
+                            </Form>
                         </Card>
                     </Section>
                 </div>
 
                 <div>
                     <Section title="exercises">
-                        <ExerciseList routine={routine} createList={true}/>
+                        <DataList routine={routine} createList={true}/>
                     </Section>
                 </div>
+
             </TwoColumns>
         </>
     );

@@ -11,6 +11,24 @@
   border-radius: 0.25rem;
 
   // Color
+  &:disabled {
+    color: #1D1D1B;
+    background-color: #E9E9E9;
+    border: none;
+    cursor: default;
+    
+    &:hover {
+      color: #1D1D1B;
+      background-color: #E9E9E9;
+      border: none;
+    }
+  }
+  
+  &--active {
+    background-color: #2A3FF4;
+    color: #FFFFFF;
+  }
+
   &--blue {
     background-color: #2A3FF4;
     color: #FFFFFF;
@@ -82,6 +100,20 @@
   }
 
   // Size
+  &--pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+    font-size: 1.1rem;
+
+    & svg {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
   &--medium {
     font-size: 1.1rem;
     padding: 0.5rem 1rem;
