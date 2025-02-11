@@ -17,6 +17,7 @@ import ExercisesDetails from '@/pages/Workout/Exercise/ExercisesDetails';
 import WorkoutRoutineDetails from '@/pages//Workout/WorkoutRoutine/WorkoutRoutineDetails';
 import WorkoutSession from '@/pages/Workout/WorkoutSession';
 import WorkoutSummary from '@/pages/Workout/WorkoutSummary';
+import UserProfile from '@/pages/UserProfile/UserProfile';
 
 import './assets/styles/globals.scss'
 import ProtectedRoute from '@/pages/ProtectedRoute.jsx';
@@ -34,6 +35,7 @@ function App() {
                     <Route path="register" element={<Register/>}/>
                     <Route path="forgot-password" element={<ForgetPassword/>}/>
                     <Route path="create-new-password" element={<CreateNewPassword/>}/>
+                    
 
                     <Route element={
                         <ProtectedRoute>
@@ -52,6 +54,8 @@ function App() {
 
                         <Route path="/workout/session/:id" element={<WorkoutSession/>}/>
                         <Route path="/workout/summary/:id" element={<WorkoutSummary/>}/>
+                        
+                        <Route path="/user-profile" element={<UserProfile/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>

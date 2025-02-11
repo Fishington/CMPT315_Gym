@@ -3,18 +3,22 @@ import './Navigation.scss';
 import {useAuth} from '@/context/AuthContext.jsx';
 
 function Navigation({links, currentPage}) {
-    const {logout} = useAuth();
     const navigate = useNavigate();
+    const {logout} = useAuth();
 
     const handleLogout = () => {
         logout()
         navigate('/login');
     };
 
+    const isCurrentPage = (linkTitle) => {
+        return currentPage === linkTitle || (!currentPage && linkTitle === 'Home');
+    };
+
     return (
         <ul className="navigation__links">
-            {links.map((link) => (
-                <li key={link.href}>
+            {links.map((link, key) => (
+                <li key={key}>
                     {link.title === 'Log Out' ? (
                         <button
                             className="navigation__link logout"
@@ -26,7 +30,7 @@ function Navigation({links, currentPage}) {
                     ) : (
                         <Link
                             to={link.href}
-                            className={`navigation__link ${currentPage === link.title ? 'active' : ''}`}
+                            className={`navigation__link ${isCurrentPage(link.title) ? 'active' : ''}`}
                         >
                             {link.icon}
                             {link.title}

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Section from '@/components/Layout/Section';
 import PageHeader from '@/components/Layout/PageHeader';
 import Card from '@/components/Card';
@@ -7,8 +5,7 @@ import Card from '@/components/Card';
 import './Home.scss'
 
 function Home() {
-    document.title = 'Home | HyperFit';
-
+    
     return (
         <>
             <PageHeader pageTitle="Home"/>

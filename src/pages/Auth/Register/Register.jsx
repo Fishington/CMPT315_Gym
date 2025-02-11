@@ -15,9 +15,14 @@ import TextInput from '@/components/Form/TextInput';
 import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Register.scss';
+
+import {useAuth} from '@/context/AuthContext.jsx';
 import axios from 'axios';
 
+
 function Register() {
+    const {login} = useAuth();
+
     const navigate = useNavigate();
 
     const [firstName, setFirstName] = useState('');
@@ -49,7 +54,7 @@ function Register() {
         let newErrors = {...errors}
         
         // Validate Form Inputs
-        newErrors = validation(newErrors);
+        newErrors = await validation(newErrors);
         setErrors(newErrors);
         
         const isValid = Object.keys(newErrors).length === 0;
@@ -67,6 +72,7 @@ function Register() {
             confirmPassword
         };
         console.log('Creating account for', userDTO.firstName);
+        login(userDTO)
 
         navigate('/');
     };

@@ -1,4 +1,4 @@
-import ExerciseCard from '@/components/ExerciseCard/index.js';
+import ExerciseCard from './ExerciseCard';
 import Button from '@/components/Button/index.js';
 
 import {toSeconds, toTitle} from '@/utils/formatter.js';

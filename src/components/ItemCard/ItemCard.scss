@@ -1,0 +1,72 @@
+.item-card {
+  gap: 1rem;
+  padding: 1rem;
+  grid-template-rows: max-content 1fr;
+  height: 100%;
+
+  &:hover {
+    background-color: #F0F1FF;
+  }
+  
+  &__image-container {
+    position: relative;
+    
+    & p {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+    }
+  }
+
+  &__content {
+    display: grid;
+    align-content: space-between;
+    gap: 3rem;
+  }
+
+  &__text {
+    display: grid;
+    gap: 0.75rem;
+  }
+  
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    & div {
+      display: grid;
+      gap: 0.1rem;
+    }
+  }
+
+  &__author-name {
+    font-weight: 700;
+  }
+
+  &__length {
+    font-weight: 700;
+    color: #2A3FF4;
+  }
+
+  &__author-image {
+    object-fit: cover;
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+    row-gap: 0.5rem;
+  }
+}

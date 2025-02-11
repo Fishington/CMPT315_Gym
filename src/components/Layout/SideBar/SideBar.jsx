@@ -1,6 +1,6 @@
 import { mainLinks, subLinks } from './sideBarLinks.jsx';
 
-import LogoFullIcon from '../../Icons/LogoFullIcon';
+import LogoFullIcon from '@/components/Icons/LogoFullIcon';
 import Navigation from './Navigation';
 
 import './SideBar.scss'
@@ -15,7 +15,7 @@ function SideBar({currentPage}) {
                     <Navigation links={mainLinks} currentPage={currentPage}/>
                 </div>
 
-                <Navigation links={subLinks} currentPage={currentPage}/>
+                <Navigation links={subLinks}/>
             </nav>
         </header>
     );
