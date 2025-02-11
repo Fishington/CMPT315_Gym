@@ -10,8 +10,14 @@ export function AuthProvider({children}) {
     });
 
     function login(userData) {
-        setUser(userData);
-        localStorage.setItem('user', JSON.stringify(userData));
+        const formattedUser = {
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            email: userData.email
+        };
+        
+        setUser(formattedUser);
+        localStorage.setItem('user', JSON.stringify(formattedUser));
     }
 
     function logout() {
@@ -20,7 +26,7 @@ export function AuthProvider({children}) {
     }
 
     return (
-        <AuthContext.Provider value={{user,  login, logout}}>
+        <AuthContext.Provider value={{user, login, logout}}>
             {children}
         </AuthContext.Provider>
     )
@@ -31,5 +37,6 @@ export function useAuth() {
     if (!context) {
         throw new Error('useAuth must be used within an AuthProvider')
     }
+
     return context;
 }

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {
     newEmailValidation,
@@ -16,7 +16,14 @@ import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Register.scss';
 
+import {useAuth} from '@/context/AuthContext.jsx';
+import axios from 'axios';
+import {createUser} from '@/api/usersApi.js';
+
+
 function Register() {
+    const {login} = useAuth();
+
     const navigate = useNavigate();
 
     const [firstName, setFirstName] = useState('');
@@ -48,7 +55,7 @@ function Register() {
         let newErrors = {...errors}
         
         // Validate Form Inputs
-        newErrors = validation(newErrors);
+        newErrors = await validation(newErrors);
         setErrors(newErrors);
         
         const isValid = Object.keys(newErrors).length === 0;
@@ -62,11 +69,14 @@ function Register() {
             firstName,
             lastName,
             email,
-            password,
-            confirmPassword
+            password
         };
         console.log('Creating account for', userDTO.firstName);
-
+        
+        await createUser(userDTO)
+        
+        login(userDTO)
+        
         navigate('/');
     };
 

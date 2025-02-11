@@ -12,7 +12,7 @@ import TextInput from '@/components/Form/TextInput';
 import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Login.scss';
-import {fetchUser} from '@/utils/fetchData.js';
+import {fetchUser} from '@/api/usersApi.js';
 
 function Login() {
     const {login} = useAuth();
@@ -42,11 +42,11 @@ function Login() {
             console.log('Form not submitted: Invalid Fields');
             return
         }
-
+        
         // Validate User in Database
         const newErrors = await validateUser(email, password, {...errors});
         setErrors(newErrors);
-
+        
         const isValid = Object.keys(newErrors).length === 0;
         if (!isValid) {
             console.log('Form not submitted: Invalid User');

@@ -1,6 +1,12 @@
 .item-search {
   &__search-bar {
     display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  &__main-input {
+    display: flex;
     gap: 1rem;
   }
 

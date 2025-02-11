@@ -1,5 +1,5 @@
 import {isValidEmail, isValidPassword} from '@/utils/validation.js';
-import {fetchUser} from '@/utils/fetchData.js';
+import {fetchUser} from '@/api/usersApi.js';
 
 export const firstNameValidation = (firstName, errorList) => {
     if (!firstName)
