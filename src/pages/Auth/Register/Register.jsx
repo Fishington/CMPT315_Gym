@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {
     newEmailValidation,
@@ -15,7 +15,10 @@ import TextInput from '@/components/Form/TextInput';
 import LoginIcon from '@/components/Icons/LoginIcon';
 
 import './Register.scss';
+
 import {useAuth} from '@/context/AuthContext.jsx';
+import axios from 'axios';
+
 
 function Register() {
     const {login} = useAuth();
