@@ -10,8 +10,14 @@ export function AuthProvider({children}) {
     });
 
     function login(userData) {
-        setUser(userData);
-        localStorage.setItem('user', JSON.stringify(userData));
+        const formattedUser = {
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            email: userData.email
+        };
+        
+        setUser(formattedUser);
+        localStorage.setItem('user', JSON.stringify(formattedUser));
     }
 
     function logout() {
