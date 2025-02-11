@@ -1,0 +1,25 @@
+.user-profile {
+  display: grid;
+  gap: 4rem;
+  
+  &__content {
+    display: grid;
+    gap: 2rem;
+  }
+
+  &__text {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  &__stats {
+    display: grid;
+    gap: 0.75rem;
+    
+    & span {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.25rem;
+    }
+  }
+}
+

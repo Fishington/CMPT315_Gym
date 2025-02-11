@@ -2,6 +2,7 @@ import NotificationIcon from '@/components/Icons/NotificationIcon';
 
 import './HeaderProfile.scss'
 import {useAuth} from '@/context/AuthContext.jsx';
+import {Link} from 'react-router-dom';
 
 function HeaderProfile() {
     const {user} = useAuth();
@@ -22,7 +23,8 @@ function HeaderProfile() {
 
                 <div className="header-profile__text">
                     <h2 className="header-profile__name">{user.firstName} {user.lastName}</h2>
-                    <a href='#' className="header-profile__edit">Edit Profile</a>
+                    
+                    <Link to='/user-profile' className="header-profile__edit">Edit Profile</Link>
                 </div>
             </div>
         </div>
