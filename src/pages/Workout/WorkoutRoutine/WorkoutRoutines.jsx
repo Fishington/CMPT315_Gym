@@ -3,52 +3,77 @@ import React from 'react';
 import Section from '@/components/Layout/Section';
 import Card from '@/components/Card';
 import ItemSearch from '@/components/ItemSearch';
-import DataList from '@/components/DataList';
-import DataRow from '@/components/DataRow';
-import Tag from '@/components/Tag';
-import Button from '@/components/Button';
+import ItemSearchList from '@/components/ItemSearch/ItemSearchList';
+import ItemSearchRow from '@/components/ItemSearch/ItemSearchRow';
 import PageHeader from '@/components/Layout/PageHeader';
+import Tag from '@/components/Tag';
 
 import {tempRoutineList} from '@/data/tempData.js';
+import ItemCard from '@/components/ItemCard';
+
 
 function WorkoutRoutines() {
-    document.title = 'View Workout Routines | HyperFit';
-
     return (
         <>
-            <PageHeader pageTitle="View Workout Routines" showBack={true} backTarget="/workout"/>
+            <PageHeader
+                pageTitle="View Workout Routines"
+                showBack={true}
+                backTarget="/workout"
+            />
 
-            <Button
-                color="blue"
-                size="full-width"
-                href={`/workout/routines/create`}
+            <Section
+                title="Featured Routines"
+                tip="Take a look at the featured workout routines that are currently popular."
             >
-                Create Routine
-            </Button>
+                <ItemCard
+                    data={tempRoutineList[0]}
+                    baseLink="workout/routines"
+                />
 
-            <Section>
+                <ItemCard
+                    data={tempRoutineList[1]}
+                    baseLink="workout/routines"
+                />
+
+                <ItemCard
+                    data={tempRoutineList[0]}
+                    baseLink="workout/routines"
+                />
+
+                <ItemCard
+                    data={tempRoutineList[0]}
+                    baseLink="workout/routines"
+                />
+            </Section>
+
+
+            <Section
+                title="All Routines"
+                tip="View all our routines available made by not only use but also the community."
+            >
                 <Card>
                     <ItemSearch
                         onChangeSearchInput={() => console.log('Change Input')}
                         onNextPage={() => console.log('Next Page')}
                         onPreviousPage={() => console.log('Previous Page')}
                         onJumpPage={() => console.log('Jump Page')}
+                        create="routine"
                     >
-                        <DataList
+                        <ItemSearchList
                             data={tempRoutineList}
                             columns={['Category', 'Muscle Group', 'Equipment', 'Difficulty', 'Calories', 'Length']}
                         >
                             {tempRoutineList.map((routine) => (
-                                <DataRow data={routine} columnsNum={6} key={routine.name}>
+                                <ItemSearchRow data={routine} columnsNum={6} key={routine.name}>
                                     <p>{routine.exerciseType}</p>
                                     <p>{routine.targetMuscle}</p>
                                     <p>{routine.equipment[0]}</p>
-                                    <Tag tagTitle={routine.level}/>
+                                    <Tag tagTitle={routine.level} color={routine.level.toLowerCase()} size="large"/>
                                     <p>{((routine.caloriesMax + routine.caloriesMin) / 2).toFixed(0)} cal</p>
                                     <p><strong>{routine.length}</strong> minutes</p>
-                                </DataRow>
+                                </ItemSearchRow>
                             ))}
-                        </DataList>
+                        </ItemSearchList>
                     </ItemSearch>
                 </Card>
             </Section>

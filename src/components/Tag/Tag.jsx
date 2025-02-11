@@ -1,9 +1,9 @@
 import React from 'react';
 import './Tag.scss'
 
-function Tag({tagTitle}) {
+function Tag({tagTitle, color, size}) {
     return (
-        <p className={`tag tag--${tagTitle.toLowerCase()}`}>{tagTitle}</p>
+        <p className={`tag tag--${color} tag--${size}`}>{tagTitle}</p>
     );
 }
 

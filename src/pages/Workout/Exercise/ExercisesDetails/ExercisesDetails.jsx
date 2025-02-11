@@ -1,4 +1,3 @@
-import React from 'react';
 import {useParams} from 'react-router-dom';
 
 import TwoColumns from '@/components/Layout/TwoColumns';
@@ -6,20 +5,20 @@ import Card from '@/components/Card';
 import Section from '@/components/Layout/Section';
 import MealPlanIcon from '@/components/Icons/MealPlanIcon';
 import PageHeader from '@/components/Layout/PageHeader';
-import ItemDetailContainer from '@/components/ItemDetailContainer';
-import ItemDetail from '@/components/ItemDetail';
-import ExerciseAdditionalDetails from './ExerciseAdditionalDetails.jsx';
+import ItemDetails from '@/components/ItemDetails';
+import ItemDetailsTag from '@/components/ItemDetails/ItemDetailsTag';
+import ExerciseAdditionalDetails from './ExerciseAdditionalDetails';
 
 import {tempExercisesList} from '@/data/tempData.js';
 
 import './ExercisesDetails.scss'
 
+
 function ExercisesDetails() {
     const {id} = useParams();
-
+    
     const exercise = tempExercisesList.find((ex) => ex.id === Number(id))
-    document.title = `${exercise.name} | HyperFit`;
-
+    
     return (
         <>
             <PageHeader pageTitle={exercise.name} showBack={true}/>
@@ -33,31 +32,31 @@ function ExercisesDetails() {
                                 Your browser does not support the video tag.
                             </video>
 
-                            <ItemDetailContainer columns={4}>
-                                <ItemDetail
+                            <ItemDetails columns={4}>
+                                <ItemDetailsTag
                                     icon={<MealPlanIcon/>}
                                     value={exercise.level}
                                     subtitle="Level"
                                 />
 
-                                <ItemDetail
+                                <ItemDetailsTag
                                     icon={<MealPlanIcon/>}
                                     value={exercise.targetMuscle}
                                     subtitle="Target Muscles"
                                 />
 
-                                <ItemDetail
+                                <ItemDetailsTag
                                     icon={<MealPlanIcon/>}
                                     value={`${exercise.caloriesMin} - ${exercise.caloriesMax} Cal`}
                                     subtitle="Target Muscles"
                                 />
 
-                                <ItemDetail
+                                <ItemDetailsTag
                                     icon={<MealPlanIcon/>}
                                     value={`${exercise.timePerSet} Minutes`}
                                     subtitle="Time per 10 reps"
                                 />
-                            </ItemDetailContainer>
+                            </ItemDetails>
 
                             <div className="card__section">
                                 <h3>About the Exercises:</h3>

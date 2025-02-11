@@ -10,14 +10,14 @@ import TextInput from '@/components/Form/TextInput';
 import RadioInput from '@/components/Form/RadioInput';
 import MealPlanIcon from '@/components/Icons/MealPlanIcon';
 import PageHeader from '@/components/Layout/PageHeader';
-import ItemDetailContainer from '@/components/ItemDetailContainer';
-import ItemDetail from '@/components/ItemDetail';
+import ItemDetails from '@/components/ItemDetails';
+import ItemDetailsTag from '@/components/ItemDetails/ItemDetailsTag';
 
 import './CreateWorkoutRoutine.scss'
 
 function CreateWorkoutRoutines() {
     const navigate = useNavigate();
-
+    
     const [routine, setRoutine] = useState({
         id          : null,
         name        : '',
@@ -151,25 +151,25 @@ function CreateWorkoutRoutines() {
                                             )}
                                         </div>
                                         
-                                        <ItemDetailContainer columns={3}>
-                                            <ItemDetail
+                                        <ItemDetails columns={3}>
+                                            <ItemDetailsTag
                                                 icon={<MealPlanIcon/>}
                                                 value="0 Exercises"
                                                 subtitle="Level"
                                             />
 
-                                            <ItemDetail
+                                            <ItemDetailsTag
                                                 icon={<MealPlanIcon/>}
                                                 value="0 - 0 cal"
                                                 subtitle="Calories Burned"
                                             />
 
-                                            <ItemDetail
+                                            <ItemDetailsTag
                                                 icon={<MealPlanIcon/>}
                                                 value="0:00 minutes"
                                                 subtitle="Total Duration"
                                             />
-                                        </ItemDetailContainer>
+                                        </ItemDetails>
                                     </div>
                                 </div>
                             </Form>
