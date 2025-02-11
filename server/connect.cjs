@@ -1,4 +1,3 @@
-
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config({path: "./config.env"});
 const uri = process.env.ATLAS_URI;

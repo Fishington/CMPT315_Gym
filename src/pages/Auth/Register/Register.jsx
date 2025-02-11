@@ -18,6 +18,7 @@ import './Register.scss';
 
 import {useAuth} from '@/context/AuthContext.jsx';
 import axios from 'axios';
+import {createUser} from '@/api/usersApi.js';
 
 
 function Register() {
@@ -68,12 +69,14 @@ function Register() {
             firstName,
             lastName,
             email,
-            password,
-            confirmPassword
+            password
         };
         console.log('Creating account for', userDTO.firstName);
+        
+        await createUser(userDTO)
+        
         login(userDTO)
-
+        
         navigate('/');
     };
 

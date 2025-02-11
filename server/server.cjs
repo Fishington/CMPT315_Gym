@@ -13,6 +13,5 @@ app.use(users)
 app.listen(PORT, () => {
     connect.connectToServer()
     console.log(`Server running on port ${PORT}`)
-    
 })
 
