@@ -5,10 +5,28 @@
   padding: 2.5rem;
   min-height: 100vh;
 
+  @include breakpoint(medium) {
+    gap: 1rem;
+    padding: 2.5rem 1.5rem;
+  }
+  
+  @include breakpoint(small) {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
   &__main {
     display: grid;
     align-content: flex-start;
     gap: 2rem;
+    
+    @include breakpoint(small) {
+      padding: 1rem 1.5rem;
+    }
+
+    @include breakpoint(x-small) {
+      padding: 1rem 0.5rem;
+    }
   }
 }
 

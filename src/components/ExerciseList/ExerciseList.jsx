@@ -37,8 +37,11 @@ function ExerciseList({routine, createList}) {
             {exerciseTypes.map((type) => {
                 const hasExercises = routine.exercises[type].length > 0;
 
-                if (!createList && !hasExercises) return null;
-
+                // Render if there is no content, don't render anything
+                if (!createList && !hasExercises) 
+                    return null;
+                
+                // Render if there is content in the list
                 return (
                     <div className="exercise-list__section" key={type}>
                         <div className="exercise-list__section-header">

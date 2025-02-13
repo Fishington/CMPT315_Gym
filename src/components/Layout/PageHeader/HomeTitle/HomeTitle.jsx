@@ -1,5 +1,4 @@
 import './HomeTitle.scss'
-import React from 'react';
 import HomeOptions from './HomeOptions';
 import {useAuth} from '@/context/AuthContext.jsx';
 
@@ -14,7 +13,7 @@ function HomeTitle() {
     const year = today.getFullYear();
 
     return (
-        <>
+        <div className="home-title">
             <div>
                 <h1>
                     Hello <span className="home-title__user-name">{user.firstName}!</span>
@@ -26,7 +25,7 @@ function HomeTitle() {
             </div>
 
             <HomeOptions/>
-        </>
+        </div>
     );
 }
 

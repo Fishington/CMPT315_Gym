@@ -6,6 +6,10 @@
   background-color: #FFFFFF;
   border: 1px solid #DBDBDB;
   
+  @include breakpoint(small) {
+    padding: 1.5rem;
+  }
+  
   &__section {
     display: grid;
     gap: 0.5rem;

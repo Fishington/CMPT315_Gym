@@ -25,7 +25,9 @@ function Navigation({links, currentPage}) {
                             onClick={handleLogout}
                         >
                             {link.icon}
-                            {link.title}
+                            <span className='navigation__link-title'>
+                                {link.title}
+                            </span>
                         </button>
                     ) : (
                         <Link
@@ -33,7 +35,9 @@ function Navigation({links, currentPage}) {
                             className={`navigation__link ${isCurrentPage(link.title) ? 'active' : ''}`}
                         >
                             {link.icon}
-                            {link.title}
+                            <span className='navigation__link-title'>
+                                {link.title}
+                            </span>
                         </Link>
                     )}
                 </li>

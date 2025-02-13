@@ -2,35 +2,72 @@
   display: grid;
   grid-template: 1fr / 1fr 1.5fr;
   padding: 8rem;
-  gap: 12rem;
+  gap: 8rem;
   min-height: 100vh;
   background-color: #FFFFFF;
+
+  @include breakpoint(large) {
+    grid-template: 1fr / 1fr 1fr;
+    padding: 8rem 4rem;
+    gap: 4rem;
+  }
+
+  @include breakpoint(medium) {
+    grid-template: 1.25fr 1fr / 1fr;
+    padding: 6rem 4rem;
+  }
+
+  @include breakpoint(small) {
+    padding: 3rem 4rem;
+  }
+
+  @include breakpoint(x-small) {
+    padding: 3rem 1.5rem;
+  }
 
   &__left {
     display: grid;
     grid-template-rows: max-content 1fr;
     gap: 4rem;
+
+    @include breakpoint(medium) {
+      gap: 6rem;
+    }
+
+    @include breakpoint(small) {
+      gap: 4rem;
+    }
   }
 
   &__main-content {
-    align-self: center;
     display: grid;
+    align-self: center;
     gap: 3rem;
-    padding: 0 5%;
-  }
 
-  &__link {
-    color: #2A3FF4;
-    font-weight: 500;
-    text-decoration: underline;
+    @include breakpoint(medium) {
+      justify-self: center;
+      width: 75%;
+    }
 
-    &:hover {
-      color: #192692;
+    @include breakpoint(small) {
+      width: 100%;
     }
   }
 
   &__logo {
     width: 16rem;
+
+    @include breakpoint(medium) {
+      justify-self: center;
+    }
+
+    @include breakpoint(small) {
+      width: 10rem;
+    }
+
+    @include breakpoint(small) {
+      width: 8rem;
+    }
   }
 
   &__form {
@@ -45,6 +82,10 @@
     
     & > div {
       width: 100%;
+    }
+    
+    @include breakpoint(large) {
+      flex-direction: column;
     }
   }
 
@@ -62,10 +103,18 @@
       height: 5rem;
       width: 5rem;
     }
+
+    @include breakpoint(medium) {
+      display: none;
+    }
   }
 
   &__motivational-quote {
     color: #FFFFFF;
     font-size: 6rem;
+
+    @include breakpoint(large) {
+      font-size: 4rem;
+    }
   }
 }

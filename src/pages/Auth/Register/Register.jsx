@@ -1,11 +1,11 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {
-    newEmailValidation,
+    createConfirmPasswordValidation,
+    createPasswordValidation,
     firstNameValidation,
     lastNameValidation,
-    createPasswordValidation,
-    createConfirmPasswordValidation
+    newEmailValidation
 } from '@/utils/authentication.js';
 
 import LogoFullIcon from '@/components/Icons/LogoFullIcon';
@@ -17,7 +17,6 @@ import LoginIcon from '@/components/Icons/LoginIcon';
 import './Register.scss';
 
 import {useAuth} from '@/context/AuthContext.jsx';
-import axios from 'axios';
 import {createUser} from '@/api/usersApi.js';
 
 
@@ -53,11 +52,11 @@ function Register() {
     const handleRegister = async (e) => {
         e.preventDefault();
         let newErrors = {...errors}
-        
+
         // Validate Form Inputs
         newErrors = await validation(newErrors);
         setErrors(newErrors);
-        
+
         const isValid = Object.keys(newErrors).length === 0;
         if (!isValid) {
             console.log('Form not submitted: Invalid Fields');
@@ -72,11 +71,11 @@ function Register() {
             password
         };
         console.log('Creating account for', userDTO.firstName);
-        
+
         await createUser(userDTO)
-        
+
         login(userDTO)
-        
+
         navigate('/');
     };
 
@@ -100,29 +99,27 @@ function Register() {
                             submitIcon={<LoginIcon/>}
                             onSubmit={handleRegister}
                         >
-                            <div className="register__two-input-row">
-                                <TextInput
-                                    id="firstName"
-                                    type="firstName"
-                                    label="First Name:"
-                                    isRequired={true}
-                                    value={firstName}
-                                    error={errors.firstName?.error}
-                                    errorText={errors.firstName?.message}
-                                    onChange={(e) => setFirstName(e.target.value)}
-                                />
+                            <TextInput
+                                id="firstName"
+                                type="firstName"
+                                label="First Name:"
+                                isRequired={true}
+                                value={firstName}
+                                error={errors.firstName?.error}
+                                errorText={errors.firstName?.message}
+                                onChange={(e) => setFirstName(e.target.value)}
+                            />
 
-                                <TextInput
-                                    id="lastName"
-                                    type="lastName"
-                                    label="Last Name:"
-                                    isRequired={true}
-                                    value={lastName}
-                                    error={errors.lastName?.error}
-                                    errorText={errors.lastName?.message}
-                                    onChange={(e) => setLastName(e.target.value)}
-                                />
-                            </div>
+                            <TextInput
+                                id="lastName"
+                                type="lastName"
+                                label="Last Name:"
+                                isRequired={true}
+                                value={lastName}
+                                error={errors.lastName?.error}
+                                errorText={errors.lastName?.message}
+                                onChange={(e) => setLastName(e.target.value)}
+                            />
 
                             <TextInput
                                 id="email"

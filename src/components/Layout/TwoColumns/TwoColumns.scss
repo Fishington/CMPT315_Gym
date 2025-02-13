@@ -3,6 +3,34 @@
   gap: 1.5rem;
   grid-template-columns: 1fr 26vw;
 
+  @include breakpoint(large) {
+    grid-template-columns: 1fr 35vw;
+  }
+  
+  @include breakpoint(medium) {
+    grid-template-columns: 1fr;
+  }
+  
+  &__reverse {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 26vw 1fr;
+
+    @include breakpoint(large) {
+      grid-template-columns: 35vw 1fr;
+    }
+
+    @include breakpoint(medium) {
+      grid-template-columns: 1fr;
+    }
+
+    & > div {
+      display: grid;
+      align-content: flex-start;
+      gap: 2rem;
+    }
+  }
+
   & > div {
     display: grid;
     align-content: flex-start;

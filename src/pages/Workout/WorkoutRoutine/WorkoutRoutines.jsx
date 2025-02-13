@@ -15,11 +15,7 @@ import ItemCard from '@/components/ItemCard';
 function WorkoutRoutines() {
     return (
         <>
-            <PageHeader
-                pageTitle="View Workout Routines"
-                showBack={true}
-                backTarget="/workout"
-            />
+            <PageHeader pageTitle="View Workout Routines" showBack={true} backTarget="/workout"/>
 
             <Section
                 title="Featured Routines"

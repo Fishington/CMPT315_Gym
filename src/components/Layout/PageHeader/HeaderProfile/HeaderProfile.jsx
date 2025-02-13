@@ -24,7 +24,7 @@ function HeaderProfile() {
                 <div className="header-profile__text">
                     <h2 className="header-profile__name">{user.firstName} {user.lastName}</h2>
                     
-                    <Link to='/user-profile' className="header-profile__edit">Edit Profile</Link>
+                    <Link to='/user-profile' className="header-profile__edit">View Profile</Link>
                 </div>
             </div>
         </div>
