@@ -14,7 +14,7 @@ function ItemSearch({children, searchTerm, setSearchTerm, create}) {
                         onChange={(e) => (setSearchTerm(e.target.value))}
                         variant="item-search__text-input"
                     />
-
+                    
                     <Button color="blue" size="medium">
                         Filter
                     </Button>
@@ -36,8 +36,6 @@ function ItemSearch({children, searchTerm, setSearchTerm, create}) {
                 <Button color="active" size="pagination">1</Button>
                 <Button color="white" size="pagination">2</Button>
                 <Button color="white" size="pagination">3</Button>
-                <Button color="white" size="pagination">4</Button>
-                <Button color="white" size="pagination">5</Button>
                 <Button color="white" size="pagination">{'>'}</Button>
             </div>
         </>

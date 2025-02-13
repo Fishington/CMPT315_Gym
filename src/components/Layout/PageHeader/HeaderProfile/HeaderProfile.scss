@@ -1,12 +1,16 @@
 .header-profile {
   display: flex;
+  align-self: flex-start;
   align-items: center;
   gap: 1.25rem;
   padding: 1rem 2rem;
-  margin-left: 2rem;
   background-color: #FFFFFF;
   border: 1px solid #DBDBDB;
   border-radius: 0.25rem;
+
+  @include breakpoint(small) {
+    display: none;
+  }
 
   &__notification {
     display: grid;

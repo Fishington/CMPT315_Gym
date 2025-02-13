@@ -1,5 +1,5 @@
 .sidebar {
-  display: flex;
+  display: grid;
   padding: 2rem 1rem;
   background-color: #FFFFFF;
   border: 1px solid #DBDBDB;
@@ -7,6 +7,17 @@
   min-width: 20rem;
   position: sticky;
   top: 2.5rem;
+  z-index: 1;
+
+  @include breakpoint(large) {
+    min-width: unset;
+  }
+
+  @include breakpoint(small) {
+    height: max-content;
+    padding: 2rem;
+    top: 0;
+  }
 
   &__navigation {
     display: grid;
@@ -20,9 +31,23 @@
     align-items: center;
     gap: 2.5rem;
     width: 100%;
+
+    @include breakpoint(small) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   &__main-nav > svg {
     width: 7rem;
+    z-index: 101;
+    
+    @include breakpoint(small) {
+      display: block !important;
+    }
+    
+    @include breakpoint(large) {
+      display: none;
+    }
   }
 }

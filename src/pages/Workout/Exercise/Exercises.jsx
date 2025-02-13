@@ -25,15 +25,15 @@ function Exercises() {
                     >
                         <ItemSearchList
                             data={tempExercisesList}
-                            columns={['Category', 'Muscle Group', 'Equipment', 'Difficulty', 'Calories Per Rep']}
+                            columns={['Category', 'Muscle Group', 'Equipment', 'Difficulty', 'Calories Burn']}
                         >
                             {tempExercisesList.map((exercise) => (
                                 <ItemSearchRow data={exercise} key={exercise.id} columnsNum={5}>
-                                    <p>{exercise.exerciseType}</p>
-                                    <p>{exercise.targetMuscle}</p>
-                                    <p>{exercise.equipment[0]}</p>
+                                    <p><span>Exercise Type: </span>{exercise.exerciseType}</p>
+                                    <p><span>Target Muscle: </span>{exercise.targetMuscle}</p>
+                                    <p><span>Equipment: </span>{exercise.equipment[0]}</p>
                                     <Tag tagTitle={exercise.level} color={exercise.level.toLowerCase()} size="large"/>
-                                    <p>{((exercise.caloriesMax + exercise.caloriesMin) / 2).toFixed(0)} cal</p>
+                                    <p><span>Calories Per Rep: </span>{((exercise.caloriesMax + exercise.caloriesMin) / 2).toFixed(0)} cal</p>
                                 </ItemSearchRow>
                             ))}
                         </ItemSearchList>

@@ -1,6 +1,8 @@
-.header-row {
+.workout-summary {
+  &__flex {
     display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    gap: 20px; 
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
 }

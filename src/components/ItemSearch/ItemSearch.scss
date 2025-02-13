@@ -1,19 +1,25 @@
 .item-search {
   &__search-bar {
-    display: flex;
+    display: grid;
+    grid-template-columns: 0.5fr max-content;
     justify-content: space-between;
     gap: 1rem;
+
+    @include breakpoint(medium) {
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
+    }
   }
   
   &__main-input {
-    display: flex;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: 0.5rem;
   }
 
   &__text-input {
-    height: 2.5rem;
+    height: 3rem;
     font-size: 0.9rem;
-    min-width: 24rem;
   }
 
   &__pagination {

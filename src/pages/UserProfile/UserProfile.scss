@@ -11,6 +11,10 @@
     display: grid;
     gap: 1.5rem;
   }
+  
+  &__bio span {
+    font-weight: 700;
+  }
 
   &__stats {
     display: grid;

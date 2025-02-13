@@ -2,10 +2,21 @@
   display: grid;
   gap: 1rem;
 
+  @include breakpoint(medium) {
+    display: grid;
+    gap: 1.5rem;
+  }
+
   &__header {
     display: flex;
     align-items: center;
     gap: 1rem;
+    
+    @include breakpoint(medium) {
+      display: grid;
+      justify-content: flex-start;
+      gap: 0.25rem;
+    }
   }
 
   &__tip {
@@ -20,9 +31,12 @@
 
   &__content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
     gap: 1rem;
+    
+    @include breakpoint(small) {
+      grid-template-columns: 1fr;
+    }
 
     & > div:not(.card) {
       display: grid;

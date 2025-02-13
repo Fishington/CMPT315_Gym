@@ -1,4 +1,7 @@
 .home-title {
+  display: grid;
+  gap: 1.5rem;
+  
   &__user-name {
     color: #2A3FF4;
   }
@@ -13,8 +16,11 @@
 
   &__options {
     display: flex;
-    justify-content: flex-end;
     gap: 1rem;
+    
+    @include breakpoint(medium) {
+      display: none;
+    }
   }
 }
 

@@ -13,7 +13,15 @@ label{
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.25rem;
+
+  @include a.breakpoint(large) {
+    font-size: 3rem;
+  }
+  
+  @include a.breakpoint(medium) {
+    font-size: 2.75rem;
+  }
 }
 
 h2 {
