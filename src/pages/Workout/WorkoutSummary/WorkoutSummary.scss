@@ -1,0 +1,68 @@
+.two-columns {
+    display: grid;
+    gap: 0.5rem; 
+    grid-template-columns: 1fr 26vw;
+}
+
+.card {
+    margin-bottom: 0.5rem; 
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.workout-image {
+    width: 100px; 
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Mini Section Container */
+.mini-sections {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.5rem; 
+    margin-top: 0.5rem;
+}
+
+/* Individual Mini Section */
+.mini-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.mini-image {
+    width: 30px; 
+    height: 30px;
+    object-fit: cover;
+}
+
+.mini-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-header {
+    font-weight: bold;
+    font-size: 0.85rem; 
+}
+
+.mini-description {
+    font-size: 0.75rem; 
+    color: gray;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
