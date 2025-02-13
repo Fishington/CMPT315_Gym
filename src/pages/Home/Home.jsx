@@ -41,7 +41,7 @@ function Home() {
 
             <Section
                 title="Health"
-                tip="Monitor key health indicatiors and get insights to maintain a healthy lifestyle"
+                tip="Monitor key health indicators and get insights to maintain a healthy lifestyle"
             >
                 <Card>
                     <p style={{margin: '16rem auto'}}>
