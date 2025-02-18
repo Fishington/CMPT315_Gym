@@ -1,6 +1,26 @@
-.item-detail-container {
+.item-detail {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   column-gap: 2rem;
   row-gap: 1rem;
+  
+  @include breakpoint(x-small) {
+    grid-template-columns: 1fr !important;
+  }
+  
+  &__tag {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+
+    & > svg {
+      width: 3.5rem;
+      height: 3.5rem;
+      padding: 0.75rem;
+      color: white;
+      background-color: #2A3FF4;
+      border-radius: 0.25rem;
+    }
+  }
 }

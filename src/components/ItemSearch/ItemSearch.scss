@@ -10,31 +10,4 @@
       grid-auto-flow: row;
     }
   }
-  
-  &__main-input {
-    display: grid;
-    grid-template-columns: 1fr max-content;
-    gap: 0.5rem;
-  }
-
-  &__text-input {
-    height: 3rem;
-    font-size: 0.9rem;
-  }
-
-  &__pagination {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    
-    .active {
-      color: #FFFFFF;
-      background-color: #2A3FF4;
-    }
-
-    .disabled {
-      opacity: 0.40;
-      cursor: unset;
-    }
-  }
 }

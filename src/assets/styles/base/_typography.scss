@@ -52,3 +52,17 @@ input {
 a {
   text-decoration: none;
 }
+
+a.link {
+  color: #2A3FF4;
+  font-weight: 500;
+  text-decoration: underline;
+
+  &:hover {
+    color: #192692;
+  }
+}
+
+.text-indent {
+  padding-left: 1rem;
+}

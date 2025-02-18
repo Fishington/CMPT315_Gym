@@ -1,12 +1,25 @@
-import './ItemDetails.scss'
+import React from 'react';
+import './ItemDetails.scss';
 
-function ItemDetails({children}) {
+function ItemDetails({ details = []}) {
     return (
-        <div 
-            className="item-detail-container"
-        >
-            {children}
+        <div className='item-detail'>
+            {details.map((detail, index) => (
+                <ItemDetailTag key={index} {...detail} />
+            ))}
         </div>
+    );
+}
+
+function ItemDetailTag({ icon, value, subtitle }) {
+    return (
+        <section className="item-detail__tag">
+            {icon}
+            <div>
+                <h3>{value}</h3>
+                <p className="subtitle">{subtitle}</p>
+            </div>
+        </section>
     );
 }
 
