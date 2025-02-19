@@ -1,10 +1,10 @@
+import {createContext, useContext} from 'react';
 import {Link} from 'react-router-dom';
 
 import Card from '@/components/Card';
 import Tag from '@/components/Tag';
 
 import './ItemCard.scss'
-import {createContext, useContext} from 'react';
 
 const ItemCardContext = createContext(null);
 
@@ -14,11 +14,7 @@ function ItemCard({data, baseLink}) {
             <Link to={`/${baseLink}/${data.id}`}>
                 <Card variant="item-card">
 
-                    <section className="item-card__image-container">
-                        <img src={data.image} alt={`Cover image of ${data.name}`}/>
-
-                        <Tag tagTitle={data.level} color={data.level.toLowerCase()} size="small"/>
-                    </section>
+                    <ItemCardImage/>
 
                     <section className="item-card__content">
                         <ItemCardText/>
@@ -30,7 +26,20 @@ function ItemCard({data, baseLink}) {
     );
 }
 
-function ItemCardText() {
+const ItemCardImage = () => {
+    const {data} = useContext(ItemCardContext);
+
+    return (
+        <section className="item-card__image-container">
+            <img src={data.image} alt={`Cover image of ${data.name}`}/>
+
+            <Tag tagTitle={data.level} color={data.level.toLowerCase()} size="small"/>
+        </section>
+    )
+}
+
+
+const ItemCardText = () => {
     const {data} = useContext(ItemCardContext);
 
     return (
@@ -51,7 +60,7 @@ function ItemCardText() {
     )
 }
 
-function ItemCardTags() {
+const ItemCardTags = () => {
     const {data} = useContext(ItemCardContext);
 
     return (

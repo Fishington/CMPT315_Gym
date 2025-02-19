@@ -8,6 +8,7 @@ import Tag from '@/components/Tag';
 
 import {tempRoutineList} from '@/data/tempData.js';
 import ItemCard from '@/components/ItemCard';
+import Button from '@/components/Button/index.js';
 
 
 function RoutinesList() {
@@ -34,6 +35,11 @@ function RoutinesList() {
                         data={tempRoutineList}
                         columns={['Category', 'Muscle Group', 'Equipment', 'Difficulty', 'Calories', 'Length']}
                         rowFormat={(data) => <RoutineListRow data={data}/>}
+                        searchBarContent={
+                            <Button color="blue" size="medium" to={`/workout/routines/create`}>
+                                Create Workout Routine
+                            </Button>
+                        }
                     />
                 </Card>
             </Section>

@@ -7,13 +7,10 @@ import TwoColumns from '@/components/Layout/TwoColumns';
 import Card from '@/components/Card';
 import Section from '@/components/Layout/Section';
 
-import MealPlanIcon from '@/components/Icons/MealPlanIcon';
 import ExerciseList from '@/components/ExerciseList';
-import ItemDetails from '@/components/ItemDetails';
 import SessionTimer from '@/features/workout/session/SessionTimer.jsx';
-import ItemAbout from '@/components/ItemAbout/index.js';
-import MultiColumnList from '@/components/MultiColumnList/index.js';
 import ExerciseTimer from '@/features/workout/session/ExerciseTimer.jsx';
+import MainRoutineDetails from '@/features/workout/routines/MainRoutineDetails.jsx';
 
 
 function WorkoutSession() {
@@ -21,44 +18,6 @@ function WorkoutSession() {
 
     const routine = tempRoutineList.find((ro) => ro.id === Number(id));
     const exercise = tempExercisesList.find((ex) => ex.id === Number(id))
-
-    const itemDetails = [
-        {
-            icon    : <MealPlanIcon/>,
-            value   : routine.level,
-            subtitle: 'Level'
-        },
-        {
-
-            icon    : <MealPlanIcon/>,
-            value   : `${routine.count} Exercises`,
-            subtitle: 'Total Exercises'
-        },
-        {
-
-            icon    : <MealPlanIcon/>,
-            value   : `${routine.caloriesMin} - ${routine.caloriesMax} Cal`,
-            subtitle: 'Calories Burned'
-        },
-        {
-
-            icon    : <MealPlanIcon/>,
-            value   : `${routine.length.split(':')[0]}:${routine.length.split(':')[1]}`,
-            subtitle: 'Duration'
-        },
-        {
-
-            icon    : <MealPlanIcon/>,
-            value   : routine.targetMuscle,
-            subtitle: 'Target Muscles'
-        },
-        {
-
-            icon    : <MealPlanIcon/>,
-            value   : routine.goal,
-            subtitle: 'Workout Goal'
-        },
-    ]
 
     return (
         <>
@@ -77,9 +36,7 @@ function WorkoutSession() {
 
                     <Section title={'Workout Details'}>
                         <Card>
-                            <ItemDetails columns={3} details={itemDetails}/>
-                            <ItemAbout aboutName="Workout Routine" data={routine.about}/>
-                            <MultiColumnList dataName="Equipment" data={routine.equipment}/>
+                            <MainRoutineDetails routine={routine}/>
                         </Card>
                     </Section>
 

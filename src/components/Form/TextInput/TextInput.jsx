@@ -1,4 +1,3 @@
-import React from 'react';
 import './TextInput.scss';
 
 export default function TextInput({id, type, variant, label, error, errorText, isRequired, value, onChange}) {

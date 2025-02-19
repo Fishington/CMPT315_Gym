@@ -5,6 +5,11 @@
   padding: 1.5rem;
   container-type: inline-size;
 
+  &:hover {
+    background-color: #D4D9FD;
+  }
+
+
   &__index {
     display: flex;
     justify-content: center;
@@ -29,7 +34,7 @@
   &__image {
     width: 8rem;
     object-fit: cover;
-    
+
   }
 
   &__details {

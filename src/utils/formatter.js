@@ -10,3 +10,12 @@ export function toSeconds(timeString) {
 export function toTitle(string) {
     return string.replace(/\b\w/g, (char) => char.toUpperCase());
 }
+
+export function formatDate(date) {
+    return date.toLocaleDateString('en-US', {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    })
+}

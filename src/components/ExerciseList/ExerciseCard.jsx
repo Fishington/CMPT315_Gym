@@ -1,9 +1,11 @@
-import Card from '@/components/Card/index.js';
+import {createContext, useContext} from 'react';
+import {Link} from 'react-router-dom';
+
+import Card from '@/components/Card';
 
 import './ExerciseCard.scss'
 
 import {tempExercisesList} from '@/data/tempData.js';
-import {createContext, useContext} from 'react';
 
 const ExerciseCardContext = createContext(null);
 
@@ -20,17 +22,19 @@ function ExerciseCard({type, exercise, index}) {
     return (
         <li>
             <ExerciseCardContext.Provider value={{matchedExercise, type, exercise}}>
-                <Card variant="exercise-card">
-                    <h3 className="exercise-card__index">{index + 1}</h3>
-                    
-                    <ExerciseCardContent/>
-                </Card>
+                <Link to={`/workout/exercises/${exercise.workoutId}`}>
+                    <Card variant="exercise-card">
+                        <h3 className="exercise-card__index">{index + 1}</h3>
+
+                        <ExerciseCardContent/>
+                    </Card>
+                </Link>
             </ExerciseCardContext.Provider>
         </li>
     );
 }
 
-function ExerciseCardContent() {
+const ExerciseCardContent = () => {
     const {matchedExercise} = useContext(ExerciseCardContext);
 
     return (
@@ -45,7 +49,7 @@ function ExerciseCardContent() {
     )
 }
 
-function ExerciseCardStats() {
+const ExerciseCardStats = () => {
     const {matchedExercise, type, exercise} = useContext(ExerciseCardContext);
 
     return (

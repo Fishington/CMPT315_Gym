@@ -1,12 +1,12 @@
 import {toTitle} from '@/utils/formatter.js';
 import {createContext, useContext} from 'react';
-import {Link} from 'react-router-dom';
 
 import ExerciseCard from '@/components/ExerciseList/ExerciseCard';
 
 import './ExerciseList.scss'
 
 const ExerciseListContext = createContext(null);
+
 const exerciseTypes = ['warmups', 'exercises', 'stretches'];
 
 function ExerciseList({routine}) {
@@ -31,7 +31,7 @@ function ExerciseList({routine}) {
     );
 }
 
-function ExerciseListHeader() {
+const ExerciseListHeader = () => {
     const {type, routine} = useContext(ExerciseListContext);
 
     return (
@@ -49,20 +49,19 @@ function ExerciseListHeader() {
     )
 }
 
-function ExerciseListSection() {
+const ExerciseListSection = () => {
     const {type, routine} = useContext(ExerciseListContext);
 
     return (
         <>
             <ul className="exercise-list__exercises">
                 {routine.exercises[type].set.map((exercise, index) => (
-                    <Link key={index} to={`/workout/exercises/${exercise.workoutId}`}>
-                        <ExerciseCard
-                            index={index}
-                            type={type}
-                            exercise={exercise}
-                        />
-                    </Link>
+                    <ExerciseCard
+                        key={index}
+                        index={index}
+                        type={type}
+                        exercise={exercise}
+                    />
                 ))}
             </ul>
         </>
