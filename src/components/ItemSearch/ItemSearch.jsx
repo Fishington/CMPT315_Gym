@@ -1,45 +1,78 @@
-import TextInput from '@/components/Form/TextInput';
-import Button from '@/components/Button/index.js';
+import React, {createContext, useContext, useState} from 'react';
+import {Link} from 'react-router-dom';
+
+import Pagination from '@/components/Pagination';
+import SearchBar from '@/components/SearchBar';
 
 import './ItemSearch.scss';
-import React from 'react';
 
-function ItemSearch({children, searchTerm, setSearchTerm, create}) {
+const ItemSearchContext = createContext(null);
+
+const ItemSearch = ({data, columns, rowFormat, searchBarContent}) => {
+    const [searchTerm, setSearchTerm] = useState('');
+
     return (
-        <>
+        <ItemSearchContext.Provider value={{searchTerm, data, columns, rowFormat}}>
             <div className="item-search__search-bar">
-                <div className='item-search__main-input'>
-                    <TextInput
-                        value={searchTerm}
-                        onChange={(e) => (setSearchTerm(e.target.value))}
-                        variant="item-search__text-input"
-                    />
-                    
-                    <Button color="blue" size="medium">
-                        Filter
-                    </Button>
-                </div>
-                
-                {create &&
-                    <Button color="blue" size="medium" href={`/workout/${create}s/create`}>
-                        Create {create}
-                    </Button>
-                }
+                <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}>
+                    {searchBarContent ? searchBarContent : ''}
+                </SearchBar>
             </div>
 
-            <div>
-                {children}
-            </div>
-
-            <div className="item-search__pagination">
-                <Button color="white" size="pagination" disabled>{'<'}</Button>
-                <Button color="active" size="pagination">1</Button>
-                <Button color="white" size="pagination">2</Button>
-                <Button color="white" size="pagination">3</Button>
-                <Button color="white" size="pagination">{'>'}</Button>
-            </div>
-        </>
+            <ItemSearchList/>
+            <Pagination/>
+        </ItemSearchContext.Provider>
     );
-}
+};
+
+const ItemSearchList = () => {
+    const {searchTerm, data, columns, rowFormat} = useContext(ItemSearchContext);
+
+    const filteredData = data.filter((item) =>
+        item.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    return (
+        <ul className="item-search-list">
+            <li
+                className="item-search-list__header"
+                style={{gridTemplateColumns: `2.5fr repeat(${columns.length}, 1fr)`}}
+            >
+                <p>Name</p>
+
+                {columns.map((column) => (
+                    <p key={column}>{column}</p>
+                ))}
+            </li>
+
+            {filteredData.map((item, index) => (
+                <ItemSearchRow key={index} itemData={item}>
+                    {rowFormat(item)}
+                </ItemSearchRow>
+            ))}
+        </ul>
+    );
+};
+
+const ItemSearchRow = ({children, itemData}) => {
+    const {columns} = useContext(ItemSearchContext);
+
+    return (
+        <li className="item-search-row">
+            <Link
+                className="item-search-row__container"
+                to={`${itemData.id}`}
+                style={{gridTemplateColumns: `2.5fr repeat(${columns.length}, 1fr)`}}
+            >
+                <div className="item-search-row__item">
+                    <img className="item-search-row__image" src={itemData.image} alt={itemData.name}/>
+                    <p>{itemData.name}</p>
+                </div>
+
+                {children}
+            </Link>
+        </li>
+    );
+};
 
 export default ItemSearch;

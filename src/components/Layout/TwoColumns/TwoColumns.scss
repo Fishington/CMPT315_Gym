@@ -24,14 +24,14 @@
       grid-template-columns: 1fr;
     }
 
-    & > div {
+    & > section {
       display: grid;
       align-content: flex-start;
       gap: 2rem;
     }
   }
 
-  & > div {
+  & > section {
     display: grid;
     align-content: flex-start;
     gap: 2rem;

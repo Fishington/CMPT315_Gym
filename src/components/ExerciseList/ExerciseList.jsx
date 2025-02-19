@@ -1,86 +1,71 @@
-import ExerciseCard from './ExerciseCard';
-import Button from '@/components/Button/index.js';
+import {toTitle} from '@/utils/formatter.js';
+import {createContext, useContext} from 'react';
 
-import {toSeconds, toTitle} from '@/utils/formatter.js';
-
-import {tempExercisesList} from '@/data/tempData.js';
+import ExerciseCard from '@/components/ExerciseList/ExerciseCard';
 
 import './ExerciseList.scss'
 
-function ExerciseList({routine, createList}) {
-    const exerciseTypes = ['warmups', 'exercises', 'stretches'];
+const ExerciseListContext = createContext(null);
 
-    function calculateDuration(exerciseList) {
-        let totalTime = 0;
-        
-        exerciseList.forEach(exercise => {
-            const matchedExercise = tempExercisesList.find(ex => ex.id === exercise.workoutId);
-            let timeForExercise = 0;
+const exerciseTypes = ['warmups', 'exercises', 'stretches'];
 
-            if (matchedExercise)
-                if (exercise.sets === null || exercise.reps === null)
-                    if (matchedExercise.stretchBothSide)
-                        timeForExercise = matchedExercise.stretchPerSide * 2;
-                    else
-                        timeForExercise = matchedExercise.stretchPerSide;
-                else
-                    timeForExercise = toSeconds(matchedExercise.timePerSet);
-
-            totalTime += (exercise.sets || 1) * timeForExercise;
-        });
-
-        return `${Math.floor(totalTime / 60)}:${(totalTime % 60).toString().padStart(2, '0')}`;
-    }
-
+function ExerciseList({routine}) {
     return (
         <div className="exercise-list">
             {exerciseTypes.map((type) => {
-                const hasExercises = routine.exercises[type].length > 0;
+                const hasExercises = routine.exercises[type];
 
-                // Render if there is no content, don't render anything
-                if (!createList && !hasExercises) 
+                if (!hasExercises)
                     return null;
-                
-                // Render if there is content in the list
+
                 return (
-                    <div className="exercise-list__section" key={type}>
-                        <div className="exercise-list__section-header">
-                            <h3>
-                                {toTitle(type)} ({routine.exercises[type].length})
-                            </h3>
-
-                            {hasExercises && (
-                                <p>
-                                    <span className="exercise-list__duration">
-                                        {calculateDuration(routine.exercises[type])}
-                                    </span> minutes
-                                </p>
-                            )}
+                    <ExerciseListContext.Provider key={type} value={{type, routine, hasExercises}}>
+                        <div className="exercise-list__section">
+                            <ExerciseListHeader/>
+                            <ExerciseListSection/>
                         </div>
-
-                        {hasExercises && (
-                            <ul className="exercise-list__exercises">
-                                {routine.exercises[type].map((exercise, index) => (
-                                    <ExerciseCard
-                                        key={index}
-                                        index={index}
-                                        type={type}
-                                        exercise={exercise}
-                                    />
-                                ))}
-                            </ul>
-                        )}
-
-                        {createList && (
-                            <Button color="blue" size="full-width">
-                                Add {type}
-                            </Button>
-                        )}
-                    </div>
+                    </ExerciseListContext.Provider>
                 );
             })}
         </div>
     );
+}
+
+const ExerciseListHeader = () => {
+    const {type, routine} = useContext(ExerciseListContext);
+
+    return (
+        <div className="exercise-list__section-header">
+            <h3>
+                {toTitle(type)} ({routine.exercises[type].set.length})
+            </h3>
+
+            <p>
+                <span className="exercise-list__duration">
+                    {routine.exercises[type].duration}
+                </span> minutes
+            </p>
+        </div>
+    )
+}
+
+const ExerciseListSection = () => {
+    const {type, routine} = useContext(ExerciseListContext);
+
+    return (
+        <>
+            <ul className="exercise-list__exercises">
+                {routine.exercises[type].set.map((exercise, index) => (
+                    <ExerciseCard
+                        key={index}
+                        index={index}
+                        type={type}
+                        exercise={exercise}
+                    />
+                ))}
+            </ul>
+        </>
+    )
 }
 
 export default ExerciseList;
