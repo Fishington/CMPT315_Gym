@@ -3,7 +3,7 @@ import {Link, useNavigate, useOutletContext} from 'react-router-dom';
 
 import {useAuth} from '@/context/AuthContext.jsx';
 import {fetchUser} from '@/api/usersApi.js';
-import {emailValidation, passwordValidation, validateUser} from '@/utils/authentication.js';
+import {validateUserLogInDTO} from '@/features/authentication/mockValidationService.js';
 
 import Form from '@/components/Form';
 import TextInput from '@/components/Form/TextInput';
@@ -25,41 +25,37 @@ function Login() {
         document.title = 'Login | HyperFit';
     }, []);
 
-    const validation = () => {
-        let newErrors = {...errors}
-
-        emailValidation(email, newErrors)
-        passwordValidation(password, newErrors)
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    }
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        // Validate Form Inputs
-        if (!validation()) {
-            console.log('Form not submitted: Invalid Fields');
-            return
-        }
+        const userDTO = {
+            email,
+            password
+        };
 
-        // Validate User in Database
-        const newErrors = await validateUser(email, password, {...errors});
+        // Validate Form Inputs using Mock Service
+        const newErrors = await validateUserLogInDTO(userDTO);
         setErrors(newErrors);
 
         const isValid = Object.keys(newErrors).length === 0;
         if (!isValid) {
-            console.log('Form not submitted: Invalid User');
-            return
+            console.log('Form not submitted: Invalid Fields');
+            return;
         }
 
-        // Store data into DTO
-        const users = await fetchUser(email)
-        const userDTO = users.find((user) => user.email === email)
+        // Validate User in Database
+        const users = await fetchUser(email);
+        const userDTOFromDB = users.find((user) => user.email === email);
 
-        console.log('Logging in', userDTO.firstName);
-        login(userDTO)
+        if (!userDTOFromDB) {
+            setErrors({email: {error: true, message: 'User not found'}});
+            console.log('Form not submitted: Invalid User');
+            return;
+        }
+
+        console.log('Logging in', userDTOFromDB.firstName);
+        login(userDTOFromDB);
 
         navigate('/');
     };
