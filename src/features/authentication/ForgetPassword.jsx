@@ -5,6 +5,7 @@ import Form from '@/components/Form';
 import TextInput from '@/components/Form/TextInput/index.js';
 import LoginIcon from '@/components/Icons/LoginIcon';
 import Button from '@/components/Button/index.js';
+import {validateEmailDTO} from '@/features/authentication/mockValidationService.js';
 
 function ForgetPassword() {
     const navigate = useNavigate();
@@ -20,31 +21,26 @@ function ForgetPassword() {
         document.title = 'Forgot Password | HyperFit';
     }, []);
 
-    const validation = () => {
-        let newErrors = {...errors};
 
-        // Email Validation
-        emailValidation(email, newErrors);
-
-        // Set errors and return true if no errors exists
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    }
-
-    const handleSendEmail = (e) => {
+    const handleSendEmail = async (e) => {
         e.preventDefault();
-
-        // Validate Form Inputs
-        if (!validation()) {
-            console.log('Form not submitted: Invalid Fields');
-            return
-        }
 
         // Store data into DTO
         const emailDTO = {
             email,
         };
-        console.log(`Email "sent" to ${emailDTO.email}`)
+
+        // Validate Form Inputs using Mock Service
+        const newErrors = await validateEmailDTO(emailDTO);
+        setErrors(newErrors);
+
+        const isValid = Object.keys(newErrors).length === 0;
+        if (!isValid) {
+            console.log('Form not submitted: Invalid Fields');
+            return;
+        }
+
+        console.log(`Email "sent" to ${emailDTO.email}`);
 
         // Temporary
         navigate('/create-new-password');
