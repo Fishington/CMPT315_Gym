@@ -8,6 +8,24 @@ import PageHeader from '@/components/Layout/PageHeader';
 
 import {tempExercisesList} from '@/data/tempData.js';
 
+const exerciseFilters = [
+    {
+        label  : 'Category',
+        id     : 'exerciseType',
+        options: ['Strength', 'Stretch']
+    },
+    {
+        label  : 'Muscle Group',
+        id     : 'targetMuscle',
+        options: ['Full Body', 'Biceps']
+    },
+    {
+        label  : 'Equipment',
+        id     : 'equipment',
+        options: ['Dumbbells', 'Mat']
+    }
+]
+
 function ExercisesList() {
     return (
         <>
@@ -15,9 +33,11 @@ function ExercisesList() {
 
             <Section>
                 <Card>
-                    <ItemSearch data={tempExercisesList}
-                                columns={['Category', 'Muscle Group', 'Equipment', 'Difficulty', 'Calories Burn']}
-                                rowFormat={(data) => <ExerciseSearchRow data={data}/>}
+                    <ItemSearch
+                        filters={exerciseFilters}
+                        data={tempExercisesList}
+                        columns={['Category', 'Muscle Group', 'Equipment', 'Difficulty', 'Calories Burn']}
+                        rowFormat={(data) => <ExerciseSearchRow data={data}/>}
                     />
                 </Card>
             </Section>

@@ -4,7 +4,7 @@ import PageHeader from '@/components/Layout/PageHeader';
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Section from '@/components/Layout/Section';
 import Card from '@/components/Card';
-import ExerciseList from '@/components/ExerciseList';
+import ExerciseList from '@/features/workout/components/ExerciseList/index.js';
 
 import {tempRoutineList} from '@/data/tempData.js';
 

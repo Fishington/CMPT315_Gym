@@ -6,7 +6,7 @@ import PageHeader from '@/components/Layout/PageHeader/index.js';
 import TwoColumns from '@/components/Layout/TwoColumns/index.js';
 import Card from '@/components/Card/index.js';
 import Section from '@/components/Layout/Section/index.js';
-import ExerciseList from '@/components/ExerciseList/index.js';
+import ExerciseList from '@/features/workout/components/ExerciseList/index.js';
 import ItemDetails from '@/components/ItemDetails/';
 
 import MealPlanIcon from '@/components/Icons/MealPlanIcon/index.js';

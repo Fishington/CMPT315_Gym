@@ -10,40 +10,34 @@ function ForgetPassword() {
     const navigate = useNavigate();
     const [setQuote, setImage] = useOutletContext();
 
-
     const [email, setEmail] = useState('');
     const [errors, setErrors] = useState({})
 
     useEffect(() => {
         setImage('/images/forgot-password.jpg')
         setQuote('"Let’s get you back on track!"')
+
         document.title = 'Forgot Password | HyperFit';
     }, []);
 
     const validation = () => {
         let newErrors = {...errors};
 
-        // Email Validation
         emailValidation(email, newErrors);
-
-        // Set errors and return true if no errors exists
         setErrors(newErrors);
+
         return Object.keys(newErrors).length === 0;
     }
 
     const handleSendEmail = (e) => {
         e.preventDefault();
 
-        // Validate Form Inputs
         if (!validation()) {
             console.log('Form not submitted: Invalid Fields');
             return
         }
 
-        // Store data into DTO
-        const emailDTO = {
-            email,
-        };
+        const emailDTO = {email};
         console.log(`Email "sent" to ${emailDTO.email}`)
 
         // Temporary
@@ -78,9 +72,7 @@ function ForgetPassword() {
                 </Button>
             </Form>
 
-            <p>
-                Remembered your password? <Link className="link" to="/login">Login here</Link>
-            </p>
+            <p>Remembered your password? <Link className="link" to="/login">Login here</Link></p>
         </div>
     );
 }

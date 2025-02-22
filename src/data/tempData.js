@@ -1,5 +1,5 @@
 export const tempExercisesList = [{
-    id              : 1,
+    id              : 0,
     name            : 'Standing Hammer Curl',
     image           : '/images/standing-hammer-curl.webp',
     video           : '/video/temp-video.mp4',
@@ -17,9 +17,9 @@ export const tempExercisesList = [{
     caloriesMin     : 10,
     caloriesMax     : 20,
     timePerSet      : '2:30',
-    equipment       : ['Dumbbells'],
+    equipment       : ['Dumbbells', 'Mat'],
     about           : 'The Standing Hammer Curl is a strength training exercise primarily targeting the biceps brachii and' +
-        ' brachialis, with secondary activation of the forearms. This exercise involves lifting weights with a neutral grip, making it an effective and joint-friendly option for building arm strength and size. It’s suitable for beginners and advanced lifters alike, as the intensity can be adjusted by varying the weight or repetitions.',
+        'brachialis, with secondary activation of the forearms. This exercise involves lifting weights with a neutral grip, making it an effective and joint-friendly option for building arm strength and size. It’s suitable for beginners and advanced lifters alike, as the intensity can be adjusted by varying the weight or repetitions.',
     instructions    : [
         'Grab a pair of dumbbells and stand up with the dumbbells by your sides.',
         'With a neutral grip, bend your arms slightly to keep the tension on the biceps.',
@@ -183,6 +183,10 @@ export const tempRoutineList = [{
                     {workoutId: 1, reps: 10, sets: 3},
                     {workoutId: 1, reps: 10, sets: 3},
                 ],
+            },
+            stretches: {
+                duration: '0:00',
+                set     : []
             },
         },
         tags        : ['Muscle Gain', 'Dumbbells', 'Full Body']

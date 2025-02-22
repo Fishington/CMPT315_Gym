@@ -10,6 +10,18 @@ import {tempRoutineList} from '@/data/tempData.js';
 import ItemCard from '@/components/ItemCard';
 import Button from '@/components/Button/index.js';
 
+const exerciseFilters = [
+    {
+        label  : 'Category',
+        id: 'exerciseType',
+        options: ['Strength', 'Stretch']
+    },
+    {
+        label  : 'Muscle Group',
+        id: 'targetMuscle',
+        options: ['Full Body', 'Biceps']
+    }
+]
 
 function RoutinesList() {
     return (
@@ -32,6 +44,7 @@ function RoutinesList() {
             >
                 <Card>
                     <ItemSearch
+                        filters={exerciseFilters}
                         data={tempRoutineList}
                         columns={['Category', 'Muscle Group', 'Equipment', 'Difficulty', 'Calories', 'Length']}
                         rowFormat={(data) => <RoutineListRow data={data}/>}

@@ -1,22 +1,26 @@
+import {useItemSearch} from "@/context/ItemSearchContext.jsx";
 import TextInput from '@/components/Form/TextInput/index.js';
-import Button from '@/components/Button/index.js';
 
 import './SearchBar.scss'
 
-export default function SearchBar({children, searchTerm, setSearchTerm}) {
+export default function SearchBar({children}) {
+    const {searchTerm, setSearchTerm} = useItemSearch();
+
     return (
-        <>
-            <div className="search-bar">
-                <TextInput
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    variant="search-bar__text-input"
-                />
+        <div className="search-bar">
+            <div className="search-bar__search">
 
-                <Button color="blue" size="medium">Filter</Button>
+                <div className="search-bar__input">
+                    <h3>Search:</h3>
+                    <TextInput
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        variant="search-bar__text-input"
+                    />
+                </div>
+
+                {children}
             </div>
-
-            {children}
-        </>
+        </div>
     );
 }

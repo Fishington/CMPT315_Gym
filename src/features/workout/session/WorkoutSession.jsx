@@ -7,11 +7,10 @@ import TwoColumns from '@/components/Layout/TwoColumns';
 import Card from '@/components/Card';
 import Section from '@/components/Layout/Section';
 
-import ExerciseList from '@/components/ExerciseList';
+import ExerciseList from '@/features/workout/components/ExerciseList/index.js';
 import SessionTimer from '@/features/workout/session/SessionTimer.jsx';
 import ExerciseTimer from '@/features/workout/session/ExerciseTimer.jsx';
 import MainRoutineDetails from '@/features/workout/routines/MainRoutineDetails.jsx';
-
 
 function WorkoutSession() {
     const {id} = useParams();
