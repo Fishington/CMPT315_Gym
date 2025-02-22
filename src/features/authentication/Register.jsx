@@ -15,6 +15,7 @@ import LoginIcon from '@/components/Icons/LoginIcon';
 import {useAuth} from '@/context/AuthContext.jsx';
 import {createUser} from '@/api/usersApi.js';
 import Button from '@/components/Button/index.js';
+import {validateUserCreateDTO} from '@/features/authentication/mockValidationService.js';
 
 
 function Register() {
@@ -36,48 +37,32 @@ function Register() {
         document.title = 'Register | HyperFit';
     }, []);
 
-    const validation = async (errors) => {
-        // Name Validation
-        firstNameValidation(firstName, errors)
-        lastNameValidation(lastName, errors)
-
-        // Email Validation
-        await newEmailValidation(email, errors)
-
-        // Password Validation
-        createPasswordValidation(password, errors)
-        createConfirmPasswordValidation(confirmPassword, password, errors)
-
-        return errors;
-    }
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        let newErrors = {...errors}
+        const userDTO = {
+            firstName,
+            lastName,
+            email,
+            password,
+            confirmPassword
+        };
 
-        // Validate Form Inputs
-        newErrors = await validation(newErrors);
+        // Validate Form Inputs using Mock Service
+        const newErrors = await validateUserCreateDTO(userDTO);
         setErrors(newErrors);
 
         const isValid = Object.keys(newErrors).length === 0;
         if (!isValid) {
             console.log('Form not submitted: Invalid Fields');
-            return
+            return;
         }
 
-        // Store DTO
-        const userDTO = {
-            firstName,
-            lastName,
-            email,
-            password
-        };
-        
-        await createUser(userDTO)
-        login(userDTO)
-
+        await createUser(userDTO);
+        login(userDTO);
         navigate('/');
     };
+        
 
     return (
 
