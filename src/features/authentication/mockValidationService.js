@@ -38,5 +38,12 @@ export const validateUserLogInDTO = async (userDTO) => {
     return errors;
 };
 
+export const validateEmailDTO = async (emailDTO) => {
+    let errors = {};
 
+    // Email Validation
+    emailValidation(emailDTO.email, errors);
+
+    return errors;
+};
 
