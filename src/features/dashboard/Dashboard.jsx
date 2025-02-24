@@ -1,9 +1,39 @@
+import { useState, useEffect } from 'react';
 import Section from '@/components/Layout/Section';
 import PageHeader from '@/components/Layout/PageHeader';
 import Card from '@/components/Card';
+import LoadingScreen from '../../components/LoadingScreen';
 
 function Dashboard() {
+    const [isLoading, setIsLoading] = useState(true);
     
+    // Fake loading screen cuz who gotta know?
+
+    useEffect(() => {
+      
+        const hasLoadedOnce = sessionStorage.getItem('dashboardLoadedOnce');
+    
+        if (hasLoadedOnce) {
+          setIsLoading(false);
+        } else {
+          // Show loading screen once per login session
+          const timer = setTimeout(() => {
+            setIsLoading(false);
+            sessionStorage.setItem('dashboardLoadedOnce', 'true');
+          }, 5000); // Adjust the delay as needed
+    
+          return () => clearTimeout(timer);
+        }
+      }, []);
+    
+
+    if (isLoading) {
+        return (
+            <LoadingScreen variant="full-screen">
+            </LoadingScreen>
+        );
+    }
+
     return (
         <>
             <PageHeader pageTitle="Dashboard"/>
