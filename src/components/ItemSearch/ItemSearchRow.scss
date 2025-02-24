@@ -69,7 +69,9 @@
   }
 
   &__image {
+    height: 5rem;
     width: 8rem;
+    object-fit: fill;
 
     @include breakpoint(medium) {
       width: 100%;

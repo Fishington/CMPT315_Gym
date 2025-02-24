@@ -5,10 +5,10 @@ import ExerciseCardContent from './ExerciseCardContent.jsx';
 
 import './ExerciseCard.scss'
 
-import {tempExercisesList} from '@/data/tempData.js';
+import exercisesList from '@/data/exercises.json';
 
 function ExerciseCard({type, exercise, index}) {
-    const matchedExercise = tempExercisesList.find((ex) => ex.id === exercise.workoutId);
+    const matchedExercise = exercisesList.find((ex) => ex.id === exercise.workoutId);
 
     if (!matchedExercise)
         return (

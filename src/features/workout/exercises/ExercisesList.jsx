@@ -6,7 +6,7 @@ import ItemSearch from '@/components/ItemSearch';
 import Tag from '@/components/Tag';
 import PageHeader from '@/components/Layout/PageHeader';
 
-import {tempExercisesList} from '@/data/tempData.js';
+import exercisesList from '@/data/exercises.json';
 
 const exerciseFilters = [
     {
@@ -35,7 +35,7 @@ function ExercisesList() {
                 <Card>
                     <ItemSearch
                         filters={exerciseFilters}
-                        data={tempExercisesList}
+                        data={exercisesList}
                         columns={['Category', 'Muscle Group', 'Equipment', 'Difficulty', 'Calories Burn']}
                         rowFormat={(data) => <ExerciseSearchRow data={data}/>}
                     />

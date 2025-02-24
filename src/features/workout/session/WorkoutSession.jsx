@@ -2,7 +2,6 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 import PageHeader from '@/components/Layout/PageHeader/index.js';
 
-import {tempExercisesList, tempRoutineList} from '@/data/tempData.js';
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Card from '@/components/Card';
 import Section from '@/components/Layout/Section';
@@ -12,11 +11,15 @@ import SessionTimer from '@/features/workout/session/SessionTimer.jsx';
 import ExerciseTimer from '@/features/workout/session/ExerciseTimer.jsx';
 import MainRoutineDetails from '@/features/workout/routines/MainRoutineDetails.jsx';
 
+import {tempRoutineList} from '@/data/tempData.js';
+import exercisesList from '@/data/exercises.json';
+
+
 function WorkoutSession() {
     const {id} = useParams();
 
     const routine = tempRoutineList.find((ro) => ro.id === Number(id));
-    const exercise = tempExercisesList.find((ex) => ex.id === Number(id))
+    const exercise = exercisesList.find((ex) => ex.id === Number(id))
 
     return (
         <>
