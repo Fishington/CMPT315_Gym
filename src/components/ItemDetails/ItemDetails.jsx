@@ -5,26 +5,16 @@ function ItemDetails({details}) {
     return (
         <div className="item-detail">
             {details.map((detail) => (
-                <ItemDetailTag
-                    key={detail.value}
-                    icon={detail.icon}
-                    value={detail.value}
-                    subtitle={detail.subtitle}
-                />
+                <section className="item-detail__tag">
+                    {detail.icon}
+
+                    <div>
+                        <h3>{detail.value}</h3>
+                        <p className="subtitle">{detail.subtitle}</p>
+                    </div>
+                </section>
             ))}
         </div>
-    );
-}
-
-function ItemDetailTag({icon, value, subtitle}) {
-    return (
-        <section className="item-detail__tag">
-            {icon}
-            <div>
-                <h3>{value}</h3>
-                <p className="subtitle">{subtitle}</p>
-            </div>
-        </section>
     );
 }
 

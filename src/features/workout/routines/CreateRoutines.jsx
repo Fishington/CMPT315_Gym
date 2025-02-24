@@ -14,6 +14,7 @@ import ItemDetails from '@/components/ItemDetails';
 import MultiColumnList from '@/components/MultiColumnList/index.js';
 import Button from '@/components/Button/index.js';
 import LoginIcon from '@/components/Icons/LoginIcon/index.js';
+import ExerciseList from '@/features/workout/components/ExerciseList/index.js';
 
 function CreateRoutines() {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ function CreateRoutines() {
     const [secondaryMuscles, setSecondaryMuscles] = useState('');
 
     const [routine, setRoutine] = useState({
-        id          : null,
+        id          : 0,
         name        : '',
         image       : '',
         author      : '',
@@ -39,7 +40,22 @@ function CreateRoutines() {
         length      : '',
         equipment   : [],
         about       : '',
-        exercises   : {},
+        exercises   : {
+            warmups  : {
+                duration: '0:00',
+                set     : [],
+
+            },
+            exercises: {
+                duration: '0:00',
+                set     : [],
+            },
+            stretches: {
+                duration: '0:00',
+                set     : [],
+            },
+        },
+        tags        : []
     });
 
     const itemDetails = [
@@ -149,7 +165,7 @@ function CreateRoutines() {
 
                                 <section className="grid gap-1">
                                     <h2>Based on the Exercises:</h2>
-                                    
+
                                     <MultiColumnList
                                         dataName="Equipment"
                                         data={routine.equipment}
@@ -170,7 +186,7 @@ function CreateRoutines() {
 
                 <TwoColumns.Column>
                     <Section title="exercises">
-                        
+                        <ExerciseList routine={routine} create={true}/>
                     </Section>
                 </TwoColumns.Column>
 

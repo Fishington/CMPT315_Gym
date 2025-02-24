@@ -30,13 +30,12 @@ function App() {
         <AuthProvider>
             <BrowserRouter basename={basename}>
                 <Routes>
-                    <Route element={<AuthenticationLayout  />}>
+                    <Route element={<AuthenticationLayout/>}>
                         <Route path="login" element={<Login/>}/>
                         <Route path="register" element={<Register/>}/>
                         <Route path="forgot-password" element={<ForgetPassword/>}/>
                         <Route path="create-new-password" element={<CreateNewPassword/>}/>
                     </Route>
-
 
                     <Route element={
                         <ProtectedRoute>

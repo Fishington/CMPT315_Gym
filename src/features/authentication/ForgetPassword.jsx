@@ -11,13 +11,13 @@ function ForgetPassword() {
     const navigate = useNavigate();
     const [setQuote, setImage] = useOutletContext();
 
-
     const [email, setEmail] = useState('');
     const [errors, setErrors] = useState({})
 
     useEffect(() => {
         setImage('/images/forgot-password.jpg')
         setQuote('"Let’s get you back on track!"')
+
         document.title = 'Forgot Password | HyperFit';
     }, []);
 

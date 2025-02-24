@@ -29,6 +29,11 @@
       color: #2A3FF4;
       border: solid 2px #2A3FF4;
     }
+
+    & svg {
+      position: relative;
+      top: 0.15rem;
+    }
   }
 }
 

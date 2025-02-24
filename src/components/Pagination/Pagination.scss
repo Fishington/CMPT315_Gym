@@ -1,6 +1,7 @@
 .pagination {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 0.75rem;
 
   .active {
@@ -11,5 +12,10 @@
   .disabled {
     opacity: 0.40;
     cursor: unset;
+  }
+
+  &__ellipsis {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
   }
 }

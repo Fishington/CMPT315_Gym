@@ -47,7 +47,7 @@ function SectionTitle() {
     const {pageTitle, showBack, backTarget} = useContext(PageHeaderContext);
 
     return (
-        <div className="flex gap-1">
+        <div className="flex flex-justify-items gap-1">
             {showBack && (
                 <Link className="page-header__back" to={backTarget ? backTarget : -1}>
                     <BackIcon/>

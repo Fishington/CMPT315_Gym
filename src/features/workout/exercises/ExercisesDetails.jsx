@@ -11,12 +11,13 @@ import Instructions from '@/components/Instructions';
 import ItemAbout from '@/components/ItemAbout';
 import ExerciseTips from '@/features/workout/exercises/ExerciseTips';
 
-import {tempExercisesList} from '@/data/tempData.js';
+import exercisesList from '@/data/exercises.json';
+import {formatTimeToString} from "@/utils/formatter.js";
 
 function ExercisesDetails() {
     const {id} = useParams();
 
-    const exercise = tempExercisesList.find((ex) => ex.id === Number(id))
+    const exercise = exercisesList.find((ex) => ex.id === Number(id))
 
     const itemDetails = [
         {
@@ -36,7 +37,7 @@ function ExercisesDetails() {
         },
         {
             icon    : <MealPlanIcon/>,
-            value   : `${exercise.timePerSet} Minutes`,
+            value   : formatTimeToString(exercise.duration),
             subtitle: 'Time per 10 reps'
         },
     ]
@@ -49,11 +50,7 @@ function ExercisesDetails() {
                 <TwoColumns.Column>
                     <Section>
                         <Card>
-                            <video width="100%" height="100%" controls>
-                                <source src={exercise.video} type="video/mp4"/>
-                                Your browser does not support the video tag.
-                            </video>
-
+                            <img src={exercise.image} alt=""/>
                             <ItemDetails columns={4} details={itemDetails}/>
                             <ItemAbout aboutName="Exercise" data={exercise.about}/>
                             <Instructions steps={exercise.instructions}/>

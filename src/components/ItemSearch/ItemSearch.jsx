@@ -1,78 +1,32 @@
-import React, {createContext, useContext, useState} from 'react';
-import {Link} from 'react-router-dom';
+import React from 'react';
 
+import ItemSearchList from "@/components/ItemSearch/ItemSearchList.jsx";
 import Pagination from '@/components/Pagination';
 import SearchBar from '@/components/SearchBar';
+import SearchFilters from "@/components/SearchFilters/SearchFilters.jsx";
 
 import './ItemSearch.scss';
+import {ItemSearchProvider} from "@/context/ItemSearchContext.jsx";
 
-const ItemSearchContext = createContext(null);
-
-const ItemSearch = ({data, columns, rowFormat, searchBarContent}) => {
-    const [searchTerm, setSearchTerm] = useState('');
-
+const ItemSearch = ({filters, data, columns, rowFormat, searchBarContent}) => {
     return (
-        <ItemSearchContext.Provider value={{searchTerm, data, columns, rowFormat}}>
-            <div className="item-search__search-bar">
-                <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm}>
-                    {searchBarContent ? searchBarContent : ''}
-                </SearchBar>
-            </div>
+        <ItemSearchProvider>
+            <SearchBar>
+                {searchBarContent ? searchBarContent : ''}
+            </SearchBar>
 
-            <ItemSearchList/>
+            <SearchFilters filters={filters}/>
+
+            <ItemSearchList
+                data={data}
+                columns={columns}
+                rowFormat={rowFormat}
+            />
+
             <Pagination/>
-        </ItemSearchContext.Provider>
+        </ItemSearchProvider>
     );
 };
 
-const ItemSearchList = () => {
-    const {searchTerm, data, columns, rowFormat} = useContext(ItemSearchContext);
-
-    const filteredData = data.filter((item) =>
-        item.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    return (
-        <ul className="item-search-list">
-            <li
-                className="item-search-list__header"
-                style={{gridTemplateColumns: `2.5fr repeat(${columns.length}, 1fr)`}}
-            >
-                <p>Name</p>
-
-                {columns.map((column) => (
-                    <p key={column}>{column}</p>
-                ))}
-            </li>
-
-            {filteredData.map((item, index) => (
-                <ItemSearchRow key={index} itemData={item}>
-                    {rowFormat(item)}
-                </ItemSearchRow>
-            ))}
-        </ul>
-    );
-};
-
-const ItemSearchRow = ({children, itemData}) => {
-    const {columns} = useContext(ItemSearchContext);
-
-    return (
-        <li className="item-search-row">
-            <Link
-                className="item-search-row__container"
-                to={`${itemData.id}`}
-                style={{gridTemplateColumns: `2.5fr repeat(${columns.length}, 1fr)`}}
-            >
-                <div className="item-search-row__item">
-                    <img className="item-search-row__image" src={itemData.image} alt={itemData.name}/>
-                    <p>{itemData.name}</p>
-                </div>
-
-                {children}
-            </Link>
-        </li>
-    );
-};
 
 export default ItemSearch;
