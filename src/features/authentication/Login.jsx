@@ -18,6 +18,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
+    const [serverError, setServerError] = useState('');
 
     useEffect(() => {
         setImage('/images/login-image.jpg')
@@ -44,20 +45,25 @@ function Login() {
             return;
         }
 
-        // Validate User in Database
-        const users = await fetchUser(email);
-        const userDTOFromDB = users.find((user) => user.email === email);
+        try {
+            // Validate User in Database
+            const users = await fetchUser(email);
+            const userDTOFromDB = users.find((user) => user.email === email);
 
-        if (!userDTOFromDB) {
-            setErrors({email: {error: true, message: 'User not found'}});
-            console.log('Form not submitted: Invalid User');
-            return;
+            if (!userDTOFromDB) {
+                setErrors({email: {error: true, message: 'User not found'}});
+                console.log('Form not submitted: Invalid User');
+                return;
+            }
+
+            console.log('Logging in', userDTOFromDB.firstName);
+            login(userDTOFromDB);
+
+            navigate('/');
+        } catch (error) {
+            setServerError('Unable to connect to the server. Please try again later.');
+            console.error('Server connection error:', error);
         }
-
-        console.log('Logging in', userDTOFromDB.firstName);
-        login(userDTOFromDB);
-
-        navigate('/');
     };
 
     return (
