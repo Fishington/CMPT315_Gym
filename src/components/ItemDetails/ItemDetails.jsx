@@ -1,12 +1,19 @@
-import './ItemDetails.scss'
+import React from 'react';
+import './ItemDetails.scss';
 
-function ItemDetails({children, columns}) {
+function ItemDetails({details}) {
     return (
-        <div 
-            className="item-detail-container"
-            style={{gridTemplateColumns: `repeat(${columns}, 1fr)`}}
-        >
-            {children}
+        <div className="item-detail">
+            {details.map((detail) => (
+                <section className="item-detail__tag">
+                    {detail.icon}
+
+                    <div>
+                        <h3>{detail.value}</h3>
+                        <p className="subtitle">{detail.subtitle}</p>
+                    </div>
+                </section>
+            ))}
         </div>
     );
 }

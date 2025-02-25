@@ -1,0 +1,1272 @@
+[
+  {
+    "id": 0,
+    "name": "Dumbbell Lunge",
+    "image": "https://i.vimeocdn.com/video/1960918125-14bc0f8d328bb828c51e541ee8700307023ea171d41d405ad290760cf9874154-d?f=webp",
+    "level": "Intermediate",
+    "targetMuscle": "Quads",
+    "secondaryMuscles": [
+      "Glutes",
+      "Hamstrings",
+      "Core"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "stretchBothSide": null,
+    "stretchPerSide": null,
+    "caloriesMin": 8,
+    "caloriesMax": 12,
+    "duration": 35,
+    "equipment": [
+      "Dumbbells"
+    ],
+    "about": "The Dumbbell Lunge is a versatile lower body exercise that targets the quadriceps while also engaging the glutes, hamstrings, and core for stabilization. It is an excellent functional movement that improves balance, coordination, and unilateral strength. With the added resistance of dumbbells, the exercise intensifies muscle activation and helps correct any asymmetries between the legs. Consistent practice leads to improved athletic performance and overall leg development.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms at your sides.",
+      "Step forward with one leg into a lunge, lowering your hips until both knees are at approximately 90-degree angles.",
+      "Ensure your front knee stays aligned with your toes and your back knee hovers just above the ground.",
+      "Push through your front heel to return to the starting position, and repeat on the other side.",
+      "Alternate legs for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Maintain Proper Alignment",
+        "body": "Keep your chest up and core engaged to ensure that your front knee remains directly above your ankle and does not collapse inward."
+      },
+      {
+        "header": "Control the Descent",
+        "body": "Lower yourself slowly to maximize muscle tension and promote strength gains in the targeted muscles."
+      },
+      {
+        "header": "Keep Your Movements Smooth",
+        "body": "Avoid bouncing at the bottom of the lunge; a controlled motion is key to effective muscle engagement."
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Three Bench Dip",
+    "image": "https://cdn.muscleandstrength.com/sites/default/files/three-bench-dip.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Chest",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "caloriesMin": 8,
+    "caloriesMax": 13,
+    "duration": 45,
+    "equipment": [
+      "Three Benches"
+    ],
+    "about": "The Three Bench Dip is an advanced compound exercise that uses three benches to create an extended range of motion and increased resistance, thereby targeting the triceps more intensively. This movement not only builds tricep strength but also engages the chest and shoulders, leading to improved upper body power and muscle definition. Its unique setup challenges your stability and forces a deep stretch and contraction, making it an excellent exercise for advanced lifters seeking to push through plateaus.",
+    "instructions": [
+      "Arrange three benches in a row, using the middle bench as your dip platform.",
+      "Place your hands on the first bench and your feet on the third bench.",
+      "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+      "Press back up to the starting position by extending your elbows fully, then repeat."
+    ],
+    "tips": [
+      {
+        "header": "Maximize the Range of Motion",
+        "body": "Lower yourself fully to achieve a deep stretch in the triceps. A greater range of motion leads to increased muscle activation and stronger growth over time."
+      },
+      {
+        "header": "Control Every Rep",
+        "body": "Focus on slow, deliberate movements to ensure that the triceps are under constant tension throughout the exercise, which is key to building both strength and muscle size."
+      },
+      {
+        "header": "Keep Your Body Stable",
+        "body": "Engage your core and maintain a rigid posture to prevent any unwanted movement, ensuring that the effort is isolated on your triceps and upper body."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "EZ Bar Skullcrusher",
+    "image": "https://i.ytimg.com/vi/K6MSN4hCDM4/maxresdefault.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Forearms",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Isolation",
+    "caloriesMin": 6,
+    "caloriesMax": 10,
+    "duration": 35,
+    "equipment": [
+      "EZ Bar"
+    ],
+    "about": "The EZ Bar Skullcrusher is a popular triceps exercise that uses an EZ curl bar to provide a more ergonomic grip and reduce wrist strain. This movement isolates the triceps by emphasizing elbow extension, allowing for deep muscle activation across all three heads. Its unique grip position helps to minimize stress on the joints while promoting maximal muscle contraction, making it an excellent choice for advanced lifters seeking to improve arm size and strength.",
+    "instructions": [
+      "Lie on a flat bench and grasp the EZ bar with a narrow, overhand grip.",
+      "Lower the bar toward your forehead by bending your elbows, keeping your upper arms stationary.",
+      "Extend your arms to return the bar to the starting position, squeezing your triceps at the top.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Use an Ergonomic Grip",
+        "body": "The EZ bar is designed to reduce wrist strain; focus on maintaining this natural grip throughout the exercise to target the triceps effectively while minimizing joint discomfort."
+      },
+      {
+        "header": "Slow and Steady Wins",
+        "body": "Perform the lowering phase very slowly to maximize the time under tension and stimulate the triceps for greater hypertrophy and strength gains."
+      },
+      {
+        "header": "Control Your Range of Motion",
+        "body": "Lower the bar only as far as comfortable without causing undue stress on your elbows. A controlled, moderate range of motion ensures that the triceps are engaged safely and effectively."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Dumbbell Lunge",
+    "image": "https://i.vimeocdn.com/video/1960918125-14bc0f8d328bb828c51e541ee8700307023ea171d41d405ad290760cf9874154-d?f=webp",
+    "level": "Intermediate",
+    "targetMuscle": "Quads",
+    "secondaryMuscles": [
+      "Glutes",
+      "Hamstrings",
+      "Core"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "stretchBothSide": null,
+    "stretchPerSide": null,
+    "caloriesMin": 8,
+    "caloriesMax": 12,
+    "duration": 35,
+    "equipment": [
+      "Dumbbells"
+    ],
+    "about": "The Dumbbell Lunge is a versatile lower body exercise that targets the quadriceps while also engaging the glutes, hamstrings, and core for stabilization. It is an excellent functional movement that improves balance, coordination, and unilateral strength. With the added resistance of dumbbells, the exercise intensifies muscle activation and helps correct any asymmetries between the legs. Consistent practice leads to improved athletic performance and overall leg development.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms at your sides.",
+      "Step forward with one leg into a lunge, lowering your hips until both knees are at approximately 90-degree angles.",
+      "Ensure your front knee stays aligned with your toes and your back knee hovers just above the ground.",
+      "Push through your front heel to return to the starting position, and repeat on the other side.",
+      "Alternate legs for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Maintain Proper Alignment",
+        "body": "Keep your chest up and core engaged to ensure that your front knee remains directly above your ankle and does not collapse inward."
+      },
+      {
+        "header": "Control the Descent",
+        "body": "Lower yourself slowly to maximize muscle tension and promote strength gains in the targeted muscles."
+      },
+      {
+        "header": "Keep Your Movements Smooth",
+        "body": "Avoid bouncing at the bottom of the lunge; a controlled motion is key to effective muscle engagement."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Three Bench Dip",
+    "image": "https://cdn.muscleandstrength.com/sites/default/files/three-bench-dip.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Chest",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "caloriesMin": 8,
+    "caloriesMax": 13,
+    "duration": 45,
+    "equipment": [
+      "Three Benches"
+    ],
+    "about": "The Three Bench Dip is an advanced compound exercise that uses three benches to create an extended range of motion and increased resistance, thereby targeting the triceps more intensively. This movement not only builds tricep strength but also engages the chest and shoulders, leading to improved upper body power and muscle definition. Its unique setup challenges your stability and forces a deep stretch and contraction, making it an excellent exercise for advanced lifters seeking to push through plateaus.",
+    "instructions": [
+      "Arrange three benches in a row, using the middle bench as your dip platform.",
+      "Place your hands on the first bench and your feet on the third bench.",
+      "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+      "Press back up to the starting position by extending your elbows fully, then repeat."
+    ],
+    "tips": [
+      {
+        "header": "Maximize the Range of Motion",
+        "body": "Lower yourself fully to achieve a deep stretch in the triceps. A greater range of motion leads to increased muscle activation and stronger growth over time."
+      },
+      {
+        "header": "Control Every Rep",
+        "body": "Focus on slow, deliberate movements to ensure that the triceps are under constant tension throughout the exercise, which is key to building both strength and muscle size."
+      },
+      {
+        "header": "Keep Your Body Stable",
+        "body": "Engage your core and maintain a rigid posture to prevent any unwanted movement, ensuring that the effort is isolated on your triceps and upper body."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "EZ Bar Skullcrusher",
+    "image": "https://i.ytimg.com/vi/K6MSN4hCDM4/maxresdefault.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Forearms",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Isolation",
+    "caloriesMin": 6,
+    "caloriesMax": 10,
+    "duration": 35,
+    "equipment": [
+      "EZ Bar"
+    ],
+    "about": "The EZ Bar Skullcrusher is a popular triceps exercise that uses an EZ curl bar to provide a more ergonomic grip and reduce wrist strain. This movement isolates the triceps by emphasizing elbow extension, allowing for deep muscle activation across all three heads. Its unique grip position helps to minimize stress on the joints while promoting maximal muscle contraction, making it an excellent choice for advanced lifters seeking to improve arm size and strength.",
+    "instructions": [
+      "Lie on a flat bench and grasp the EZ bar with a narrow, overhand grip.",
+      "Lower the bar toward your forehead by bending your elbows, keeping your upper arms stationary.",
+      "Extend your arms to return the bar to the starting position, squeezing your triceps at the top.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Use an Ergonomic Grip",
+        "body": "The EZ bar is designed to reduce wrist strain; focus on maintaining this natural grip throughout the exercise to target the triceps effectively while minimizing joint discomfort."
+      },
+      {
+        "header": "Slow and Steady Wins",
+        "body": "Perform the lowering phase very slowly to maximize the time under tension and stimulate the triceps for greater hypertrophy and strength gains."
+      },
+      {
+        "header": "Control Your Range of Motion",
+        "body": "Lower the bar only as far as comfortable without causing undue stress on your elbows. A controlled, moderate range of motion ensures that the triceps are engaged safely and effectively."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Dumbbell Lunge",
+    "image": "https://i.vimeocdn.com/video/1960918125-14bc0f8d328bb828c51e541ee8700307023ea171d41d405ad290760cf9874154-d?f=webp",
+    "level": "Intermediate",
+    "targetMuscle": "Quads",
+    "secondaryMuscles": [
+      "Glutes",
+      "Hamstrings",
+      "Core"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "stretchBothSide": null,
+    "stretchPerSide": null,
+    "caloriesMin": 8,
+    "caloriesMax": 12,
+    "duration": 35,
+    "equipment": [
+      "Dumbbells"
+    ],
+    "about": "The Dumbbell Lunge is a versatile lower body exercise that targets the quadriceps while also engaging the glutes, hamstrings, and core for stabilization. It is an excellent functional movement that improves balance, coordination, and unilateral strength. With the added resistance of dumbbells, the exercise intensifies muscle activation and helps correct any asymmetries between the legs. Consistent practice leads to improved athletic performance and overall leg development.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms at your sides.",
+      "Step forward with one leg into a lunge, lowering your hips until both knees are at approximately 90-degree angles.",
+      "Ensure your front knee stays aligned with your toes and your back knee hovers just above the ground.",
+      "Push through your front heel to return to the starting position, and repeat on the other side.",
+      "Alternate legs for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Maintain Proper Alignment",
+        "body": "Keep your chest up and core engaged to ensure that your front knee remains directly above your ankle and does not collapse inward."
+      },
+      {
+        "header": "Control the Descent",
+        "body": "Lower yourself slowly to maximize muscle tension and promote strength gains in the targeted muscles."
+      },
+      {
+        "header": "Keep Your Movements Smooth",
+        "body": "Avoid bouncing at the bottom of the lunge; a controlled motion is key to effective muscle engagement."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Three Bench Dip",
+    "image": "https://cdn.muscleandstrength.com/sites/default/files/three-bench-dip.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Chest",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "caloriesMin": 8,
+    "caloriesMax": 13,
+    "duration": 45,
+    "equipment": [
+      "Three Benches"
+    ],
+    "about": "The Three Bench Dip is an advanced compound exercise that uses three benches to create an extended range of motion and increased resistance, thereby targeting the triceps more intensively. This movement not only builds tricep strength but also engages the chest and shoulders, leading to improved upper body power and muscle definition. Its unique setup challenges your stability and forces a deep stretch and contraction, making it an excellent exercise for advanced lifters seeking to push through plateaus.",
+    "instructions": [
+      "Arrange three benches in a row, using the middle bench as your dip platform.",
+      "Place your hands on the first bench and your feet on the third bench.",
+      "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+      "Press back up to the starting position by extending your elbows fully, then repeat."
+    ],
+    "tips": [
+      {
+        "header": "Maximize the Range of Motion",
+        "body": "Lower yourself fully to achieve a deep stretch in the triceps. A greater range of motion leads to increased muscle activation and stronger growth over time."
+      },
+      {
+        "header": "Control Every Rep",
+        "body": "Focus on slow, deliberate movements to ensure that the triceps are under constant tension throughout the exercise, which is key to building both strength and muscle size."
+      },
+      {
+        "header": "Keep Your Body Stable",
+        "body": "Engage your core and maintain a rigid posture to prevent any unwanted movement, ensuring that the effort is isolated on your triceps and upper body."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "EZ Bar Skullcrusher",
+    "image": "https://i.ytimg.com/vi/K6MSN4hCDM4/maxresdefault.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Forearms",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Isolation",
+    "caloriesMin": 6,
+    "caloriesMax": 10,
+    "duration": 35,
+    "equipment": [
+      "EZ Bar"
+    ],
+    "about": "The EZ Bar Skullcrusher is a popular triceps exercise that uses an EZ curl bar to provide a more ergonomic grip and reduce wrist strain. This movement isolates the triceps by emphasizing elbow extension, allowing for deep muscle activation across all three heads. Its unique grip position helps to minimize stress on the joints while promoting maximal muscle contraction, making it an excellent choice for advanced lifters seeking to improve arm size and strength.",
+    "instructions": [
+      "Lie on a flat bench and grasp the EZ bar with a narrow, overhand grip.",
+      "Lower the bar toward your forehead by bending your elbows, keeping your upper arms stationary.",
+      "Extend your arms to return the bar to the starting position, squeezing your triceps at the top.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Use an Ergonomic Grip",
+        "body": "The EZ bar is designed to reduce wrist strain; focus on maintaining this natural grip throughout the exercise to target the triceps effectively while minimizing joint discomfort."
+      },
+      {
+        "header": "Slow and Steady Wins",
+        "body": "Perform the lowering phase very slowly to maximize the time under tension and stimulate the triceps for greater hypertrophy and strength gains."
+      },
+      {
+        "header": "Control Your Range of Motion",
+        "body": "Lower the bar only as far as comfortable without causing undue stress on your elbows. A controlled, moderate range of motion ensures that the triceps are engaged safely and effectively."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Dumbbell Lunge",
+    "image": "https://i.vimeocdn.com/video/1960918125-14bc0f8d328bb828c51e541ee8700307023ea171d41d405ad290760cf9874154-d?f=webp",
+    "level": "Intermediate",
+    "targetMuscle": "Quads",
+    "secondaryMuscles": [
+      "Glutes",
+      "Hamstrings",
+      "Core"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "stretchBothSide": null,
+    "stretchPerSide": null,
+    "caloriesMin": 8,
+    "caloriesMax": 12,
+    "duration": 35,
+    "equipment": [
+      "Dumbbells"
+    ],
+    "about": "The Dumbbell Lunge is a versatile lower body exercise that targets the quadriceps while also engaging the glutes, hamstrings, and core for stabilization. It is an excellent functional movement that improves balance, coordination, and unilateral strength. With the added resistance of dumbbells, the exercise intensifies muscle activation and helps correct any asymmetries between the legs. Consistent practice leads to improved athletic performance and overall leg development.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms at your sides.",
+      "Step forward with one leg into a lunge, lowering your hips until both knees are at approximately 90-degree angles.",
+      "Ensure your front knee stays aligned with your toes and your back knee hovers just above the ground.",
+      "Push through your front heel to return to the starting position, and repeat on the other side.",
+      "Alternate legs for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Maintain Proper Alignment",
+        "body": "Keep your chest up and core engaged to ensure that your front knee remains directly above your ankle and does not collapse inward."
+      },
+      {
+        "header": "Control the Descent",
+        "body": "Lower yourself slowly to maximize muscle tension and promote strength gains in the targeted muscles."
+      },
+      {
+        "header": "Keep Your Movements Smooth",
+        "body": "Avoid bouncing at the bottom of the lunge; a controlled motion is key to effective muscle engagement."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Three Bench Dip",
+    "image": "https://cdn.muscleandstrength.com/sites/default/files/three-bench-dip.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Chest",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "caloriesMin": 8,
+    "caloriesMax": 13,
+    "duration": 45,
+    "equipment": [
+      "Three Benches"
+    ],
+    "about": "The Three Bench Dip is an advanced compound exercise that uses three benches to create an extended range of motion and increased resistance, thereby targeting the triceps more intensively. This movement not only builds tricep strength but also engages the chest and shoulders, leading to improved upper body power and muscle definition. Its unique setup challenges your stability and forces a deep stretch and contraction, making it an excellent exercise for advanced lifters seeking to push through plateaus.",
+    "instructions": [
+      "Arrange three benches in a row, using the middle bench as your dip platform.",
+      "Place your hands on the first bench and your feet on the third bench.",
+      "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+      "Press back up to the starting position by extending your elbows fully, then repeat."
+    ],
+    "tips": [
+      {
+        "header": "Maximize the Range of Motion",
+        "body": "Lower yourself fully to achieve a deep stretch in the triceps. A greater range of motion leads to increased muscle activation and stronger growth over time."
+      },
+      {
+        "header": "Control Every Rep",
+        "body": "Focus on slow, deliberate movements to ensure that the triceps are under constant tension throughout the exercise, which is key to building both strength and muscle size."
+      },
+      {
+        "header": "Keep Your Body Stable",
+        "body": "Engage your core and maintain a rigid posture to prevent any unwanted movement, ensuring that the effort is isolated on your triceps and upper body."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "EZ Bar Skullcrusher",
+    "image": "https://i.ytimg.com/vi/K6MSN4hCDM4/maxresdefault.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Forearms",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Isolation",
+    "caloriesMin": 6,
+    "caloriesMax": 10,
+    "duration": 35,
+    "equipment": [
+      "EZ Bar"
+    ],
+    "about": "The EZ Bar Skullcrusher is a popular triceps exercise that uses an EZ curl bar to provide a more ergonomic grip and reduce wrist strain. This movement isolates the triceps by emphasizing elbow extension, allowing for deep muscle activation across all three heads. Its unique grip position helps to minimize stress on the joints while promoting maximal muscle contraction, making it an excellent choice for advanced lifters seeking to improve arm size and strength.",
+    "instructions": [
+      "Lie on a flat bench and grasp the EZ bar with a narrow, overhand grip.",
+      "Lower the bar toward your forehead by bending your elbows, keeping your upper arms stationary.",
+      "Extend your arms to return the bar to the starting position, squeezing your triceps at the top.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Use an Ergonomic Grip",
+        "body": "The EZ bar is designed to reduce wrist strain; focus on maintaining this natural grip throughout the exercise to target the triceps effectively while minimizing joint discomfort."
+      },
+      {
+        "header": "Slow and Steady Wins",
+        "body": "Perform the lowering phase very slowly to maximize the time under tension and stimulate the triceps for greater hypertrophy and strength gains."
+      },
+      {
+        "header": "Control Your Range of Motion",
+        "body": "Lower the bar only as far as comfortable without causing undue stress on your elbows. A controlled, moderate range of motion ensures that the triceps are engaged safely and effectively."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Dumbbell Lunge",
+    "image": "https://i.vimeocdn.com/video/1960918125-14bc0f8d328bb828c51e541ee8700307023ea171d41d405ad290760cf9874154-d?f=webp",
+    "level": "Intermediate",
+    "targetMuscle": "Quads",
+    "secondaryMuscles": [
+      "Glutes",
+      "Hamstrings",
+      "Core"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "stretchBothSide": null,
+    "stretchPerSide": null,
+    "caloriesMin": 8,
+    "caloriesMax": 12,
+    "duration": 35,
+    "equipment": [
+      "Dumbbells"
+    ],
+    "about": "The Dumbbell Lunge is a versatile lower body exercise that targets the quadriceps while also engaging the glutes, hamstrings, and core for stabilization. It is an excellent functional movement that improves balance, coordination, and unilateral strength. With the added resistance of dumbbells, the exercise intensifies muscle activation and helps correct any asymmetries between the legs. Consistent practice leads to improved athletic performance and overall leg development.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms at your sides.",
+      "Step forward with one leg into a lunge, lowering your hips until both knees are at approximately 90-degree angles.",
+      "Ensure your front knee stays aligned with your toes and your back knee hovers just above the ground.",
+      "Push through your front heel to return to the starting position, and repeat on the other side.",
+      "Alternate legs for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Maintain Proper Alignment",
+        "body": "Keep your chest up and core engaged to ensure that your front knee remains directly above your ankle and does not collapse inward."
+      },
+      {
+        "header": "Control the Descent",
+        "body": "Lower yourself slowly to maximize muscle tension and promote strength gains in the targeted muscles."
+      },
+      {
+        "header": "Keep Your Movements Smooth",
+        "body": "Avoid bouncing at the bottom of the lunge; a controlled motion is key to effective muscle engagement."
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Three Bench Dip",
+    "image": "https://cdn.muscleandstrength.com/sites/default/files/three-bench-dip.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Chest",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "caloriesMin": 8,
+    "caloriesMax": 13,
+    "duration": 45,
+    "equipment": [
+      "Three Benches"
+    ],
+    "about": "The Three Bench Dip is an advanced compound exercise that uses three benches to create an extended range of motion and increased resistance, thereby targeting the triceps more intensively. This movement not only builds tricep strength but also engages the chest and shoulders, leading to improved upper body power and muscle definition. Its unique setup challenges your stability and forces a deep stretch and contraction, making it an excellent exercise for advanced lifters seeking to push through plateaus.",
+    "instructions": [
+      "Arrange three benches in a row, using the middle bench as your dip platform.",
+      "Place your hands on the first bench and your feet on the third bench.",
+      "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+      "Press back up to the starting position by extending your elbows fully, then repeat."
+    ],
+    "tips": [
+      {
+        "header": "Maximize the Range of Motion",
+        "body": "Lower yourself fully to achieve a deep stretch in the triceps. A greater range of motion leads to increased muscle activation and stronger growth over time."
+      },
+      {
+        "header": "Control Every Rep",
+        "body": "Focus on slow, deliberate movements to ensure that the triceps are under constant tension throughout the exercise, which is key to building both strength and muscle size."
+      },
+      {
+        "header": "Keep Your Body Stable",
+        "body": "Engage your core and maintain a rigid posture to prevent any unwanted movement, ensuring that the effort is isolated on your triceps and upper body."
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "EZ Bar Skullcrusher",
+    "image": "https://i.ytimg.com/vi/K6MSN4hCDM4/maxresdefault.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Forearms",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Isolation",
+    "caloriesMin": 6,
+    "caloriesMax": 10,
+    "duration": 35,
+    "equipment": [
+      "EZ Bar"
+    ],
+    "about": "The EZ Bar Skullcrusher is a popular triceps exercise that uses an EZ curl bar to provide a more ergonomic grip and reduce wrist strain. This movement isolates the triceps by emphasizing elbow extension, allowing for deep muscle activation across all three heads. Its unique grip position helps to minimize stress on the joints while promoting maximal muscle contraction, making it an excellent choice for advanced lifters seeking to improve arm size and strength.",
+    "instructions": [
+      "Lie on a flat bench and grasp the EZ bar with a narrow, overhand grip.",
+      "Lower the bar toward your forehead by bending your elbows, keeping your upper arms stationary.",
+      "Extend your arms to return the bar to the starting position, squeezing your triceps at the top.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Use an Ergonomic Grip",
+        "body": "The EZ bar is designed to reduce wrist strain; focus on maintaining this natural grip throughout the exercise to target the triceps effectively while minimizing joint discomfort."
+      },
+      {
+        "header": "Slow and Steady Wins",
+        "body": "Perform the lowering phase very slowly to maximize the time under tension and stimulate the triceps for greater hypertrophy and strength gains."
+      },
+      {
+        "header": "Control Your Range of Motion",
+        "body": "Lower the bar only as far as comfortable without causing undue stress on your elbows. A controlled, moderate range of motion ensures that the triceps are engaged safely and effectively."
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Dumbbell Lunge",
+    "image": "https://i.vimeocdn.com/video/1960918125-14bc0f8d328bb828c51e541ee8700307023ea171d41d405ad290760cf9874154-d?f=webp",
+    "level": "Intermediate",
+    "targetMuscle": "Quads",
+    "secondaryMuscles": [
+      "Glutes",
+      "Hamstrings",
+      "Core"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "stretchBothSide": null,
+    "stretchPerSide": null,
+    "caloriesMin": 8,
+    "caloriesMax": 12,
+    "duration": 35,
+    "equipment": [
+      "Dumbbells"
+    ],
+    "about": "The Dumbbell Lunge is a versatile lower body exercise that targets the quadriceps while also engaging the glutes, hamstrings, and core for stabilization. It is an excellent functional movement that improves balance, coordination, and unilateral strength. With the added resistance of dumbbells, the exercise intensifies muscle activation and helps correct any asymmetries between the legs. Consistent practice leads to improved athletic performance and overall leg development.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms at your sides.",
+      "Step forward with one leg into a lunge, lowering your hips until both knees are at approximately 90-degree angles.",
+      "Ensure your front knee stays aligned with your toes and your back knee hovers just above the ground.",
+      "Push through your front heel to return to the starting position, and repeat on the other side.",
+      "Alternate legs for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Maintain Proper Alignment",
+        "body": "Keep your chest up and core engaged to ensure that your front knee remains directly above your ankle and does not collapse inward."
+      },
+      {
+        "header": "Control the Descent",
+        "body": "Lower yourself slowly to maximize muscle tension and promote strength gains in the targeted muscles."
+      },
+      {
+        "header": "Keep Your Movements Smooth",
+        "body": "Avoid bouncing at the bottom of the lunge; a controlled motion is key to effective muscle engagement."
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Three Bench Dip",
+    "image": "https://cdn.muscleandstrength.com/sites/default/files/three-bench-dip.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Chest",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "caloriesMin": 8,
+    "caloriesMax": 13,
+    "duration": 45,
+    "equipment": [
+      "Three Benches"
+    ],
+    "about": "The Three Bench Dip is an advanced compound exercise that uses three benches to create an extended range of motion and increased resistance, thereby targeting the triceps more intensively. This movement not only builds tricep strength but also engages the chest and shoulders, leading to improved upper body power and muscle definition. Its unique setup challenges your stability and forces a deep stretch and contraction, making it an excellent exercise for advanced lifters seeking to push through plateaus.",
+    "instructions": [
+      "Arrange three benches in a row, using the middle bench as your dip platform.",
+      "Place your hands on the first bench and your feet on the third bench.",
+      "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+      "Press back up to the starting position by extending your elbows fully, then repeat."
+    ],
+    "tips": [
+      {
+        "header": "Maximize the Range of Motion",
+        "body": "Lower yourself fully to achieve a deep stretch in the triceps. A greater range of motion leads to increased muscle activation and stronger growth over time."
+      },
+      {
+        "header": "Control Every Rep",
+        "body": "Focus on slow, deliberate movements to ensure that the triceps are under constant tension throughout the exercise, which is key to building both strength and muscle size."
+      },
+      {
+        "header": "Keep Your Body Stable",
+        "body": "Engage your core and maintain a rigid posture to prevent any unwanted movement, ensuring that the effort is isolated on your triceps and upper body."
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "EZ Bar Skullcrusher",
+    "image": "https://i.ytimg.com/vi/K6MSN4hCDM4/maxresdefault.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Forearms",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Isolation",
+    "caloriesMin": 6,
+    "caloriesMax": 10,
+    "duration": 35,
+    "equipment": [
+      "EZ Bar"
+    ],
+    "about": "The EZ Bar Skullcrusher is a popular triceps exercise that uses an EZ curl bar to provide a more ergonomic grip and reduce wrist strain. This movement isolates the triceps by emphasizing elbow extension, allowing for deep muscle activation across all three heads. Its unique grip position helps to minimize stress on the joints while promoting maximal muscle contraction, making it an excellent choice for advanced lifters seeking to improve arm size and strength.",
+    "instructions": [
+      "Lie on a flat bench and grasp the EZ bar with a narrow, overhand grip.",
+      "Lower the bar toward your forehead by bending your elbows, keeping your upper arms stationary.",
+      "Extend your arms to return the bar to the starting position, squeezing your triceps at the top.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Use an Ergonomic Grip",
+        "body": "The EZ bar is designed to reduce wrist strain; focus on maintaining this natural grip throughout the exercise to target the triceps effectively while minimizing joint discomfort."
+      },
+      {
+        "header": "Slow and Steady Wins",
+        "body": "Perform the lowering phase very slowly to maximize the time under tension and stimulate the triceps for greater hypertrophy and strength gains."
+      },
+      {
+        "header": "Control Your Range of Motion",
+        "body": "Lower the bar only as far as comfortable without causing undue stress on your elbows. A controlled, moderate range of motion ensures that the triceps are engaged safely and effectively."
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Dumbbell Lunge",
+    "image": "https://i.vimeocdn.com/video/1960918125-14bc0f8d328bb828c51e541ee8700307023ea171d41d405ad290760cf9874154-d?f=webp",
+    "level": "Intermediate",
+    "targetMuscle": "Quads",
+    "secondaryMuscles": [
+      "Glutes",
+      "Hamstrings",
+      "Core"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "stretchBothSide": null,
+    "stretchPerSide": null,
+    "caloriesMin": 8,
+    "caloriesMax": 12,
+    "duration": 35,
+    "equipment": [
+      "Dumbbells"
+    ],
+    "about": "The Dumbbell Lunge is a versatile lower body exercise that targets the quadriceps while also engaging the glutes, hamstrings, and core for stabilization. It is an excellent functional movement that improves balance, coordination, and unilateral strength. With the added resistance of dumbbells, the exercise intensifies muscle activation and helps correct any asymmetries between the legs. Consistent practice leads to improved athletic performance and overall leg development.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms at your sides.",
+      "Step forward with one leg into a lunge, lowering your hips until both knees are at approximately 90-degree angles.",
+      "Ensure your front knee stays aligned with your toes and your back knee hovers just above the ground.",
+      "Push through your front heel to return to the starting position, and repeat on the other side.",
+      "Alternate legs for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Maintain Proper Alignment",
+        "body": "Keep your chest up and core engaged to ensure that your front knee remains directly above your ankle and does not collapse inward."
+      },
+      {
+        "header": "Control the Descent",
+        "body": "Lower yourself slowly to maximize muscle tension and promote strength gains in the targeted muscles."
+      },
+      {
+        "header": "Keep Your Movements Smooth",
+        "body": "Avoid bouncing at the bottom of the lunge; a controlled motion is key to effective muscle engagement."
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Three Bench Dip",
+    "image": "https://cdn.muscleandstrength.com/sites/default/files/three-bench-dip.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Chest",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "caloriesMin": 8,
+    "caloriesMax": 13,
+    "duration": 45,
+    "equipment": [
+      "Three Benches"
+    ],
+    "about": "The Three Bench Dip is an advanced compound exercise that uses three benches to create an extended range of motion and increased resistance, thereby targeting the triceps more intensively. This movement not only builds tricep strength but also engages the chest and shoulders, leading to improved upper body power and muscle definition. Its unique setup challenges your stability and forces a deep stretch and contraction, making it an excellent exercise for advanced lifters seeking to push through plateaus.",
+    "instructions": [
+      "Arrange three benches in a row, using the middle bench as your dip platform.",
+      "Place your hands on the first bench and your feet on the third bench.",
+      "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+      "Press back up to the starting position by extending your elbows fully, then repeat."
+    ],
+    "tips": [
+      {
+        "header": "Maximize the Range of Motion",
+        "body": "Lower yourself fully to achieve a deep stretch in the triceps. A greater range of motion leads to increased muscle activation and stronger growth over time."
+      },
+      {
+        "header": "Control Every Rep",
+        "body": "Focus on slow, deliberate movements to ensure that the triceps are under constant tension throughout the exercise, which is key to building both strength and muscle size."
+      },
+      {
+        "header": "Keep Your Body Stable",
+        "body": "Engage your core and maintain a rigid posture to prevent any unwanted movement, ensuring that the effort is isolated on your triceps and upper body."
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "EZ Bar Skullcrusher",
+    "image": "https://i.ytimg.com/vi/K6MSN4hCDM4/maxresdefault.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Forearms",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Isolation",
+    "caloriesMin": 6,
+    "caloriesMax": 10,
+    "duration": 35,
+    "equipment": [
+      "EZ Bar"
+    ],
+    "about": "The EZ Bar Skullcrusher is a popular triceps exercise that uses an EZ curl bar to provide a more ergonomic grip and reduce wrist strain. This movement isolates the triceps by emphasizing elbow extension, allowing for deep muscle activation across all three heads. Its unique grip position helps to minimize stress on the joints while promoting maximal muscle contraction, making it an excellent choice for advanced lifters seeking to improve arm size and strength.",
+    "instructions": [
+      "Lie on a flat bench and grasp the EZ bar with a narrow, overhand grip.",
+      "Lower the bar toward your forehead by bending your elbows, keeping your upper arms stationary.",
+      "Extend your arms to return the bar to the starting position, squeezing your triceps at the top.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Use an Ergonomic Grip",
+        "body": "The EZ bar is designed to reduce wrist strain; focus on maintaining this natural grip throughout the exercise to target the triceps effectively while minimizing joint discomfort."
+      },
+      {
+        "header": "Slow and Steady Wins",
+        "body": "Perform the lowering phase very slowly to maximize the time under tension and stimulate the triceps for greater hypertrophy and strength gains."
+      },
+      {
+        "header": "Control Your Range of Motion",
+        "body": "Lower the bar only as far as comfortable without causing undue stress on your elbows. A controlled, moderate range of motion ensures that the triceps are engaged safely and effectively."
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Dumbbell Lunge",
+    "image": "https://i.vimeocdn.com/video/1960918125-14bc0f8d328bb828c51e541ee8700307023ea171d41d405ad290760cf9874154-d?f=webp",
+    "level": "Intermediate",
+    "targetMuscle": "Quads",
+    "secondaryMuscles": [
+      "Glutes",
+      "Hamstrings",
+      "Core"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "stretchBothSide": null,
+    "stretchPerSide": null,
+    "caloriesMin": 8,
+    "caloriesMax": 12,
+    "duration": 35,
+    "equipment": [
+      "Dumbbells"
+    ],
+    "about": "The Dumbbell Lunge is a versatile lower body exercise that targets the quadriceps while also engaging the glutes, hamstrings, and core for stabilization. It is an excellent functional movement that improves balance, coordination, and unilateral strength. With the added resistance of dumbbells, the exercise intensifies muscle activation and helps correct any asymmetries between the legs. Consistent practice leads to improved athletic performance and overall leg development.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms at your sides.",
+      "Step forward with one leg into a lunge, lowering your hips until both knees are at approximately 90-degree angles.",
+      "Ensure your front knee stays aligned with your toes and your back knee hovers just above the ground.",
+      "Push through your front heel to return to the starting position, and repeat on the other side.",
+      "Alternate legs for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Maintain Proper Alignment",
+        "body": "Keep your chest up and core engaged to ensure that your front knee remains directly above your ankle and does not collapse inward."
+      },
+      {
+        "header": "Control the Descent",
+        "body": "Lower yourself slowly to maximize muscle tension and promote strength gains in the targeted muscles."
+      },
+      {
+        "header": "Keep Your Movements Smooth",
+        "body": "Avoid bouncing at the bottom of the lunge; a controlled motion is key to effective muscle engagement."
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Three Bench Dip",
+    "image": "https://cdn.muscleandstrength.com/sites/default/files/three-bench-dip.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Chest",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "caloriesMin": 8,
+    "caloriesMax": 13,
+    "duration": 45,
+    "equipment": [
+      "Three Benches"
+    ],
+    "about": "The Three Bench Dip is an advanced compound exercise that uses three benches to create an extended range of motion and increased resistance, thereby targeting the triceps more intensively. This movement not only builds tricep strength but also engages the chest and shoulders, leading to improved upper body power and muscle definition. Its unique setup challenges your stability and forces a deep stretch and contraction, making it an excellent exercise for advanced lifters seeking to push through plateaus.",
+    "instructions": [
+      "Arrange three benches in a row, using the middle bench as your dip platform.",
+      "Place your hands on the first bench and your feet on the third bench.",
+      "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+      "Press back up to the starting position by extending your elbows fully, then repeat."
+    ],
+    "tips": [
+      {
+        "header": "Maximize the Range of Motion",
+        "body": "Lower yourself fully to achieve a deep stretch in the triceps. A greater range of motion leads to increased muscle activation and stronger growth over time."
+      },
+      {
+        "header": "Control Every Rep",
+        "body": "Focus on slow, deliberate movements to ensure that the triceps are under constant tension throughout the exercise, which is key to building both strength and muscle size."
+      },
+      {
+        "header": "Keep Your Body Stable",
+        "body": "Engage your core and maintain a rigid posture to prevent any unwanted movement, ensuring that the effort is isolated on your triceps and upper body."
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "EZ Bar Skullcrusher",
+    "image": "https://i.ytimg.com/vi/K6MSN4hCDM4/maxresdefault.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Forearms",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Isolation",
+    "caloriesMin": 6,
+    "caloriesMax": 10,
+    "duration": 35,
+    "equipment": [
+      "EZ Bar"
+    ],
+    "about": "The EZ Bar Skullcrusher is a popular triceps exercise that uses an EZ curl bar to provide a more ergonomic grip and reduce wrist strain. This movement isolates the triceps by emphasizing elbow extension, allowing for deep muscle activation across all three heads. Its unique grip position helps to minimize stress on the joints while promoting maximal muscle contraction, making it an excellent choice for advanced lifters seeking to improve arm size and strength.",
+    "instructions": [
+      "Lie on a flat bench and grasp the EZ bar with a narrow, overhand grip.",
+      "Lower the bar toward your forehead by bending your elbows, keeping your upper arms stationary.",
+      "Extend your arms to return the bar to the starting position, squeezing your triceps at the top.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Use an Ergonomic Grip",
+        "body": "The EZ bar is designed to reduce wrist strain; focus on maintaining this natural grip throughout the exercise to target the triceps effectively while minimizing joint discomfort."
+      },
+      {
+        "header": "Slow and Steady Wins",
+        "body": "Perform the lowering phase very slowly to maximize the time under tension and stimulate the triceps for greater hypertrophy and strength gains."
+      },
+      {
+        "header": "Control Your Range of Motion",
+        "body": "Lower the bar only as far as comfortable without causing undue stress on your elbows. A controlled, moderate range of motion ensures that the triceps are engaged safely and effectively."
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Dumbbell Lunge",
+    "image": "https://i.vimeocdn.com/video/1960918125-14bc0f8d328bb828c51e541ee8700307023ea171d41d405ad290760cf9874154-d?f=webp",
+    "level": "Intermediate",
+    "targetMuscle": "Quads",
+    "secondaryMuscles": [
+      "Glutes",
+      "Hamstrings",
+      "Core"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "stretchBothSide": null,
+    "stretchPerSide": null,
+    "caloriesMin": 8,
+    "caloriesMax": 12,
+    "duration": 35,
+    "equipment": [
+      "Dumbbells"
+    ],
+    "about": "The Dumbbell Lunge is a versatile lower body exercise that targets the quadriceps while also engaging the glutes, hamstrings, and core for stabilization. It is an excellent functional movement that improves balance, coordination, and unilateral strength. With the added resistance of dumbbells, the exercise intensifies muscle activation and helps correct any asymmetries between the legs. Consistent practice leads to improved athletic performance and overall leg development.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms at your sides.",
+      "Step forward with one leg into a lunge, lowering your hips until both knees are at approximately 90-degree angles.",
+      "Ensure your front knee stays aligned with your toes and your back knee hovers just above the ground.",
+      "Push through your front heel to return to the starting position, and repeat on the other side.",
+      "Alternate legs for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Maintain Proper Alignment",
+        "body": "Keep your chest up and core engaged to ensure that your front knee remains directly above your ankle and does not collapse inward."
+      },
+      {
+        "header": "Control the Descent",
+        "body": "Lower yourself slowly to maximize muscle tension and promote strength gains in the targeted muscles."
+      },
+      {
+        "header": "Keep Your Movements Smooth",
+        "body": "Avoid bouncing at the bottom of the lunge; a controlled motion is key to effective muscle engagement."
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Three Bench Dip",
+    "image": "https://cdn.muscleandstrength.com/sites/default/files/three-bench-dip.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Chest",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "caloriesMin": 8,
+    "caloriesMax": 13,
+    "duration": 45,
+    "equipment": [
+      "Three Benches"
+    ],
+    "about": "The Three Bench Dip is an advanced compound exercise that uses three benches to create an extended range of motion and increased resistance, thereby targeting the triceps more intensively. This movement not only builds tricep strength but also engages the chest and shoulders, leading to improved upper body power and muscle definition. Its unique setup challenges your stability and forces a deep stretch and contraction, making it an excellent exercise for advanced lifters seeking to push through plateaus.",
+    "instructions": [
+      "Arrange three benches in a row, using the middle bench as your dip platform.",
+      "Place your hands on the first bench and your feet on the third bench.",
+      "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+      "Press back up to the starting position by extending your elbows fully, then repeat."
+    ],
+    "tips": [
+      {
+        "header": "Maximize the Range of Motion",
+        "body": "Lower yourself fully to achieve a deep stretch in the triceps. A greater range of motion leads to increased muscle activation and stronger growth over time."
+      },
+      {
+        "header": "Control Every Rep",
+        "body": "Focus on slow, deliberate movements to ensure that the triceps are under constant tension throughout the exercise, which is key to building both strength and muscle size."
+      },
+      {
+        "header": "Keep Your Body Stable",
+        "body": "Engage your core and maintain a rigid posture to prevent any unwanted movement, ensuring that the effort is isolated on your triceps and upper body."
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "EZ Bar Skullcrusher",
+    "image": "https://i.ytimg.com/vi/K6MSN4hCDM4/maxresdefault.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Forearms",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Isolation",
+    "caloriesMin": 6,
+    "caloriesMax": 10,
+    "duration": 35,
+    "equipment": [
+      "EZ Bar"
+    ],
+    "about": "The EZ Bar Skullcrusher is a popular triceps exercise that uses an EZ curl bar to provide a more ergonomic grip and reduce wrist strain. This movement isolates the triceps by emphasizing elbow extension, allowing for deep muscle activation across all three heads. Its unique grip position helps to minimize stress on the joints while promoting maximal muscle contraction, making it an excellent choice for advanced lifters seeking to improve arm size and strength.",
+    "instructions": [
+      "Lie on a flat bench and grasp the EZ bar with a narrow, overhand grip.",
+      "Lower the bar toward your forehead by bending your elbows, keeping your upper arms stationary.",
+      "Extend your arms to return the bar to the starting position, squeezing your triceps at the top.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Use an Ergonomic Grip",
+        "body": "The EZ bar is designed to reduce wrist strain; focus on maintaining this natural grip throughout the exercise to target the triceps effectively while minimizing joint discomfort."
+      },
+      {
+        "header": "Slow and Steady Wins",
+        "body": "Perform the lowering phase very slowly to maximize the time under tension and stimulate the triceps for greater hypertrophy and strength gains."
+      },
+      {
+        "header": "Control Your Range of Motion",
+        "body": "Lower the bar only as far as comfortable without causing undue stress on your elbows. A controlled, moderate range of motion ensures that the triceps are engaged safely and effectively."
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Dumbbell Lunge",
+    "image": "https://i.vimeocdn.com/video/1960918125-14bc0f8d328bb828c51e541ee8700307023ea171d41d405ad290760cf9874154-d?f=webp",
+    "level": "Intermediate",
+    "targetMuscle": "Quads",
+    "secondaryMuscles": [
+      "Glutes",
+      "Hamstrings",
+      "Core"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "stretchBothSide": null,
+    "stretchPerSide": null,
+    "caloriesMin": 8,
+    "caloriesMax": 12,
+    "duration": 35,
+    "equipment": [
+      "Dumbbells"
+    ],
+    "about": "The Dumbbell Lunge is a versatile lower body exercise that targets the quadriceps while also engaging the glutes, hamstrings, and core for stabilization. It is an excellent functional movement that improves balance, coordination, and unilateral strength. With the added resistance of dumbbells, the exercise intensifies muscle activation and helps correct any asymmetries between the legs. Consistent practice leads to improved athletic performance and overall leg development.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms at your sides.",
+      "Step forward with one leg into a lunge, lowering your hips until both knees are at approximately 90-degree angles.",
+      "Ensure your front knee stays aligned with your toes and your back knee hovers just above the ground.",
+      "Push through your front heel to return to the starting position, and repeat on the other side.",
+      "Alternate legs for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Maintain Proper Alignment",
+        "body": "Keep your chest up and core engaged to ensure that your front knee remains directly above your ankle and does not collapse inward."
+      },
+      {
+        "header": "Control the Descent",
+        "body": "Lower yourself slowly to maximize muscle tension and promote strength gains in the targeted muscles."
+      },
+      {
+        "header": "Keep Your Movements Smooth",
+        "body": "Avoid bouncing at the bottom of the lunge; a controlled motion is key to effective muscle engagement."
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Three Bench Dip",
+    "image": "https://cdn.muscleandstrength.com/sites/default/files/three-bench-dip.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Chest",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Compound",
+    "caloriesMin": 8,
+    "caloriesMax": 13,
+    "duration": 45,
+    "equipment": [
+      "Three Benches"
+    ],
+    "about": "The Three Bench Dip is an advanced compound exercise that uses three benches to create an extended range of motion and increased resistance, thereby targeting the triceps more intensively. This movement not only builds tricep strength but also engages the chest and shoulders, leading to improved upper body power and muscle definition. Its unique setup challenges your stability and forces a deep stretch and contraction, making it an excellent exercise for advanced lifters seeking to push through plateaus.",
+    "instructions": [
+      "Arrange three benches in a row, using the middle bench as your dip platform.",
+      "Place your hands on the first bench and your feet on the third bench.",
+      "Lower your body by bending your elbows until your upper arms are parallel to the floor.",
+      "Press back up to the starting position by extending your elbows fully, then repeat."
+    ],
+    "tips": [
+      {
+        "header": "Maximize the Range of Motion",
+        "body": "Lower yourself fully to achieve a deep stretch in the triceps. A greater range of motion leads to increased muscle activation and stronger growth over time."
+      },
+      {
+        "header": "Control Every Rep",
+        "body": "Focus on slow, deliberate movements to ensure that the triceps are under constant tension throughout the exercise, which is key to building both strength and muscle size."
+      },
+      {
+        "header": "Keep Your Body Stable",
+        "body": "Engage your core and maintain a rigid posture to prevent any unwanted movement, ensuring that the effort is isolated on your triceps and upper body."
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "EZ Bar Skullcrusher",
+    "image": "https://i.ytimg.com/vi/K6MSN4hCDM4/maxresdefault.jpg",
+    "level": "Advanced",
+    "targetMuscle": "Triceps",
+    "secondaryMuscles": [
+      "Forearms",
+      "Shoulders"
+    ],
+    "exerciseType": "Strength",
+    "forceType": "Push",
+    "mechanics": "Isolation",
+    "caloriesMin": 6,
+    "caloriesMax": 10,
+    "duration": 35,
+    "equipment": [
+      "EZ Bar"
+    ],
+    "about": "The EZ Bar Skullcrusher is a popular triceps exercise that uses an EZ curl bar to provide a more ergonomic grip and reduce wrist strain. This movement isolates the triceps by emphasizing elbow extension, allowing for deep muscle activation across all three heads. Its unique grip position helps to minimize stress on the joints while promoting maximal muscle contraction, making it an excellent choice for advanced lifters seeking to improve arm size and strength.",
+    "instructions": [
+      "Lie on a flat bench and grasp the EZ bar with a narrow, overhand grip.",
+      "Lower the bar toward your forehead by bending your elbows, keeping your upper arms stationary.",
+      "Extend your arms to return the bar to the starting position, squeezing your triceps at the top.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "tips": [
+      {
+        "header": "Use an Ergonomic Grip",
+        "body": "The EZ bar is designed to reduce wrist strain; focus on maintaining this natural grip throughout the exercise to target the triceps effectively while minimizing joint discomfort."
+      },
+      {
+        "header": "Slow and Steady Wins",
+        "body": "Perform the lowering phase very slowly to maximize the time under tension and stimulate the triceps for greater hypertrophy and strength gains."
+      },
+      {
+        "header": "Control Your Range of Motion",
+        "body": "Lower the bar only as far as comfortable without causing undue stress on your elbows. A controlled, moderate range of motion ensures that the triceps are engaged safely and effectively."
+      }
+    ]
+  }
+]

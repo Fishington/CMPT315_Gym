@@ -9,7 +9,7 @@
 //
 // Return: Outputs a media query with a minimum width for the specified breakpoint.
 @mixin breakpoint($size) {
-  @media (min-width: map.get(b.$breakpoints, $size)) {
+  @media (max-width: map.get(b.$breakpoints, $size)) {
     @content
   }
 }

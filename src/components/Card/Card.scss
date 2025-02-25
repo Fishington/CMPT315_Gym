@@ -6,13 +6,8 @@
   background-color: #FFFFFF;
   border: 1px solid #DBDBDB;
   
-  &__section {
-    display: grid;
-    gap: 0.5rem;
-  }
-
-  & h2 {
-    font-size: 1.75rem;
+  @include breakpoint(small) {
+    padding: 1.5rem;
   }
 
   & label {

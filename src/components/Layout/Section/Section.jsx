@@ -1,3 +1,4 @@
+import section from '@/components/Layout/Section/index.js';
 import './Section.scss';
 
 export default function Section({children, title, tip}) {
@@ -18,4 +19,12 @@ export default function Section({children, title, tip}) {
             </div>
         </section>
     );
+}
+
+Section.Column = function Section({children}) {
+    return (
+        <div>
+            {children}
+        </div>
+    )
 }

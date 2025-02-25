@@ -1,8 +1,6 @@
-import Button from "@/components/Button";
+import './Form.scss';
 
-import "./Form.scss";
-
-export default function Form({children, variant, buttonColor, legend, submitLabel, submitIcon, onSubmit}) {
+export default function Form({children, variant, legend, onSubmit}) {
     return (
         <form className={`form ${variant}`} onSubmit={onSubmit} noValidate>
             <fieldset className="form__fieldset">
@@ -10,15 +8,6 @@ export default function Form({children, variant, buttonColor, legend, submitLabe
 
                 {children}
             </fieldset>
-
-            <Button
-                color={buttonColor}
-                size="full-width"
-                type="submit"
-            >
-                {submitIcon}
-                {submitLabel}
-            </Button>
         </form>
     );
 }
