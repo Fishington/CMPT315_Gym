@@ -8,8 +8,9 @@ import Tag from '@/components/Tag';
 import ItemCard from '@/components/ItemCard';
 import Button from '@/components/Button/index.js';
 
-import tempRoutineList from '@/data/routines.json';
 import {formatTimeToString} from "@/utils/formatter.js";
+import {useEffect, useState} from "react";
+import {fetchRoutines} from "@/api/routinesApi.js";
 
 const exerciseFilters = [
     {
@@ -48,6 +49,32 @@ const exerciseFilters = [
 
 function RoutinesList() {
     const navigate = useNavigate();
+    const [routines, setRoutines] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const getRoutines = async () => {
+            try {
+                const data = await fetchRoutines();
+                if (data) {
+                    setRoutines(data);
+                } else {
+                    console.error("No routines found.");
+                }
+            } catch (error) {
+                console.error("Error fetching routines:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        getRoutines();
+    }, []);
+
+    if (loading) {
+        return <p>Loading routines...</p>;
+    }
+
     return (
         <>
             <PageHeader pageTitle="View Workout Routines" showBack={true} backTarget="/workout"/>
@@ -56,10 +83,10 @@ function RoutinesList() {
                 title="Featured Routines"
                 tip="Take a look at the featured workout routines that are currently popular."
             >
-                <ItemCard data={tempRoutineList.find((ro) => ro.id === Number(3))} baseLink="workout/routines"/>
-                <ItemCard data={tempRoutineList.find((ro) => ro.id === Number(7))} baseLink="workout/routines"/>
-                <ItemCard data={tempRoutineList.find((ro) => ro.id === Number(14))} baseLink="workout/routines"/>
-                <ItemCard data={tempRoutineList.find((ro) => ro.id === Number(9))} baseLink="workout/routines"/>
+                <ItemCard data={routines.find((ro) => ro.id === Number(1))} baseLink="workout/routines"/>
+                <ItemCard data={routines.find((ro) => ro.id === Number(2))} baseLink="workout/routines"/>
+                <ItemCard data={routines.find((ro) => ro.id === Number(3))} baseLink="workout/routines"/>
+                <ItemCard data={routines.find((ro) => ro.id === Number(4))} baseLink="workout/routines"/>
             </Section>
 
             <Section
@@ -69,7 +96,7 @@ function RoutinesList() {
                 <Card>
                     <ItemSearch
                         filters={exerciseFilters}
-                        data={tempRoutineList}
+                        data={routines}
                         columns={['Workout Goal','Muscle Group', 'Difficulty', 'Calories', 'Duration']}
                         rowFormat={(data) => <RoutineListRow data={data}/>}
                         onDataClick={(itemData) => navigate(`${itemData.id}`)}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 
 import Button from '@/components/Button/index.js';
@@ -11,11 +11,39 @@ import ItemDetails from '@/components/ItemDetails/';
 
 import MealPlanIcon from '@/components/Icons/MealPlanIcon/index.js';
 
-import tempRoutineList from '@/data/routines.json';
+import {fetchRoutineById} from "@/api/routinesApi.js";
 
 function WorkoutSummary() {
     const {id} = useParams();
-    const routine = tempRoutineList.find((ro) => ro.id === Number(id));
+    const [routine, setRoutine] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const getRoutine = async () => {
+            try {
+                const data = await fetchRoutineById(id);
+                if (data) {
+                    setRoutine(data);
+                } else {
+                    console.error(`Routine with ID ${id} not found.`);
+                }
+            } catch (error) {
+                console.error("Error fetching routine:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (id) getRoutine();
+    }, [id]);
+
+    if (loading) {
+        return <p>Loading routine details...</p>;
+    }
+
+    if (!routine) {
+        return <p>Error: Routine not found.</p>;
+    }
 
     const itemDetails = [
         {

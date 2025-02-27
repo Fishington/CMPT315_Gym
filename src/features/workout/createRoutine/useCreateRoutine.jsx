@@ -3,8 +3,8 @@ import {useState} from "react";
 import {useAuth} from "@/context/AuthContext.jsx";
 import {formatTimeToString} from "@/utils/formatter.js";
 import MealPlanIcon from "@/components/Icons/MealPlanIcon/index.js";
-import tempRoutineList from '@/data/routines.json';
 import imageCompression from "browser-image-compression";
+import {createRoutine} from "@/api/routinesApi.js";
 
 export default function useCreateRoutine() {
     const navigate = useNavigate();
@@ -126,19 +126,25 @@ export default function useCreateRoutine() {
         }
     }
 
-    function handleCreateRoutine(e) {
+    async function handleCreateRoutine(e) {
         e.preventDefault();
 
         if (!validation()) {
             console.log('Form not submitted: Invalid Fields');
-            return
+            return;
         }
 
-        console.log(routine);
-
-        tempRoutineList.push(routine);
-
-        navigate('/workout/routines')
+        try {
+            const result = await createRoutine(routine);
+            if (result) {
+                console.log("Routine created successfully:", result, routine);
+                navigate('/workout/routines');
+            } else {
+                console.error("Failed to create routine.");
+            }
+        } catch (error) {
+            console.error("Error creating routine:", error);
+        }
     }
 
     return {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import Section from '@/components/Layout/Section';
 import Card from '@/components/Card';
@@ -6,8 +6,8 @@ import ItemSearch from '@/components/ItemSearch';
 import Tag from '@/components/Tag';
 import PageHeader from '@/components/Layout/PageHeader';
 
-import exercisesList from '@/data/exercises.json';
 import {useNavigate} from "react-router-dom";
+import {fetchExercises} from "@/api/exerciseApi.js";
 
 const exerciseFilters = [
     {
@@ -18,7 +18,30 @@ const exerciseFilters = [
     {
         label  : 'Muscle Group',
         id     : 'targetMuscle',
-        options: ['Full Body', 'Biceps']
+        options: [
+            'Abductors',
+            'Abs',
+            'Adductors',
+            'Biceps',
+            'Calves',
+            'Chest',
+            'Forearms',
+            'Glutes',
+            'Hamstrings',
+            'Hip Flexors',
+            'IT Band',
+            'Lats',
+            'Lower Back',
+            'Upper Back',
+            'Neck',
+            'Obliques',
+            'Palmar Fascia',
+            'Plantar Fascia',
+            'Quads',
+            'Shoulders',
+            'Traps',
+            'Triceps',
+        ]
     },
     {
         label  : 'Equipment',
@@ -29,6 +52,29 @@ const exerciseFilters = [
 
 function ExercisesList() {
     const navigate = useNavigate();
+
+    const [exercisesList, setExercisesList] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const loadExercise = async () => {
+            try {
+                const data = await fetchExercises();
+                setExercisesList(data);
+            } catch (error) {
+                console.error("Failed to fetch from API:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadExercise();
+    }, []);
+
+    if (loading) return <p>Loading exercise details...</p>;
+    if (error) return <p>Error: {error}</p>;
+    if (!exercisesList) return <p>Exercise not found</p>;
 
     return (
         <>

@@ -11,13 +11,34 @@ import Instructions from '@/components/Instructions';
 import ItemAbout from '@/components/ItemAbout';
 import ExerciseTips from '@/features/workout/exercises/ExerciseTips';
 
-import exercisesList from '@/data/exercises.json';
 import {formatTimeToString} from "@/utils/formatter.js";
+import {fetchExerciseById} from "@/api/exerciseApi.js";
+import {useEffect, useState} from "react";
 
 function ExercisesDetails() {
-    const {id} = useParams();
+    const { id } = useParams();
+    const [exercise, setExercise] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    const exercise = exercisesList.find((ex) => ex.id === Number(id))
+    useEffect(() => {
+        const loadExercise = async () => {
+            try {
+                const data = await fetchExerciseById(id);
+                setExercise(data);
+            } catch (error) {
+                console.error("Failed to fetch from API:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadExercise();
+    }, [id]);
+
+    if (loading) return <p>Loading exercise details...</p>;
+    if (error) return <p>Error: {error}</p>;
+    if (!exercise) return <p>Exercise not found</p>;
 
     const itemDetails = [
         {
