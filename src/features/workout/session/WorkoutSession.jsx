@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import PageHeader from '@/components/Layout/PageHeader/index.js';
 
@@ -11,15 +11,40 @@ import SessionTimer from '@/features/workout/session/SessionTimer.jsx';
 import ExerciseTimer from '@/features/workout/session/ExerciseTimer.jsx';
 import MainRoutineDetails from '@/features/workout/routines/MainRoutineDetails.jsx';
 
-import tempRoutineList from '@/data/routines.json';
-import exercisesList from '@/data/exercises.json';
+import {fetchRoutineById} from "@/api/routinesApi.js";
 
 
 function WorkoutSession() {
     const {id} = useParams();
+    const [routine, setRoutine] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const routine = tempRoutineList.find((ro) => ro.id === Number(id));
-    const exercise = exercisesList.find((ex) => ex.id === Number(id))
+    useEffect(() => {
+        const getRoutine = async () => {
+            try {
+                const data = await fetchRoutineById(id);
+                if (data) {
+                    setRoutine(data);
+                } else {
+                    console.error(`Routine with ID ${id} not found.`);
+                }
+            } catch (error) {
+                console.error("Error fetching routine:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (id) getRoutine();
+    }, [id]);
+
+    if (loading) {
+        return <p>Loading routine details...</p>;
+    }
+
+    if (!routine) {
+        return <p>Error: Routine not found.</p>;
+    }
 
     return (
         <>
@@ -29,7 +54,7 @@ function WorkoutSession() {
                 <TwoColumns.Column>
                     <img
                         style={{maxHeight: '40rem', objectFit: 'cover'}}
-                        src={exercise.image}
+                        src={routine.image}
                         alt=""
                     />
 

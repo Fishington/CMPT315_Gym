@@ -1,4 +1,5 @@
-import {useParams} from 'react-router-dom';
+import {useEffect, useState} from "react";
+import {useNavigate, useParams} from 'react-router-dom';
 
 import PageHeader from '@/components/Layout/PageHeader';
 import TwoColumns from '@/components/Layout/TwoColumns';
@@ -8,16 +9,56 @@ import ExerciseOrder from '@/features/workout/components/ExerciseOrder';
 import MainRoutineDetails from '@/features/workout/routines/MainRoutineDetails';
 import Button from '@/components/Button';
 
-import tempRoutineList from '@/data/routines.json';
 import {useAuth} from "@/context/AuthContext.jsx";
+import {deleteRoutine, fetchRoutineById} from "@/api/routinesApi.js";
 
 function RoutineDetails() {
-    const {user} = useAuth();
-    const {id} = useParams();
-    const routine = tempRoutineList.find((ro) => ro.id === Number(id));
+    const { user } = useAuth();
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-    function handleRemoveRoutine(e) {
-        console.log('delete routine');
+    const [routine, setRoutine] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const getRoutine = async () => {
+            try {
+                const data = await fetchRoutineById(id);
+                if (data) {
+                    setRoutine(data);
+                } else {
+                    console.error(`Routine with ID ${id} not found.`);
+                }
+            } catch (error) {
+                console.error("Error fetching routine:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (id) getRoutine();
+    }, [id]);
+
+    async function handleRemoveRoutine() {
+        if (!window.confirm("Are you sure you want to delete this routine?")) return;
+
+        try {
+            const result = await deleteRoutine(id);
+            if (result) {
+                console.log(`Routine ${id} deleted successfully.`);
+                navigate("/workout");
+            }
+        } catch (error) {
+            console.error("Error deleting routine:", error);
+        }
+    }
+
+    if (loading) {
+        return <p>Loading routine details...</p>;
+    }
+
+    if (!routine) {
+        return <p>Error: Routine not found.</p>;
     }
 
     return (

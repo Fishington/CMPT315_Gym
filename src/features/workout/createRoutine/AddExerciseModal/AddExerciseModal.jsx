@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import Card from "@/components/Card";
 import ItemSearch from "@/components/ItemSearch";
@@ -8,8 +8,8 @@ import Form from "@/components/Form"
 import TextInput from "@/components/Form/TextInput";
 import BackIcon from "@/components/Icons/BackIcon/index.js";
 
-import exercisesList from "@/data/exercises.json";
 import './AddExerciseModal.scss'
+import {fetchExercises} from "@/api/exerciseApi.js";
 
 const exerciseFilters = [
     {
@@ -52,6 +52,27 @@ export default function AddExerciseModal({modalType, setModalType, setRoutine}) 
     const [reps, setReps] = useState('');
     const [sets, setSets] = useState('');
     const [breakDuration, setBreakDuration] = useState('')
+    const [exercisesList, setExercisesList] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const getExercises = async () => {
+            try {
+                const data = await fetchExercises();
+                if (data) {
+                    setExercisesList(data);
+                } else {
+                    console.error("No exercises found.");
+                }
+            } catch (error) {
+                console.error("Error fetching exercises:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        getExercises();
+    }, []);
 
     function handleAddExercise(e) {
         e.preventDefault();
