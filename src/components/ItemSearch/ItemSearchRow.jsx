@@ -1,13 +1,14 @@
-import {Link} from "react-router-dom";
-
+import {useItemSearch} from "@/context/ItemSearchContext.jsx";
 import './ItemSearchRow.scss'
 
 const ItemSearchRow = ({children, itemData, columnCount}) => {
+    const {onDataClick} = useItemSearch()
+
     return (
         <li className="item-search-row">
-            <Link
+            <div
                 className="item-search-row__container"
-                to={`${itemData.id}`}
+                onClick={() => onDataClick ? onDataClick(itemData) : null}
                 style={{gridTemplateColumns: `2.5fr repeat(${columnCount}, 1fr)`}}
             >
                 <div className="item-search-row__item">
@@ -16,7 +17,7 @@ const ItemSearchRow = ({children, itemData, columnCount}) => {
                 </div>
 
                 {children}
-            </Link>
+            </div>
         </li>
     );
 };

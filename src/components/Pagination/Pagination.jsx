@@ -1,7 +1,6 @@
-// src/components/Pagination/Pagination.jsx
-import React from 'react';
 import usePagination from './usePagination';
 import Button from '@/components/Button/index.js';
+
 import './Pagination.scss';
 
 export default function Pagination() {

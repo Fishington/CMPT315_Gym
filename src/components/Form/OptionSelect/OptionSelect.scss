@@ -1,17 +1,22 @@
-@use  '../../../assets/styles/abstract' as a;
+@use '../../../assets/styles/abstract' as a;
 
-.text-input {
+.option-select {
   display: grid;
   gap: 0.5rem;
 
   &__field {
     width: 100%;
     padding: 1rem 1.25rem;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     background-color: #F8F8F8;
     border-radius: 0.25rem;
     border: 1px solid #B7B7B7;
     outline: none !important;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    cursor: pointer;
 
     &::placeholder {
       opacity: 0.4;
@@ -31,12 +36,16 @@
     font-weight: 500;
     color: #DA3232;
   }
-  
+
   &__label {
     font-size: 1.5rem;
   }
 
   &__optional {
     color: #2A3FF4;
+  }
+
+  & option:disabled {
+    color: rgba(0, 0, 0, 0.4) !important;
   }
 }

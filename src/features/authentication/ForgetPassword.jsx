@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react';
 import {Link, useNavigate, useOutletContext} from 'react-router-dom';
-import {emailValidation} from '@/utils/authentication.js';
 import Form from '@/components/Form';
 import TextInput from '@/components/Form/TextInput/index.js';
 import LoginIcon from '@/components/Icons/LoginIcon';

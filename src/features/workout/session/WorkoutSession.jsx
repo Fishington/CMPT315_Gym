@@ -6,12 +6,12 @@ import TwoColumns from '@/components/Layout/TwoColumns';
 import Card from '@/components/Card';
 import Section from '@/components/Layout/Section';
 
-import ExerciseList from '@/features/workout/components/ExerciseList/index.js';
+import ExerciseOrder from '@/features/workout/components/ExerciseOrder';
 import SessionTimer from '@/features/workout/session/SessionTimer.jsx';
 import ExerciseTimer from '@/features/workout/session/ExerciseTimer.jsx';
 import MainRoutineDetails from '@/features/workout/routines/MainRoutineDetails.jsx';
 
-import {tempRoutineList} from '@/data/tempData.js';
+import tempRoutineList from '@/data/routines.json';
 import exercisesList from '@/data/exercises.json';
 
 
@@ -27,10 +27,11 @@ function WorkoutSession() {
 
             <TwoColumns secondColumnWidth="max-content">
                 <TwoColumns.Column>
-                    <video width="100%" height="100%" controls>
-                        <source src={exercise.video} type="video/mp4"/>
-                        Your browser does not support the video tag.
-                    </video>
+                    <img
+                        style={{maxHeight: '40rem', objectFit: 'cover'}}
+                        src={exercise.image}
+                        alt=""
+                    />
 
                     <Section>
                         <SessionTimer routineId={id}/>
@@ -50,7 +51,7 @@ function WorkoutSession() {
                     </Section>
 
                     <Section title="Upcoming exercises">
-                        <ExerciseList routine={routine}/>
+                        <ExerciseOrder routine={routine}/>
                     </Section>
                 </TwoColumns.Column>
             </TwoColumns>

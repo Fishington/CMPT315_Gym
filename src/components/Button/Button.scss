@@ -40,6 +40,17 @@
     }
   }
 
+  &--red {
+    background-color: #C42D2D;
+    color: #FFFFFF;
+
+    &:hover {
+      background-color: #FFFFFF;
+      color: #C42D2D;
+      border: 1px solid #C42D2D;
+    }
+  }
+
   &--white {
     background-color: #FFFFFF;
     color: #2A3FF4;
@@ -49,30 +60,6 @@
       background-color: #2A3FF4;
       color: #FFFFFF;
       border: 1px solid transparent;
-    }
-  }
-
-  &--google {
-    background-color: #FFFFFF;
-    color: #1D1D1B;
-    border: 1px solid #1D1D1B;
-
-    &:hover {
-      background-color: #1D1D1B;
-      color: #FFFFFF;
-      border: 1px solid transparent;
-    }
-  }
-
-  &--apple {
-    background-color: #1D1D1B;
-    color: #FFFFFF;
-    border: 1px solid #1D1D1B;
-
-    &:hover {
-      background-color: #FFFFFF;
-      color: #1D1D1B;
-      border: 1px solid #1D1D1B;
     }
   }
 

@@ -29,10 +29,7 @@ export default function DropDown({children, color = 'blue', size = 'medium', lab
                 {label}
             </Button>
 
-            <div
-                className="drop-down__modal"
-                style={{display: active ? 'grid' : 'none'}}
-            >
+            <div className="drop-down__modal" style={{display: active ? 'grid' : 'none'}}>
                 {children}
             </div>
         </div>

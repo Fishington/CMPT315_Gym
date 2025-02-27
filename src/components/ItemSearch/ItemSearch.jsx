@@ -8,14 +8,14 @@ import SearchFilters from "@/components/SearchFilters/SearchFilters.jsx";
 import './ItemSearch.scss';
 import {ItemSearchProvider} from "@/context/ItemSearchContext.jsx";
 
-const ItemSearch = ({filters, data, columns, rowFormat, searchBarContent}) => {
+const ItemSearch = ({filters, data, columns, rowFormat, searchBarContent, onDataClick, itemsPerPage = 24}) => {
     return (
-        <ItemSearchProvider>
+        <ItemSearchProvider itemsPerPage={itemsPerPage} onDataClick={onDataClick}>
             <SearchBar>
                 {searchBarContent ? searchBarContent : ''}
             </SearchBar>
 
-            <SearchFilters filters={filters}/>
+            {filters && <SearchFilters filters={filters}/>}
 
             <ItemSearchList
                 data={data}

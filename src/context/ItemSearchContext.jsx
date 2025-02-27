@@ -1,14 +1,13 @@
-import { createContext, useContext, useState } from 'react';
+import {createContext, useContext, useState} from 'react';
 
 const ItemSearchContext = createContext(null);
 
-export function ItemSearchProvider({ children }) {
+export function ItemSearchProvider({children, itemsPerPage, onDataClick}) {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedFilters, setSelectedFilters] = useState({});
 
     // Pagination state
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 24;
     const [totalPages, setTotalPages] = useState(1);
 
     function handleCheckBoxChange(groupName, option, isChecked) {
@@ -16,7 +15,7 @@ export function ItemSearchProvider({ children }) {
             const updatedGroup = isChecked
                 ? [...(prev[groupName] || []), option]
                 : (prev[groupName] || []).filter((item) => item !== option);
-            return { ...prev, [groupName]: updatedGroup };
+            return {...prev, [groupName]: updatedGroup};
         });
     }
 
@@ -33,6 +32,7 @@ export function ItemSearchProvider({ children }) {
                 itemsPerPage,
                 totalPages,
                 setTotalPages,
+                onDataClick
             }}
         >
             {children}

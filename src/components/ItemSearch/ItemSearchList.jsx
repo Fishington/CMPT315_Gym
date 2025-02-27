@@ -49,6 +49,7 @@ const ItemSearchList = ({ data, columns, rowFormat }) => {
                         <p key={column}>{column}</p>
                     ))}
                 </li>
+                
                 {paginatedData.map((item, index) => (
                     <ItemSearchRow key={index} itemData={item} columnCount={columns.length}>
                         {rowFormat(item)}
