@@ -6,12 +6,12 @@ import PageHeader from '@/components/Layout/PageHeader/index.js';
 import TwoColumns from '@/components/Layout/TwoColumns/index.js';
 import Card from '@/components/Card/index.js';
 import Section from '@/components/Layout/Section/index.js';
-import ExerciseList from '@/features/workout/components/ExerciseList/index.js';
+import ExerciseOrder from '@/features/workout/components/ExerciseOrder';
 import ItemDetails from '@/components/ItemDetails/';
 
 import MealPlanIcon from '@/components/Icons/MealPlanIcon/index.js';
 
-import {tempRoutineList} from '@/data/tempData.js';
+import tempRoutineList from '@/data/routines.json';
 
 function WorkoutSummary() {
     const {id} = useParams();
@@ -80,7 +80,7 @@ function WorkoutSummary() {
 
                 <TwoColumns.Column>
                     <Section title="Finished ExercisesList">
-                        <ExerciseList routine={routine}/>
+                        <ExerciseOrder routine={routine}/>
                     </Section>
                 </TwoColumns.Column>
             </TwoColumns>

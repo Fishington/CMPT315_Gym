@@ -11,6 +11,7 @@ export function AuthProvider({children}) {
 
     function login(userData) {
         const formattedUser = {
+            ...userData,
             firstName: userData.firstName,
             lastName: userData.lastName,
             email: userData.email

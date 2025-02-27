@@ -1,0 +1,63 @@
+.add-exercise-modal {
+  &__main {
+    align-content: flex-start;
+    position: absolute;
+    height: 75%;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  &__sub {
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+  }
+
+  &__form {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2rem;
+  }
+
+  &__background {
+    &::before {
+      content: '';
+      background-color: rgba(29, 29, 27, 0.25);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 100;
+    }
+  }
+
+  &__back {
+    all: unset;
+    height: 1.75rem;
+    width: 1.75rem;
+    padding: 0.75rem 0.75rem;
+    color: #1D1D1B;
+    cursor: pointer;
+    border: solid 2px transparent;
+    border-radius: 50rem;
+
+    &:hover {
+      color: #2A3FF4;
+      border: solid 2px #2A3FF4;
+    }
+
+    & svg {
+      position: relative;
+      top: 0.15rem;
+    }
+  }
+}

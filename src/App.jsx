@@ -14,7 +14,7 @@ import UserProfile from '@/features/user/UserProfile';
 import Workout from '@/features/workout/Workout';
 import ExercisesList from '@/features/workout/exercises/ExercisesList';
 import RoutinesList from '@/features/workout/routines/RoutinesList';
-import CreateRoutines from '@/features/workout/routines/CreateRoutines';
+import CreateRoutines from '@/features/workout/createRoutine/CreateRoutines';
 import ExercisesDetails from '@/features/workout/exercises/ExercisesDetails';
 import RoutineDetails from '@/features/workout/routines/RoutineDetails';
 import WorkoutSession from '@/features/workout/session/WorkoutSession';

@@ -7,6 +7,7 @@ import Tag from '@/components/Tag';
 import PageHeader from '@/components/Layout/PageHeader';
 
 import exercisesList from '@/data/exercises.json';
+import {useNavigate} from "react-router-dom";
 
 const exerciseFilters = [
     {
@@ -27,6 +28,8 @@ const exerciseFilters = [
 ]
 
 function ExercisesList() {
+    const navigate = useNavigate();
+
     return (
         <>
             <PageHeader pageTitle="View Exercises" showBack={true} backTarget="/workout"/>
@@ -38,6 +41,7 @@ function ExercisesList() {
                         data={exercisesList}
                         columns={['Category', 'Muscle Group', 'Equipment', 'Difficulty', 'Calories Burn']}
                         rowFormat={(data) => <ExerciseSearchRow data={data}/>}
+                        onDataClick={(itemData) => navigate(`${itemData.id}`)}
                     />
                 </Card>
             </Section>
