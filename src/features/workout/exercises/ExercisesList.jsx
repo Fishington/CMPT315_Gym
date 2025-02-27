@@ -18,7 +18,30 @@ const exerciseFilters = [
     {
         label  : 'Muscle Group',
         id     : 'targetMuscle',
-        options: ['Full Body', 'Biceps']
+        options: [
+            'Abductors',
+            'Abs',
+            'Adductors',
+            'Biceps',
+            'Calves',
+            'Chest',
+            'Forearms',
+            'Glutes',
+            'Hamstrings',
+            'Hip Flexors',
+            'IT Band',
+            'Lats',
+            'Lower Back',
+            'Upper Back',
+            'Neck',
+            'Obliques',
+            'Palmar Fascia',
+            'Plantar Fascia',
+            'Quads',
+            'Shoulders',
+            'Traps',
+            'Triceps',
+        ]
     },
     {
         label  : 'Equipment',

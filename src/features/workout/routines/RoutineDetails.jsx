@@ -70,7 +70,7 @@ function RoutineDetails() {
                     <Section>
                         <Card>
                             <img
-                                style={{maxHeight: '40rem', objectFit: 'cover'}}
+                                style={{objectFit: 'cover', }}
                                 src={routine.image}
                                 alt=""
                             />
