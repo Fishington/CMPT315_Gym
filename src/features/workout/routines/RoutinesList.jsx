@@ -11,6 +11,7 @@ import Button from '@/components/Button/index.js';
 import {formatTimeToString} from "@/utils/formatter.js";
 import {useEffect, useState} from "react";
 import {fetchRoutines} from "@/api/routinesApi.js";
+import LoadingScreen from "@/components/LoadingScreen/index.js";
 
 const exerciseFilters = [
     {
@@ -71,9 +72,7 @@ function RoutinesList() {
         getRoutines();
     }, []);
 
-    if (loading) {
-        return <p>Loading routines...</p>;
-    }
+    if (loading) return <LoadingScreen/>;
 
     return (
         <>

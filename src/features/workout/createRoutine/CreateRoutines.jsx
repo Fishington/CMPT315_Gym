@@ -115,7 +115,7 @@ function CreateRoutines() {
                                 />
 
                                 <ImageUpload
-                                    label='Upload Routine Image:'
+                                    label="Upload Routine Image:"
                                     imagePreview={routine.image}
                                     handleImageUpload={handleImageUpload}
                                     showOptional={true}

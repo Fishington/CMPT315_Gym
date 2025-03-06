@@ -8,6 +8,7 @@ import PageHeader from '@/components/Layout/PageHeader';
 
 import {useNavigate} from "react-router-dom";
 import {fetchExercises} from "@/api/exerciseApi.js";
+import LoadingScreen from "@/components/LoadingScreen/index.js";
 
 const exerciseFilters = [
     {
@@ -72,7 +73,7 @@ function ExercisesList() {
         loadExercise();
     }, []);
 
-    if (loading) return <p>Loading exercise details...</p>;
+    if (loading) return <LoadingScreen/>;
     if (error) return <p>Error: {error}</p>;
     if (!exercisesList) return <p>Exercise not found</p>;
 

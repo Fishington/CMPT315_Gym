@@ -11,10 +11,11 @@ import Button from '@/components/Button';
 
 import {useAuth} from "@/context/AuthContext.jsx";
 import {deleteRoutine, fetchRoutineById} from "@/api/routinesApi.js";
+import LoadingScreen from "@/components/LoadingScreen/index.js";
 
 function RoutineDetails() {
-    const { user } = useAuth();
-    const { id } = useParams();
+    const {user} = useAuth();
+    const {id} = useParams();
     const navigate = useNavigate();
 
     const [routine, setRoutine] = useState(null);
@@ -53,13 +54,8 @@ function RoutineDetails() {
         }
     }
 
-    if (loading) {
-        return <p>Loading routine details...</p>;
-    }
-
-    if (!routine) {
-        return <p>Error: Routine not found.</p>;
-    }
+    if (loading) return <LoadingScreen/>;
+    if (!routine) return <p>Error: Routine not found.</p>;
 
     return (
         <>
@@ -70,7 +66,7 @@ function RoutineDetails() {
                     <Section>
                         <Card>
                             <img
-                                style={{objectFit: 'cover', }}
+                                style={{objectFit: 'cover',}}
                                 src={routine.image}
                                 alt=""
                             />
