@@ -14,6 +14,7 @@ import ExerciseTips from '@/features/workout/exercises/ExerciseTips';
 import {formatTimeToString} from "@/utils/formatter.js";
 import {fetchExerciseById} from "@/api/exerciseApi.js";
 import {useEffect, useState} from "react";
+import LoadingScreen from "@/components/LoadingScreen/index.js";
 
 function ExercisesDetails() {
     const { id } = useParams();
@@ -36,7 +37,7 @@ function ExercisesDetails() {
         loadExercise();
     }, [id]);
 
-    if (loading) return <p>Loading exercise details...</p>;
+    if (loading) return <LoadingScreen/>;
     if (error) return <p>Error: {error}</p>;
     if (!exercise) return <p>Exercise not found</p>;
 

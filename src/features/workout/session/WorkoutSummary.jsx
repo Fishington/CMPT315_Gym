@@ -37,13 +37,9 @@ function WorkoutSummary() {
         if (id) getRoutine();
     }, [id]);
 
-    if (loading) {
-        return <p>Loading routine details...</p>;
-    }
+    if (loading) return <p>Loading routine details...</p>;
 
-    if (!routine) {
-        return <p>Error: Routine not found.</p>;
-    }
+    if (!routine) return <p>Error: Routine not found.</p>;
 
     const itemDetails = [
         {
@@ -78,12 +74,12 @@ function WorkoutSummary() {
                         <Card>
                             <img src="/images/arm-curl.png" alt="Arm Curl"/>
 
-                            <section className='gird gap-1'>
+                            <section className="gird gap-1">
                                 <h2>Dumbbell Only Workouts for Beginners</h2>
                                 <ItemDetails columns={4} details={itemDetails}/>
                             </section>
 
-                            <Button color="blue" size="full-width" to='/workout'>
+                            <Button color="blue" size="full-width" to="/workout">
                                 Save Workout Statistics
                             </Button>
                         </Card>

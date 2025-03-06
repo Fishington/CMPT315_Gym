@@ -18,10 +18,11 @@ import CreateRoutines from '@/features/workout/createRoutine/CreateRoutines';
 import ExercisesDetails from '@/features/workout/exercises/ExercisesDetails';
 import RoutineDetails from '@/features/workout/routines/RoutineDetails';
 import WorkoutSession from '@/features/workout/session/WorkoutSession';
-import WorkoutSummary from '@/features/workout/summary/WorkoutSummary';
+import WorkoutSummary from '@/features/workout/session/WorkoutSummary';
 
 import ProtectedRoute from '@/features/authentication/ProtectedRoute';
 import {AuthProvider} from '@/context/AuthContext';
+import WorkoutSessionLayout from "@/features/workout/session/WorkoutSessionLayout.jsx";
 
 const basename = import.meta.env.BASE_URL;
 
@@ -52,8 +53,10 @@ function App() {
                         <Route path="/workout/routines/create" element={<CreateRoutines/>}/>
                         <Route path="/workout/routines/:id" element={<RoutineDetails/>}/>
 
-                        <Route path="/workout/session/:id" element={<WorkoutSession/>}/>
-                        <Route path="/workout/summary/:id" element={<WorkoutSummary/>}/>
+                        <Route element={<WorkoutSessionLayout/>}>
+                            <Route path="/workout/session/:id" element={<WorkoutSession/>}/>
+                            <Route path="/workout/summary/:id" element={<WorkoutSummary/>}/>
+                        </Route>
 
                         <Route path="/user-profile" element={<UserProfile/>}/>
                     </Route>

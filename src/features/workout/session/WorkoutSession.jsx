@@ -1,54 +1,32 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import React from 'react';
 import PageHeader from '@/components/Layout/PageHeader/index.js';
-
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Card from '@/components/Card';
 import Section from '@/components/Layout/Section';
-
 import ExerciseOrder from '@/features/workout/components/ExerciseOrder';
 import SessionTimer from '@/features/workout/session/SessionTimer.jsx';
 import ExerciseTimer from '@/features/workout/session/ExerciseTimer.jsx';
 import MainRoutineDetails from '@/features/workout/routines/MainRoutineDetails.jsx';
-
-import {fetchRoutineById} from "@/api/routinesApi.js";
-
+import LoadingScreen from "@/components/LoadingScreen/index.js";
+import { useWorkoutSession } from '@/context/WorkoutSessionContext';
 
 function WorkoutSession() {
-    const {id} = useParams();
-    const [routine, setRoutine] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const {
+        routine,
+        modifiedRoutine,
+        loading,
+        error,
+        workoutState
+    } = useWorkoutSession();
 
-    useEffect(() => {
-        const getRoutine = async () => {
-            try {
-                const data = await fetchRoutineById(id);
-                if (data) {
-                    setRoutine(data);
-                } else {
-                    console.error(`Routine with ID ${id} not found.`);
-                }
-            } catch (error) {
-                console.error("Error fetching routine:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        if (id) getRoutine();
-    }, [id]);
-
-    if (loading) {
-        return <p>Loading routine details...</p>;
-    }
-
-    if (!routine) {
-        return <p>Error: Routine not found.</p>;
-    }
+    if (loading) return <LoadingScreen />;
+    if (error) return <p>Error: {error}</p>;
+    if (!routine || !modifiedRoutine) return <p>Error: Routine not found.</p>;
+    if (workoutState.allExercises.length === 0) return <p>Error: No exercises found in this routine.</p>;
 
     return (
         <>
-            <PageHeader pageTitle="Dumbbell Only Workout for Beginners" showBack={true}/>
+            <PageHeader pageTitle={routine.name} showBack={true} />
 
             <TwoColumns secondColumnWidth="max-content">
                 <TwoColumns.Column>
@@ -59,15 +37,14 @@ function WorkoutSession() {
                     />
 
                     <Section>
-                        <SessionTimer routineId={id}/>
+                        <SessionTimer/>
                     </Section>
 
                     <Section title={'Workout Details'}>
                         <Card>
-                            <MainRoutineDetails routine={routine}/>
+                            <MainRoutineDetails routine={routine} />
                         </Card>
                     </Section>
-
                 </TwoColumns.Column>
 
                 <TwoColumns.Column>
@@ -76,7 +53,7 @@ function WorkoutSession() {
                     </Section>
 
                     <Section title="Upcoming exercises">
-                        <ExerciseOrder routine={routine}/>
+                        <ExerciseOrder routine={modifiedRoutine} />
                     </Section>
                 </TwoColumns.Column>
             </TwoColumns>
