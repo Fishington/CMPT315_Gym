@@ -7,3 +7,4 @@ router.post('/validate-login', validateUserLogInDTO);
 router.post('/validate-email', validateEmailDTO);
 
 module.exports = router;
+
