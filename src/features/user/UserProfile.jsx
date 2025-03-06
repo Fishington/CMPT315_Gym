@@ -6,9 +6,6 @@ import PageHeader from '@/components/Layout/PageHeader/index.js';
 import './UserProfile.scss'
 import ItemCard from '@/components/ItemCard/index.js';
 
-import {tempRoutineList} from '@/data/tempData.js';
-import React from 'react';
-
 function UserProfile() {
     return (
         <>

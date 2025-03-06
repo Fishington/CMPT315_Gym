@@ -5,6 +5,7 @@ import Card from '@/components/Card';
 import Tag from '@/components/Tag';
 
 import './ItemCard.scss'
+import {formatTimeToString} from "@/utils/formatter.js";
 
 const ItemCardContext = createContext(null);
 
@@ -53,7 +54,9 @@ const ItemCardText = () => {
                 </div>
 
                 <p>
-                    <span className="item-card__length">{data.length}</span> minutes
+                    <strong>
+                        {formatTimeToString(data.duration)}
+                    </strong>
                 </p>
             </div>
         </div>

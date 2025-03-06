@@ -4,10 +4,10 @@ import TextInput from '@/components/Form/TextInput/index.js';
 import './SearchBar.scss'
 
 export default function SearchBar({children}) {
-    const {searchTerm, setSearchTerm} = useItemSearch();
+    const {searchTerm, setSearchTerm, searchBarRef} = useItemSearch();
 
     return (
-        <div className="search-bar">
+        <div className="search-bar" ref={searchBarRef}>
             <div className="search-bar__search">
 
                 <div className="search-bar__input">

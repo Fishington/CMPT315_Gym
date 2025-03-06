@@ -1,12 +1,5 @@
 import {useEffect, useState} from 'react';
 import {Link, useNavigate, useOutletContext} from 'react-router-dom';
-import {
-    createConfirmPasswordValidation,
-    createPasswordValidation,
-    firstNameValidation,
-    lastNameValidation,
-    newEmailValidation
-} from '@/utils/authentication.js';
 
 import Form from '@/components/Form';
 import TextInput from '@/components/Form/TextInput';

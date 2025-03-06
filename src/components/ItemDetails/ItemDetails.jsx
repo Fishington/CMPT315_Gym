@@ -5,7 +5,7 @@ function ItemDetails({details}) {
     return (
         <div className="item-detail">
             {details.map((detail) => (
-                <section className="item-detail__tag">
+                <section key={detail.value} className="item-detail__tag">
                     {detail.icon}
 
                     <div>

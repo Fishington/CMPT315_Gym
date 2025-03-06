@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 
 import Button from '@/components/Button/index.js';
@@ -6,16 +6,40 @@ import PageHeader from '@/components/Layout/PageHeader/index.js';
 import TwoColumns from '@/components/Layout/TwoColumns/index.js';
 import Card from '@/components/Card/index.js';
 import Section from '@/components/Layout/Section/index.js';
-import ExerciseList from '@/features/workout/components/ExerciseList/index.js';
+import ExerciseOrder from '@/features/workout/components/ExerciseOrder';
 import ItemDetails from '@/components/ItemDetails/';
 
 import MealPlanIcon from '@/components/Icons/MealPlanIcon/index.js';
 
-import {tempRoutineList} from '@/data/tempData.js';
+import {fetchRoutineById} from "@/api/routinesApi.js";
 
 function WorkoutSummary() {
     const {id} = useParams();
-    const routine = tempRoutineList.find((ro) => ro.id === Number(id));
+    const [routine, setRoutine] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const getRoutine = async () => {
+            try {
+                const data = await fetchRoutineById(id);
+                if (data) {
+                    setRoutine(data);
+                } else {
+                    console.error(`Routine with ID ${id} not found.`);
+                }
+            } catch (error) {
+                console.error("Error fetching routine:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (id) getRoutine();
+    }, [id]);
+
+    if (loading) return <p>Loading routine details...</p>;
+
+    if (!routine) return <p>Error: Routine not found.</p>;
 
     const itemDetails = [
         {
@@ -50,12 +74,12 @@ function WorkoutSummary() {
                         <Card>
                             <img src="/images/arm-curl.png" alt="Arm Curl"/>
 
-                            <section className='gird gap-1'>
+                            <section className="gird gap-1">
                                 <h2>Dumbbell Only Workouts for Beginners</h2>
                                 <ItemDetails columns={4} details={itemDetails}/>
                             </section>
 
-                            <Button color="blue" size="full-width" to='/workout'>
+                            <Button color="blue" size="full-width" to="/workout">
                                 Save Workout Statistics
                             </Button>
                         </Card>
@@ -80,7 +104,7 @@ function WorkoutSummary() {
 
                 <TwoColumns.Column>
                     <Section title="Finished ExercisesList">
-                        <ExerciseList routine={routine}/>
+                        <ExerciseOrder routine={routine}/>
                     </Section>
                 </TwoColumns.Column>
             </TwoColumns>

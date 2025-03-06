@@ -1,6 +1,6 @@
 import ExerciseCard from "@/features/workout/components/ExerciseCard";
 
-const ExerciseListSection = ({type, routine}) => {
+const ExerciseOrderSection = ({type, routine}) => {
     return (
         <>
             <ul className="grid gap-1">
@@ -17,4 +17,4 @@ const ExerciseListSection = ({type, routine}) => {
     )
 }
 
-export default ExerciseListSection;
+export default ExerciseOrderSection;

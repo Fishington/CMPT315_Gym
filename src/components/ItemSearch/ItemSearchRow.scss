@@ -1,13 +1,14 @@
 .item-search-row {
   padding: 0.5rem;
   font-size: 0.85rem;
+  cursor: pointer;
 
   @include breakpoint(medium) {
     padding: 1rems;
   }
 
   &:not(:last-child) {
-    border-bottom: 1px solid #dbdbdb;
+    border-bottom: 1px solid #DBDBDB;
 
     @include breakpoint(medium) {
       border-bottom: unset;
@@ -38,6 +39,7 @@
           font-size: 1.75rem;
         }
       }
+
     }
 
     & span {
@@ -50,7 +52,7 @@
     }
 
     &:hover {
-      background-color: #f0f1ff;
+      background-color: #F0F1FF;
     }
   }
 
@@ -71,7 +73,7 @@
   &__image {
     height: 5rem;
     width: 8rem;
-    object-fit: fill;
+    object-fit: cover;
 
     @include breakpoint(medium) {
       width: 100%;

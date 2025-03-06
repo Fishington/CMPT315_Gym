@@ -1,6 +1,6 @@
-import {toTitle} from "@/utils/formatter.js";
+import {formatTimeToString, toTitle} from "@/utils/formatter.js";
 
-const ExerciseListHeader = ({type, routine, hasExercises}) => {
+const ExerciseOrderHeader = ({type, routine, hasExercises}) => {
     return (
         <div className="flex-space-between">
             <h3>
@@ -13,11 +13,11 @@ const ExerciseListHeader = ({type, routine, hasExercises}) => {
 
             <p>
                 <strong>
-                    {routine.exercises[type].duration}
-                </strong> minutes
+                    {formatTimeToString(routine.exercises[type].duration)}
+                </strong>
             </p>
         </div>
     )
 }
 
-export default ExerciseListHeader;
+export default ExerciseOrderHeader;

@@ -1,47 +1,50 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
 import PageHeader from '@/components/Layout/PageHeader/index.js';
-
 import TwoColumns from '@/components/Layout/TwoColumns';
 import Card from '@/components/Card';
 import Section from '@/components/Layout/Section';
-
-import ExerciseList from '@/features/workout/components/ExerciseList/index.js';
+import ExerciseOrder from '@/features/workout/components/ExerciseOrder';
 import SessionTimer from '@/features/workout/session/SessionTimer.jsx';
 import ExerciseTimer from '@/features/workout/session/ExerciseTimer.jsx';
 import MainRoutineDetails from '@/features/workout/routines/MainRoutineDetails.jsx';
-
-import {tempRoutineList} from '@/data/tempData.js';
-import exercisesList from '@/data/exercises.json';
-
+import LoadingScreen from "@/components/LoadingScreen/index.js";
+import { useWorkoutSession } from '@/context/WorkoutSessionContext';
 
 function WorkoutSession() {
-    const {id} = useParams();
+    const {
+        routine,
+        modifiedRoutine,
+        loading,
+        error,
+        workoutState
+    } = useWorkoutSession();
 
-    const routine = tempRoutineList.find((ro) => ro.id === Number(id));
-    const exercise = exercisesList.find((ex) => ex.id === Number(id))
+    if (loading) return <LoadingScreen />;
+    if (error) return <p>Error: {error}</p>;
+    if (!routine || !modifiedRoutine) return <p>Error: Routine not found.</p>;
+    if (workoutState.allExercises.length === 0) return <p>Error: No exercises found in this routine.</p>;
 
     return (
         <>
-            <PageHeader pageTitle="Dumbbell Only Workout for Beginners" showBack={true}/>
+            <PageHeader pageTitle={routine.name} showBack={true} />
 
             <TwoColumns secondColumnWidth="max-content">
                 <TwoColumns.Column>
-                    <video width="100%" height="100%" controls>
-                        <source src={exercise.video} type="video/mp4"/>
-                        Your browser does not support the video tag.
-                    </video>
+                    <img
+                        style={{maxHeight: '40rem', objectFit: 'cover'}}
+                        src={routine.image}
+                        alt=""
+                    />
 
                     <Section>
-                        <SessionTimer routineId={id}/>
+                        <SessionTimer/>
                     </Section>
 
                     <Section title={'Workout Details'}>
                         <Card>
-                            <MainRoutineDetails routine={routine}/>
+                            <MainRoutineDetails routine={routine} />
                         </Card>
                     </Section>
-
                 </TwoColumns.Column>
 
                 <TwoColumns.Column>
@@ -50,7 +53,7 @@ function WorkoutSession() {
                     </Section>
 
                     <Section title="Upcoming exercises">
-                        <ExerciseList routine={routine}/>
+                        <ExerciseOrder routine={modifiedRoutine} />
                     </Section>
                 </TwoColumns.Column>
             </TwoColumns>

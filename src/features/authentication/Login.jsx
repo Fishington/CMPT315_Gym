@@ -26,7 +26,6 @@ function Login() {
         document.title = 'Login | HyperFit';
     }, []);
 
-
     const handleLogin = async (e) => {
         e.preventDefault();
 
@@ -46,7 +45,6 @@ function Login() {
         }
 
         try {
-            // Validate User in Database
             const users = await fetchUser(email);
             const userDTOFromDB = users.find((user) => user.email === email);
 

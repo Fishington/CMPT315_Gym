@@ -4,19 +4,48 @@ import Card from '@/components/Card';
 import ExerciseCardContent from './ExerciseCardContent.jsx';
 
 import './ExerciseCard.scss'
-
-import exercisesList from '@/data/exercises.json';
+import {useEffect, useState} from "react";
+import {fetchExerciseById} from "@/api/exerciseApi.js";
 
 function ExerciseCard({type, exercise, index}) {
-    const matchedExercise = exercisesList.find((ex) => ex.id === exercise.workoutId);
+    const [matchedExercise, setMatchedExercise] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    if (!matchedExercise)
+    useEffect(() => {
+        const getExercise = async () => {
+            try {
+                const data = await fetchExerciseById(exercise.workoutId);
+                if (data) {
+                    setMatchedExercise(data);
+                } else {
+                    console.error(`Exercise with ID ${exercise.workoutId} not found.`);
+                }
+            } catch (error) {
+                console.error("Error fetching exercise:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (exercise.workoutId) getExercise();
+    }, [exercise.workoutId]);
+
+
+    if (loading) {
+        return (
+            <Card variant="exercise-card">
+                <h3>Loading exercise...</h3>
+            </Card>
+        );
+    }
+
+    if (!matchedExercise) {
         return (
             <Card variant="exercise-card">
                 <h3>Exercise not found in database</h3>
             </Card>
-        )
-
+        );
+    }
     return (
         <li>
             <Link to={`/workout/exercises/${exercise.workoutId}`}>

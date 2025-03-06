@@ -17,8 +17,9 @@
 
   &__main {
     display: grid;
-    align-content: flex-start;
+    //align-content: flex-start;
     gap: 2rem;
+    height: 100%;
     
     @include breakpoint(small) {
       padding: 1rem 1.5rem;

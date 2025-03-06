@@ -5,9 +5,8 @@ import {
     lastNameValidation,
     newEmailValidation,
     emailValidation, 
-    passwordValidation, 
-    validateUser
-} from '@/utils/authentication.js';
+    passwordValidation
+} from './authentication.js';
 
 export const validateUserCreateDTO = async (userDTO) => {
     let errors = {};

@@ -9,8 +9,6 @@ let userRoutes = express.Router()
 // .post = Sending
 // .put = update
 
-
-
 //#1 - Retrieve All
 //https://localhost:3000/user
 userRoutes.route("/users").get(async (request, response) => {
