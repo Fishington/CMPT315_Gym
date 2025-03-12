@@ -1,6 +1,10 @@
 import Section from '@/components/Layout/Section';
 import PageHeader from '@/components/Layout/PageHeader';
 import Card from '@/components/Card';
+import CalorieIntakeCard from "@/features/dashboard/Cards/CalorieIntakeCard";
+import IntakeBreakdownCard from "@/features/dashboard/Cards/IntakeBreakdownCard";
+import ExerciseWeightProgressCard from '@/features/dashboard/Cards/ExerciseWeightProgressCard'
+import MuscleGroupDistributionCard from '@/features/dashboard/Cards/MuscleGroupDistributionCard'
 
 function Dashboard() {
     return (
@@ -11,29 +15,10 @@ function Dashboard() {
                 title="Overview"
                 tip="Get a quick overview of your nutritional health"
             >
-                <Card>
-                    <p style={{margin: '10rem auto'}}>
-                        Placeholder
-                    </p>
-                </Card>
-
-                <Card>
-                    <p style={{margin: '10rem auto'}}>
-                        Placeholder
-                    </p>
-                </Card>
-
-                <Card>
-                    <p style={{margin: '10rem auto'}}>
-                        Placeholder
-                    </p>
-                </Card>
-
-                <Card>
-                    <p style={{margin: '10rem auto'}}>
-                        Placeholder
-                    </p>
-                </Card>
+                <MuscleGroupDistributionCard/>
+                <ExerciseWeightProgressCard/>
+                <IntakeBreakdownCard/>
+                <CalorieIntakeCard/>
             </Section>
 
             <Section
