@@ -5,6 +5,9 @@ import CalorieIntakeCard from "@/features/dashboard/Cards/CalorieIntakeCard";
 import IntakeBreakdownCard from "@/features/dashboard/Cards/IntakeBreakdownCard";
 import ExerciseWeightProgressCard from '@/features/dashboard/Cards/ExerciseWeightProgressCard'
 import MuscleGroupDistributionCard from '@/features/dashboard/Cards/MuscleGroupDistributionCard'
+import AverageHeartRate from "@/features/dashboard/Cards/AverageHeartRate";
+import CaloriesBurned from "@/features/dashboard/Cards/CaloriesBurned";
+import ExercisesPerformed from "@/features/dashboard/Cards/ExercisesPerformed";
 
 function Dashboard() {
     return (
@@ -25,23 +28,11 @@ function Dashboard() {
                 title="Health"
                 tip="Monitor key health indicators and get insights to maintain a healthy lifestyle"
             >
-                <Card>
-                    <p style={{margin: '16rem auto'}}>
-                        Placeholder
-                    </p>
-                </Card>
-
-                <Card>
-                    <p style={{margin: '16rem auto'}}>
-                        Placeholder
-                    </p>
-                </Card>
-
-                <Card>
-                    <p style={{margin: '16rem auto'}}>
-                        Placeholder
-                    </p>
-                </Card>
+                
+                <AverageHeartRate/>
+                <CaloriesBurned/>
+                <ExercisesPerformed/>
+                
             </Section>
 
             <Section
