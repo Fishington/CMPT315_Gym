@@ -49,19 +49,33 @@ module.exports = {
 // };
 
 // run().catch(console.dir);
+const { ObjectId } = require('mongodb');
 
-// const db = client.db("Gym_App");
-// const coll = db.collection("CMPT391");
+const db = client.db("Gym_App");
+const coll = db.collection("user_data");
 
-// coll.insertOne(
-//   {
-//     title: "The Favourite",
-//     genres: [ "Drama", "History" ],
-//     runtime: 121,
-//     rated: "R",
-//     year: 2018,
-//     directors: [ "Yorgos Lanthimos" ],
-//     cast: [ "Olivia Colman", "Emma Stone", "Rachel Weisz" ],
-//     type: "movie"
-//   }
-// )
+coll.insertOne(
+  {
+    "_id": new ObjectId("67ae371604280cb671acf855"),
+    "userID": new ObjectId("67ae371604280cb671acf855"),
+    "2025-03-22": [
+      {
+        "exerciseID": 3,
+        "duration": "4:00",
+        "calories": 60
+      },
+      {
+        "exerciseID": 7,
+        "duration": "4:00"
+      }
+    ],
+    "2025-03-23": [
+      {
+        "exerciseID": 5,
+        "duration": "5:30",
+        "calories": 80
+      }
+    ]
+  }
+)
+

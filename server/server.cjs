@@ -4,6 +4,7 @@ const express = require('express')
 const users = require("./userRoutes.cjs")
 const exercises = require("./exerciseRoutes.cjs")
 const routines = require("./routinesRoutes.cjs")
+const userData = require("./userDataRoutes.cjs")
 
 const app = express()
 const PORT = 3000
@@ -13,6 +14,7 @@ app.use(express.json())
 app.use(users)
 app.use(exercises)
 app.use(routines)
+app.use(userData)
 
 app.listen(PORT, () => {
     connect.connectToServer()
