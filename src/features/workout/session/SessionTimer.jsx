@@ -1,18 +1,21 @@
 import React from 'react';
 import Card from '@/components/Card/index.js';
 import Button from '@/components/Button/index.js';
-import { useWorkoutSession } from '@/context/WorkoutSessionContext';
+import {useWorkoutSession} from '@/context/WorkoutSessionContext';
+import {useNavigate} from "react-router-dom";
 
 export default function SessionTimer() {
     const {
         id,
         workoutState,
         togglePause,
-        getCurrentExerciseInfo
+        getCurrentExerciseInfo,
+        finishWorkout,
     } = useWorkoutSession();
 
+    const navigate = useNavigate();
     const exerciseInfo = getCurrentExerciseInfo();
-    const { isPaused } = workoutState;
+    const {isPaused} = workoutState;
 
     if (!exerciseInfo) {
         return (
@@ -59,7 +62,14 @@ export default function SessionTimer() {
                     {isPaused ? 'Resume' : 'Pause'}
                 </Button>
 
-                <Button color="blue" size="full-width" to={`/workout/summary/${id}`}>
+                <Button
+                    color="blue"
+                    size="full-width"
+                    onClick={() => {
+                        finishWorkout();
+                        navigate(`/workout/summary/${id}`);
+                    }}
+                >
                     Finish Workout Routine
                 </Button>
             </div>

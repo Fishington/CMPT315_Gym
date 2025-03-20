@@ -21,7 +21,7 @@ export default function HeartRateProgressCard() {
                 label: "Heart Rate (BPM)",
                 data: [85, 95, 110, 130, 140, 125, 100], // Example heart rate over time
                 borderColor: "#5163FC",
-                backgroundColor: "rgba(81, 99, 252, 0.3)",
+                backgroundColor: "#3945b0",
                 borderWidth: 2,
                 tension: 0.4, // Smooths out the line
             }
@@ -32,7 +32,7 @@ export default function HeartRateProgressCard() {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-            legend: { position: "top" },
+            legend: { position: "bottom" },
             tooltip: { enabled: true }
         },
         scales: {

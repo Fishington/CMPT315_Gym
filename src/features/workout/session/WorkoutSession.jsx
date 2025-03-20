@@ -40,7 +40,7 @@ function WorkoutSession() {
                         <SessionTimer/>
                     </Section>
 
-                    <Section title={'Workout Details'}>
+                    <Section title='Workout Details'>
                         <Card>
                             <MainRoutineDetails routine={routine} />
                         </Card>

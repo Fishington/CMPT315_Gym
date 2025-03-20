@@ -19,7 +19,13 @@ export default function CaloriesBurnedCard() {
             {
                 label: "Calories Burned",
                 data: [300, 450, 400, 500, 550, 600, 620], // Example calories burned per workout
-                backgroundColor: "#5163FC",
+                backgroundColor: [
+                    "#b9c1fe",
+                    "#8592fd",
+                    "#5163FC",
+                    "#3945b0",
+                    "#202865",
+                ],
                 borderRadius: 8
             }
         ]

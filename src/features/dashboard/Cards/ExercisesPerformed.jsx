@@ -30,7 +30,7 @@ export default function ExercisePerformanceCard() {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
-            legend: { position: "top" },
+            legend: { position: "bottom" },
             tooltip: { enabled: true }
         }
     };
