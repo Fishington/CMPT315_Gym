@@ -72,7 +72,7 @@ export function WorkoutSessionProvider({ children }) {
                 const data = await fetchRoutineById(id);
                 if (data) {
                     setRoutine(data);
-                    setModifiedRoutine(JSON.parse(JSON.stringify(data))); // Deep copy for modifications
+                    setModifiedRoutine(JSON.parse(JSON.stringify(data)));
 
                     // Initialize workout state
                     const allExercises = getAllExercises(data);
@@ -87,11 +87,9 @@ export function WorkoutSessionProvider({ children }) {
                     const exercisePromises = allExercises.map(ex =>
                         fetchExerciseById(ex.workoutId)
                             .then(exerciseData => {
-                                // Merge the exercise details with our existing exercise object
                                 return {...ex, name: exerciseData.name};
                             })
                             .catch(() => {
-                                // If fetch fails, set a default name
                                 return {...ex, name: `Exercise ${ex.workoutId}`};
                             })
                     );
@@ -152,7 +150,7 @@ export function WorkoutSessionProvider({ children }) {
                 if (updatedRemainingExerciseDuration <= 0) {
                     const currentExercise = prev.allExercises[prev.currentExerciseIndex];
 
-                    // If we're in a break
+                    // If in a break
                     if (prev.isBreak) {
                         // Move to next set or exercise
                         if (prev.currentSet < currentExercise.sets) {
@@ -240,6 +238,13 @@ export function WorkoutSessionProvider({ children }) {
         }));
     }, []);
 
+    const finishWorkout = useCallback(() => {
+        setWorkoutState(prev => ({
+            ...prev,
+            isPaused: true,
+        }));
+    }, []);
+
     // Get current exercise info
     const getCurrentExerciseInfo = useCallback(() => {
         if (!workoutState.allExercises.length || workoutState.currentExerciseIndex >= workoutState.allExercises.length) {
@@ -268,7 +273,8 @@ export function WorkoutSessionProvider({ children }) {
         workoutState,
         togglePause,
         getCurrentExerciseInfo,
-        id // Making the ID available to consumers
+        finishWorkout,
+        id
     };
 
     return (
