@@ -4,6 +4,9 @@ import Card from '@/components/Card/index.js';
 import Button from '@/components/Button/index.js';
 import BackIcon from '@/components/Icons/BackIcon/index.js';
 import PageHeader from '@/components/Layout/PageHeader/index.js';
+import CaloriesBurned from "@/features/dashboard/Cards/CaloriesBurned";
+import MuscleGroupDistributionCard from "@/features/dashboard/Cards/MuscleGroupDistributionCard";
+import ExerciseWeightProgressCard from "@/features/dashboard/Cards/ExerciseWeightProgressCard";
 
 function Workout() {
     return (
@@ -30,19 +33,9 @@ function Workout() {
                         </Card>
 
                         <Section.Column>
-                            <Card>
-                                <p style={{margin: '10rem auto'}}>Placeholder</p>
-
-                            </Card>
-
-                            <Card>
-                                <p style={{margin: '10rem auto'}}>Placeholder</p>
-
-                            </Card>
-
-                            <Card>
-                                <p style={{margin: '10rem auto'}}>Placeholder</p>
-                            </Card>
+                            <ExerciseWeightProgressCard/>
+                            <MuscleGroupDistributionCard/>
+                            <CaloriesBurned/>
                         </Section.Column>
                     </Section>
                 </TwoColumns.Column>

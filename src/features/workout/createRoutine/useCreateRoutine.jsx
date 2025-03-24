@@ -35,11 +35,13 @@ export default function useCreateRoutine() {
             exercises: {
                 set     : [],
                 duration: 0,
+                breakDuration: 0,
                 calories: {min: 0, max: 0},
             },
             stretches: {
                 set     : [],
                 duration: 0,
+                breakDuration: 0,
                 calories: {min: 0, max: 0},
             },
         },
@@ -106,9 +108,11 @@ export default function useCreateRoutine() {
         console.log("Original file size (bytes):", file.size);
 
         const options = {
-            maxSizeMB       : 1,
+            maxSizeMB       : 0.1,
             maxWidthOrHeight: 800,
+            initialQuality: 0.25,
             useWebWorker    : true,
+            fileType: "image/jpeg",
         };
 
         try {
@@ -156,4 +160,3 @@ export default function useCreateRoutine() {
         handleImageUpload
     }
 }
-
