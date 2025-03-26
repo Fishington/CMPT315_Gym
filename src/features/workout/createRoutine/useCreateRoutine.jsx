@@ -1,15 +1,15 @@
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
-import {useAuth} from "@/context/AuthContext.jsx";
 import {formatTimeToString} from "@/utils/formatter.js";
 import MealPlanIcon from "@/components/Icons/MealPlanIcon/index.js";
 import imageCompression from "browser-image-compression";
 import {createRoutine} from "@/api/routinesApi.js";
+import {useSelector} from "react-redux";
 
 export default function useCreateRoutine() {
     const navigate = useNavigate();
     const [errors, setErrors] = useState({});
-    const {user} = useAuth();
+    const user = useSelector((state) => state.auth.user);
 
     const [routine, setRoutine] = useState({
         id           : 0,

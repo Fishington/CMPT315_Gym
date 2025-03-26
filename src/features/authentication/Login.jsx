@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react';
 import {Link, useNavigate, useOutletContext} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 
-import {useAuth} from '@/context/AuthContext.jsx';
+import {login} from '@/redux/actions/authActions'
 import {fetchUser} from '@/api/usersApi.js';
 import {validateUserLogInDTO} from '@/features/authentication/mockValidationService.js';
 
@@ -11,10 +12,10 @@ import LoginIcon from '@/components/Icons/LoginIcon';
 import Button from '@/components/Button/index.js';
 
 function Login() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [setQuote, setImage] = useOutletContext();
 
-    const {login} = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
@@ -55,7 +56,7 @@ function Login() {
             }
 
             console.log('Logging in', userDTOFromDB.firstName);
-            login(userDTOFromDB);
+            dispatch(login(userDTOFromDB));
 
             navigate('/');
         } catch (error) {

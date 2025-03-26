@@ -84,17 +84,6 @@ function UserProfile() {
                 
                 <TwoColumns.Column>
                     <Section
-                        title="Recent Activity"
-                        tip="See Sergei’s latest workouts, meal updates, and fitness milestones."
-                    >
-                        <Card>
-                            <p style={{margin: '16rem auto'}}>
-                                Placeholder
-                            </p>
-                        </Card>
-                    </Section>
-
-                    <Section
                         title="Favourite Workouts"
                         tip="These are Sergei’s go-to workouts for strength, endurance, and overall fitness."
                     >
@@ -102,6 +91,8 @@ function UserProfile() {
                         <ItemCard data={routines.find((ro) => ro.id === Number(2))} baseLink="workout/routines"/>
                         <ItemCard data={routines.find((ro) => ro.id === Number(3))} baseLink="workout/routines"/>
                         <ItemCard data={routines.find((ro) => ro.id === Number(4))} baseLink="workout/routines"/>
+                        <ItemCard data={routines.find((ro) => ro.id === Number(1))} baseLink="workout/routines"/>
+                        <ItemCard data={routines.find((ro) => ro.id === Number(2))} baseLink="workout/routines"/>
                     </Section>
                 </TwoColumns.Column>
             </TwoColumns>

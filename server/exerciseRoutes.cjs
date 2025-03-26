@@ -36,3 +36,35 @@ exerciseRoutes.route("/exercises/:id").get(async (request, response) => {
 })
 
 module.exports = exerciseRoutes;
+
+// #3 - Create Multiple Exercises (Transaction)
+// POST http://localhost:3000/exercises/bulk
+exerciseRoutes.route("/exercises/bulk").post(async (request, response) => {
+    const { db, client } = database.getDb();
+    const session = client.startSession();
+
+    const exercises = request.body;
+
+    if (!Array.isArray(exercises)) {
+        return response.status(400).json({ message: "Request body must be an array of exercises" });
+    }
+
+    try {
+        let result;
+
+        await session.withTransaction(async () => {
+            result = await db.collection("exercises").insertMany(exercises, { session });
+        });
+
+        response.status(201).json({
+            message: "Exercises inserted successfully with transaction",
+            insertedCount: result.insertedCount,
+            insertedIds: result.insertedIds
+        });
+    } catch (error) {
+        console.error("Transaction error:", error);
+        response.status(500).json({ message: "Transaction failed", error: error.message });
+    } finally {
+        await session.endSession();
+    }
+});

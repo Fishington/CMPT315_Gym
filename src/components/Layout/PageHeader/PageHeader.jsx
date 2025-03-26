@@ -1,13 +1,9 @@
 import React, {createContext, useContext} from 'react';
 import {Link} from 'react-router-dom';
-
+import {useSelector} from 'react-redux';
 import HeaderProfile from '@/components/Layout/PageHeader/HeaderProfile';
-import HomeOptions from '@/components/Layout/PageHeader/HomeOptions';
 import BackIcon from '@/components/Icons/BackIcon';
-
-import {useAuth} from '@/context/AuthContext.jsx';
 import {formatDate} from '@/utils/formatter.js';
-
 import './PageHeader.scss'
 
 const PageHeaderContext = createContext(null);
@@ -29,7 +25,7 @@ function PageHeader({pageTitle, showBack, backTarget}) {
 }
 
 function HomeTitle() {
-    const {user} = useAuth();
+    const user = useSelector((state) => state.auth.user);
 
     return (
         <div className="grid gap-1-5">
@@ -38,7 +34,7 @@ function HomeTitle() {
                 <p>Today is <span className="page-header__date">{formatDate(new Date())}</span></p>
             </div>
 
-            <HomeOptions/>
+            {/*<HomeOptions/>*/}
         </div>
     );
 }

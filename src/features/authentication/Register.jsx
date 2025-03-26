@@ -1,3 +1,4 @@
+import {useDispatch} from "react-redux";
 import {useEffect, useState} from 'react';
 import {Link, useNavigate, useOutletContext} from 'react-router-dom';
 
@@ -5,14 +6,14 @@ import Form from '@/components/Form';
 import TextInput from '@/components/Form/TextInput';
 import LoginIcon from '@/components/Icons/LoginIcon';
 
-import {useAuth} from '@/context/AuthContext.jsx';
 import {createUser} from '@/api/usersApi.js';
 import Button from '@/components/Button/index.js';
 import {validateUserCreateDTO} from '@/features/authentication/mockValidationService.js';
+import {login} from "@/redux/actions/authActions";
 
 
 function Register() {
-    const {login} = useAuth();
+    const dispatch = useDispatch();
     const [setQuote, setImage] = useOutletContext();
 
     const navigate = useNavigate();
@@ -52,7 +53,7 @@ function Register() {
         }
 
         await createUser(userDTO);
-        login(userDTO);
+        dispatch(login(userDTO));
         navigate('/');
     };
         

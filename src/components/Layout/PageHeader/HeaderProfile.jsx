@@ -1,26 +1,18 @@
-import NotificationIcon from '@/components/Icons/NotificationIcon';
-
-import './HeaderProfile.scss'
-import {useAuth} from '@/context/AuthContext.jsx';
+import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import './HeaderProfile.scss'
 
 function HeaderProfile() {
 
     return (
         <div className="header-profile">
-            <button className="header-profile__notification">
-                <NotificationIcon/>
-                <p className="header-profile__notification-number">22</p>
-            </button>
-
             <HeaderProfileUser/>
-
         </div>
     );
 }
 
 const HeaderProfileUser = () => {
-    const {user} = useAuth();
+    const user = useSelector((state) => state.auth.user);
 
     return (
         <div className="header-profile__user">

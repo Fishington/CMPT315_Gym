@@ -21,48 +21,42 @@ import WorkoutSession from '@/features/workout/session/WorkoutSession';
 import WorkoutSummary from '@/features/workout/session/WorkoutSummary';
 
 import ProtectedRoute from '@/features/authentication/ProtectedRoute';
-import {AuthProvider} from '@/context/AuthContext';
-import WorkoutSessionLayout from "@/features/workout/session/WorkoutSessionLayout.jsx";
 
 const basename = import.meta.env.BASE_URL;
 
 function App() {
     return (
-        <AuthProvider>
-            <BrowserRouter basename={basename}>
-                <Routes>
-                    <Route element={<AuthenticationLayout/>}>
-                        <Route path="login" element={<Login/>}/>
-                        <Route path="register" element={<Register/>}/>
-                        <Route path="forgot-password" element={<ForgetPassword/>}/>
-                        <Route path="create-new-password" element={<CreateNewPassword/>}/>
-                    </Route>
+        <BrowserRouter basename={basename}>
+            <Routes>
+                <Route element={<AuthenticationLayout/>}>
+                    <Route path="login" element={<Login/>}/>
+                    <Route path="register" element={<Register/>}/>
+                    <Route path="forgot-password" element={<ForgetPassword/>}/>
+                    <Route path="create-new-password" element={<CreateNewPassword/>}/>
+                </Route>
 
-                    <Route element={
-                        <ProtectedRoute>
-                            <AppLayout/>
-                        </ProtectedRoute>
-                    }>
-                        <Route path="/" element={<Dashboard/>}/>
+                <Route element={
+                    <ProtectedRoute>
+                        <AppLayout/>
+                    </ProtectedRoute>
+                }>
+                    <Route path="/" element={<Dashboard/>}/>
 
-                        <Route path="/workout" element={<Workout/>}/>
-                        <Route path="/workout/exercises" element={<ExercisesList/>}/>
-                        <Route path="/workout/exercises/:id" element={<ExercisesDetails/>}/>
+                    <Route path="/workout" element={<Workout/>}/>
+                    <Route path="/workout/exercises" element={<ExercisesList/>}/>
+                    <Route path="/workout/exercises/:id" element={<ExercisesDetails/>}/>
 
-                        <Route path="/workout/routines" element={<RoutinesList/>}/>
-                        <Route path="/workout/routines/create" element={<CreateRoutines/>}/>
-                        <Route path="/workout/routines/:id" element={<RoutineDetails/>}/>
+                    <Route path="/workout/routines" element={<RoutinesList/>}/>
+                    <Route path="/workout/routines/create" element={<CreateRoutines/>}/>
+                    <Route path="/workout/routines/:id" element={<RoutineDetails/>}/>
 
-                        <Route element={<WorkoutSessionLayout/>}>
-                            <Route path="/workout/session/:id" element={<WorkoutSession/>}/>
-                            <Route path="/workout/summary/:id" element={<WorkoutSummary/>}/>
-                        </Route>
+                    <Route path="/workout/session/:id" element={<WorkoutSession/>}/>
+                    <Route path="/workout/summary/:id" element={<WorkoutSummary/>}/>
 
-                        <Route path="/user-profile" element={<UserProfile/>}/>
-                    </Route>
-                </Routes>
-            </BrowserRouter>
-        </AuthProvider>
+                    <Route path="/user-profile" element={<UserProfile/>}/>
+                </Route>
+            </Routes>
+        </BrowserRouter>
     )
 }
 
