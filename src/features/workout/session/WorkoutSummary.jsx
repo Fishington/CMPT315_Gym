@@ -7,21 +7,20 @@ import Section from '@/components/Layout/Section/index.js';
 import ExerciseOrder from '@/features/workout/components/ExerciseOrder';
 import ItemDetails from '@/components/ItemDetails/';
 import MealPlanIcon from '@/components/Icons/MealPlanIcon/index.js';
-import {useWorkoutSession} from "@/context/WorkoutSessionContext";
 import {formatTimeToString} from "@/utils/formatter";
 import ExerciseWeightProgressCard from "@/features/dashboard/Cards/ExerciseWeightProgressCard";
 import MuscleGroupDistributionCard from "@/features/dashboard/Cards/MuscleGroupDistributionCard";
 import ExercisesPerformed from "@/features/dashboard/Cards/ExercisesPerformed";
 import AverageHeartRate from "@/features/dashboard/Cards/AverageHeartRate";
+import {useSelector} from "react-redux";
 
 function WorkoutSummary() {
     const {
         routine,
         modifiedRoutine,
         loading,
-        error,
         workoutState
-    } = useWorkoutSession();
+    } = useSelector(state => state.workoutSession);
 
     // Create a completed exercises routine by comparing the original routine with the modified one
     const createCompletedRoutine = () => {

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import ItemSearchList from "@/components/ItemSearch/ItemSearchList.jsx";
 import Pagination from '@/components/Pagination';
@@ -6,27 +7,34 @@ import SearchBar from '@/components/SearchBar';
 import SearchFilters from "@/components/SearchFilters/SearchFilters.jsx";
 
 import './ItemSearch.scss';
-import {ItemSearchProvider} from "@/context/ItemSearchContext.jsx";
 
-const ItemSearch = ({filters, data, columns, rowFormat, searchBarContent, onDataClick, itemsPerPage = 24}) => {
+import { setItemsPerPage } from '@/redux/actions/itemSearchActions';
+
+const ItemSearch = ({ filters, data, columns, rowFormat, searchBarContent, onDataClick, itemsPerPage = 24 }) => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setItemsPerPage(itemsPerPage));
+    }, [dispatch, itemsPerPage]);
+
     return (
-        <ItemSearchProvider itemsPerPage={itemsPerPage} onDataClick={onDataClick}>
+        <>
             <SearchBar>
-                {searchBarContent ? searchBarContent : ''}
+                {searchBarContent || ''}
             </SearchBar>
 
-            {filters && <SearchFilters filters={filters}/>}
+            {filters && <SearchFilters filters={filters} />}
 
             <ItemSearchList
                 data={data}
                 columns={columns}
                 rowFormat={rowFormat}
+                onDataClick={onDataClick}
             />
 
-            <Pagination/>
-        </ItemSearchProvider>
+            <Pagination />
+        </>
     );
 };
-
 
 export default ItemSearch;

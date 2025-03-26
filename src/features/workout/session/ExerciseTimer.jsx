@@ -1,12 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Card from '@/components/Card/index.js';
-import { useWorkoutSession } from '@/context/WorkoutSessionContext';
 
 export default function ExerciseTimer() {
-    const { workoutState } = useWorkoutSession();
-    const { exercisesCompleted, totalExerciseCount, workoutTimeRemaining } = workoutState;
+    const { exercisesCompleted, totalExerciseCount, workoutTimeRemaining } = useSelector(
+        (state) => state.workoutSession.workoutState
+    );
 
-    // Format time remaining
     const formatTime = (seconds) => {
         const mins = Math.floor(seconds / 60);
         const secs = seconds % 60;

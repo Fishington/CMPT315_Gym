@@ -4,14 +4,14 @@ import Button from '@/components/Button/index.js';
 import './Pagination.scss';
 
 export default function Pagination() {
-    const {currentPage, totalPages, pageNumbers, setCurrentPage} = usePagination();
+    const {currentPage, totalPages, pageNumbers, setPage} = usePagination();
 
     return (
         <div className="pagination">
             <Button
                 color="white"
                 size="pagination"
-                onClick={() => setCurrentPage(currentPage - 1)}
+                onClick={() => setPage(currentPage - 1)}
                 disabled={currentPage === 1}
             >
                 {'<'}
@@ -23,7 +23,7 @@ export default function Pagination() {
                         key={index}
                         color={page === currentPage ? "active" : "white"}
                         size="pagination"
-                        onClick={() => setCurrentPage(page)}
+                        onClick={() => setPage(page)}
                     >
                         {page}
                     </Button>
@@ -36,7 +36,7 @@ export default function Pagination() {
             <Button
                 color="white"
                 size="pagination"
-                onClick={() => setCurrentPage(currentPage + 1)}
+                onClick={() => setPage(currentPage + 1)}
                 disabled={currentPage === totalPages}
             >
                 {'>'}

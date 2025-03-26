@@ -39,7 +39,7 @@ const determineStartingPhase = (routine) => {
     } else if (routine.exercises.stretches && routine.exercises.stretches.set?.length > 0) {
         return 'stretches';
     }
-    return null; // No exercises found
+    return null;
 };
 
 export function WorkoutSessionProvider({ children }) {

@@ -1,7 +1,13 @@
-import {useItemSearch} from '@/context/ItemSearchContext.jsx';
+
+import {useDispatch, useSelector} from "react-redux";
+import {setCurrentPage} from "@/redux/actions/itemSearchActions";
 
 export default function usePagination() {
-    const {currentPage, setCurrentPage, totalPages} = useItemSearch();
+    const dispatch = useDispatch();
+    const currentPage = useSelector((state) => state.itemSearch.currentPage);
+    const totalPages = useSelector((state) => state.itemSearch.totalPages);
+    const setPage = (page) => dispatch(setCurrentPage(page));
+
     const maxVisiblePageButtons = 4;
 
     // Determine the number buttons
@@ -55,6 +61,6 @@ export default function usePagination() {
         currentPage,
         totalPages,
         pageNumbers,
-        setCurrentPage
+        setPage
     };
 }

@@ -1,11 +1,16 @@
+import {useState} from "react";
+import { useDispatch } from 'react-redux';
+import { updateFilter } from '@/redux/actions/itemSearchActions';
 import DropDown from "@/components/Form/DropDown/index.js";
 import CheckBoxGroup from "@/components/Form/CheckBoxGroup/index.js";
-import {useState} from "react";
-import {useItemSearch} from "@/context/ItemSearchContext.jsx";
 
 export default function SearchFilters({filters}) {
-    const {handleCheckBoxChange} = useItemSearch();
+    const dispatch = useDispatch();
     const [activeDropdown, setActiveDropdown] = useState('');
+
+    const handleCheckBoxChange = (groupName, option, isChecked) => {
+        dispatch(updateFilter(groupName, option, isChecked));
+    };
 
     function handleOpenDropDown(label) {
         if (activeDropdown === label) {

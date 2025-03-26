@@ -67,31 +67,22 @@ export const createMultiExercise = async (exercises) => {
     }
 };
 
-export const createMultiExerciseSessionBased = async (exercises) => {
-    const client = new MongoClient(uri);
-
+export const createMultiExercisesTransaction = async (exercises) => {
     try {
-        await client.connect();
-        const db = client.db(dbName);
-        const collection = db.collection('exercises');
-
-        const session = client.startSession();
-
-        let result;
-        await session.withTransaction(async () => {
-            // Insert each exercise as part of the transaction
-            result = await Promise.all(
-                exercises.map((exercise) =>
-                    collection.insertOne(exercise, { session })
-                )
-            );
+        const response = await fetch(`http://localhost:3000/exercises/bulk`, {
+            method : 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body   : JSON.stringify(exercises)
         });
 
-        return result; // Return the result of the transaction
+        if (!response.ok) {
+            console.error(`Status: ${response.status} - Bulk insert failed`);
+            return null;
+        }
+
+        return await response.json();
     } catch (error) {
-        console.error('Error creating multiple exercises with transaction:', error);
+        console.error('Error sending multi-exercise data:', error);
         return null;
-    } finally {
-        await client.close();
     }
-};
+}

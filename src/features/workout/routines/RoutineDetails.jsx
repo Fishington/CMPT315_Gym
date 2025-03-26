@@ -9,12 +9,12 @@ import ExerciseOrder from '@/features/workout/components/ExerciseOrder';
 import MainRoutineDetails from '@/features/workout/routines/MainRoutineDetails';
 import Button from '@/components/Button';
 
-import {useAuth} from "@/context/AuthContext.jsx";
 import {deleteRoutine, fetchRoutineById} from "@/api/routinesApi.js";
 import LoadingScreen from "@/components/LoadingScreen/index.js";
+import {useSelector} from "react-redux";
 
 function RoutineDetails() {
-    const {user} = useAuth();
+    const user = useSelector((state) => state.auth.user);
     const {id} = useParams();
     const navigate = useNavigate();
 
