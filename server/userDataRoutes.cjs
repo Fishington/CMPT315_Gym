@@ -34,45 +34,49 @@ userDataRoutes.route("/userData/:userID").get(async (request, response) => {
  * POST https://localhost:3000/userData
  */
 userDataRoutes.route("/userData").post(async (request, response) => {
-    let db = database.getDb();
+    const { db, client } = database.getDb();
+    const session = client.startSession();
 
     try {
-        let userID = new ObjectId(request.body.userID);
-        let exerciseEntry = {
+        const userID = new ObjectId(request.body.userID);
+        const date = request.body.date;
+        const exerciseEntry = {
             exerciseID: request.body.exerciseID,
             duration: request.body.duration,
             calories: request.body.calories,
-            otherInfo: request.body.otherInfo || {} // ADD OTHER SET DATA HERE
+            otherInfo: request.body.otherInfo || {}
         };
-        let date = request.body.date; // Format: YYYY-MM-DD
 
-        // Check if user data exists
-        let userData = await db.collection("userData").findOne({ userID });
+        await session.withTransaction(async () => {
+            const userDataCollection = db.collection("userData");
 
-        if (userData) {
-            // If date exists, push new exercise, otherwise create the date
-            let update = {};
-            if (userData[date]) {
-                update = { $push: { [`${date}`]: exerciseEntry } };
+            const existing = await userDataCollection.findOne({ userID }, { session });
+
+            if (existing) {
+                // Update existing user document
+                const update = existing[date]
+                    ? { $push: { [date]: exerciseEntry } }
+                    : { $set: { [date]: [exerciseEntry] } };
+
+                await userDataCollection.updateOne({ userID }, update, { session });
             } else {
-                update = { $set: { [`${date}`]: [exerciseEntry] } };
+                // Insert new user workout document
+                const newUserData = {
+                    userID,
+                    [date]: [exerciseEntry]
+                };
+
+                await userDataCollection.insertOne(newUserData, { session });
             }
+        });
 
-            await db.collection("userData").updateOne({ userID }, update);
-        } else {
-            // Create a new user entry if none exists
-            let newUserData = {
-                userID: userID,
-                [date]: [exerciseEntry]
-            };
-            await db.collection("userData").insertOne(newUserData);
-        }
-
-        response.json({ message: "Exercise entry added successfully" });
+        response.status(200).json({ message: "Exercise entry added successfully" });
 
     } catch (error) {
-        console.error("Error adding exercise entry:", error);
+        console.error("Transaction error while adding exercise entry:", error);
         response.status(500).json({ message: "Server error", error: error.message });
+    } finally {
+        await session.endSession();
     }
 });
 

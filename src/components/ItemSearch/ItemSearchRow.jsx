@@ -1,9 +1,6 @@
-import {useItemSearch} from "@/context/ItemSearchContext.jsx";
 import './ItemSearchRow.scss'
 
-const ItemSearchRow = ({children, itemData, columnCount}) => {
-    const {onDataClick} = useItemSearch()
-
+const ItemSearchRow = ({children, itemData, columnCount, onDataClick }) => {
     return (
         <li className="item-search-row">
             <div
@@ -12,8 +9,7 @@ const ItemSearchRow = ({children, itemData, columnCount}) => {
                 style={{gridTemplateColumns: `2.5fr repeat(${columnCount}, 1fr)`}}
             >
                 <div className="item-search-row__item">
-                    <img className="item-search-row__image" src={itemData.image} alt={itemData.name}/>
-                    <p>{itemData.name}</p>
+                    <j1>{itemData.name}</j1>
                 </div>
 
                 {children}

@@ -1,13 +1,14 @@
 import {Link, useNavigate} from 'react-router-dom';
+import { logout } from '@/redux/actions/authActions';
+import {useDispatch} from "react-redux";
 import './Navigation.scss';
-import {useAuth} from '@/context/AuthContext.jsx';
 
 function Navigation({links, currentPage}) {
     const navigate = useNavigate();
-    const {logout} = useAuth();
+    const dispatch = useDispatch();
 
     const handleLogout = () => {
-        logout()
+        dispatch(logout());
         navigate('/login');
     };
 

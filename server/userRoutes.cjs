@@ -12,18 +12,18 @@ let userRoutes = express.Router()
 //#1 - Retrieve All
 //https://localhost:3000/user
 userRoutes.route("/users").get(async (request, response) => {
-    let db = database.getDb()
-    // Wait until the data is done being collected,
-    // just in case it is a lot of data
-    let data = await db.collection("users").find({}).toArray()
+    try {
+        let db = database.getDb();
+        let data = await db.collection("users").find({}).toArray()
 
-    if (data.length > 0) {
-        // MongoDB found our data and has it in an array
-        // Think of thi as a return statement 
-        response.json(data)
-    }
-    else {
-        throw new Error("No data found")
+        if (data.length > 0) {
+            response.json(data)
+        } else {
+            response.status(404).json({ message: "No users found" });
+        }
+    } catch (error) {
+        console.error("Error retrieving users:", error);
+        response.status(500).json({ message: "Server error", error: error.message });
     }
 })
 
@@ -45,46 +45,94 @@ userRoutes.route("/users/:id").get(async (request, response) => {
 
 //#3 - Create One
 userRoutes.route("/users").post(async (request, response) => {
-    let db = database.getDb()
-    let mobgoObject = {
+    const db = database.getDb();
+    const client = database.getClient();
+    const session = client.startSession();
+
+    const userObj = {
         firstName: request.body.firstName,
-        lastName:request.body.lastName,
+        lastName: request.body.lastName,
         email: request.body.email,
         password: request.body.password,
+    };
 
+    try {
+        let result;
+        await session.withTransaction(async () => {
+            result = await db.collection("users").insertOne(userObj, { session });
+        });
+
+        response.status(201).json({ message: "User created", result });
+    } catch (error) {
+        console.error("Transaction error:", error);
+        response.status(500).json({ message: "Failed to create user", error: error.message });
+    } finally {
+        await session.endSession();
     }
-    // Wait until the data is done being collected,
-    // just in case it is a lot of data
-    let data = await db.collection("users").insertOne(mobgoObject)
-    response.json(data)
-
-})
+});
 
 //#4 - Update One
 userRoutes.route("/users/:id").put(async (request, response) => {
-    let db = database.getDb()
-    let mobgoObject = {
+    const { db, client } = database.getDb();
+    const session = client.startSession();
+
+    const updateObj = {
         $set: {
             firstName: request.body.firstName,
-            lastName:request.body.lastName,
+            lastName: request.body.lastName,
             email: request.body.email,
             password: request.body.password,
         }
-    }
-    // Wait until the data is done being collected,
-    // just in case it is a lot of data
-    let data = await db.collection("users").updateOne({_id: new ObjectId(request.params.id)},(mobgoObject))
-    response.json(data)
+    };
 
-})
+    try {
+        let result;
+        await session.withTransaction(async () => {
+            result = await db.collection("users").updateOne(
+                { _id: new ObjectId(request.params.id) },
+                updateObj,
+                { session }
+            );
+        });
+
+        if (result.matchedCount === 0) {
+            response.status(404).json({ message: "User not found" });
+        } else {
+            response.json({ message: "User updated", result });
+        }
+    } catch (error) {
+        console.error("Transaction error:", error);
+        response.status(500).json({ message: "Failed to update user", error: error.message });
+    } finally {
+        await session.endSession();
+    }
+});
 
 //#5 - Delete One
 userRoutes.route("/users/:id").delete(async (request, response) => {
-    let db = database.getDb()
-    // Wait until the data is done being collected,
-    // just in case it is a lot of data
-    let data = await db.collection("users").deleteOne({_id: new ObjectId(request.params.id)})
-    response.json(data)
-})
+    const { db, client } = database.getDb();
+    const session = client.startSession();
+
+    try {
+        let result;
+        await session.withTransaction(async () => {
+            result = await db.collection("users").deleteOne(
+                { _id: new ObjectId(request.params.id) },
+                { session }
+            );
+        });
+
+        if (result.deletedCount === 0) {
+            response.status(404).json({ message: "User not found" });
+        } else {
+            response.json({ message: "User deleted", result });
+        }
+    } catch (error) {
+        console.error("Transaction error:", error);
+        response.status(500).json({ message: "Failed to delete user", error: error.message });
+    } finally {
+        await session.endSession();
+    }
+});
 
 module.exports = userRoutes

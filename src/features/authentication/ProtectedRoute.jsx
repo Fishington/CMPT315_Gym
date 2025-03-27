@@ -1,9 +1,9 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { useAuth } from '@/context/AuthContext';
+import {useSelector} from 'react-redux';
 
 const ProtectedRoute = ({ children }) => {
-    const { user } = useAuth();
+    const user = useSelector((state) => state.auth.user);
 
     // If user is not logged in, redirect to the login page
     if (!user) {
