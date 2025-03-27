@@ -1,0 +1,527 @@
+[
+  {
+    "_id": "67bfec3654cea70f4a8aca01",
+    "id": 0,
+    "name": "Full-Body Ignite",
+    "image": "/images/exercise-button.jpg",
+    "author": "${user.firstName} ${user.lastName}",
+    "authorID": "${user.id}",
+    "level": "Intermediate",
+    "targetMuscle": "Full Body",
+    "goal": "Cardio Endurance",
+    "calories": {
+      "min": 100,
+      "max": 150
+    },
+    "duration": 1800,
+    "about": "This routine focuses on igniting every major muscle group through compound movements and isolation exercises. The warmup primes your body by activating key joints, while the main block includes multi-joint lifts designed to build both strength and stability. Concluding stretches ensure tension release and improved flexibility, setting you up for faster recovery. Whether you’re looking to jumpstart a fitness journey or add variety to an existing one, these movements blend intensity and safety for a well-rounded workout.",
+    "exerciseCount": 5,
+    "exercises": {
+      "warmups": {
+        "duration": 120,
+        "set": [
+          {
+            "workoutId": 4,
+            "reps": 10,
+            "sets": 2,
+            "breakDuration": 20,
+            "duration": 60,
+            "calories": {
+              "min": 8,
+              "max": 15
+            }
+          },
+          {
+            "workoutId": 8,
+            "reps": 12,
+            "sets": 1,
+            "breakDuration": 30,
+            "duration": 60,
+            "calories": {
+              "min": 10,
+              "max": 18
+            }
+          }
+        ]
+      },
+      "exercises": {
+        "duration": 1320,
+        "set": [
+          {
+            "workoutId": 15,
+            "reps": 10,
+            "sets": 3,
+            "breakDuration": 45,
+            "duration": 300,
+            "calories": {
+              "min": 30,
+              "max": 45
+            }
+          },
+          {
+            "workoutId": 6,
+            "reps": 8,
+            "sets": 4,
+            "breakDuration": 60,
+            "duration": 360,
+            "calories": {
+              "min": 40,
+              "max": 50
+            }
+          }
+        ]
+      },
+      "stretches": {
+        "duration": 180,
+        "set": [
+          {
+            "workoutId": 12,
+            "reps": 10,
+            "sets": 1,
+            "breakDuration": 15,
+            "duration": 60,
+            "calories": {
+              "min": 5,
+              "max": 10
+            }
+          }
+        ]
+      }
+    },
+    "tags": [
+      "Compound",
+      "Strength",
+      "Endurance"
+    ],
+    "equipment": [
+      {
+        "name": "EZ Bar",
+        "count": 1
+      },
+      {
+        "name": "Preacher Bench",
+        "count": 3
+      }
+    ]
+  },
+  {
+    "_id": "67bfec3654cea70f4a8aca02",
+    "id": 1,
+    "name": "Core Focus Blast",
+    "image": "/images/exercise-button.jpg",
+    "author": "${user.firstName} ${user.lastName}",
+    "authorID": "${user.id}",
+    "level": "Beginner",
+    "targetMuscle": "Core",
+    "goal": "Rehabilitation",
+    "calories": {
+      "min": 100,
+      "max": 150
+    },
+    "duration": 1500,
+    "about": "Built around the concept of short, high-impact sets, this core routine is ideal for beginners wanting to strengthen their midsection. Warmups start by gently engaging the torso, ensuring your muscles are activated and ready to work. A balanced mix of planks, crunches, and lower-back exercises forms the core of this workout, promoting better balance, stability, and posture. Finally, a thorough stretch soothes the abs and lower back, reducing the risk of soreness and helping you remain flexible.",
+    "exerciseCount": 5,
+    "exercises": {
+      "warmups": {
+        "duration": 90,
+        "set": [
+          {
+            "workoutId": 5,
+            "reps": 12,
+            "sets": 1,
+            "breakDuration": 20,
+            "duration": 60,
+            "calories": {
+              "min": 5,
+              "max": 8
+            }
+          },
+          {
+            "workoutId": 9,
+            "reps": 8,
+            "sets": 1,
+            "breakDuration": 15,
+            "duration": 30,
+            "calories": {
+              "min": 3,
+              "max": 6
+            }
+          }
+        ]
+      },
+      "exercises": {
+        "duration": 1140,
+        "set": [
+          {
+            "workoutId": 1,
+            "reps": 15,
+            "sets": 3,
+            "breakDuration": 30,
+            "duration": 270,
+            "calories": {
+              "min": 20,
+              "max": 30
+            }
+          },
+          {
+            "workoutId": 20,
+            "reps": 20,
+            "sets": 2,
+            "breakDuration": 45,
+            "duration": 180,
+            "calories": {
+              "min": 25,
+              "max": 35
+            }
+          }
+        ]
+      },
+      "stretches": {
+        "duration": 120,
+        "set": [
+          {
+            "workoutId": 7,
+            "reps": 10,
+            "sets": 1,
+            "breakDuration": 15,
+            "duration": 60,
+            "calories": {
+              "min": 4,
+              "max": 7
+            }
+          }
+        ]
+      }
+    },
+    "tags": [
+      "Core",
+      "Abs",
+      "Stability"
+    ],
+    "equipment": [
+      {
+        "name": "EZ Bar",
+        "count": 1
+      },
+      {
+        "name": "Preacher Bench",
+        "count": 3
+      }
+    ]
+  },
+  {
+    "_id": "67bfec3654cea70f4a8aca03",
+    "id": 2,
+    "name": "HIIT Cardio Surge",
+    "image": "/images/exercise-button.jpg",
+    "author": "${user.firstName} ${user.lastName}",
+    "authorID": "${user.id}",
+    "level": "Advanced",
+    "targetMuscle": "Legs & Glutes",
+    "goal": "Weight Loss",
+    "calories": {
+      "min": 100,
+      "max": 150
+    },
+    "duration": 2100,
+    "about": "This high-intensity interval training routine is engineered to push your cardiovascular system to new limits. A dynamic warmup sequence preps your heart rate and muscles for the intense bursts ahead. Each main exercise block is short yet challenging—featuring sprints, jumping jacks, and plyometric moves—all designed to maximize calorie burn. A final stretch phase helps lower your heart rate gradually and aids in preventing next-day stiffness, making sure you can keep up this advanced routine without overtaxing your body.",
+    "exerciseCount": 5,
+    "exercises": {
+      "warmups": {
+        "duration": 150,
+        "set": [
+          {
+            "workoutId": 2,
+            "reps": 8,
+            "sets": 2,
+            "breakDuration": 20,
+            "duration": 80,
+            "calories": {
+              "min": 10,
+              "max": 15
+            }
+          },
+          {
+            "workoutId": 16,
+            "reps": 10,
+            "sets": 1,
+            "breakDuration": 15,
+            "duration": 40,
+            "calories": {
+              "min": 8,
+              "max": 12
+            }
+          }
+        ]
+      },
+      "exercises": {
+        "duration": 1680,
+        "set": [
+          {
+            "workoutId": 19,
+            "reps": 15,
+            "sets": 3,
+            "breakDuration": 60,
+            "duration": 300,
+            "calories": {
+              "min": 45,
+              "max": 60
+            }
+          },
+          {
+            "workoutId": 10,
+            "reps": 20,
+            "sets": 2,
+            "breakDuration": 30,
+            "duration": 180,
+            "calories": {
+              "min": 35,
+              "max": 50
+            }
+          }
+        ]
+      },
+      "stretches": {
+        "duration": 270,
+        "set": [
+          {
+            "workoutId": 13,
+            "reps": 6,
+            "sets": 1,
+            "breakDuration": 15,
+            "duration": 60,
+            "calories": {
+              "min": 5,
+              "max": 10
+            }
+          }
+        ]
+      }
+    },
+    "tags": [
+      "HIIT",
+      "Cardio",
+      "Plyometric"
+    ],
+    "equipment": [
+      {
+        "name": "EZ Bar",
+        "count": 1
+      },
+      {
+        "name": "Preacher Bench",
+        "count": 3
+      }
+    ]
+  },
+  {
+    "_id": "67bfec3654cea70f4a8aca04",
+    "id": 3,
+    "name": "Upper-Body Sculpt",
+    "image": "/images/exercise-button.jpg",
+    "author": "${user.firstName} ${user.lastName}",
+    "authorID": "${user.id}",
+    "level": "Intermediate",
+    "targetMuscle": "Chest & Shoulders",
+    "goal": "Muscle Building",
+    "calories": {
+      "min": 100,
+      "max": 150
+    },
+    "duration": 1600,
+    "about": "A meticulously crafted routine centered on building and toning the chest, shoulders, arms, and back. The session begins with dynamic warmups to lubricate your joints and elevate core temperature, preparing your muscles for heavy lifting. The main portion includes compound movements like bench presses and rows alongside targeted exercises for biceps and triceps. A set of stretches caps the workout, helping to reduce lactic acid buildup and improve muscle suppleness for enhanced performance in future sessions.",
+    "exerciseCount": 5,
+    "exercises": {
+      "warmups": {
+        "duration": 90,
+        "set": [
+          {
+            "workoutId": 17,
+            "reps": 8,
+            "sets": 2,
+            "breakDuration": 15,
+            "duration": 60,
+            "calories": {
+              "min": 8,
+              "max": 10
+            }
+          },
+          {
+            "workoutId": 3,
+            "reps": 10,
+            "sets": 1,
+            "breakDuration": 20,
+            "duration": 30,
+            "calories": {
+              "min": 5,
+              "max": 8
+            }
+          }
+        ]
+      },
+      "exercises": {
+        "duration": 1260,
+        "set": [
+          {
+            "workoutId": 11,
+            "reps": 12,
+            "sets": 3,
+            "breakDuration": 60,
+            "duration": 360,
+            "calories": {
+              "min": 25,
+              "max": 40
+            }
+          },
+          {
+            "workoutId": 1,
+            "reps": 15,
+            "sets": 2,
+            "breakDuration": 45,
+            "duration": 180,
+            "calories": {
+              "min": 20,
+              "max": 30
+            }
+          }
+        ]
+      },
+      "stretches": {
+        "duration": 120,
+        "set": [
+          {
+            "workoutId": 18,
+            "reps": 8,
+            "sets": 1,
+            "breakDuration": 15,
+            "duration": 40,
+            "calories": {
+              "min": 3,
+              "max": 6
+            }
+          }
+        ]
+      }
+    },
+    "tags": [
+      "Upper-body",
+      "Sculpt",
+      "Strength"
+    ],
+    "equipment": [
+      {
+        "name": "EZ Bar",
+        "count": 1
+      },
+      {
+        "name": "Preacher Bench",
+        "count": 3
+      }
+    ]
+  },
+  {
+    "_id": "67bfec3654cea70f4a8aca05",
+    "id": 4,
+    "name": "Leg and Glute Builder",
+    "image": "/images/exercise-button.jpg",
+    "author": "${user.firstName} ${user.lastName}",
+    "authorID": "${user.id}",
+    "level": "Intermediate",
+    "targetMuscle": "Legs & Glutes",
+    "goal": "Muscle Building",
+    "calories": {
+      "min": 100,
+      "max": 150
+    },
+    "duration": 1800,
+    "about": "This lower-body program targets quads, hamstrings, and glutes through a range of compound and isolation movements. Beginning with a warmup designed to prime your hips and knees, the session rapidly transitions into squats, lunges, and deadlifts. These moves are fundamental for strengthening not just your legs, but also core stability. After the main work sets, a cool-down stretch focuses on releasing tightness in the lower back and hip flexors, rounding out an intense yet rewarding routine that supports a strong and toned foundation.",
+    "exerciseCount": 5,
+    "exercises": {
+      "warmups": {
+        "duration": 120,
+        "set": [
+          {
+            "workoutId": 4,
+            "reps": 8,
+            "sets": 1,
+            "breakDuration": 30,
+            "duration": 60,
+            "calories": {
+              "min": 8,
+              "max": 12
+            }
+          },
+          {
+            "workoutId": 2,
+            "reps": 10,
+            "sets": 1,
+            "breakDuration": 20,
+            "duration": 40,
+            "calories": {
+              "min": 5,
+              "max": 10
+            }
+          }
+        ]
+      },
+      "exercises": {
+        "duration": 1440,
+        "set": [
+          {
+            "workoutId": 16,
+            "reps": 12,
+            "sets": 3,
+            "breakDuration": 45,
+            "duration": 300,
+            "calories": {
+              "min": 30,
+              "max": 45
+            }
+          },
+          {
+            "workoutId": 7,
+            "reps": 10,
+            "sets": 3,
+            "breakDuration": 60,
+            "duration": 300,
+            "calories": {
+              "min": 35,
+              "max": 50
+            }
+          }
+        ]
+      },
+      "stretches": {
+        "duration": 120,
+        "set": [
+          {
+            "workoutId": 5,
+            "reps": 6,
+            "sets": 1,
+            "breakDuration": 15,
+            "duration": 60,
+            "calories": {
+              "min": 5,
+              "max": 10
+            }
+          }
+        ]
+      }
+    },
+    "tags": [
+      "Legs",
+      "Glutes",
+      "Strength"
+    ],
+    "equipment": [
+      {
+        "name": "EZ Bar",
+        "count": 1
+      },
+      {
+        "name": "Preacher Bench",
+        "count": 3
+      }
+    ]
+  }
+]

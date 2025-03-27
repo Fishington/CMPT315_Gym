@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "67aaaf1c54d61f49475f1bdb",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "jane.doe@example.com",
+    "password": "SecurePassword123"
+  },
+  {
+    "_id": "67aab2219bb94cc781148e83",
+    "firstName": "Sergei",
+    "lastName": "Borja",
+    "email": "borjas@mymacewan.ca",
+    "password": "Password123!"
+  }
+]

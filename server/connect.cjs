@@ -54,28 +54,34 @@ module.exports = {
 }
 
 
-// async function run() {
-//   try {
-//     // Connect the client to the server	(optional starting in v4.7)
-//     await client.connect();
-//     // Send a ping to confirm a successful connection
-//     await listDatabases(client);
-//     await client.db("admin").command({ ping: 1 });
-//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
-//   } finally {
-//     // Ensures that the client will close when you finish/error
-//     await client.close();
-//   }
-// }
+// Add Export Code here
 
-// async function listDatabases(client){
-//     databasesList = await client.db().admin().listDatabases();
+// const fs = require('fs');
+// const path = require('path');
 
-//     console.log("Databases:");
-//     databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-//     console.log("Collections");
-//     collectionList = await client.db("Gym_App").listCollections().toArray();
-//     collectionList.forEach(collection => console.log(` - ${collection.name}`));
+// const exportCollectionToJson = async (collectionName, outputPath = "export.json") => {
+//     try {
+//         const db = module.exports.getDb();
+//         const collection = db.collection(collectionName);
+
+//         // Fetch all documents
+//         const documents = await collection.find({}).toArray();
+
+//         // Convert to JSON format
+//         const jsonData = JSON.stringify(documents, null, 2); // Pretty print with 2 spaces
+
+//         // Write to file
+//         fs.writeFileSync(path.resolve(outputPath), jsonData, 'utf8');
+
+//         console.log(`Collection '${collectionName}' exported to '${outputPath}'`);
+//     } catch (error) {
+//         console.error("Error exporting collection:", error);
+//     }
 // };
 
-// run().catch(console.dir);
+// // Example usage
+// (async () => {
+//     await module.exports.connectToServer();
+//     await exportCollectionToJson("routines", "routines_export.json");
+//     await module.exports.closeConnection();
+// })();
