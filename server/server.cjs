@@ -16,8 +16,19 @@ app.use(exercises)
 app.use(routines)
 app.use(userData)
 
-app.listen(PORT, () => {
-    connect.connectToServer()
-    console.log(`Server running on port ${PORT}`)
-})
+async function startServer() {
+    try {
+        // Connect to the database first
+        await connect.connectToServer();
 
+        // Start the server after successful database connection
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`)
+        });
+    } catch (error) {
+        console.error("Failed to start server:", error);
+        process.exit(1);
+    }
+}
+
+startServer();

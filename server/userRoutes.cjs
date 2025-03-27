@@ -12,18 +12,18 @@ let userRoutes = express.Router()
 //#1 - Retrieve All
 //https://localhost:3000/user
 userRoutes.route("/users").get(async (request, response) => {
-    let db = database.getDb()
-    // Wait until the data is done being collected,
-    // just in case it is a lot of data
-    let data = await db.collection("users").find({}).toArray()
+    try {
+        let db = database.getDb();
+        let data = await db.collection("users").find({}).toArray()
 
-    if (data.length > 0) {
-        // MongoDB found our data and has it in an array
-        // Think of thi as a return statement 
-        response.json(data)
-    }
-    else {
-        throw new Error("No data found")
+        if (data.length > 0) {
+            response.json(data)
+        } else {
+            response.status(404).json({ message: "No users found" });
+        }
+    } catch (error) {
+        console.error("Error retrieving users:", error);
+        response.status(500).json({ message: "Server error", error: error.message });
     }
 })
 
@@ -45,7 +45,8 @@ userRoutes.route("/users/:id").get(async (request, response) => {
 
 //#3 - Create One
 userRoutes.route("/users").post(async (request, response) => {
-    const { db, client } = database.getDb();
+    const db = database.getDb();
+    const client = database.getClient();
     const session = client.startSession();
 
     const userObj = {

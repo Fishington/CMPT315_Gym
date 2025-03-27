@@ -1,4 +1,4 @@
-export function validateRoutine(routine) {
+function validateRoutine(routine) {
     const errors = [];
 
     // Basic required fields
@@ -125,3 +125,5 @@ export function validateRoutine(routine) {
 
     return errors;
 }
+
+module.exports = { validateRoutine };

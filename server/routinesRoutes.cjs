@@ -1,4 +1,4 @@
-import {validateRoutine} from './validation'
+const { validateRoutine } = require('./validation.cjs');
 const express = require('express');
 const database = require('./connect.cjs');
 const { ObjectId } = require('mongodb');
