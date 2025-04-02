@@ -9,10 +9,6 @@
 
   &:not(:last-child) {
     border-bottom: 1px solid #DBDBDB;
-
-    @include breakpoint(medium) {
-      border-bottom: unset;
-    }
   }
 
   &__container {
@@ -22,16 +18,12 @@
     border-radius: 0.25rem;
     gap: 1rem;
 
-    @include breakpoint(small) {
-      padding: 1rem 0;
-    }
-
     @include breakpoint(medium) {
-      grid-template: 1fr/ 1fr !important;
+      grid-template: 1fr/ 1fr 1fr !important;
       padding: 1rem 0;
 
       & > div p {
-        font-family: 'Bebas Neue', sans-serif;
+        font-family: "Bebas Neue", sans-serif;
         font-weight: 400;
         font-size: 2rem;
 
@@ -39,7 +31,10 @@
           font-size: 1.75rem;
         }
       }
+    }
 
+    @include breakpoint(small) {
+      grid-template: 1fr / 1fr !important;
     }
 
     & span {
@@ -64,9 +59,13 @@
     font-weight: 700;
 
     @include breakpoint(medium) {
+      grid-column: 1/-1;
       flex-direction: column;
       align-items: flex-start;
+    }
 
+    @include breakpoint(small) {
+      grid-column: unset;
     }
   }
 

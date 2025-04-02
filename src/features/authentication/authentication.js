@@ -81,25 +81,3 @@ export const checkEmailExists = async (email) => {
         console.error('Error:', error)
     }
 };
-
-export const validateUser = async (email, password, errors) => {
-    let newErrors = {...errors};
-
-    // Check if email exists
-    const user = await checkEmailExists(email)
-    
-    if (!user || user.password !== password) {
-        newErrors.email = {
-            error: true
-        }
-        newErrors.password = {
-            message: 'The email or password you entered is incorrect. Please try again.',
-            error  : true
-        }
-    } else {
-        delete newErrors.email
-        delete newErrors.password
-    }
-
-    return newErrors;
-}

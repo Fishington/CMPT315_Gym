@@ -2,8 +2,9 @@ import {Link, useNavigate} from 'react-router-dom';
 import { logout } from '@/redux/actions/authActions';
 import {useDispatch} from "react-redux";
 import './Navigation.scss';
+import './MobileNavigation.scss'
 
-function Navigation({links, currentPage}) {
+function Navigation({links, currentPage, mobile, onLinkClick }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -17,7 +18,7 @@ function Navigation({links, currentPage}) {
     };
 
     return (
-        <ul className="navigation__links">
+        <ul className={mobile ? 'mobile-navigation': 'navigation__links'}>
             {links.map((link, key) => (
                 <li key={key}>
                     {link.title === 'Log Out' ? (
@@ -34,6 +35,9 @@ function Navigation({links, currentPage}) {
                         <Link
                             to={link.href}
                             className={`navigation__link ${isCurrentPage(link.title) ? 'active' : ''}`}
+                            onClick={() => {
+                                if (onLinkClick) onLinkClick();
+                            }}
                         >
                             {link.icon}
                             <span className='navigation__link-title'>

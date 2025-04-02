@@ -13,8 +13,11 @@ import MuscleGroupDistributionCard from "@/features/dashboard/Cards/MuscleGroupD
 import ExercisesPerformed from "@/features/dashboard/Cards/ExercisesPerformed";
 import AverageHeartRate from "@/features/dashboard/Cards/AverageHeartRate";
 import {useSelector} from "react-redux";
+import {saveWorkoutStats} from "@/api/userDataApi";
+import {useNavigate} from "react-router-dom";
 
 function WorkoutSummary() {
+    const navigate = useNavigate();
     const {
         routine,
         modifiedRoutine,
@@ -22,32 +25,58 @@ function WorkoutSummary() {
         workoutState
     } = useSelector(state => state.workoutSession);
 
-    // Create a completed exercises routine by comparing the original routine with the modified one
+    const {user} = useSelector(state => state.auth);
+
+    const handleSaveWorkout = async () => {
+        const userID = user._id;
+        const date = new Date().toISOString().split('T')[0];
+
+        const completedExercises = [];
+
+        ['warmups', 'exercises', 'stretches'].forEach(phase => {
+            const exercises = completedRoutine?.exercises[phase]?.set || [];
+            exercises.forEach(ex => {
+                completedExercises.push({
+                    workoutId: ex.workoutId,
+                    duration: ex.duration,
+                    calories: ex.calories || 0,
+                    sets: ex.sets || 1,
+                    reps: ex.reps || null,
+                    phase,
+                    name: ex.name || `Exercise ${ex.workoutId}`
+                });
+            });
+        });
+
+        try {
+            await saveWorkoutStats({ userID, date, completedExercises });
+            navigate('/workout');
+            alert("Workout statistics saved successfully!");
+        } catch (err) {
+            alert("Failed to save workout statistics.");
+        }
+    };
+
+
+
     const createCompletedRoutine = () => {
         if (!routine || !modifiedRoutine) return null;
 
-        // Create a deep copy of the routine to avoid mutations
         const completed = JSON.parse(JSON.stringify(routine));
 
-        // For each phase, filter to only include exercises that are completed
-        // (i.e., those that exist in original routine but not in modifiedRoutine)
         ['warmups', 'exercises', 'stretches'].forEach(phase => {
             if (!completed.exercises[phase]?.set) return;
 
-            // Keep only exercises that are completed (not present in modifiedRoutine)
             completed.exercises[phase].set = completed.exercises[phase].set.filter(exercise => {
-                // Check if this exercise exists in the modified routine
                 const stillExists = modifiedRoutine.exercises[phase]?.set?.some(ex =>
                     ex.workoutId === exercise.workoutId &&
                     ex.duration === exercise.duration &&
                     ex.sets === exercise.sets
                 );
 
-                // Keep it only if it's been completed (doesn't exist in modified)
                 return !stillExists;
             });
 
-            // Update the phase duration based on completed exercises
             completed.exercises[phase].duration = completed.exercises[phase].set.reduce(
                 (total, ex) => total + ex.duration, 0
             );
@@ -57,8 +86,6 @@ function WorkoutSummary() {
     };
 
     const completedRoutine = createCompletedRoutine();
-
-    // Calculate total completed exercises
     const calculateTotalCompletedExercises = () => {
         if (!completedRoutine) return 0;
 
@@ -108,7 +135,7 @@ function WorkoutSummary() {
                                 <ItemDetails columns={4} details={itemDetails}/>
                             </section>
 
-                            <Button color="blue" size="full-width" to="/workout">
+                            <Button color="blue" size="full-width" onClick={handleSaveWorkout}>
                                 Save Workout Statistics
                             </Button>
                         </Card>
@@ -129,7 +156,7 @@ function WorkoutSummary() {
                     <Section title="Completed Exercises">
                         {completedRoutine && completedRoutine.exercises && (
                             totalCompletedExercises > 0 ? (
-                                <ExerciseOrder routine={completedRoutine} />
+                                <ExerciseOrder routine={completedRoutine}/>
                             ) : (
                                 <Card>
                                     <p className="text-center p-4">No exercises completed yet.</p>

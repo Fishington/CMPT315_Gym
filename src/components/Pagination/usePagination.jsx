@@ -1,6 +1,7 @@
 
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentPage} from "@/redux/actions/itemSearchActions";
+import {useWindowWidth} from "@/hooks/useWindowWidth";
 
 export default function usePagination() {
     const dispatch = useDispatch();
@@ -8,7 +9,8 @@ export default function usePagination() {
     const totalPages = useSelector((state) => state.itemSearch.totalPages);
     const setPage = (page) => dispatch(setCurrentPage(page));
 
-    const maxVisiblePageButtons = 4;
+    const width = useWindowWidth();
+    const maxVisiblePageButtons = width < 600 ? 1 : 4;
 
     // Determine the number buttons
     const getPageNumbers = () => {

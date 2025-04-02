@@ -35,30 +35,20 @@ function Login() {
             password
         };
 
-        // Validate Form Inputs using Mock Service
-        const newErrors = await validateUserLogInDTO(userDTO);
-        setErrors(newErrors);
-
-        const isValid = Object.keys(newErrors).length === 0;
-        if (!isValid) {
-            console.log('Form not submitted: Invalid Fields');
-            return;
-        }
-
         try {
-            const users = await fetchUser(email);
-            const userDTOFromDB = users.find((user) => user.email === email);
+            // Validate Form Inputs using updated service
+            const newErrors = await validateUserLogInDTO(userDTO);
+            setErrors(newErrors);
 
-            if (!userDTOFromDB) {
-                setErrors({email: {error: true, message: 'User not found'}});
-                console.log('Form not submitted: Invalid User');
-                return;
+            if (Object.keys(newErrors).length === 0) {
+                // If no errors, get the user data and login
+                const users = await fetchUser();
+                const userDTOFromDB = users.find((user) => user.email === email);
+
+                console.log('Logging in', userDTOFromDB.firstName);
+                dispatch(login(userDTOFromDB));
+                navigate('/');
             }
-
-            console.log('Logging in', userDTOFromDB.firstName);
-            dispatch(login(userDTOFromDB));
-
-            navigate('/');
         } catch (error) {
             setServerError('Unable to connect to the server. Please try again later.');
             console.error('Server connection error:', error);

@@ -1,4 +1,8 @@
 .check-box-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
   &__label {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.10rem !important;

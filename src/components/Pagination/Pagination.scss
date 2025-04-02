@@ -1,5 +1,6 @@
 .pagination {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
@@ -17,5 +18,9 @@
   &__ellipsis {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.25rem;
+
+    @include breakpoint(small) {
+      font-size: 1rem;
+    }
   }
 }

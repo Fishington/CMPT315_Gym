@@ -22,7 +22,7 @@ function CheckBox({label, id, onCheckBoxChange}) {
     }
 
     return (
-        <div className="flex gap-1">
+        <div className="check-box-group">
             <input type="checkbox" id={id} name={id} value={label} onChange={handleChange}/>
             <label className="check-box-group__label" htmlFor={id}>{label}</label>
         </div>
