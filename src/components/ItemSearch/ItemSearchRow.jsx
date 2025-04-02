@@ -9,7 +9,7 @@ const ItemSearchRow = ({children, itemData, columnCount, onDataClick }) => {
                 style={{gridTemplateColumns: `2.5fr repeat(${columnCount}, 1fr)`}}
             >
                 <div className="item-search-row__item">
-                    <j1>{itemData.name}</j1>
+                    <h3>{itemData.name}</h3>
                 </div>
 
                 {children}

@@ -2,10 +2,6 @@
   display: grid;
 
   @include breakpoint(medium) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @include breakpoint(small) {
     grid-template-columns: 1fr;
   }
 

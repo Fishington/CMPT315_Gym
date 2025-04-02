@@ -1,0 +1,20 @@
+.search-filters {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+
+  @include breakpoint(small) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__check-box-group {
+    display: grid;
+    gap: 0.75rem;
+
+    @include breakpoint(small) {
+      grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    }
+  }
+}

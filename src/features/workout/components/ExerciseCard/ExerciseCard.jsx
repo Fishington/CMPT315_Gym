@@ -49,7 +49,7 @@ function ExerciseCard({type, exercise, index}) {
     return (
         <li>
             <Link to={`/workout/exercises/${exercise.workoutId}`}>
-                <Card variant="exercise-card">
+                <Card class="exercise-card-container" variant="exercise-card">
                     <h3 className="exercise-card__index">{index + 1}</h3>
 
                     <ExerciseCardContent

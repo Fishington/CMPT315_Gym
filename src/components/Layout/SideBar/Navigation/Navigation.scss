@@ -65,6 +65,9 @@
     @include breakpoint(large) {
       display: none;
     }
+
+    @include breakpoint(small) {
+      display: block;
+    }
   }
 }
-

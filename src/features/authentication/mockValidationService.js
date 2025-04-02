@@ -7,6 +7,7 @@ import {
     emailValidation, 
     passwordValidation
 } from './authentication.js';
+import {fetchUser} from "@/api/usersApi";
 
 export const validateUserCreateDTO = async (userDTO) => {
     let errors = {};
@@ -28,16 +29,27 @@ export const validateUserCreateDTO = async (userDTO) => {
 export const validateUserLogInDTO = async (userDTO) => {
     let errors = {};
 
-    // Email Validation
     emailValidation(userDTO.email, errors);
-
-    // Password Validation
     passwordValidation(userDTO.password, errors);
+
+    if (Object.keys(errors).length === 0) {
+        try {
+            const users = await fetchUser();
+            const user = users.find((user) => user.email === userDTO.email);
+
+            if (!user || user.password !== userDTO.password) {
+                errors.email = {error: true, message: ''};
+                errors.password = {error: true, message: 'Invalid credentials'};
+            }
+        } catch (error) {
+            errors.server = {error: true, message: 'Server connection error'};
+        }
+    }
 
     return errors;
 };
 
-export const validateEmailDTO = async (emailDTO) => {
+export const validateEmailDTO = (emailDTO) => {
     let errors = {};
 
     // Email Validation
@@ -45,4 +57,3 @@ export const validateEmailDTO = async (emailDTO) => {
 
     return errors;
 };
-

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { updateFilter } from '@/redux/actions/itemSearchActions';
 import DropDown from "@/components/Form/DropDown/index.js";
 import CheckBoxGroup from "@/components/Form/CheckBoxGroup/index.js";
+import './SearchFilters.scss'
 
 export default function SearchFilters({filters}) {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export default function SearchFilters({filters}) {
     }
 
     return (
-        <div className="flex flex-justify-items gap-1">
+        <div className="search-filters">
             <h3>Filters:</h3>
 
             {filters.map((filter) => (
@@ -37,7 +38,7 @@ export default function SearchFilters({filters}) {
                         groupName={filter.id}
                         options={filter.options}
                         handleCheckBoxChange={handleCheckBoxChange}
-                        variant="grid gap-075"
+                        variant="search-filters__check-box-group"
                     />
                 </DropDown>
             ))}

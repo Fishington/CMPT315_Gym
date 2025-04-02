@@ -34,7 +34,8 @@ userDataRoutes.route("/userData/:userID").get(async (request, response) => {
  * POST https://localhost:3000/userData
  */
 userDataRoutes.route("/userData").post(async (request, response) => {
-    const { db, client } = database.getDb();
+    const db = database.getDb();
+    const client = database.getClient();
     const session = client.startSession();
 
     try {

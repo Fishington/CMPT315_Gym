@@ -20,8 +20,6 @@ import { createMultiExerciseReplicaSet } from './exerciseApi.js';
 //     })
 //     .catch((error) => console.error('Unexpected error:', error));
 
-
-
 const exampleExercises = [
     {
         name: 'Push-ups',
