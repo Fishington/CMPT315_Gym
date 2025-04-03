@@ -14,7 +14,7 @@ const exerciseFilters = [
     {
         label  : 'Category',
         id     : 'exerciseType',
-        options: ['Strength', 'Stretch']
+        options: ['Strength', 'Mobility', 'Conditioning']
     },
     {
         label  : 'Muscle Group',
@@ -45,9 +45,13 @@ const exerciseFilters = [
         ]
     },
     {
-        label  : 'Equipment',
-        id     : 'equipment',
-        options: ['Dumbbells', 'Mat']
+        label  : 'Difficulty',
+        id: 'level',
+        options: [
+            'Beginner',
+            'Intermediate',
+            'Advanced'
+        ]
     }
 ]
 

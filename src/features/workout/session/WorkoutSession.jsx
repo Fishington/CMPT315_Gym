@@ -12,6 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {initializeWorkoutSession} from '@/redux/actions/workoutSessionActions';
 import {useParams} from "react-router-dom";
 import useWorkoutTimer from "@/features/workout/session/useWorkoutTimer";
+import defaultRoutineImage from '@/assets/images/default-routine-image.jpg'
 
 function WorkoutSession() {
     const dispatch = useDispatch();
@@ -44,7 +45,7 @@ function WorkoutSession() {
                 <TwoColumns.Column>
                     <img
                         style={{maxHeight: '40rem', objectFit: 'cover'}}
-                        src={routine.image}
+                        src={routine.image ? routine.image : defaultRoutineImage}
                         alt=""
                     />
 

@@ -17,7 +17,7 @@ export default function ExerciseTimer() {
         <Card>
             <div className="flex-space-between">
                 <h3>Exercises {exercisesCompleted}/{totalExerciseCount}</h3>
-                <h3>{formatTime(workoutTimeRemaining)} Remaining</h3>
+                <h3 >{formatTime(workoutTimeRemaining)} Remaining</h3>
             </div>
         </Card>
     );
