@@ -4,6 +4,7 @@ import {useNavigate, useParams} from 'react-router-dom';
 import Card from '@/components/Card/index.js';
 import Button from '@/components/Button/index.js';
 import {finishWorkout, togglePause} from '@/redux/actions/workoutSessionActions';
+import './SessionTimer.scss';
 
 export default function SessionTimer() {
     const dispatch = useDispatch();
@@ -40,16 +41,16 @@ export default function SessionTimer() {
 
     return (
         <Card>
-            <div className="flex-space-between">
+            <div className="session-timer__timer">
                 <div>
                     <h2>{workoutState.isBreak ? 'Rest period' : currentExercise.name}</h2>
                     <h3>Set {workoutState.currentSet}/{currentExercise.sets}</h3>
                 </div>
 
-                <h2>{formatTime(workoutState.remainingExerciseDuration)} remaining</h2>
+                <h2 className='session-timer__time-remaining'>{formatTime(workoutState.remainingExerciseDuration)} remaining</h2>
             </div>
 
-            <div className="flex-space-between gap-2">
+            <div className="session-timer__button-row">
                 <Button color="white" size="full-width" onClick={() => dispatch(togglePause())}>
                     {isPaused ? 'Resume' : 'Pause'}
                 </Button>

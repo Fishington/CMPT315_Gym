@@ -1,0 +1,28 @@
+.session-timer {
+
+  &__timer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    @include breakpoint(small) {
+      display: grid;
+    }
+  }
+
+  &__time-remaining {
+    width: max-content;
+    white-space: nowrap;
+  }
+
+
+  &__button-row {
+    display: flex;
+    gap: 1rem;
+
+    @include breakpoint(small) {
+      display: grid;
+    }
+  }
+}

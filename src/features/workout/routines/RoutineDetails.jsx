@@ -8,6 +8,7 @@ import Card from '@/components/Card';
 import ExerciseOrder from '@/features/workout/components/ExerciseOrder';
 import MainRoutineDetails from '@/features/workout/routines/MainRoutineDetails';
 import Button from '@/components/Button';
+import defaultRoutineImage from '@/assets/images/default-routine-image.jpg'
 
 import {deleteRoutine, fetchRoutineById} from "@/api/routinesApi.js";
 import LoadingScreen from "@/components/LoadingScreen/index.js";
@@ -67,7 +68,7 @@ function RoutineDetails() {
                         <Card>
                             <img
                                 style={{objectFit: 'cover',}}
-                                src={routine.image}
+                                src={routine.image ? routine.image : defaultRoutineImage}
                                 alt=""
                             />
 
